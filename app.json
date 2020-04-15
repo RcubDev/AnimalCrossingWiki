@@ -1,0 +1,17 @@
+{
+  "name": "AnimalCrossingWiki",
+  "displayName": "AnimalCrossingWiki",
+  "expo": {
+    "name": "AnimalCrossingWiki",
+    "slug": "AnimalCrossingWiki",
+    "version": "1.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
