@@ -1,0 +1,16 @@
+[{
+        "name": "Fish",
+        "src": "@assets/fish.png",
+        "color": "blue"
+    },
+    {
+        "name": "Bugs",
+        "src": "@assets/fish.png",
+        "color": "green"
+    },
+    {
+        "name": "Fossils",
+        "src": "@assets/fish.png",
+        "color": "gray"
+    }
+]
