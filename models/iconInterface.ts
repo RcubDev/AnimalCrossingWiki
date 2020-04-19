@@ -3,4 +3,5 @@ export default interface iconInterface {
     color: string,
     src: string,
     navigation: any,
+    textColor: string
 }

@@ -1,16 +1,19 @@
 [{
         "name": "Fish",
         "src": "@assets/fish.png",
-        "color": "blue"
+        "color": "blue",
+        "textColor": "#FFFFFF"
     },
     {
         "name": "Bugs",
         "src": "@assets/fish.png",
-        "color": "green"
+        "color": "green",
+        "textColor": "#FFFFFF"
     },
     {
         "name": "Fossils",
         "src": "@assets/fish.png",
-        "color": "gray"
+        "color": "gray",
+        "textColor": "#FFFFFF"
     }
 ]
