@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
-import { Text, View, Button } from 'react-native';
 import iconInterface from '../../models/iconInterface';
 import styles from './Icon.styles';
+import { Container, Button, Text, Header, Content, Footer, View } from 'native-base';
 
-const Icon = (props: iconInterface) => <View style={[styles.section, { backgroundColor: props.color }]}>
-    <Button
-        title={props.name}
-        onPress={() => props.navigation.navigate(props.name)}
-        color={props.color}
-    /></View >;
+const Icon = (props: iconInterface) => <View key={props.name} style={[styles.section, { backgroundColor: props.color }]}>
+        <Button
+            onPress={() => props.navigation.navigate(props.name)}
+            style={{backgroundColor: props.color}}>
+        <Text style={{color: props.textColor}}>{props.name}</Text>
+        </Button>
+        </View>
+;
 
 export default Icon;

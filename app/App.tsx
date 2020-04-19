@@ -9,6 +9,8 @@ import HomeScreen from './HomeScreen/HomeScreen';
 import { AppLoading } from 'expo';
 import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
+import { Container, Button, Text, Content, Footer } from 'native-base';
+import { Header } from 'react-native/Libraries/NewAppScreen';
 
 export default class App extends React.Component<any, { isReady: boolean }> {
   constructor(props: any) {
@@ -35,14 +37,17 @@ export default class App extends React.Component<any, { isReady: boolean }> {
     const Stack = createStackNavigator();
 
     return (
-      <NavigationContainer>
-        <Stack.Navigator>
-          <Stack.Screen name="Home" component={HomeScreen} />
-          <Stack.Screen name="Fish" component={FishScreen} />
-          <Stack.Screen name="Fossils" component={FossilScreen} />
-          <Stack.Screen name="Bugs" component={BugScreen} />
-        </Stack.Navigator>
-      </NavigationContainer>
+      <Container>
+          <NavigationContainer>
+            <Stack.Navigator screenOptions={{headerShown: false}}>
+              <Stack.Screen name="Home" component={HomeScreen} />
+              <Stack.Screen name="Fish" component={FishScreen} />
+              <Stack.Screen name="Fossils" component={FossilScreen} />
+              <Stack.Screen name="Bugs" component={BugScreen} />
+            </Stack.Navigator>
+        </NavigationContainer>
+      </Container>
+
     );
 
   }
