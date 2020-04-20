@@ -18,6 +18,7 @@ export default class App extends React.Component<any, { isReady: boolean }> {
     this.state = {
       isReady: false,
     };
+    this
   }
 
   async componentDidMount() {
