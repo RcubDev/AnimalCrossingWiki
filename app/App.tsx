@@ -12,6 +12,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { Container, Button, Text, Content, Footer } from 'native-base';
 import { Header } from 'react-native/Libraries/NewAppScreen';
 import { FishModel } from '../models/models';
+import FishDetails from './FishScreen/FishDetailScreen';
 
 export default class App extends Component<any, { isReady: boolean, selectedFish: FishModel }> {
   constructor(props: any) {
@@ -50,6 +51,7 @@ export default class App extends Component<any, { isReady: boolean, selectedFish
               <Stack.Screen name="Fish" component={FishScreen} />
               <Stack.Screen name="Fossils" component={FossilScreen} />
               <Stack.Screen name="Bugs" component={BugScreen} />
+              <Stack.Screen name="FishDetails" component={FishDetails}/>
             </Stack.Navigator>
         </NavigationContainer>
       </Container>

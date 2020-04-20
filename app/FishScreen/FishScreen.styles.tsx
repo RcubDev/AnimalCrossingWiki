@@ -8,7 +8,7 @@ if(Platform.OS === 'web'){
 }
 else{
     fishGridItemContainerStyle = {flex: 1,  alignItems: "center", alignContent: "center", width: 150, height: 150, backgroundColor:'#c2b280'}
-    fishGridItemCardStyle = {flex: 1, alignContent: 'center', alignItems: 'center', flexDirection: "column", backgroundColor:'#c2b280', borderColor:'black', borderWidth: 2}
+    fishGridItemCardStyle = {flex: 1, alignContent: 'center', alignItems: 'center', flexDirection: "column", backgroundColor:'#c2b280'}
 }
 
 const styles = StyleSheet.create({    
