@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import { Text, View, Container, Card, CardItem } from 'native-base';
 import { FishModel } from '../../models/models';
 import styles from './FishScreen.styles';
@@ -8,18 +8,20 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 
 
 
-export function FishGridItem({fish, index}: {fish: FishModel, index: number}) {  
-  console.log(index);
+export function FishGridItem({fish, index, func}: {fish: FishModel, index: number, func: (fish: FishModel) => void}) {  
+  const onPress = () => {
+    func.call(null, fish);
+  };
   return(    
   <Container key={`${index}FishGridItem`} style={styles.fishGridItemContainer}>
-    <TouchableOpacity>
       <Card>
         <CardItem style={styles.fishGridItemCard}>
-          <Text key={`${index}FishGridItemName`}>{fish.fishName}</Text>
-          <Image source={FishImages[fish.fishName]} style={styles.fishGridItem} key={`${index}FishGridItemImage`}></Image>
+          <TouchableOpacity onPress={onPress}>
+            <Text key={`${index}FishGridItemName`}>{fish.fishName}</Text>
+            <Image source={FishImages[fish.fishName]} style={styles.fishGridItem} key={`${index}FishGridItemImage`}></Image>
+          </TouchableOpacity>    
         </CardItem>
       </Card>
-    </TouchableOpacity>    
   </Container>
   )
 };

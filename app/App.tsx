@@ -11,14 +11,19 @@ import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
 import { Container, Button, Text, Content, Footer } from 'native-base';
 import { Header } from 'react-native/Libraries/NewAppScreen';
+import { FishModel } from '../models/models';
 
-export default class App extends React.Component<any, { isReady: boolean }> {
+export default class App extends Component<any, { isReady: boolean, selectedFish: FishModel }> {
   constructor(props: any) {
     super(props);
     this.state = {
       isReady: false,
-    };
-    this
+      selectedFish:	{
+        fishId: 0,
+        fishName: "N/A",
+        image: ""
+      }
+    };    
   }
 
   async componentDidMount() {
