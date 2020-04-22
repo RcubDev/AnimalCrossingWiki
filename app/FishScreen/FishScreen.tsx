@@ -12,7 +12,11 @@ import styles from './FishScreen.styles';
 import { FishScreenProps } from '../../models/FishScreen/FishScreenProps';
 import { FishScreenState } from '../../models/FishScreen/FishScreenState';
 
+let items = fish.map(x => { return { fish: x, caught: true, donated: false} } );
+
 export default class FishScreen extends Component<FishScreenProps, FishScreenState> {
+
+    
 
     constructor(props: FishScreenProps){
         super(props);
