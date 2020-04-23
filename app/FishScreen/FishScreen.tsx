@@ -14,9 +14,9 @@ import { FishScreenState } from '../../models/FishScreen/FishScreenState';
 import { FishCardModel } from '../../models/FishScreen/FishCardModel';
 import { connect } from 'react-redux';
 import {bindActionCreators} from 'redux'
-import { updateFishCaught } from '../Redux/CollectionActions';
+import { updateFishCaught, updateFishDonated } from '../Redux/CollectionActions';
 
-let items: Array<FishCardModel> = fish.map(x => { return { fish:x, caught: false, donated: false} } );
+//let items: Array<FishCardModel> = fish.map(x => { return { fish:x, caught: false, donated: false} } );
 
 class FishScreen extends Component<FishScreenProps, FishScreenState> {
 
@@ -26,43 +26,37 @@ class FishScreen extends Component<FishScreenProps, FishScreenState> {
         super(props);
         this.state = {
             isReady: false,
-            fishList: items
+            fishList: this.props.collections.fish
         }
-        console.log(props);
-        // this.props.collections = {
-        //     isReady: false
-        // }
-        //this.SetItemCaught = this.SetItemCaught.bind(this);
     }
 
+    UpdateState = () => {
+        this.setState({fishList: this.props.collections.fish});
+    };
+
     async componentDidMount() {
+        console.log('test');
         this.setState({ isReady: true });
     }
 
     SetItemCaught = (caught: boolean, index: number) => {
         console.log('caught');
-        var list = this.props.collections.fish;
-        list[index].caught = caught;
-        //this.setState({fishList: list});
+        this.props.updateFishCaught({caught, index});
+        this.setState({fishList: this.props.collections.fish});
     }
 
 
     SetItemDonated = (donated: boolean, index: number) => {
         console.log('donated');
-        var list = this.props.collections.fish;
-        list[index].donated = donated;
-        if(donated){
-            list[index].caught = donated;
-        }
-        //this.setState({fishList: list});
+        this.props.updateFishDonated({donated, index});
+        this.setState({fishList: this.props.collections.fish});
     }
 
     render(){
+        console.log('here');
         if (!this.state.isReady) {
             return <AppLoading />;
         }
-        debugger;
-        console.log(this.props);
         return (
                 <Container style={{backgroundColor: "#c2b280"}}>
                     <Header searchBar rounded>
@@ -74,19 +68,12 @@ class FishScreen extends Component<FishScreenProps, FishScreenState> {
                             <Text>Advanced</Text>
                         </Button>
                     </Header>
-                        <Button  onPress={() => {
-                                console.log(this.props);
-                                this.props.updateFishCaught({index: 0, caught: !this.state.fishList[0].caught})
-                                debugger;
-                                console.log('here');
-                                this.setState({fishList: this.props.collections.fish});
-                            }} style={{width:100, height:100}}><Text>Press ME!</Text></Button>
                         <FlatList
                             data={this.state.fishList}
                             renderItem={({ item, index }: {item: FishCardModel, index: number}) => <FishGridItem model={item} index={index} nav={this.props.navigation} 
                                             updateFishCaught={this.SetItemCaught} updateFishDonated={this.SetItemDonated} />}                            
                             numColumns={Platform.OS !== 'web' ? 3 : 5}
-                            keyExtractor={(item, index) => index.toString()}                
+                            keyExtractor={(item, index) => index.toString()}
                             >
                         </FlatList>
                 </Container>
@@ -99,6 +86,4 @@ const mapStateToProps = (state: any) => {
     return { collections }
   };
   
-export default connect(mapStateToProps, {updateFishCaught})(FishScreen);
-
-
+export default connect(mapStateToProps, {updateFishCaught, updateFishDonated})(FishScreen);

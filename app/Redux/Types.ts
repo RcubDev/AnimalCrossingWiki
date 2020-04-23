@@ -5,7 +5,7 @@ export interface FishCaughtPayload {
 //I realized these can be reused
 export interface FishDonatedPayload {
     index:number,
-    caught: boolean
+    donated: boolean
 }
 
 export const UPDATE_FISH_CAUGHT = 'UPDATE_FISH_CAUGHT';
@@ -20,5 +20,7 @@ interface UpdateFishDonated {
     type: typeof UPDATE_FISH_DONATED,
     payload: FishDonatedPayload
 }
+
+export type {UpdateFishDonated, UpdateFishCaught};
 
 export type FishActionTypes = UpdateFishCaught | UpdateFishDonated;

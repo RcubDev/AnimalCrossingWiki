@@ -40,16 +40,13 @@ export default class App extends Component<any, { isReady: boolean }> {
     if (!this.state.isReady) {
       return <AppLoading />;
     }
-    console.log('test');
-    console.log(this.props);
-    console.log('test');
     const Stack = createStackNavigator();
 
     return (
       <Provider store={store2}>
         <Container>
             <NavigationContainer>
-              <Stack.Navigator screenOptions={{headerShown: false}}>
+              <Stack.Navigator screenOptions={{headerShown: true}}>
                 <Stack.Screen name="Home" component={HomeScreen} />
                 <Stack.Screen name="Fish" component={FishScreen} />
                 <Stack.Screen name="Fossils" component={FossilScreen} />
