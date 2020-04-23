@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import iconInterface from '../../models/iconInterface';
 import styles from './Icon.styles';
-import { Container, Button, Text, Header, Content, Footer, View } from 'native-base';
+import { Button, Text, View } from 'native-base';
 
 const Icon = (props: iconInterface) => <View key={props.name} style={[styles.section, { backgroundColor: props.color }]}>
         <Button

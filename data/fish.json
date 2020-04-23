@@ -8,8 +8,12 @@
 		"catchStartTime": 0,
 		"catchEndTime": 24,
 		"ShadowSize": 2,
+		"shadowSizeName": "Medium",
+		"locationName": "River",
 		"Weather": 1,
+		"weatherName": "Any",
 		"Rarity": 1,
+		"rarityName": "common",
 		"image": "./Bitterling.png"
 	},
 	{
