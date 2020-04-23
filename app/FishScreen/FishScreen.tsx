@@ -11,8 +11,9 @@ import { AppLoading } from 'expo';
 import styles from './FishScreen.styles';
 import { FishScreenProps } from '../../models/FishScreen/FishScreenProps';
 import { FishScreenState } from '../../models/FishScreen/FishScreenState';
+import { FishCardModel } from '../../models/FishScreen/FishCardModel';
 
-let items = fish.map(x => { return { fish: x, caught: true, donated: false} } );
+let items: Array<FishCardModel> = fish.map(x => { return { fish:x, caught: false, donated: false} } );
 
 export default class FishScreen extends Component<FishScreenProps, FishScreenState> {
 
@@ -22,18 +23,32 @@ export default class FishScreen extends Component<FishScreenProps, FishScreenSta
         super(props);
         this.state = {
             isReady: false,
-            selectedFish: null
+            fishList: items
         }
+        //this.SetItemCaught = this.SetItemCaught.bind(this);
     }
 
     async componentDidMount() {
         this.setState({ isReady: true });
     }
 
+    SetItemCaught = (caught: boolean, index: number) => {
+        console.log('caught');
+        var list = this.state.fishList ? this.state.fishList : [];
+        list[index].caught = caught;
+        this.setState({fishList: list});
+    }
 
-    SetSelectedFish(fish: FishModel) {
-        this.setState({selectedFish: fish});
-    };
+
+    SetItemDonated = (donated: boolean, index: number) => {
+        console.log('donated');
+        var list = this.state.fishList ? this.state.fishList : [];
+        list[index].donated = donated;
+        if(donated){
+            list[index].caught = donated;
+        }
+        this.setState({fishList: list});
+    }
 
     render(){
         if (!this.state.isReady) {
@@ -41,7 +56,7 @@ export default class FishScreen extends Component<FishScreenProps, FishScreenSta
         }
 
         return (
-                <Container>
+                <Container style={{backgroundColor: "#c2b280"}}>
                     <Header searchBar rounded>
                         <Item>
                            <Icon name="ios-search"></Icon> 
@@ -52,8 +67,9 @@ export default class FishScreen extends Component<FishScreenProps, FishScreenSta
                         </Button>
                     </Header>
                         <FlatList
-                            data={fish}
-                            renderItem={({ item, index }: {item: FishModel, index: number}) => <FishGridItem fish={item} index={index} nav={this.props.navigation} />}                            
+                            data={this.state.fishList}
+                            renderItem={({ item, index }: {item: FishCardModel, index: number}) => <FishGridItem model={item} index={index} nav={this.props.navigation} 
+                                            updateFishCaught={this.SetItemCaught} updateFishDonated={this.SetItemDonated} />}                            
                             numColumns={Platform.OS !== 'web' ? 3 : 5}
                             keyExtractor={(item, index) => index.toString()}                
                             >

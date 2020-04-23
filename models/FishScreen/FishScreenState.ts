@@ -1,6 +1,7 @@
 import { FishModel } from "../models";
+import { FishCardModel } from "./FishCardModel";
 
 export interface FishScreenState {
     isReady: boolean,
-    selectedFish: FishModel | null
+    fishList: Array<FishCardModel> | null
 }
