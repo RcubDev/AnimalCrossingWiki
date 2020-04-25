@@ -72,7 +72,7 @@ class FishDetails extends Component<FishDetailsProps, FishDetailsState> {
                     <Text>Shadow Size: {this.fish.shadowSizeName} </Text>
                     <Text>Catch Location: {this.fish.locationName}</Text>
                     <Text>Seasonality: </Text>
-                    <Text>Weather: {this.fish.weatherName}</Text>
+                    <Text>Weather: {this.fish.weather}</Text>
                     <Text>Rarity: {this.fish.rarityName} </Text>
                     <Text>Catch Start Time: {this.fish.catchStartTime}</Text>
                     <Text>Catch End Time: {this.fish.catchEndTime}</Text>
