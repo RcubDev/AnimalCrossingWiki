@@ -24,11 +24,9 @@ export function FishGridItem({model, index, nav, updateFishCaught, updateFishDon
     updateFishDonated(!model.donated, index);
   }
 
-  const maxFishNameLength = 10;
-  return(    
-  <Container key={`${index}FishGridItem`} style={{height: 120, backgroundColor: "#c2b280"}}>
-      <Card>
-        <CardItem style={styles.fishGridItemCard}>
+  return(
+      <Card style={{width: "23%"}}>
+        <CardItem style={{flexDirection: "column", backgroundColor:'#c2b280'}}>
           <View>
             <TouchableOpacity onPress={onPress} style={styles.fishGridItemCard}>
               <Text key={`${index}FishGridItemName`} numberOfLines={1}>{ model.fish.fishName}</Text>
@@ -45,7 +43,6 @@ export function FishGridItem({model, index, nav, updateFishCaught, updateFishDon
             </View>
         </CardItem>
       </Card>
-  </Container>
   )
 };
 

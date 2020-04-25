@@ -13,30 +13,20 @@ import { FishScreenProps } from '../../models/FishScreen/FishScreenProps';
 import { FishScreenState } from '../../models/FishScreen/FishScreenState';
 import { FishCardModel } from '../../models/FishScreen/FishCardModel';
 import { connect } from 'react-redux';
-import {bindActionCreators} from 'redux'
 import { updateFishCaught, updateFishDonated } from '../Redux/CollectionActions';
-
-//let items: Array<FishCardModel> = fish.map(x => { return { fish:x, caught: false, donated: false} } );
 
 class FishScreen extends Component<FishScreenProps, FishScreenState> {
     focusListener: any;
     constructor(props: FishScreenProps){
-        super(props);
+        super(props);        
         this.state = {
             isReady: false,
-            fishList: this.props.collections.fish
+            fishList: []
         }
     }
 
-    UpdateState(){
-        this.setState({fishList: this.props.collections.fish});
-    };
-
     async componentDidMount() {
         this.setState({ isReady: true });
-        this.props.navigation.addListener('didFocus', () => {
-            console.log('here');
-        });
     }
 
     SetItemCaught = (caught: boolean, index: number) => {
@@ -48,6 +38,10 @@ class FishScreen extends Component<FishScreenProps, FishScreenState> {
     SetItemDonated = (donated: boolean, index: number) => {
         console.log('donated');
         this.props.updateFishDonated({donated, index});
+    }
+
+    componentDidUpdate(){
+        console.log('here2');
     }
 
     render(){
@@ -69,8 +63,9 @@ class FishScreen extends Component<FishScreenProps, FishScreenState> {
                             data={this.props.collections.fish}
                             renderItem={({ item, index }: {item: FishCardModel, index: number}) => <FishGridItem model={item} index={index} nav={this.props.navigation} 
                                             updateFishCaught={this.SetItemCaught} updateFishDonated={this.SetItemDonated} />}                            
-                            numColumns={Platform.OS !== 'web' ? 3 : 5}
+                            numColumns={4}
                             keyExtractor={(item, index) => index.toString()}
+                            style={{marginLeft:"3%"}}
                             >
                         </FlatList>
                 </Container>
