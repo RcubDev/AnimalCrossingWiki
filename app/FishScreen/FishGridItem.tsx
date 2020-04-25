@@ -17,10 +17,13 @@ export function FishGridItem({model, index, nav, updateFishCaught, updateFishDon
     nav.navigate("FishDetails", {fish: model, index});
   };
   const caughtOnPress = () => {
+    console.log('caught');
     updateFishCaught(!model.caught, index);
+    console.log('updated caught');
   };
 
   const donatedOnPress = () => {
+    
     updateFishDonated(!model.donated, index);
   }
 

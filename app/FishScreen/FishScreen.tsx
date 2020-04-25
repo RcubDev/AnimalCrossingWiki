@@ -21,7 +21,7 @@ class FishScreen extends Component<FishScreenProps, FishScreenState> {
         super(props);        
         this.state = {
             isReady: false,
-            fishList: []
+            fishList: this.props.collections.fish
         }
     }
 
@@ -42,6 +42,19 @@ class FishScreen extends Component<FishScreenProps, FishScreenState> {
 
     componentDidUpdate(){
         console.log('here2');
+        if(this.props.collections.fish !== this.state.fishList){
+            this.setState({fishList: this.props.collections.fish});
+        }
+    }
+    
+    filterFishByText(text:string) {
+        // & = AND
+        // | = OR
+        // () combining text values
+        //value:>300 = fish value > 300
+        //location:river //Can only have === values
+        //shadow:<medium/3 = shadow less than medium (specified by name or number)
+        //
     }
 
     render(){
@@ -53,19 +66,20 @@ class FishScreen extends Component<FishScreenProps, FishScreenState> {
                     <Header searchBar rounded>
                         <Item>
                            <Icon name="ios-search"></Icon> 
-                           <Input placeholder="Search"></Input>                           
+                           <Input placeholder="Search" onChangeText={text => this.filterFishByText(text)}></Input>                           
                         </Item>
                         <Button transparent>
                             <Text>Advanced</Text>
                         </Button>
                     </Header>
                         <FlatList
-                            data={this.props.collections.fish}
+                            data={this.state.fishList}
                             renderItem={({ item, index }: {item: FishCardModel, index: number}) => <FishGridItem model={item} index={index} nav={this.props.navigation} 
                                             updateFishCaught={this.SetItemCaught} updateFishDonated={this.SetItemDonated} />}                            
                             numColumns={4}
                             keyExtractor={(item, index) => index.toString()}
-                            style={{marginLeft:"3%"}}
+                            contentContainerStyle={{justifyContent: "center",  alignItems: 'center', alignContent: 'center' }}
+                            style={{flex: 1}}
                             >
                         </FlatList>
                 </Container>

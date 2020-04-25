@@ -21,7 +21,9 @@ function updateFishCaughtAction(state: CollectionStateModel, action: UpdateFishC
     const currentCollection = state;
     const updatedFish = currentCollection.fish[action.payload.index];
     updatedFish.caught = action.payload.caught;    
+    console.log('start assign');
     let updatedCollection = Object.assign({}, currentCollection)
+    console.log('end here');
     return updatedCollection;
 }
 
