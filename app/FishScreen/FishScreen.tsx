@@ -42,14 +42,12 @@ class FishScreen extends Component<FishScreenProps, FishScreenState> {
     SetItemCaught = (caught: boolean, index: number) => {
         console.log('caught');
         this.props.updateFishCaught({caught, index});
-        this.setState({fishList: this.props.collections.fish});
     }
 
 
     SetItemDonated = (donated: boolean, index: number) => {
         console.log('donated');
         this.props.updateFishDonated({donated, index});
-        this.setState({fishList: this.props.collections.fish});
     }
 
     render(){
@@ -81,7 +79,6 @@ class FishScreen extends Component<FishScreenProps, FishScreenState> {
 }
 
 const mapStateToProps = (state: any) => {
-    console.log('here');
     const { collections } = state;
     return { collections }
   };

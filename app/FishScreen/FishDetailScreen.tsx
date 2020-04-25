@@ -31,7 +31,9 @@ interface FishDetailsState {
 
 
 class FishDetails extends Component<FishDetailsProps, FishDetailsState> {
-
+    index = this.props.route.params.index;
+    fishCardModel = this.props.collections.fish[this.index];
+    fish = this.props.collections.fish[this.index].fish;
     SetItemCaught = (caught: boolean, index: number) => {
         console.log('caught');
         this.props.updateFishCaught({caught, index});
@@ -47,33 +49,33 @@ class FishDetails extends Component<FishDetailsProps, FishDetailsState> {
 
     constructor(props: FishDetailsProps){
         super(props);
-        this.state = {
-            model: props.collections.fish[props.route.params.index]
-        };
+        this.index = props.route.params.index;
+        this.fishCardModel = props.collections.fish[this.index];
+        this.fish = this.fishCardModel.fish;
     }
 
     render() {
         return (
             <View style={{flex: 1, justifyContent: 'flex-start', alignItems: 'center', alignContent: 'center', marginTop: '20%'}}>
-                <H1>{this.state.model.fish.fishName}</H1>
-                <Image source={FishImages[this.state.model.fish.fishName]} style={{width:100, height:100}}></Image>
-                <CheckBox checked={this.state.model.caught} onPress={() => {this.SetItemCaught(!this.state.model.caught, this.props.route.params.index)}}></CheckBox>
-                <CheckBox checked={this.state.model.donated} onPress={() => {this.SetItemDonated(!this.state.model.donated, this.props.route.params.index)}}></CheckBox>
+                <H1>{this.fish.fishName}</H1>
+                <Image source={FishImages[this.fish.fishName]} style={{width:100, height:100}}></Image>
+                <CheckBox checked={this.fishCardModel.caught} onPress={() => {this.SetItemCaught(!this.fishCardModel.caught, this.index)}}></CheckBox>
+                <CheckBox checked={this.fishCardModel.donated} onPress={() => {this.SetItemDonated(!this.fishCardModel.donated, this.index)}}></CheckBox>
                 <Image source={require('../Images/Other/MuseumSymbol.png')} style={{width:32, height:32}} />
                 <View>
                     <Card>
                         <CardItem style={{flexDirection:'column'}}>
                             <Image source={require('../Images/Other/BellBag.png')} style={{width: 25, height:25}}></Image>
-                            <Text> {this.state.model.fish.value}</Text>
+                            <Text> {this.fish.value}</Text>
                         </CardItem>
                     </Card>
-                    <Text>Shadow Size: {this.state.model.fish.shadowSizeName} </Text>
-                    <Text>Catch Location: {this.state.model.fish.locationName}</Text>
+                    <Text>Shadow Size: {this.fish.shadowSizeName} </Text>
+                    <Text>Catch Location: {this.fish.locationName}</Text>
                     <Text>Seasonality: </Text>
-                    <Text>Weather: {this.state.model.fish.weatherName}</Text>
-                    <Text>Rarity: {this.state.model.fish.rarityName} </Text>
-                    <Text>Catch Start Time: {this.state.model.fish.catchStartTime}</Text>
-                    <Text>Catch End Time: {this.state.model.fish.catchEndTime}</Text>
+                    <Text>Weather: {this.fish.weatherName}</Text>
+                    <Text>Rarity: {this.fish.rarityName} </Text>
+                    <Text>Catch Start Time: {this.fish.catchStartTime}</Text>
+                    <Text>Catch End Time: {this.fish.catchEndTime}</Text>
                 </View>
             </View>
         ) 

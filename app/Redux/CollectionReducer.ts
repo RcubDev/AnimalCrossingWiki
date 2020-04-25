@@ -18,21 +18,22 @@ const collectionReducer = (state = INITIAL_STATE2, action: FishActionTypes): Col
   };
 
 function updateFishCaughtAction(state: CollectionStateModel, action: UpdateFishCaught): CollectionStateModel {
-    const myArray = state;
-    const updatedFish = myArray.fish[action.payload.index];
+    const currentCollection = state;
+    const updatedFish = currentCollection.fish[action.payload.index];
     updatedFish.caught = action.payload.caught;    
-    let prev = Object.assign({}, myArray)
-    return prev;
+    let updatedCollection = Object.assign({}, currentCollection)
+    return updatedCollection;
 }
 
 function updateFishDonatedAction(state: CollectionStateModel, action: UpdateFishDonated): CollectionStateModel {
-    const myArray = state;
-    const updatedFish = myArray.fish[action.payload.index];
+    const currentCollection = state;
+    const updatedFish = currentCollection.fish[action.payload.index];
     if(action.payload.donated) {
         updatedFish.caught = true;
     }
     updatedFish.donated = action.payload.donated;
-    return myArray;
+    let updatedCollection = Object.assign({}, currentCollection)
+    return updatedCollection;
 }
 
 export default combineReducers({
