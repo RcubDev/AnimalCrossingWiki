@@ -13,17 +13,17 @@ import { Container, Button, Text, Content, Footer } from 'native-base';
 import { Header } from 'react-native/Libraries/NewAppScreen';
 import { FishModel } from '../models/models';
 import FishDetails from './FishScreen/FishDetailScreen';
-
-export default class App extends Component<any, { isReady: boolean, selectedFish: FishModel }> {
+import { Provider } from 'react-redux'
+import { createStore } from 'redux'
+import friendReducer from './Redux/CollectionReducer'
+import collectionReducer from './Redux/CollectionReducer'
+const store = createStore(friendReducer);
+const store2 = createStore(collectionReducer);
+export default class App extends Component<any, { isReady: boolean }> {
   constructor(props: any) {
     super(props);
     this.state = {
-      isReady: false,
-      selectedFish:	{
-        fishId: 0,
-        fishName: "N/A",
-        image: ""
-      }
+      isReady: false
     };    
   }
 
@@ -40,21 +40,22 @@ export default class App extends Component<any, { isReady: boolean, selectedFish
     if (!this.state.isReady) {
       return <AppLoading />;
     }
-
     const Stack = createStackNavigator();
 
     return (
-      <Container>
-          <NavigationContainer>
-            <Stack.Navigator screenOptions={{headerShown: false}}>
-              <Stack.Screen name="Home" component={HomeScreen} />
-              <Stack.Screen name="Fish" component={FishScreen} />
-              <Stack.Screen name="Fossils" component={FossilScreen} />
-              <Stack.Screen name="Bugs" component={BugScreen} />
-              <Stack.Screen name="FishDetails" component={FishDetails}/>
-            </Stack.Navigator>
-        </NavigationContainer>
-      </Container>
+      <Provider store={store2}>
+        <Container>
+            <NavigationContainer>
+              <Stack.Navigator screenOptions={{headerShown: true}}>
+                <Stack.Screen name="Home" component={HomeScreen} />
+                <Stack.Screen name="Fish" component={FishScreen} />
+                <Stack.Screen name="Fossils" component={FossilScreen} />
+                <Stack.Screen name="Bugs" component={BugScreen} />
+                <Stack.Screen name="FishDetails" component={FishDetails}/>
+              </Stack.Navigator>
+          </NavigationContainer>
+        </Container>
+      </Provider>
 
     );
 

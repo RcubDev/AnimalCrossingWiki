@@ -12,49 +12,48 @@ import styles from './FishScreen.styles';
 import { FishScreenProps } from '../../models/FishScreen/FishScreenProps';
 import { FishScreenState } from '../../models/FishScreen/FishScreenState';
 import { FishCardModel } from '../../models/FishScreen/FishCardModel';
+import { connect } from 'react-redux';
+import {bindActionCreators} from 'redux'
+import { updateFishCaught, updateFishDonated } from '../Redux/CollectionActions';
 
-let items: Array<FishCardModel> = fish.map(x => { return { fish:x, caught: false, donated: false} } );
+//let items: Array<FishCardModel> = fish.map(x => { return { fish:x, caught: false, donated: false} } );
 
-export default class FishScreen extends Component<FishScreenProps, FishScreenState> {
-
-    
-
+class FishScreen extends Component<FishScreenProps, FishScreenState> {
+    focusListener: any;
     constructor(props: FishScreenProps){
         super(props);
         this.state = {
             isReady: false,
-            fishList: items
+            fishList: this.props.collections.fish
         }
-        //this.SetItemCaught = this.SetItemCaught.bind(this);
     }
+
+    UpdateState(){
+        this.setState({fishList: this.props.collections.fish});
+    };
 
     async componentDidMount() {
         this.setState({ isReady: true });
+        this.props.navigation.addListener('didFocus', () => {
+            console.log('here');
+        });
     }
 
     SetItemCaught = (caught: boolean, index: number) => {
         console.log('caught');
-        var list = this.state.fishList ? this.state.fishList : [];
-        list[index].caught = caught;
-        this.setState({fishList: list});
+        this.props.updateFishCaught({caught, index});
     }
 
 
     SetItemDonated = (donated: boolean, index: number) => {
         console.log('donated');
-        var list = this.state.fishList ? this.state.fishList : [];
-        list[index].donated = donated;
-        if(donated){
-            list[index].caught = donated;
-        }
-        this.setState({fishList: list});
+        this.props.updateFishDonated({donated, index});
     }
 
     render(){
         if (!this.state.isReady) {
             return <AppLoading />;
         }
-
         return (
                 <Container style={{backgroundColor: "#c2b280"}}>
                     <Header searchBar rounded>
@@ -67,11 +66,11 @@ export default class FishScreen extends Component<FishScreenProps, FishScreenSta
                         </Button>
                     </Header>
                         <FlatList
-                            data={this.state.fishList}
+                            data={this.props.collections.fish}
                             renderItem={({ item, index }: {item: FishCardModel, index: number}) => <FishGridItem model={item} index={index} nav={this.props.navigation} 
                                             updateFishCaught={this.SetItemCaught} updateFishDonated={this.SetItemDonated} />}                            
                             numColumns={Platform.OS !== 'web' ? 3 : 5}
-                            keyExtractor={(item, index) => index.toString()}                
+                            keyExtractor={(item, index) => index.toString()}
                             >
                         </FlatList>
                 </Container>
@@ -79,4 +78,9 @@ export default class FishScreen extends Component<FishScreenProps, FishScreenSta
         };        
 }
 
-
+const mapStateToProps = (state: any) => {
+    const { collections } = state;
+    return { collections }
+  };
+  
+export default connect(mapStateToProps, {updateFishCaught, updateFishDonated})(FishScreen);

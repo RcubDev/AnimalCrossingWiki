@@ -3,5 +3,5 @@ import { FishCardModel } from "./FishCardModel";
 
 export interface FishScreenState {
     isReady: boolean,
-    fishList: Array<FishCardModel> | null
+    fishList: Array<FishCardModel>
 }

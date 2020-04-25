@@ -13,10 +13,6 @@ else{
 
 const styles = StyleSheet.create({    
     fishGridItem: {
-        // minWidth: 50,
-        // minHeight: 50,
-        // maxWidth: 100,
-        // maxHeight: 50
         width: 100,
         height: 50        
     },
