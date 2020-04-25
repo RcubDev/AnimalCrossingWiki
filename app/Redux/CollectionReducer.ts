@@ -21,7 +21,8 @@ function updateFishCaughtAction(state: CollectionStateModel, action: UpdateFishC
     const myArray = state;
     const updatedFish = myArray.fish[action.payload.index];
     updatedFish.caught = action.payload.caught;    
-    return myArray;
+    let prev = Object.assign({}, myArray)
+    return prev;
 }
 
 function updateFishDonatedAction(state: CollectionStateModel, action: UpdateFishDonated): CollectionStateModel {

@@ -19,9 +19,7 @@ import { updateFishCaught, updateFishDonated } from '../Redux/CollectionActions'
 //let items: Array<FishCardModel> = fish.map(x => { return { fish:x, caught: false, donated: false} } );
 
 class FishScreen extends Component<FishScreenProps, FishScreenState> {
-
-    
-
+    focusListener: any;
     constructor(props: FishScreenProps){
         super(props);
         this.state = {
@@ -30,13 +28,15 @@ class FishScreen extends Component<FishScreenProps, FishScreenState> {
         }
     }
 
-    UpdateState = () => {
+    UpdateState(){
         this.setState({fishList: this.props.collections.fish});
     };
 
     async componentDidMount() {
-        console.log('test');
         this.setState({ isReady: true });
+        this.props.navigation.addListener('didFocus', () => {
+            console.log('here');
+        });
     }
 
     SetItemCaught = (caught: boolean, index: number) => {
@@ -53,7 +53,6 @@ class FishScreen extends Component<FishScreenProps, FishScreenState> {
     }
 
     render(){
-        console.log('here');
         if (!this.state.isReady) {
             return <AppLoading />;
         }
@@ -69,7 +68,7 @@ class FishScreen extends Component<FishScreenProps, FishScreenState> {
                         </Button>
                     </Header>
                         <FlatList
-                            data={this.state.fishList}
+                            data={this.props.collections.fish}
                             renderItem={({ item, index }: {item: FishCardModel, index: number}) => <FishGridItem model={item} index={index} nav={this.props.navigation} 
                                             updateFishCaught={this.SetItemCaught} updateFishDonated={this.SetItemDonated} />}                            
                             numColumns={Platform.OS !== 'web' ? 3 : 5}
@@ -82,7 +81,8 @@ class FishScreen extends Component<FishScreenProps, FishScreenState> {
 }
 
 const mapStateToProps = (state: any) => {
-    const { collections } = state    
+    console.log('here');
+    const { collections } = state;
     return { collections }
   };
   

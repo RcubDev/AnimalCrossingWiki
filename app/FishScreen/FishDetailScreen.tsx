@@ -59,6 +59,7 @@ class FishDetails extends Component<FishDetailsProps, FishDetailsState> {
                 <Image source={FishImages[this.state.model.fish.fishName]} style={{width:100, height:100}}></Image>
                 <CheckBox checked={this.state.model.caught} onPress={() => {this.SetItemCaught(!this.state.model.caught, this.props.route.params.index)}}></CheckBox>
                 <CheckBox checked={this.state.model.donated} onPress={() => {this.SetItemDonated(!this.state.model.donated, this.props.route.params.index)}}></CheckBox>
+                <Image source={require('../Images/Other/MuseumSymbol.png')} style={{width:32, height:32}} />
                 <View>
                     <Card>
                         <CardItem style={{flexDirection:'column'}}>
@@ -73,15 +74,14 @@ class FishDetails extends Component<FishDetailsProps, FishDetailsState> {
                     <Text>Rarity: {this.state.model.fish.rarityName} </Text>
                     <Text>Catch Start Time: {this.state.model.fish.catchStartTime}</Text>
                     <Text>Catch End Time: {this.state.model.fish.catchEndTime}</Text>
-                </View>            
-                
+                </View>
             </View>
         ) 
     }
 }
 
 const mapStateToProps = (state: any) => {
-    const { collections } = state    
+    const { collections } = state;
     return { collections }
   };
 export default connect(mapStateToProps, {updateFishCaught, updateFishDonated})(FishDetails);
