@@ -31,7 +31,7 @@ export function FishGridItem({model, index, nav, updateFishCaught, updateFishDon
         <CardItem style={styles.fishGridItemCard}>
           <View>
             <TouchableOpacity onPress={onPress} style={styles.fishGridItemCard}>
-              <Text key={`${index}FishGridItemName`}>{model.fish.fishName.length > 10 ? `${model.fish.fishName.substr(0, maxFishNameLength)}...` : model.fish.fishName}</Text>
+              <Text key={`${index}FishGridItemName`} numberOfLines={1}>{ model.fish.fishName}</Text>
               <Image source={FishImages[model.fish.fishName]} style={styles.fishGridItem} key={`${index}FishGridItemImage`}></Image>            
             </TouchableOpacity>   
           </View>
