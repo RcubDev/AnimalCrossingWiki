@@ -4,7 +4,7 @@ import {UPDATE_FISH_CAUGHT, UPDATE_FISH_DONATED, FishActionTypes, FishCaughtPayl
 import { CollectionStateModel } from '../../models/CollectionStateModel';
 import { updateFishCaught, updateFishDonated } from './CollectionActions';
 
-const INITIAL_STATE2:CollectionStateModel = { fish: fish.map(x => {return {fish: x, caught: false, donated: false}})};
+const INITIAL_STATE2:CollectionStateModel = { fish: fish.fish.map(x => {return {fish: x, caught: false, donated: false}})};
 
 const collectionReducer = (state = INITIAL_STATE2, action: FishActionTypes): CollectionStateModel => {
     switch (action.type) {

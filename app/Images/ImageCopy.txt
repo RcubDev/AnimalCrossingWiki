@@ -1,10 +1,3 @@
-import { ImageSourcePropType } from "react-native";
-
-export interface IDictionary {
-    [name: string]: ImageSourcePropType;
-}
-
-const FishImages: IDictionary = {};
 FishImages["Bitterling"] = require('./Fish/Bitterling.png');
 FishImages["Pale Chub"] = require('./Fish/PaleChub.png');
 FishImages["Crucian Carp"] = require('./Fish/CrucianCarp.png');
@@ -85,5 +78,3 @@ FishImages["Football Fish"] = require('./Fish/FootballFish.png');
 FishImages["Oarfish"] = require('./Fish/Oarfish.png');
 FishImages["Barreleye"] = require('./Fish/Barreleye.png');
 FishImages["Coelacanth"] = require('./Fish/Coelacanth.png');
-
-export default FishImages;
