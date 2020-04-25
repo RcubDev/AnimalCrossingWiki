@@ -9,23 +9,34 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
-
+export interface MonthsAvaliable {
+    jan: boolean;
+    feb: boolean;
+    mar: boolean;
+    apr: boolean;
+    may: boolean;
+    jun: boolean;
+    jul: boolean;
+    aug: boolean;
+    sep: boolean;
+    oct: boolean;
+    nov: boolean;
+    dec: boolean;
+}
 
 export interface FishModel { 
     fishId: number;
     fishName: string;
-    season?: number;
-    seasonName?: string;
-    location?: number;
-    locationName?: string;
     value?: number;
-    catchStartTime?: number;
-    catchEndTime?: number;
+    locationName?: string;
+    location?: number;
     shadowSize?: number;
     shadowSizeName?: string;
-    weather?: number;
-    weatherName?: string;
+    time?: string;
+    catchStartTime?: Array<number>;
+    catchEndTime?: Array<number>;
+    monthsAvailable: MonthsAvaliable;
     rarity?: number;
     rarityName?: string;
-    image: string;
+    weather?: string;
 }

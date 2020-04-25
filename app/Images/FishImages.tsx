@@ -7,5 +7,5 @@ export interface IDictionary {
 const FishImages: IDictionary = {};
 FishImages["Anchovy"] = require('./Fish/Anchovy.png');
 FishImages["Bitterling"] = require('./Fish/Bitterling.png');
-FishImages["Barred Knifejaw"] = require('./Fish/BarredKnifejaw.png');      
+FishImages["Barred Knifejaw"] = require('./Fish/BarredKnifejaw.png');
 export default FishImages;

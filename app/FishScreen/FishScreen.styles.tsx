@@ -13,7 +13,7 @@ else{
 
 const styles = StyleSheet.create({    
     fishGridItem: {
-        width: 100,
+        width: 75,
         height: 50        
     },
     fishGridItemContainer: fishGridItemContainerStyle,
