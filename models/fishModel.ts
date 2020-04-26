@@ -24,9 +24,9 @@ export interface MonthsAvaliable {
     dec: boolean;
 }
 
-export interface FishModel { 
-    fishId: number;
-    fishName: string;
+export interface CritterCollectionModel { 
+    id: number;
+    name: string;
     value: number;
     locationName: string;
     location: number;

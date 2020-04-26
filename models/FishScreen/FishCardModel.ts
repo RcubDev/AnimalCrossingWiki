@@ -1,7 +1,7 @@
-import { FishModel } from "../fishModel";
+import { CritterCollectionModel } from "../fishModel";
 
-export interface FishCardModel {
-    fish: FishModel,
+export interface CritterCollectionCardModel {
+    collection: CritterCollectionModel,
     caught: boolean,
     donated: boolean
 }
