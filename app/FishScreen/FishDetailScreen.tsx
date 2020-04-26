@@ -19,7 +19,8 @@ interface FishDetailsProps {
         key: string,
         name: string,
         params: {
-            index: number
+            index: number,
+            fish: FishCardModel
         }   
     }
 }
@@ -50,7 +51,7 @@ class FishDetails extends Component<FishDetailsProps, FishDetailsState> {
     constructor(props: FishDetailsProps){
         super(props);
         this.index = props.route.params.index;
-        this.fishCardModel = props.collections.fish[this.index];
+        this.fishCardModel = this.props.route.params.fish;
         this.fish = this.fishCardModel.fish;
     }
 
@@ -59,8 +60,8 @@ class FishDetails extends Component<FishDetailsProps, FishDetailsState> {
             <View style={{flex: 1, justifyContent: 'flex-start', alignItems: 'center', alignContent: 'center', marginTop: '20%'}}>
                 <H1>{this.fish.fishName}</H1>
                 <Image source={FishImages[this.fish.fishName]} style={{width:100, height:100}}></Image>
-                <CheckBox checked={this.fishCardModel.caught} onPress={() => {this.SetItemCaught(!this.fishCardModel.caught, this.index)}}></CheckBox>
-                <CheckBox checked={this.fishCardModel.donated} onPress={() => {this.SetItemDonated(!this.fishCardModel.donated, this.index)}}></CheckBox>
+                <CheckBox checked={this.fishCardModel.caught} onPress={() => {this.SetItemCaught(!this.fishCardModel.caught, this.fishCardModel.fish.fishId)}}></CheckBox>
+                <CheckBox checked={this.fishCardModel.donated} onPress={() => {this.SetItemDonated(!this.fishCardModel.donated, this.fishCardModel.fish.fishId)}}></CheckBox>
                 <Image source={require('../Images/Other/MuseumSymbol.png')} style={{width:32, height:32}} />
                 <View>
                     <Card>

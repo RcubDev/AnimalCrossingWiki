@@ -15,6 +15,7 @@ import { FishCardModel } from '../../models/FishScreen/FishCardModel';
 import { connect } from 'react-redux';
 import { updateFishCaught, updateFishDonated } from '../Redux/CollectionActions';
 import { Fish } from '../../models/fish';
+import _ from 'lodash';
 let startScope:Array<string> = ["("];
 let endScope: Array<string> = [")"];
 let startValues: Array<string> = ["=", ">", "<", ">=", "<=", "!", "%"];
@@ -25,13 +26,15 @@ class FishScreen extends Component<FishScreenProps, FishScreenState> {
         super(props);        
         this.state = {
             isReady: false,
-            fishList: this.filterFishByText("filter:(value>=1000&value<=10000)&name%a")
-            //(name%bar|value=1000)&value=900
-            //filter:(name%bar|value=1000)&(value=900|name=koi)
-            //filter:
-            //(name%bar&value=5000)|(value=900|name=koi)|(name=pale chub&name=black bass)
-            //(value>=1000&value<=10000)&(name%a)
-            //((value>=1000&value<=10000)&(name%a))&(name=Barred Knifejaw)
+            fishList: this.filterFishByText("filter:name%bar|((name=koi)))|name=pale chub&(value=200)))")
+            //name%bar|(name=koi|name=pale chub&(value=200))
+            //name%bar|(name=koi|name=pale chub)
+            //(name%bar|value=1000)&value=900 - GOOD
+            //(name%bar|value=1000)&(value=900|name=koi)  - GOOD   
+            //(name%bar&value=5000)|(value=900|name=koi)|(name=pale chub&name=black bass) - GOOD
+            //(value>=1000&value<=10000)&(name%a) - GOOD
+            //((value>=1000&value<=10000)&(name%a))&(name=Barred Knifejaw) - GOOD
+            //(value>=1000&value<=10000)&name%a - GOOD
         }
         console.log(this.state.fishList);
     }
@@ -51,6 +54,7 @@ class FishScreen extends Component<FishScreenProps, FishScreenState> {
     }
 
     filterFishByText(text:string): Array<FishCardModel>  {
+        
         var allFish = this.props.collections.fish
         //read text until key word -- if no key words involved assume name
         let fishArray: Array<FishCardModel> = [];
@@ -58,7 +62,16 @@ class FishScreen extends Component<FishScreenProps, FishScreenState> {
         debugger;        
         
         if(filterSpecial){
-            fishArray = this.filterFishByTextSpecial(text.substr(7), this.props.collections.fish);
+            try{
+                //Check matching parens before doing this. If they're not matching return no fish.
+                fishArray = this.filterFishByTextSpecial(text.substr(7), this.props.collections.fish);
+            }
+            catch(err){
+                console.error(err);
+                console.error('an error occured parsing your filter text. Check your parenthesis.');
+                fishArray = [];
+            }
+            
         }
         else{
             fishArray = allFish.filter(x => x.fish.fishName.toLowerCase().includes(text));              
@@ -84,11 +97,14 @@ class FishScreen extends Component<FishScreenProps, FishScreenState> {
             if(startScope.includes(text[index])){
                 let endIndexNumber = this.FindMatchingParen(text.substr(index + 1));
                 if(endIndexNumber === -1){
-                    console.error('nope');
+                    throw "No matching end paren. Exiting.";                    
                 }
                 
                 //valuesToReturnWith = valuesWaitingForConjunction;
                 //let valuesWaiting = valuesWaitingForConjunction;                
+                if(valuesAreWaitingForConjuction){
+                    valuesToReturnWith = _.union(valuesToReturnWith, valuesWaitingForConjunction);
+                }
                 valuesWaitingForConjunction = this.filterFishByTextSpecial(text.substr(index + 1), valuesEnteredWith);      
                 //valuesToReturnWith = valuesToReturnWith.concat(valuesWaitingForConjunction);
                 //be aware of index out of bounds
@@ -166,7 +182,7 @@ class FishScreen extends Component<FishScreenProps, FishScreenState> {
         }
         if(valuesAreWaitingForConjuction){
             let lastCall = this.FilterCollection(type, currentString, valuesEnteredWith);
-            valuesToReturnWith = valuesToReturnWith.concat(this.ApplyConjunction(nextConjunctionType, valuesWaitingForConjunction, lastCall));
+            valuesToReturnWith = this.ApplyConjunction(nextConjunctionType, valuesWaitingForConjunction, lastCall);
         }
         console.log('returning scopped results');
         return valuesToReturnWith;
