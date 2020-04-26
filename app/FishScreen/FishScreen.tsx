@@ -15,8 +15,8 @@ import { FishCardModel } from '../../models/FishScreen/FishCardModel';
 import { connect } from 'react-redux';
 import { updateFishCaught, updateFishDonated } from '../Redux/CollectionActions';
 import { Fish } from '../../models/fish';
-let startScope:Array<string> = ["(", "["];
-let endScope: Array<string> = [")", "]"];
+let startScope:Array<string> = ["("];
+let endScope: Array<string> = [")"];
 let startValues: Array<string> = ["=", ">", "<", ">=", "<=", "!", "%"];
 let endValues:Array<string> = [")", "]", "&", "|"];
 class FishScreen extends Component<FishScreenProps, FishScreenState> {
@@ -25,7 +25,13 @@ class FishScreen extends Component<FishScreenProps, FishScreenState> {
         super(props);        
         this.state = {
             isReady: false,
-            fishList: this.filterFishByText("filter:name%bar|value=1000")
+            fishList: this.filterFishByText("filter:(value>=1000&value<=10000)&name%a")
+            //(name%bar|value=1000)&value=900
+            //filter:(name%bar|value=1000)&(value=900|name=koi)
+            //filter:
+            //(name%bar&value=5000)|(value=900|name=koi)|(name=pale chub&name=black bass)
+            //(value>=1000&value<=10000)&(name%a)
+            //((value>=1000&value<=10000)&(name%a))&(name=Barred Knifejaw)
         }
         console.log(this.state.fishList);
     }
@@ -39,21 +45,10 @@ class FishScreen extends Component<FishScreenProps, FishScreenState> {
         this.props.updateFishCaught({caught, index});
     }
 
-
     SetItemDonated = (donated: boolean, index: number) => {
         console.log('donated');
         this.props.updateFishDonated({donated, index});
     }
-
-    // componentDidUpdate(){
-    //     console.log('here2');
-    //     if(this.props.collections.fish !== this.state.fishList){
-    //         this.setState({fishList: this.props.collections.fish});
-            
-    //     }
-    // }
-    
-    //Start Region
 
     filterFishByText(text:string): Array<FishCardModel>  {
         var allFish = this.props.collections.fish
@@ -70,78 +65,147 @@ class FishScreen extends Component<FishScreenProps, FishScreenState> {
             
         }
         return fishArray;
-    }
+    }    
 
     filterFishByTextSpecial(text: string, fishCollection: Array<FishCardModel>): Array<FishCardModel> {
         //Read text until key word is found
         let currentString = "";
         let scopedKeyWord = "";
-        let scopedResults: Array<FishCardModel> = fishCollection;
-
-        for(let i = 0; i < text.length; i++){
-            if(startScope.includes(text[i])){
-                // currentResults = 
-                //Get the entire string between parens and such
-                let endIndex = this.GetInnerFilterString(text.substr(i));
-                let newText = text.substring(i, endIndex);
-                //let scopedResults = this.filterFishByTextSpecial(newText);
-                if(endIndex + 1 ==  text.length) {
-                    return scopedResults;
+        let valuesEnteredWith: Array<FishCardModel> = fishCollection;
+        let valuesWaitingForConjunction: Array<FishCardModel> = [];
+        let valuesToReturnWith: Array<FishCardModel> = [];
+        let index = 0;
+        let type = "";
+        let shouldApplyConjunction = false;
+        let nextConjunctionType = "";
+        let valuesAreWaitingForConjuction = false;
+        while(index < text.length){
+            let scopedResults:Array<FishCardModel> = [];
+            if(startScope.includes(text[index])){
+                let endIndexNumber = this.FindMatchingParen(text.substr(index + 1));
+                if(endIndexNumber === -1){
+                    console.error('nope');
+                }
+                
+                //valuesToReturnWith = valuesWaitingForConjunction;
+                //let valuesWaiting = valuesWaitingForConjunction;                
+                valuesWaitingForConjunction = this.filterFishByTextSpecial(text.substr(index + 1), valuesEnteredWith);      
+                //valuesToReturnWith = valuesToReturnWith.concat(valuesWaitingForConjunction);
+                //be aware of index out of bounds
+                let newIndex = index + endIndexNumber;
+                index = newIndex;
+                if(nextConjunctionType === ""){
+                    //index += this.FindMatchingParen(text.substr(index + 1));
+                    if(text[index + 1] === "&" || text[index + 1] === "|") {
+                        valuesAreWaitingForConjuction = true;
+                        index++;
+                        nextConjunctionType = text[index];
+                        valuesToReturnWith = valuesWaitingForConjunction;
+                    }
+                }
+                else {
+                    valuesToReturnWith = this.ApplyConjunction(nextConjunctionType, valuesToReturnWith, valuesWaitingForConjunction);
+                    valuesAreWaitingForConjuction =  false;
+                    if(text[index + 1] === "&" || text[index + 1] === "|") {
+                        valuesAreWaitingForConjuction = true;
+                        index++;
+                        nextConjunctionType = text[index];                        
+                    }
+                }
+            }
+            else if(text[index] === ")"){
+                if(valuesAreWaitingForConjuction){
+                    let newRes = this.FilterCollection(type, currentString, valuesEnteredWith);
+                    valuesToReturnWith = valuesToReturnWith.concat(this.ApplyConjunction(nextConjunctionType, valuesWaitingForConjunction, newRes));
+                }
+                else if(type !== "" && currentString !== ""){
+                    valuesToReturnWith = this.FilterCollection(type, currentString, valuesEnteredWith);
+                }                
+                return valuesToReturnWith;
+            }
+            else if(text[index] === "&"){
+                if(valuesAreWaitingForConjuction){
+                    let newRes = this.FilterCollection(type, currentString, valuesEnteredWith);
+                    valuesToReturnWith = valuesToReturnWith.concat(this.ApplyConjunction(nextConjunctionType, valuesWaitingForConjunction, newRes));
                 }
                 else{
-                    let restOfString = text.substr(endIndex);
-                    if(text[i] == "&"){
-                        //return scopedResults.filter(x => this.filterFishByTextSpecial(restOfString).indexOf(x) > -1);
-                    }
-                    else if(text[i] == "|"){
-                        //return scopedResults.concat(this.filterFishByTextSpecial(restOfString));
-                    }
-                    else{
-                        throw "Invalid Text";
-                    }
-                }                
-            }
-            else if(startValues.includes(text[i])){
-                //Small chunk that needs to return result.
-                console.log(currentString);
-                let restOfString = "";
-                let endValueIndex = 0;
-                let hasFoundEndOfText = false;
-                for(let k = i; k <= text.length; k++){
-                    if(!hasFoundEndOfText){
-                        if( k >= text.length || endValues.includes(text[k])) {
-                            endValueIndex = k;
-                            hasFoundEndOfText = true;
-                            scopedResults = this.FilterCollection(currentString, restOfString, scopedResults);    
-                            if(k <= text.length && text[k] == "&"){
-                                return scopedResults.filter(x => this.filterFishByTextSpecial(text.substr(k + 1), scopedResults).indexOf(x) > -1);
-                            }
-                            else if(k <= text.length && text[k] == "|"){
-                                return scopedResults.concat(this.filterFishByTextSpecial(text.substr(k + 1), this.props.collections.fish));
-                            }
-                            else{
-                                //invalid character
-                            }
-                        }
-                        else{
-                            restOfString = restOfString.concat(text[k]);
-                        }
-                    }
+                    valuesWaitingForConjunction = this.FilterCollection(type, currentString, valuesEnteredWith);
+                    valuesAreWaitingForConjuction = true;
                 }
-                //Set currentIndex = to the already evaluated characters
-                i = endValueIndex;
-                console.log('found a startValue!');
+                currentString  ="";
+                nextConjunctionType = "&";                                                                    
+            }
+            else if(text[index] === "|"){
+                if(valuesAreWaitingForConjuction){
+                    let newRes = this.FilterCollection(type, currentString, valuesEnteredWith);
+                    valuesToReturnWith = valuesToReturnWith.concat(this.ApplyConjunction(nextConjunctionType, valuesWaitingForConjunction, newRes));
+                    valuesAreWaitingForConjuction = false;
+                }
+                else{
+                    valuesWaitingForConjunction = this.FilterCollection(type, currentString, valuesEnteredWith);
+                    valuesAreWaitingForConjuction = true;
+                }
+                currentString = "";
+                nextConjunctionType = "|";
+            }
+            else if(startValues.includes(text[index])){
+                console.log(currentString);
+                type = currentString;
+                currentString = text[index];
+                if(index + 1 < text.length && startValues.includes(text[index + 1])){
+                    currentString = currentString.concat(text[index + 1]);
+                    index++;
+                }
             }
             else{
-                //Keep going
-                currentString  = currentString.concat(text[i]);
+                currentString  = currentString.concat(text[index]);
             }
+
+
+            index++;
+        }
+        if(valuesAreWaitingForConjuction){
+            let lastCall = this.FilterCollection(type, currentString, valuesEnteredWith);
+            valuesToReturnWith = valuesToReturnWith.concat(this.ApplyConjunction(nextConjunctionType, valuesWaitingForConjunction, lastCall));
         }
         console.log('returning scopped results');
-        return scopedResults;
+        return valuesToReturnWith;
     }
 
-    FilterCollection(type:string, restOfString: string, currentList: Array<FishCardModel>): Array<FishCardModel>{
+    ApplyConjunction(conjunction: string, leftSide: Array<FishCardModel>, rightSide: Array<FishCardModel>) {
+        if(conjunction === "|"){
+            return leftSide.concat(rightSide);
+        }
+        else if(conjunction === "&"){
+            return leftSide.filter(x => rightSide.indexOf(x) > -1);
+        }
+        else{
+            console.error('How did you enter here?');
+        }
+        return rightSide;
+    }
+
+    FindMatchingParen(textAfterOpenParen: string): number{
+        let index = -1;
+        let numberOfOpenParens = 1;
+        let numberOfClosedParens = 0;
+        for(let i = 0; i < textAfterOpenParen.length; i++){
+            if(textAfterOpenParen[i] === "("){
+                numberOfOpenParens++;
+            }
+            else if(textAfterOpenParen[i] === ")"){
+                numberOfClosedParens++
+            }
+            if(numberOfOpenParens === numberOfClosedParens){
+                return i + 1;
+            }
+        }
+
+        return index;
+    }
+
+
+    FilterCollection(type:string, restOfString: string, valuesEnteredWith: Array<FishCardModel>): Array<FishCardModel>{
         let operation = restOfString[0];
         if(operation === ">" || operation === "<" || operation === "!"){
             if(restOfString[1] === "="){
@@ -156,34 +220,34 @@ class FishScreen extends Component<FishScreenProps, FishScreenState> {
         restOfString = restOfString.substr(operation.length);
         switch (type.toLowerCase()) {
             case "value":
-                return this.FilterByValue(restOfString, operation, currentList);
+                return this.FilterByValue(restOfString, operation, valuesEnteredWith);
             case "name":
-                return this.FilterByName(restOfString, operation, currentList);
+                return this.FilterByName(restOfString, operation, valuesEnteredWith);
             case "location":
-                return this.FilterByLocation(restOfString, operation, currentList);
+                return this.FilterByLocation(restOfString, operation, valuesEnteredWith);
             case "shadowsize":
             case "size":
-                return this.FilterByShadowSize(restOfString, operation, currentList);
+                return this.FilterByShadowSize(restOfString, operation, valuesEnteredWith);
             case "rarity":
-                return this.FilterByRarity(restOfString, operation, currentList);
+                return this.FilterByRarity(restOfString, operation, valuesEnteredWith);
             case "weather":
-                return this.FilterByWeather(restOfString, operation, currentList);
+                return this.FilterByWeather(restOfString, operation, valuesEnteredWith);
             case "time":
-                return this.FilterByTime(restOfString, operation, currentList);
+                return this.FilterByTime(restOfString, operation, valuesEnteredWith);
             case "now":
-                return this.FilterByNow(restOfString, operation, currentList);
+                return this.FilterByNow(restOfString, operation, valuesEnteredWith);
             case "month":
-                return this.FilterByMonth(restOfString, operation, currentList);
+                return this.FilterByMonth(restOfString, operation, valuesEnteredWith);
             case "caught":
-                return this.FilterByCaught(restOfString, operation, currentList);
+                return this.FilterByCaught(restOfString, operation, valuesEnteredWith);
             case "donated":
-                return this.FilterByDonated(restOfString, operation, currentList);
+                return this.FilterByDonated(restOfString, operation, valuesEnteredWith);
             default:
-                return currentList;
+                return valuesEnteredWith;
         }
 
     }
-    
+
     FilterByLocation(value: string, operation: string, currentList: Array<FishCardModel>): Array<FishCardModel>{
         return [];
     }
@@ -271,50 +335,7 @@ class FishScreen extends Component<FishScreenProps, FishScreenState> {
             }
         }
         return -1;
-    }
-
-    // getKeyWord()
-
-    // getKeyWordEnumValue(currentString: string): number{
-    //     let returnVal = -1;
-    //     if(currentString.includes("(")){
-    //         return 1;            
-    //     }
-    //     else if(currentString.includes("&")){
-    //         return 2;
-    //     }
-    //     else if(currentString.includes("|")){
-    //         return 3;
-    //     }
-    //     else if(currentString.includes("[")){
-    //         return 4;
-    //     }
-    //     else if(currentString.includes("]")){
-    //         return 5;            
-    //     }
-    //     else if(currentString.includes("range:")){
-    //         return 6;
-    //     }
-    //     else if(currentString.includes("")){
-    //         return 7;
-    //     }
-    //     else if(currentString.includes("")){
-    //         return 8;
-    //     }
-    //     else if(currentString.includes("")){
-    //         return 9;
-    //     }
-    //     else if(currentString.includes("")){
-    //         return 10;
-    //     }
-    //     else if(currentString.includes("")){
-    //         return 11;
-    //     }
-    //     else if(currentString.includes("")){
-            
-    //     }
-    //     return returnVal;
-    // }
+    }    
     //End Region
 
     render(){
