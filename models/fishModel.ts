@@ -27,16 +27,16 @@ export interface MonthsAvaliable {
 export interface FishModel { 
     fishId: number;
     fishName: string;
-    value?: number;
-    locationName?: string;
-    location?: number;
-    shadowSize?: number;
-    shadowSizeName?: string;
-    time?: string;
-    catchStartTime?: Array<number>;
-    catchEndTime?: Array<number>;
+    value: number;
+    locationName: string;
+    location: number;
+    shadowSize: number;
+    shadowSizeName: string;
+    time: string;
+    catchStartTime: Array<number>;
+    catchEndTime: Array<number>;
     monthsAvailable: MonthsAvaliable;
-    rarity?: number;
-    rarityName?: string;
-    weather?: string;
+    rarity: number;
+    rarityName: string;
+    weather: string;
 }

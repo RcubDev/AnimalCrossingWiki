@@ -22,8 +22,7 @@ export function FishGridItem({model, index, nav, updateFishCaught, updateFishDon
     console.log('updated caught');
   };
 
-  const donatedOnPress = () => {
-    
+  const donatedOnPress = () => {    
     updateFishDonated(!model.donated, index);
   }
 

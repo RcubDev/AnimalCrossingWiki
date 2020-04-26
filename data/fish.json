@@ -3,7 +3,7 @@
       {
          "fishId":1,
          "fishName":"Bitterling",
-         "value":"900",
+         "value":900,
          "locationName":"River",
          "location":1,
          "shadowSize":1,
@@ -36,7 +36,7 @@
       {
          "fishId":2,
          "fishName":"Pale Chub",
-         "value":"200",
+         "value":200,
          "locationName":"River",
          "location":1,
          "shadowSize":1,
@@ -69,7 +69,7 @@
       {
          "fishId":3,
          "fishName":"Crucian Carp",
-         "value":"160",
+         "value":160,
          "locationName":"River",
          "location":1,
          "shadowSize":2,
@@ -102,7 +102,7 @@
       {
          "fishId":4,
          "fishName":"Dace",
-         "value":"192",
+         "value":240,
          "locationName":"River",
          "location":1,
          "shadowSize":3,
@@ -135,7 +135,7 @@
       {
          "fishId":5,
          "fishName":"Carp",
-         "value":"300",
+         "value":300,
          "locationName":"Pond",
          "location":4,
          "shadowSize":4,
@@ -168,7 +168,7 @@
       {
          "fishId":6,
          "fishName":"Koi",
-         "value":"4000",
+         "value":4000,
          "locationName":"Pond",
          "location":4,
          "shadowSize":4,
@@ -201,7 +201,7 @@
       {
          "fishId":7,
          "fishName":"Goldfish",
-         "value":"1300",
+         "value":1300,
          "locationName":"Pond",
          "location":4,
          "shadowSize":1,
@@ -234,7 +234,7 @@
       {
          "fishId":8,
          "fishName":"Pop-Eyed Goldfish",
-         "value":"1300",
+         "value":1300,
          "locationName":"Pond",
          "location":4,
          "shadowSize":1,
@@ -267,7 +267,7 @@
       {
          "fishId":9,
          "fishName":"Ranchu Goldfish",
-         "value":"4500",
+         "value":4500,
          "locationName":"Pond",
          "location":4,
          "shadowSize":2,
@@ -300,7 +300,7 @@
       {
          "fishId":10,
          "fishName":"Killifish",
-         "value":"300",
+         "value":300,
          "locationName":"Pond",
          "location":4,
          "shadowSize":1,
@@ -333,7 +333,7 @@
       {
          "fishId":11,
          "fishName":"Crawfish",
-         "value":"200",
+         "value":200,
          "locationName":"Pond",
          "location":4,
          "shadowSize":2,
@@ -366,7 +366,7 @@
       {
          "fishId":12,
          "fishName":"Soft-Shelled Turtle",
-         "value":"3750",
+         "value":3750,
          "locationName":"River",
          "location":1,
          "shadowSize":4,
@@ -399,7 +399,7 @@
       {
          "fishId":13,
          "fishName":"Snapping Turtle",
-         "value":"5000",
+         "value":5000,
          "locationName":"River",
          "location":1,
          "shadowSize":5,
@@ -432,7 +432,7 @@
       {
          "fishId":14,
          "fishName":"Tadpole",
-         "value":"100",
+         "value":100,
          "locationName":"Pond",
          "location":4,
          "shadowSize":1,
@@ -465,7 +465,7 @@
       {
          "fishId":15,
          "fishName":"Frog",
-         "value":"120",
+         "value":120,
          "locationName":"Pond",
          "location":4,
          "shadowSize":2,
@@ -498,7 +498,7 @@
       {
          "fishId":16,
          "fishName":"Freshwater Goby",
-         "value":"400",
+         "value":400,
          "locationName":"River",
          "location":1,
          "shadowSize":2,
@@ -531,7 +531,7 @@
       {
          "fishId":17,
          "fishName":"Loach",
-         "value":"400",
+         "value":400,
          "locationName":"River",
          "location":1,
          "shadowSize":2,
@@ -564,7 +564,7 @@
       {
          "fishId":18,
          "fishName":"Catfish",
-         "value":"800",
+         "value":800,
          "locationName":"Pond",
          "location":4,
          "shadowSize":4,
@@ -597,7 +597,7 @@
       {
          "fishId":19,
          "fishName":"Giant Snakehead",
-         "value":"5500",
+         "value":5500,
          "locationName":"Pond",
          "location":4,
          "shadowSize":5,
@@ -630,7 +630,7 @@
       {
          "fishId":20,
          "fishName":"Bluegill",
-         "value":"180",
+         "value":180,
          "locationName":"River",
          "location":1,
          "shadowSize":2,
@@ -663,7 +663,7 @@
       {
          "fishId":21,
          "fishName":"Yellow Perch",
-         "value":"300",
+         "value":300,
          "locationName":"River",
          "location":1,
          "shadowSize":3,
@@ -696,7 +696,7 @@
       {
          "fishId":22,
          "fishName":"Black Bass",
-         "value":"400",
+         "value":400,
          "locationName":"River",
          "location":1,
          "shadowSize":4,
@@ -729,7 +729,7 @@
       {
          "fishId":23,
          "fishName":"Tilapia",
-         "value":"800",
+         "value":800,
          "locationName":"River",
          "location":1,
          "shadowSize":3,
@@ -762,7 +762,7 @@
       {
          "fishId":24,
          "fishName":"Pike",
-         "value":"1800",
+         "value":1800,
          "locationName":"River",
          "location":1,
          "shadowSize":5,
@@ -795,7 +795,7 @@
       {
          "fishId":25,
          "fishName":"Pond Smelt",
-         "value":"500",
+         "value":500,
          "locationName":"River",
          "location":1,
          "shadowSize":2,
@@ -828,7 +828,7 @@
       {
          "fishId":26,
          "fishName":"Sweetfish",
-         "value":"900",
+         "value":900,
          "locationName":"River",
          "location":1,
          "shadowSize":3,
@@ -861,7 +861,7 @@
       {
          "fishId":27,
          "fishName":"Cherry Salmon",
-         "value":"800",
+         "value":800,
          "locationName":"River (Clifftop)",
          "location":3,
          "shadowSize":3,
@@ -894,7 +894,7 @@
       {
          "fishId":28,
          "fishName":"Char",
-         "value":"3800",
+         "value":3800,
          "locationName":"River (Clifftop), Pond",
          "location":7,
          "shadowSize":3,
@@ -927,7 +927,7 @@
       {
          "fishId":29,
          "fishName":"Golden Trout",
-         "value":"15000",
+         "value":15000,
          "locationName":"River (Clifftop)",
          "location":3,
          "shadowSize":3,
@@ -960,7 +960,7 @@
       {
          "fishId":30,
          "fishName":"Stringfish",
-         "value":"15000",
+         "value":15000,
          "locationName":"River (Clifftop)",
          "location":3,
          "shadowSize":5,
@@ -993,7 +993,7 @@
       {
          "fishId":31,
          "fishName":"Salmon",
-         "value":"700",
+         "value":700,
          "locationName":"River (Mouth)",
          "location":2,
          "shadowSize":4,
@@ -1026,7 +1026,7 @@
       {
          "fishId":32,
          "fishName":"King Salmon",
-         "value":"1800",
+         "value":1800,
          "locationName":"River (Mouth)",
          "location":2,
          "shadowSize":6,
@@ -1059,7 +1059,7 @@
       {
          "fishId":33,
          "fishName":"Mitten Crab",
-         "value":"2000",
+         "value":2000,
          "locationName":"River",
          "location":1,
          "shadowSize":2,
@@ -1092,7 +1092,7 @@
       {
          "fishId":34,
          "fishName":"Guppy",
-         "value":"1300",
+         "value":1300,
          "locationName":"River",
          "location":1,
          "shadowSize":1,
@@ -1125,7 +1125,7 @@
       {
          "fishId":35,
          "fishName":"Nibble Fish",
-         "value":"1500",
+         "value":1500,
          "locationName":"River",
          "location":1,
          "shadowSize":1,
@@ -1158,7 +1158,7 @@
       {
          "fishId":36,
          "fishName":"Angelfish",
-         "value":"3000",
+         "value":3000,
          "locationName":"River",
          "location":1,
          "shadowSize":2,
@@ -1191,7 +1191,7 @@
       {
          "fishId":37,
          "fishName":"Betta",
-         "value":"2500",
+         "value":2500,
          "locationName":"River",
          "location":1,
          "shadowSize":2,
@@ -1224,7 +1224,7 @@
       {
          "fishId":38,
          "fishName":"Neon Tetra",
-         "value":"500",
+         "value":500,
          "locationName":"River",
          "location":1,
          "shadowSize":1,
@@ -1257,7 +1257,7 @@
       {
          "fishId":39,
          "fishName":"Rainbowfish",
-         "value":"800",
+         "value":800,
          "locationName":"River",
          "location":1,
          "shadowSize":1,
@@ -1290,7 +1290,7 @@
       {
          "fishId":40,
          "fishName":"Piranha",
-         "value":"2500",
+         "value":2500,
          "locationName":"River",
          "location":1,
          "shadowSize":2,
@@ -1325,7 +1325,7 @@
       {
          "fishId":41,
          "fishName":"Arowana",
-         "value":"10000",
+         "value":10000,
          "locationName":"River",
          "location":1,
          "shadowSize":4,
@@ -1358,7 +1358,7 @@
       {
          "fishId":42,
          "fishName":"Dorado",
-         "value":"15000",
+         "value":15000,
          "locationName":"River",
          "location":1,
          "shadowSize":5,
@@ -1391,7 +1391,7 @@
       {
          "fishId":43,
          "fishName":"Gar",
-         "value":"6000",
+         "value":6000,
          "locationName":"Pond",
          "location":4,
          "shadowSize":6,
@@ -1424,7 +1424,7 @@
       {
          "fishId":44,
          "fishName":"Arapaima",
-         "value":"10000",
+         "value":10000,
          "locationName":"River",
          "location":1,
          "shadowSize":6,
@@ -1457,7 +1457,7 @@
       {
          "fishId":45,
          "fishName":"Saddled Bichir",
-         "value":"4000",
+         "value":4000,
          "locationName":"River",
          "location":1,
          "shadowSize":4,
@@ -1490,7 +1490,7 @@
       {
          "fishId":46,
          "fishName":"Sturgeon",
-         "value":"10000",
+         "value":10000,
          "locationName":"River (Mouth)",
          "location":2,
          "shadowSize":6,
@@ -1523,7 +1523,7 @@
       {
          "fishId":47,
          "fishName":"Sea Butterfly",
-         "value":"1000",
+         "value":1000,
          "locationName":"Sea",
          "location":6,
          "shadowSize":1,
@@ -1556,7 +1556,7 @@
       {
          "fishId":48,
          "fishName":"Sea Horse",
-         "value":"1100",
+         "value":1100,
          "locationName":"Sea",
          "location":6,
          "shadowSize":1,
@@ -1589,7 +1589,7 @@
       {
          "fishId":49,
          "fishName":"Clown Fish",
-         "value":"650",
+         "value":650,
          "locationName":"Sea",
          "location":6,
          "shadowSize":1,
@@ -1622,7 +1622,7 @@
       {
          "fishId":50,
          "fishName":"Surgeonfish",
-         "value":"1000",
+         "value":1000,
          "locationName":"Sea",
          "location":6,
          "shadowSize":2,
@@ -1655,7 +1655,7 @@
       {
          "fishId":51,
          "fishName":"Butterfly Fish",
-         "value":"1000",
+         "value":1000,
          "locationName":"Sea",
          "location":6,
          "shadowSize":2,
@@ -1688,7 +1688,7 @@
       {
          "fishId":52,
          "fishName":"Napoleonfish",
-         "value":"10000",
+         "value":10000,
          "locationName":"Sea",
          "location":6,
          "shadowSize":6,
@@ -1721,7 +1721,7 @@
       {
          "fishId":53,
          "fishName":"Zebra Turkeyfish",
-         "value":"500",
+         "value":500,
          "locationName":"Sea",
          "location":6,
          "shadowSize":3,
@@ -1754,7 +1754,7 @@
       {
          "fishId":54,
          "fishName":"Blowfish",
-         "value":"5000",
+         "value":5000,
          "locationName":"Sea",
          "location":6,
          "shadowSize":3,
@@ -1787,7 +1787,7 @@
       {
          "fishId":55,
          "fishName":"Puffer Fish",
-         "value":"250",
+         "value":250,
          "locationName":"Sea",
          "location":6,
          "shadowSize":3,
@@ -1820,7 +1820,7 @@
       {
          "fishId":56,
          "fishName":"Anchovy",
-         "value":"200",
+         "value":200,
          "locationName":"Sea",
          "location":6,
          "shadowSize":2,
@@ -1853,7 +1853,7 @@
       {
          "fishId":57,
          "fishName":"Horse Mackerel",
-         "value":"150",
+         "value":150,
          "locationName":"Sea",
          "location":6,
          "shadowSize":2,
@@ -1886,7 +1886,7 @@
       {
          "fishId":58,
          "fishName":"Barred Knifejaw",
-         "value":"5000",
+         "value":5000,
          "locationName":"Sea",
          "location":6,
          "shadowSize":3,
@@ -1919,7 +1919,7 @@
       {
          "fishId":59,
          "fishName":"Sea Bass",
-         "value":"400",
+         "value":400,
          "locationName":"Sea",
          "location":6,
          "shadowSize":5,
@@ -1952,7 +1952,7 @@
       {
          "fishId":60,
          "fishName":"Red Snapper",
-         "value":"3000",
+         "value":3000,
          "locationName":"Sea",
          "location":6,
          "shadowSize":4,
@@ -1985,7 +1985,7 @@
       {
          "fishId":61,
          "fishName":"Dab",
-         "value":"300",
+         "value":300,
          "locationName":"Sea",
          "location":6,
          "shadowSize":3,
@@ -2018,7 +2018,7 @@
       {
          "fishId":62,
          "fishName":"Olive Flounder",
-         "value":"800",
+         "value":800,
          "locationName":"Sea",
          "location":6,
          "shadowSize":5,
@@ -2051,7 +2051,7 @@
       {
          "fishId":63,
          "fishName":"Squid",
-         "value":"500",
+         "value":500,
          "locationName":"Sea",
          "location":6,
          "shadowSize":3,
@@ -2084,7 +2084,7 @@
       {
          "fishId":64,
          "fishName":"Moray Eel",
-         "value":"2000",
+         "value":2000,
          "locationName":"Sea",
          "location":6,
          "shadowSize":7,
@@ -2117,7 +2117,7 @@
       {
          "fishId":65,
          "fishName":"Ribbon Eel",
-         "value":"600",
+         "value":600,
          "locationName":"Sea",
          "location":6,
          "shadowSize":7,
@@ -2150,7 +2150,7 @@
       {
          "fishId":66,
          "fishName":"Tuna",
-         "value":"7000",
+         "value":7000,
          "locationName":"Pier",
          "location":5,
          "shadowSize":6,
@@ -2183,7 +2183,7 @@
       {
          "fishId":67,
          "fishName":"Blue Marlin",
-         "value":"10000",
+         "value":10000,
          "locationName":"Pier",
          "location":5,
          "shadowSize":6,
@@ -2216,7 +2216,7 @@
       {
          "fishId":68,
          "fishName":"Giant Trevally",
-         "value":"4500",
+         "value":4500,
          "locationName":"Pier",
          "location":5,
          "shadowSize":5,
@@ -2249,7 +2249,7 @@
       {
          "fishId":69,
          "fishName":"Mahi-Mahi",
-         "value":"6000",
+         "value":6000,
          "locationName":"Pier",
          "location":5,
          "shadowSize":5,
@@ -2282,7 +2282,7 @@
       {
          "fishId":70,
          "fishName":"Ocean Sunfish",
-         "value":"4000",
+         "value":4000,
          "locationName":"Sea",
          "location":6,
          "shadowSize":6,
@@ -2315,7 +2315,7 @@
       {
          "fishId":71,
          "fishName":"Ray",
-         "value":"3000",
+         "value":3000,
          "locationName":"Sea",
          "location":6,
          "shadowSize":5,
@@ -2348,7 +2348,7 @@
       {
          "fishId":72,
          "fishName":"Saw Shark",
-         "value":"12000",
+         "value":12000,
          "locationName":"Sea",
          "location":6,
          "shadowSize":6,
@@ -2381,7 +2381,7 @@
       {
          "fishId":73,
          "fishName":"Hammerhead Shark",
-         "value":"8000",
+         "value":8000,
          "locationName":"Sea",
          "location":6,
          "shadowSize":6,
@@ -2414,7 +2414,7 @@
       {
          "fishId":74,
          "fishName":"Great White Shark",
-         "value":"15000",
+         "value":15000,
          "locationName":"Sea",
          "location":6,
          "shadowSize":6,
@@ -2447,7 +2447,7 @@
       {
          "fishId":75,
          "fishName":"Whale Shark",
-         "value":"13000",
+         "value":13000,
          "locationName":"Sea",
          "location":6,
          "shadowSize":6,
@@ -2480,7 +2480,7 @@
       {
          "fishId":76,
          "fishName":"Suckerfish",
-         "value":"1500",
+         "value":1500,
          "locationName":"Sea",
          "location":6,
          "shadowSize":4,
@@ -2513,7 +2513,7 @@
       {
          "fishId":77,
          "fishName":"Football Fish",
-         "value":"2500",
+         "value":2500,
          "locationName":"Sea",
          "location":6,
          "shadowSize":4,
@@ -2546,7 +2546,7 @@
       {
          "fishId":78,
          "fishName":"Oarfish",
-         "value":"9000",
+         "value":9000,
          "locationName":"Sea",
          "location":6,
          "shadowSize":6,
@@ -2579,7 +2579,7 @@
       {
          "fishId":79,
          "fishName":"Barreleye",
-         "value":"15000",
+         "value":15000,
          "locationName":"Sea",
          "location":6,
          "shadowSize":2,
@@ -2612,7 +2612,7 @@
       {
          "fishId":80,
          "fishName":"Coelacanth",
-         "value":"15000",
+         "value":15000,
          "locationName":"Sea",
          "location":6,
          "shadowSize":6,
