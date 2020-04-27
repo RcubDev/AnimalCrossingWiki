@@ -1,23 +1,25 @@
-import { CritterCollectionCardModel } from "../../models/FishScreen/FishCardModel";
 import _ from "lodash";
+import { CommonCollectionModel } from "../../models/CollectionModels/CommonCollectionModel";
 const startScope:Array<string> = ["("];
 const endScope: Array<string> = [")"];
 const startValues: Array<string> = ["=", ">", "<", ">=", "<=", "!", "%"];
 const endValues:Array<string> = [")", "]", "&", "|"];
-export function filterCollectionByTextSpecial(text: string, critterCollection: Array<CritterCollectionCardModel>): Array<CritterCollectionCardModel> {
+export type filterFunctionType<TCollection> = (type: string, value: string, operation: string) => Array<TCollection>
+
+export function filterCollectionByTextSpecial<TCollection extends CommonCollectionModel>(text: string, critterCollection: Array<TCollection>, callback: filterFunctionType<TCollection>): Array<TCollection> {
     //Read text until key word is found
     let currentString = "";
     let scopedKeyWord = "";
-    let valuesEnteredWith: Array<CritterCollectionCardModel> = critterCollection;
-    let valuesWaitingForConjunction: Array<CritterCollectionCardModel> = [];
-    let valuesToReturnWith: Array<CritterCollectionCardModel> = [];
+    let valuesEnteredWith: Array<TCollection> = critterCollection;
+    let valuesWaitingForConjunction: Array<TCollection> = [];
+    let valuesToReturnWith: Array<TCollection> = [];
     let index = 0;
     let type = "";
     let shouldApplyConjunction = false;
     let nextConjunctionType = "";
     let valuesAreWaitingForConjuction = false;
     while(index < text.length){
-        let scopedResults:Array<CritterCollectionCardModel> = [];
+        let scopedResults:Array<TCollection> = [];
         if(startScope.includes(text[index])){
             let endIndexNumber = FindMatchingParen(text.substr(index + 1));
             if(endIndexNumber === -1){
@@ -29,7 +31,7 @@ export function filterCollectionByTextSpecial(text: string, critterCollection: A
             if(valuesAreWaitingForConjuction){
                 valuesToReturnWith = _.union(valuesToReturnWith, valuesWaitingForConjunction);
             }
-            valuesWaitingForConjunction = filterCollectionByTextSpecial(text.substr(index + 1), valuesEnteredWith);      
+            valuesWaitingForConjunction = filterCollectionByTextSpecial(text.substr(index + 1), valuesEnteredWith, callback);
             //valuesToReturnWith = valuesToReturnWith.concat(valuesWaitingForConjunction);
             //be aware of index out of bounds
             let newIndex = index + endIndexNumber;
@@ -55,21 +57,21 @@ export function filterCollectionByTextSpecial(text: string, critterCollection: A
         }
         else if(text[index] === ")"){
             if(valuesAreWaitingForConjuction){
-                let newRes = FilterCollection(type, currentString, valuesEnteredWith);
+                let newRes = FilterCollection(type, currentString, valuesEnteredWith, callback);
                 valuesToReturnWith = valuesToReturnWith.concat(ApplyConjunction(nextConjunctionType, valuesWaitingForConjunction, newRes));
             }
             else if(type !== "" && currentString !== ""){
-                valuesToReturnWith = FilterCollection(type, currentString, valuesEnteredWith);
+                valuesToReturnWith = FilterCollection(type, currentString, valuesEnteredWith, callback);
             }                
             return valuesToReturnWith;
         }
         else if(text[index] === "&"){
             if(valuesAreWaitingForConjuction){
-                let newRes = FilterCollection(type, currentString, valuesEnteredWith);
+                let newRes = FilterCollection(type, currentString, valuesEnteredWith, callback);
                 valuesToReturnWith = valuesToReturnWith.concat(ApplyConjunction(nextConjunctionType, valuesWaitingForConjunction, newRes));
             }
             else{
-                valuesWaitingForConjunction = FilterCollection(type, currentString, valuesEnteredWith);
+                valuesWaitingForConjunction = FilterCollection(type, currentString, valuesEnteredWith, callback);
                 valuesAreWaitingForConjuction = true;
             }
             currentString  ="";
@@ -77,12 +79,12 @@ export function filterCollectionByTextSpecial(text: string, critterCollection: A
         }
         else if(text[index] === "|"){
             if(valuesAreWaitingForConjuction){
-                let newRes = FilterCollection(type, currentString, valuesEnteredWith);
+                let newRes = FilterCollection(type, currentString, valuesEnteredWith, callback);
                 valuesToReturnWith = valuesToReturnWith.concat(ApplyConjunction(nextConjunctionType, valuesWaitingForConjunction, newRes));
                 valuesAreWaitingForConjuction = false;
             }
             else{
-                valuesWaitingForConjunction = FilterCollection(type, currentString, valuesEnteredWith);
+                valuesWaitingForConjunction = FilterCollection(type, currentString, valuesEnteredWith, callback);
                 valuesAreWaitingForConjuction = true;
             }
             currentString = "";
@@ -105,14 +107,14 @@ export function filterCollectionByTextSpecial(text: string, critterCollection: A
         index++;
     }
     if(valuesAreWaitingForConjuction){
-        let lastCall = FilterCollection(type, currentString, valuesEnteredWith);
+        let lastCall = FilterCollection(type, currentString, valuesEnteredWith, callback);
         valuesToReturnWith = ApplyConjunction(nextConjunctionType, valuesWaitingForConjunction, lastCall);
     }
     console.log('returning scopped results');
     return valuesToReturnWith;
 }
 
-function ApplyConjunction(conjunction: string, leftSide: Array<CritterCollectionCardModel>, rightSide: Array<CritterCollectionCardModel>) {
+function ApplyConjunction<TCollection>(conjunction: string, leftSide: Array<TCollection>, rightSide: Array<TCollection>) {
     if(conjunction === "|"){
         return leftSide.concat(rightSide);
     }
@@ -144,8 +146,7 @@ function FindMatchingParen(textAfterOpenParen: string): number{
     return index;
 }
 
-//TODO: Allow for passing in of FilterCollection() function and use that callback instead of these defaults.
-function FilterCollection(type:string, restOfString: string, valuesEnteredWith: Array<CritterCollectionCardModel>): Array<CritterCollectionCardModel>{
+function FilterCollection<TCollection>(type:string, restOfString: string, valuesEnteredWith: Array<TCollection>, callback: filterFunctionType<TCollection>): Array<TCollection>{
     let operation = restOfString[0];
     if(operation === ">" || operation === "<" || operation === "!"){
         if(restOfString[1] === "="){
@@ -155,124 +156,8 @@ function FilterCollection(type:string, restOfString: string, valuesEnteredWith: 
     else if(operation === "["){
         operation = "range";
     }
-    //TODO: Add Operation + Type validator
 
-    restOfString = restOfString.substr(operation.length);
-    switch (type.toLowerCase()) {
-        case "value":
-            return FilterByValue(restOfString, operation, valuesEnteredWith);
-        case "name":
-            return FilterByName(restOfString, operation, valuesEnteredWith);
-        case "location":
-            return FilterByLocation(restOfString, operation, valuesEnteredWith);
-        case "shadowsize":
-        case "size":
-            return FilterByShadowSize(restOfString, operation, valuesEnteredWith);
-        case "rarity":
-            return FilterByRarity(restOfString, operation, valuesEnteredWith);
-        case "weather":
-            return FilterByWeather(restOfString, operation, valuesEnteredWith);
-        case "time":
-            return FilterByTime(restOfString, operation, valuesEnteredWith);
-        case "now":
-            return FilterByNow(restOfString, operation, valuesEnteredWith);
-        case "month":
-            return FilterByMonth(restOfString, operation, valuesEnteredWith);
-        case "caught":
-            return FilterByCaught(restOfString, operation, valuesEnteredWith);
-        case "donated":
-            return FilterByDonated(restOfString, operation, valuesEnteredWith);
-        default:
-            return valuesEnteredWith;
-    }
-
+    let value = restOfString.substr(operation.length);
+    // return callback.apply(type, value, operation);    
+    return callback.apply(callback, [type, value, operation]);
 }
-
-function FilterByLocation(value: string, operation: string, currentList: Array<CritterCollectionCardModel>): Array<CritterCollectionCardModel>{
-    return [];
-}
-
-function FilterByShadowSize(value: string, operation: string, currentList: Array<CritterCollectionCardModel>): Array<CritterCollectionCardModel>{
-    return [];
-}
-
-function FilterByRarity(value: string, operation: string, currentList: Array<CritterCollectionCardModel>): Array<CritterCollectionCardModel>{
-    return [];
-}
-
-function FilterByWeather(value: string, operation: string, currentList: Array<CritterCollectionCardModel>): Array<CritterCollectionCardModel>{
-    return [];
-}
-
-function FilterByTime(value: string, operation: string, currentList: Array<CritterCollectionCardModel>): Array<CritterCollectionCardModel>{
-    return [];
-}
-
-function FilterByNow(value: string, operation: string, currentList: Array<CritterCollectionCardModel>): Array<CritterCollectionCardModel>{
-    return [];
-}
-
-function FilterByMonth(value: string, operation: string, currentList: Array<CritterCollectionCardModel>): Array<CritterCollectionCardModel>{
-    return [];
-}
-
-function FilterByCaught(value: string, operation: string, currentList: Array<CritterCollectionCardModel>): Array<CritterCollectionCardModel>{
-    return [];
-}
-
-function FilterByDonated(value: string, operation: string, currentList: Array<CritterCollectionCardModel>): Array<CritterCollectionCardModel>{
-    return [];
-}
-
-function FilterByName(value: string, operation: string, currentList: Array<CritterCollectionCardModel>): Array<CritterCollectionCardModel>{
-    switch(operation){
-        //TODO Add !%
-        case "%":
-            return currentList.filter(x => x.collection.name.toLowerCase().includes(value.toLowerCase()));
-        case "=":
-            return currentList.filter(x => x.collection.name.toLowerCase() === value.toLowerCase());
-        case "!=":
-            return currentList.filter(x => x.collection.name.toLowerCase() !== value.toLowerCase());
-        default:
-            return [];
-    }
-}
-
-function FilterByValue(value: string, operation: string, currentList: Array<CritterCollectionCardModel>): Array<CritterCollectionCardModel>{
-    //check that value is indeed a number if not a number return []
-    if(isNaN(+value)){
-        return []
-    }
-    switch(operation){
-        case ">=":
-            return currentList.filter(x => x.collection.value >= +value);
-        case ">":
-            return currentList.filter(x => x.collection.value > +value);
-        case "<":
-            return currentList.filter(x => x.collection.value < +value);
-        case "<=":
-            return currentList.filter(x => x.collection.value <= +value);
-        case "=":
-            return currentList.filter(x => x.collection.value === +value);                                                                                        
-        case "!=":
-            return currentList.filter(x => x.collection.value !== +value);
-        default:
-            return currentList;
-    }
-}
-
-
-function readUntilSpecialCharacter(character: string){
-    if(character == "]"){
-
-    }
-}
-
-function GetInnerFilterString(text: string): number{
-    for(let i = 0; i < text.length; i ++){
-        if(endScope.includes(text[i])){
-            return i;
-        }
-    }
-    return -1;
-}    
