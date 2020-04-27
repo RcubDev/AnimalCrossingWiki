@@ -9,6 +9,8 @@ function FilterByName<TCollection extends CommonCollectionModel>(value: string, 
             return currentList.filter(x => x.name.toLowerCase() === value.toLowerCase());
         case "!=":
             return currentList.filter(x => x.name.toLowerCase() !== value.toLowerCase());
+        case "+":
+            return currentList.filter(x => x.name.toLowerCase().startsWith(value.toLowerCase()));
         default:
             return [];
     }

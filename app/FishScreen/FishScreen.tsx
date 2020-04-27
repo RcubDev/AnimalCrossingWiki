@@ -13,9 +13,10 @@ import { FishScreenState } from '../../models/FishScreen/FishScreenState';
 import { connect } from 'react-redux';
 import { updateFishCaught, updateFishDonated } from '../Redux/CollectionActions';
 import { Fish } from '../../models/fish';
-import { filterCollectionByTextSpecial } from '../Filter/Filter';
 import { NewFishModel } from '../../models/CollectionModels/NewFishModel';
 import { FilterCollectionFish } from '../Filter/FishFilter';
+import { filterCollectionByTextSpecial } from '../Filter/Filter';
+import { isListOfFish } from '../Filter/FilterTypes';
 
 
 class FishScreen extends Component<FishScreenProps, FishScreenState> {
@@ -24,7 +25,8 @@ class FishScreen extends Component<FishScreenProps, FishScreenState> {
         super(props);        
         this.state = {
             isReady: false,
-            fishList: this.filterFishByText("filter:name%bar|(name=koi|name=pale chub&(value>=200))")
+            fishList: this.props.collections.fishCollection//this.filterFishByText("filter:month:april&name+b")
+            //name%bar|(name=koi|name=pale chub&(value>=200))
             //name%bar|(name=koi|name=pale chub&(value=200))
             //name%bar|(name=koi|name=pale chub)
             //(name%bar|value=1000)&value=900 - GOOD
@@ -52,30 +54,37 @@ class FishScreen extends Component<FishScreenProps, FishScreenState> {
     }
 
     filterFishByText(text:string): Array<NewFishModel>  {
-        
+        console.log('???');
         var allFish = this.props.collections.fishCollection
         //read text until key word -- if no key words involved assume name
         let fishArray: Array<NewFishModel> = [];
         let filterSpecial = text.includes("filter:");
-        debugger;        
-        
+        text = text.toLowerCase();
         if(filterSpecial){
             try{
                 //Check matching parens before doing this. If they're not matching return no fish.
-                fishArray = filterCollectionByTextSpecial(text.substr(7), this.props.collections.fishCollection, FilterCollectionFish<NewFishModel>("", "", "", []));
+                let value = filterCollectionByTextSpecial(text.substr(7), this.props.collections.fishCollection);
+                if(isListOfFish(value)){
+                    fishArray = value;
+                }
             }
             catch(err){
-                console.error(err);
-                console.error('an error occured parsing your filter text. Check your parenthesis.');
+                console.warn(err);
+                console.warn('an error occured parsing your filter text. Check your parenthesis.');
                 fishArray = [];
             }
             
         }
         else{
-            fishArray = allFish.filter(x => x.name.toLowerCase().includes(text));              
-            
+            fishArray = allFish.filter(x => x.name.toLowerCase().startsWith(text));                          
         }
-        return fishArray;
+        fishArray.sort(function(a, b) {
+            var textA = a.name.toUpperCase();
+            var textB = b.name.toUpperCase();
+            return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+        });
+        // return fishArray;
+        this.setState({fishList: fishArray});
     }    
 
     

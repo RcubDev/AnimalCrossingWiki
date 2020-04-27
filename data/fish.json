@@ -9,21 +9,25 @@
       "shadowSize": 1,
       "shadowSizeName": "Tiny",
       "time": "All day",
-      "catchStartTime": [0],
-      "catchEndTime": [24],
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
       "monthsAvailable": {
-        "JAN": true,
-        "FEB": true,
-        "MAR": true,
-        "APR": false,
-        "MAY": false,
-        "JUN": false,
-        "JUL": false,
-        "AUG": false,
-        "SEP": false,
-        "OCT": false,
-        "NOV": true,
-        "DEC": true
+        "jan": true,
+        "feb": true,
+        "mar": true,
+        "apr": false,
+        "may": false,
+        "jun": false,
+        "jul": false,
+        "aug": false,
+        "sep": false,
+        "oct": false,
+        "nov": true,
+        "dec": true
       },
       "rarity": 1,
       "rarityName": "Common",
@@ -40,21 +44,25 @@
       "shadowSize": 1,
       "shadowSizeName": "Tiny",
       "time": "9 AM - 4 PM",
-      "catchStartTime": [9],
-      "catchEndTime": [16],
+      "catchStartTime": [
+        9
+      ],
+      "catchEndTime": [
+        16
+      ],
       "monthsAvailable": {
-        "JAN": true,
-        "FEB": true,
-        "MAR": true,
-        "APR": true,
-        "MAY": true,
-        "JUN": true,
-        "JUL": true,
-        "AUG": true,
-        "SEP": true,
-        "OCT": true,
-        "NOV": true,
-        "DEC": true
+        "jan": true,
+        "feb": true,
+        "mar": true,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": true,
+        "dec": true
       },
       "rarity": 1,
       "rarityName": "Common",
@@ -71,21 +79,25 @@
       "shadowSize": 2,
       "shadowSizeName": "Small",
       "time": "All day",
-      "catchStartTime": [0],
-      "catchEndTime": [24],
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
       "monthsAvailable": {
-        "JAN": true,
-        "FEB": true,
-        "MAR": true,
-        "APR": true,
-        "MAY": true,
-        "JUN": true,
-        "JUL": true,
-        "AUG": true,
-        "SEP": true,
-        "OCT": true,
-        "NOV": true,
-        "DEC": true
+        "jan": true,
+        "feb": true,
+        "mar": true,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": true,
+        "dec": true
       },
       "rarity": 1,
       "rarityName": "Common",
@@ -102,21 +114,25 @@
       "shadowSize": 3,
       "shadowSizeName": "Medium",
       "time": "4 PM - 9 AM",
-      "catchStartTime": [16],
-      "catchEndTime": [9],
+      "catchStartTime": [
+        16
+      ],
+      "catchEndTime": [
+        9
+      ],
       "monthsAvailable": {
-        "JAN": true,
-        "FEB": true,
-        "MAR": true,
-        "APR": true,
-        "MAY": true,
-        "JUN": true,
-        "JUL": true,
-        "AUG": true,
-        "SEP": true,
-        "OCT": true,
-        "NOV": true,
-        "DEC": true
+        "jan": true,
+        "feb": true,
+        "mar": true,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": true,
+        "dec": true
       },
       "rarity": 1,
       "rarityName": "Common",
@@ -133,21 +149,25 @@
       "shadowSize": 4,
       "shadowSizeName": "Large",
       "time": "All day",
-      "catchStartTime": [0],
-      "catchEndTime": [24],
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
       "monthsAvailable": {
-        "JAN": true,
-        "FEB": true,
-        "MAR": true,
-        "APR": true,
-        "MAY": true,
-        "JUN": true,
-        "JUL": true,
-        "AUG": true,
-        "SEP": true,
-        "OCT": true,
-        "NOV": true,
-        "DEC": true
+        "jan": true,
+        "feb": true,
+        "mar": true,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": true,
+        "dec": true
       },
       "rarity": 1,
       "rarityName": "Common",
@@ -164,21 +184,25 @@
       "shadowSize": 4,
       "shadowSizeName": "Large",
       "time": "4 PM - 9 AM",
-      "catchStartTime": [16],
-      "catchEndTime": [9],
+      "catchStartTime": [
+        16
+      ],
+      "catchEndTime": [
+        9
+      ],
       "monthsAvailable": {
-        "JAN": true,
-        "FEB": true,
-        "MAR": true,
-        "APR": true,
-        "MAY": true,
-        "JUN": true,
-        "JUL": true,
-        "AUG": true,
-        "SEP": true,
-        "OCT": true,
-        "NOV": true,
-        "DEC": true
+        "jan": true,
+        "feb": true,
+        "mar": true,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": true,
+        "dec": true
       },
       "rarity": 1,
       "rarityName": "Common",
@@ -195,21 +219,25 @@
       "shadowSize": 1,
       "shadowSizeName": "Tiny",
       "time": "All day",
-      "catchStartTime": [0],
-      "catchEndTime": [24],
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
       "monthsAvailable": {
-        "JAN": true,
-        "FEB": true,
-        "MAR": true,
-        "APR": true,
-        "MAY": true,
-        "JUN": true,
-        "JUL": true,
-        "AUG": true,
-        "SEP": true,
-        "OCT": true,
-        "NOV": true,
-        "DEC": true
+        "jan": true,
+        "feb": true,
+        "mar": true,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": true,
+        "dec": true
       },
       "rarity": 1,
       "rarityName": "Common",
@@ -226,21 +254,25 @@
       "shadowSize": 1,
       "shadowSizeName": "Tiny",
       "time": "9 AM - 4 PM",
-      "catchStartTime": [9],
-      "catchEndTime": [16],
+      "catchStartTime": [
+        9
+      ],
+      "catchEndTime": [
+        16
+      ],
       "monthsAvailable": {
-        "JAN": true,
-        "FEB": true,
-        "MAR": true,
-        "APR": true,
-        "MAY": true,
-        "JUN": true,
-        "JUL": true,
-        "AUG": true,
-        "SEP": true,
-        "OCT": true,
-        "NOV": true,
-        "DEC": true
+        "jan": true,
+        "feb": true,
+        "mar": true,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": true,
+        "dec": true
       },
       "rarity": 1,
       "rarityName": "Common",
@@ -257,21 +289,25 @@
       "shadowSize": 2,
       "shadowSizeName": "Small",
       "time": "9 AM - 4 PM",
-      "catchStartTime": [9],
-      "catchEndTime": [16],
+      "catchStartTime": [
+        9
+      ],
+      "catchEndTime": [
+        16
+      ],
       "monthsAvailable": {
-        "JAN": true,
-        "FEB": true,
-        "MAR": true,
-        "APR": true,
-        "MAY": true,
-        "JUN": true,
-        "JUL": true,
-        "AUG": true,
-        "SEP": true,
-        "OCT": true,
-        "NOV": true,
-        "DEC": true
+        "jan": true,
+        "feb": true,
+        "mar": true,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": true,
+        "dec": true
       },
       "rarity": 1,
       "rarityName": "Common",
@@ -288,21 +324,25 @@
       "shadowSize": 1,
       "shadowSizeName": "Tiny",
       "time": "All day",
-      "catchStartTime": [0],
-      "catchEndTime": [24],
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
       "monthsAvailable": {
-        "JAN": false,
-        "FEB": false,
-        "MAR": false,
-        "APR": true,
-        "MAY": true,
-        "JUN": true,
-        "JUL": true,
-        "AUG": true,
-        "SEP": false,
-        "OCT": false,
-        "NOV": false,
-        "DEC": false
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": false,
+        "oct": false,
+        "nov": false,
+        "dec": false
       },
       "rarity": 1,
       "rarityName": "Common",
@@ -319,21 +359,25 @@
       "shadowSize": 2,
       "shadowSizeName": "Small",
       "time": "All day",
-      "catchStartTime": [0],
-      "catchEndTime": [24],
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
       "monthsAvailable": {
-        "JAN": false,
-        "FEB": false,
-        "MAR": false,
-        "APR": true,
-        "MAY": true,
-        "JUN": true,
-        "JUL": true,
-        "AUG": true,
-        "SEP": true,
-        "OCT": false,
-        "NOV": false,
-        "DEC": false
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": false,
+        "nov": false,
+        "dec": false
       },
       "rarity": 1,
       "rarityName": "Common",
@@ -350,21 +394,25 @@
       "shadowSize": 4,
       "shadowSizeName": "Large",
       "time": "4 PM - 9 AM",
-      "catchStartTime": [16],
-      "catchEndTime": [9],
+      "catchStartTime": [
+        16
+      ],
+      "catchEndTime": [
+        9
+      ],
       "monthsAvailable": {
-        "JAN": false,
-        "FEB": false,
-        "MAR": false,
-        "APR": false,
-        "MAY": false,
-        "JUN": false,
-        "JUL": false,
-        "AUG": true,
-        "SEP": true,
-        "OCT": false,
-        "NOV": false,
-        "DEC": false
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": false,
+        "may": false,
+        "jun": false,
+        "jul": false,
+        "aug": true,
+        "sep": true,
+        "oct": false,
+        "nov": false,
+        "dec": false
       },
       "rarity": 1,
       "rarityName": "Common",
@@ -381,21 +429,25 @@
       "shadowSize": 5,
       "shadowSizeName": "Huge",
       "time": "9 PM - 4 AM",
-      "catchStartTime": [21],
-      "catchEndTime": [4],
+      "catchStartTime": [
+        21
+      ],
+      "catchEndTime": [
+        4
+      ],
       "monthsAvailable": {
-        "JAN": false,
-        "FEB": false,
-        "MAR": false,
-        "APR": true,
-        "MAY": true,
-        "JUN": true,
-        "JUL": true,
-        "AUG": true,
-        "SEP": true,
-        "OCT": true,
-        "NOV": false,
-        "DEC": false
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": false,
+        "dec": false
       },
       "rarity": 1,
       "rarityName": "Common",
@@ -412,21 +464,25 @@
       "shadowSize": 1,
       "shadowSizeName": "Tiny",
       "time": "All day",
-      "catchStartTime": [0],
-      "catchEndTime": [24],
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
       "monthsAvailable": {
-        "JAN": false,
-        "FEB": false,
-        "MAR": true,
-        "APR": true,
-        "MAY": true,
-        "JUN": true,
-        "JUL": true,
-        "AUG": false,
-        "SEP": false,
-        "OCT": false,
-        "NOV": false,
-        "DEC": false
+        "jan": false,
+        "feb": false,
+        "mar": true,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": false,
+        "sep": false,
+        "oct": false,
+        "nov": false,
+        "dec": false
       },
       "rarity": 1,
       "rarityName": "Common",
@@ -443,21 +499,25 @@
       "shadowSize": 2,
       "shadowSizeName": "Small",
       "time": "All day",
-      "catchStartTime": [0],
-      "catchEndTime": [24],
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
       "monthsAvailable": {
-        "JAN": false,
-        "FEB": false,
-        "MAR": false,
-        "APR": false,
-        "MAY": true,
-        "JUN": true,
-        "JUL": true,
-        "AUG": true,
-        "SEP": false,
-        "OCT": false,
-        "NOV": false,
-        "DEC": false
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": false,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": false,
+        "oct": false,
+        "nov": false,
+        "dec": false
       },
       "rarity": 1,
       "rarityName": "Common",
@@ -474,21 +534,25 @@
       "shadowSize": 2,
       "shadowSizeName": "Small",
       "time": "4 PM - 9 AM",
-      "catchStartTime": [16],
-      "catchEndTime": [9],
+      "catchStartTime": [
+        16
+      ],
+      "catchEndTime": [
+        9
+      ],
       "monthsAvailable": {
-        "JAN": true,
-        "FEB": true,
-        "MAR": true,
-        "APR": true,
-        "MAY": true,
-        "JUN": true,
-        "JUL": true,
-        "AUG": true,
-        "SEP": true,
-        "OCT": true,
-        "NOV": true,
-        "DEC": true
+        "jan": true,
+        "feb": true,
+        "mar": true,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": true,
+        "dec": true
       },
       "rarity": 1,
       "rarityName": "Common",
@@ -505,21 +569,25 @@
       "shadowSize": 2,
       "shadowSizeName": "Small",
       "time": "All day",
-      "catchStartTime": [0],
-      "catchEndTime": [24],
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
       "monthsAvailable": {
-        "JAN": false,
-        "FEB": false,
-        "MAR": true,
-        "APR": true,
-        "MAY": true,
-        "JUN": false,
-        "JUL": false,
-        "AUG": false,
-        "SEP": false,
-        "OCT": false,
-        "NOV": false,
-        "DEC": false
+        "jan": false,
+        "feb": false,
+        "mar": true,
+        "apr": true,
+        "may": true,
+        "jun": false,
+        "jul": false,
+        "aug": false,
+        "sep": false,
+        "oct": false,
+        "nov": false,
+        "dec": false
       },
       "rarity": 1,
       "rarityName": "Common",
@@ -536,21 +604,25 @@
       "shadowSize": 4,
       "shadowSizeName": "Large",
       "time": "4 PM - 9 AM",
-      "catchStartTime": [16],
-      "catchEndTime": [9],
+      "catchStartTime": [
+        16
+      ],
+      "catchEndTime": [
+        9
+      ],
       "monthsAvailable": {
-        "JAN": false,
-        "FEB": false,
-        "MAR": false,
-        "APR": false,
-        "MAY": true,
-        "JUN": true,
-        "JUL": true,
-        "AUG": true,
-        "SEP": true,
-        "OCT": true,
-        "NOV": false,
-        "DEC": false
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": false,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": false,
+        "dec": false
       },
       "rarity": 1,
       "rarityName": "Common",
@@ -567,21 +639,25 @@
       "shadowSize": 5,
       "shadowSizeName": "Huge",
       "time": "9 AM - 4 PM",
-      "catchStartTime": [9],
-      "catchEndTime": [16],
+      "catchStartTime": [
+        9
+      ],
+      "catchEndTime": [
+        16
+      ],
       "monthsAvailable": {
-        "JAN": false,
-        "FEB": false,
-        "MAR": false,
-        "APR": false,
-        "MAY": false,
-        "JUN": true,
-        "JUL": true,
-        "AUG": true,
-        "SEP": false,
-        "OCT": false,
-        "NOV": false,
-        "DEC": false
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": false,
+        "may": false,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": false,
+        "oct": false,
+        "nov": false,
+        "dec": false
       },
       "rarity": 1,
       "rarityName": "Common",
@@ -598,21 +674,25 @@
       "shadowSize": 2,
       "shadowSizeName": "Small",
       "time": "9 AM - 4 PM",
-      "catchStartTime": [9],
-      "catchEndTime": [16],
+      "catchStartTime": [
+        9
+      ],
+      "catchEndTime": [
+        16
+      ],
       "monthsAvailable": {
-        "JAN": true,
-        "FEB": true,
-        "MAR": true,
-        "APR": true,
-        "MAY": true,
-        "JUN": true,
-        "JUL": true,
-        "AUG": true,
-        "SEP": true,
-        "OCT": true,
-        "NOV": true,
-        "DEC": true
+        "jan": true,
+        "feb": true,
+        "mar": true,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": true,
+        "dec": true
       },
       "rarity": 1,
       "rarityName": "Common",
@@ -629,21 +709,25 @@
       "shadowSize": 3,
       "shadowSizeName": "Medium",
       "time": "All day",
-      "catchStartTime": [0],
-      "catchEndTime": [24],
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
       "monthsAvailable": {
-        "JAN": true,
-        "FEB": true,
-        "MAR": true,
-        "APR": false,
-        "MAY": false,
-        "JUN": false,
-        "JUL": false,
-        "AUG": false,
-        "SEP": false,
-        "OCT": true,
-        "NOV": true,
-        "DEC": true
+        "jan": true,
+        "feb": true,
+        "mar": true,
+        "apr": false,
+        "may": false,
+        "jun": false,
+        "jul": false,
+        "aug": false,
+        "sep": false,
+        "oct": true,
+        "nov": true,
+        "dec": true
       },
       "rarity": 1,
       "rarityName": "Common",
@@ -660,21 +744,25 @@
       "shadowSize": 4,
       "shadowSizeName": "Large",
       "time": "All day",
-      "catchStartTime": [0],
-      "catchEndTime": [24],
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
       "monthsAvailable": {
-        "JAN": true,
-        "FEB": true,
-        "MAR": true,
-        "APR": true,
-        "MAY": true,
-        "JUN": true,
-        "JUL": true,
-        "AUG": true,
-        "SEP": true,
-        "OCT": true,
-        "NOV": true,
-        "DEC": true
+        "jan": true,
+        "feb": true,
+        "mar": true,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": true,
+        "dec": true
       },
       "rarity": 1,
       "rarityName": "Common",
@@ -691,21 +779,25 @@
       "shadowSize": 3,
       "shadowSizeName": "Medium",
       "time": "All day",
-      "catchStartTime": [0],
-      "catchEndTime": [24],
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
       "monthsAvailable": {
-        "JAN": false,
-        "FEB": false,
-        "MAR": false,
-        "APR": false,
-        "MAY": false,
-        "JUN": true,
-        "JUL": true,
-        "AUG": true,
-        "SEP": true,
-        "OCT": true,
-        "NOV": false,
-        "DEC": false
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": false,
+        "may": false,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": false,
+        "dec": false
       },
       "rarity": 1,
       "rarityName": "Common",
@@ -722,21 +814,25 @@
       "shadowSize": 5,
       "shadowSizeName": "Huge",
       "time": "All day",
-      "catchStartTime": [0],
-      "catchEndTime": [24],
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
       "monthsAvailable": {
-        "JAN": false,
-        "FEB": false,
-        "MAR": false,
-        "APR": false,
-        "MAY": false,
-        "JUN": false,
-        "JUL": false,
-        "AUG": false,
-        "SEP": true,
-        "OCT": true,
-        "NOV": true,
-        "DEC": true
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": false,
+        "may": false,
+        "jun": false,
+        "jul": false,
+        "aug": false,
+        "sep": true,
+        "oct": true,
+        "nov": true,
+        "dec": true
       },
       "rarity": 1,
       "rarityName": "Common",
@@ -753,21 +849,25 @@
       "shadowSize": 2,
       "shadowSizeName": "Small",
       "time": "All day",
-      "catchStartTime": [0],
-      "catchEndTime": [24],
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
       "monthsAvailable": {
-        "JAN": true,
-        "FEB": true,
-        "MAR": false,
-        "APR": false,
-        "MAY": false,
-        "JUN": false,
-        "JUL": false,
-        "AUG": false,
-        "SEP": false,
-        "OCT": false,
-        "NOV": false,
-        "DEC": true
+        "jan": true,
+        "feb": true,
+        "mar": false,
+        "apr": false,
+        "may": false,
+        "jun": false,
+        "jul": false,
+        "aug": false,
+        "sep": false,
+        "oct": false,
+        "nov": false,
+        "dec": true
       },
       "rarity": 1,
       "rarityName": "Common",
@@ -784,21 +884,25 @@
       "shadowSize": 3,
       "shadowSizeName": "Medium",
       "time": "All day",
-      "catchStartTime": [0],
-      "catchEndTime": [24],
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
       "monthsAvailable": {
-        "JAN": false,
-        "FEB": false,
-        "MAR": false,
-        "APR": false,
-        "MAY": false,
-        "JUN": false,
-        "JUL": true,
-        "AUG": true,
-        "SEP": true,
-        "OCT": false,
-        "NOV": false,
-        "DEC": false
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": false,
+        "may": false,
+        "jun": false,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": false,
+        "nov": false,
+        "dec": false
       },
       "rarity": 1,
       "rarityName": "Common",
@@ -815,21 +919,25 @@
       "shadowSize": 3,
       "shadowSizeName": "Medium",
       "time": "4 PM - 9 AM",
-      "catchStartTime": [16],
-      "catchEndTime": [9],
+      "catchStartTime": [
+        16
+      ],
+      "catchEndTime": [
+        9
+      ],
       "monthsAvailable": {
-        "JAN": false,
-        "FEB": false,
-        "MAR": true,
-        "APR": true,
-        "MAY": true,
-        "JUN": true,
-        "JUL": false,
-        "AUG": false,
-        "SEP": true,
-        "OCT": true,
-        "NOV": true,
-        "DEC": false
+        "jan": false,
+        "feb": false,
+        "mar": true,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": false,
+        "aug": false,
+        "sep": true,
+        "oct": true,
+        "nov": true,
+        "dec": false
       },
       "rarity": 1,
       "rarityName": "Common",
@@ -846,21 +954,25 @@
       "shadowSize": 3,
       "shadowSizeName": "Medium",
       "time": "4 PM - 9 AM",
-      "catchStartTime": [16],
-      "catchEndTime": [9],
+      "catchStartTime": [
+        16
+      ],
+      "catchEndTime": [
+        9
+      ],
       "monthsAvailable": {
-        "JAN": false,
-        "FEB": false,
-        "MAR": true,
-        "APR": true,
-        "MAY": true,
-        "JUN": true,
-        "JUL": false,
-        "AUG": false,
-        "SEP": true,
-        "OCT": true,
-        "NOV": true,
-        "DEC": false
+        "jan": false,
+        "feb": false,
+        "mar": true,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": false,
+        "aug": false,
+        "sep": true,
+        "oct": true,
+        "nov": true,
+        "dec": false
       },
       "rarity": 1,
       "rarityName": "Common",
@@ -877,21 +989,25 @@
       "shadowSize": 3,
       "shadowSizeName": "Medium",
       "time": "4 PM - 9 AM",
-      "catchStartTime": [16],
-      "catchEndTime": [9],
+      "catchStartTime": [
+        16
+      ],
+      "catchEndTime": [
+        9
+      ],
       "monthsAvailable": {
-        "JAN": false,
-        "FEB": false,
-        "MAR": true,
-        "APR": true,
-        "MAY": true,
-        "JUN": false,
-        "JUL": false,
-        "AUG": false,
-        "SEP": true,
-        "OCT": true,
-        "NOV": true,
-        "DEC": false
+        "jan": false,
+        "feb": false,
+        "mar": true,
+        "apr": true,
+        "may": true,
+        "jun": false,
+        "jul": false,
+        "aug": false,
+        "sep": true,
+        "oct": true,
+        "nov": true,
+        "dec": false
       },
       "rarity": 1,
       "rarityName": "Common",
@@ -908,21 +1024,25 @@
       "shadowSize": 5,
       "shadowSizeName": "Huge",
       "time": "4 PM - 9 AM",
-      "catchStartTime": [16],
-      "catchEndTime": [9],
+      "catchStartTime": [
+        16
+      ],
+      "catchEndTime": [
+        9
+      ],
       "monthsAvailable": {
-        "JAN": true,
-        "FEB": true,
-        "MAR": true,
-        "APR": false,
-        "MAY": false,
-        "JUN": false,
-        "JUL": false,
-        "AUG": false,
-        "SEP": false,
-        "OCT": false,
-        "NOV": false,
-        "DEC": true
+        "jan": true,
+        "feb": true,
+        "mar": true,
+        "apr": false,
+        "may": false,
+        "jun": false,
+        "jul": false,
+        "aug": false,
+        "sep": false,
+        "oct": false,
+        "nov": false,
+        "dec": true
       },
       "rarity": 1,
       "rarityName": "Common",
@@ -939,21 +1059,25 @@
       "shadowSize": 4,
       "shadowSizeName": "Large",
       "time": "All day",
-      "catchStartTime": [0],
-      "catchEndTime": [24],
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
       "monthsAvailable": {
-        "JAN": false,
-        "FEB": false,
-        "MAR": false,
-        "APR": false,
-        "MAY": false,
-        "JUN": false,
-        "JUL": false,
-        "AUG": false,
-        "SEP": true,
-        "OCT": false,
-        "NOV": false,
-        "DEC": false
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": false,
+        "may": false,
+        "jun": false,
+        "jul": false,
+        "aug": false,
+        "sep": true,
+        "oct": false,
+        "nov": false,
+        "dec": false
       },
       "rarity": 1,
       "rarityName": "Common",
@@ -970,21 +1094,25 @@
       "shadowSize": 6,
       "shadowSizeName": "Gigantic",
       "time": "All day",
-      "catchStartTime": [0],
-      "catchEndTime": [24],
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
       "monthsAvailable": {
-        "JAN": false,
-        "FEB": false,
-        "MAR": false,
-        "APR": false,
-        "MAY": false,
-        "JUN": false,
-        "JUL": false,
-        "AUG": false,
-        "SEP": true,
-        "OCT": false,
-        "NOV": false,
-        "DEC": false
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": false,
+        "may": false,
+        "jun": false,
+        "jul": false,
+        "aug": false,
+        "sep": true,
+        "oct": false,
+        "nov": false,
+        "dec": false
       },
       "rarity": 1,
       "rarityName": "Common",
@@ -1001,21 +1129,25 @@
       "shadowSize": 2,
       "shadowSizeName": "Small",
       "time": "4 PM - 9 AM",
-      "catchStartTime": [16],
-      "catchEndTime": [9],
+      "catchStartTime": [
+        16
+      ],
+      "catchEndTime": [
+        9
+      ],
       "monthsAvailable": {
-        "JAN": false,
-        "FEB": false,
-        "MAR": false,
-        "APR": false,
-        "MAY": false,
-        "JUN": false,
-        "JUL": false,
-        "AUG": false,
-        "SEP": true,
-        "OCT": true,
-        "NOV": true,
-        "DEC": false
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": false,
+        "may": false,
+        "jun": false,
+        "jul": false,
+        "aug": false,
+        "sep": true,
+        "oct": true,
+        "nov": true,
+        "dec": false
       },
       "rarity": 1,
       "rarityName": "Common",
@@ -1032,21 +1164,25 @@
       "shadowSize": 1,
       "shadowSizeName": "Tiny",
       "time": "9 AM - 4 PM",
-      "catchStartTime": [9],
-      "catchEndTime": [16],
+      "catchStartTime": [
+        9
+      ],
+      "catchEndTime": [
+        16
+      ],
       "monthsAvailable": {
-        "JAN": false,
-        "FEB": false,
-        "MAR": false,
-        "APR": true,
-        "MAY": true,
-        "JUN": true,
-        "JUL": true,
-        "AUG": true,
-        "SEP": true,
-        "OCT": true,
-        "NOV": true,
-        "DEC": false
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": true,
+        "dec": false
       },
       "rarity": 1,
       "rarityName": "Common",
@@ -1063,21 +1199,25 @@
       "shadowSize": 1,
       "shadowSizeName": "Tiny",
       "time": "9 AM - 4 PM",
-      "catchStartTime": [9],
-      "catchEndTime": [16],
+      "catchStartTime": [
+        9
+      ],
+      "catchEndTime": [
+        16
+      ],
       "monthsAvailable": {
-        "JAN": false,
-        "FEB": false,
-        "MAR": false,
-        "APR": false,
-        "MAY": true,
-        "JUN": true,
-        "JUL": true,
-        "AUG": true,
-        "SEP": true,
-        "OCT": false,
-        "NOV": false,
-        "DEC": false
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": false,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": false,
+        "nov": false,
+        "dec": false
       },
       "rarity": 1,
       "rarityName": "Common",
@@ -1094,21 +1234,25 @@
       "shadowSize": 2,
       "shadowSizeName": "Small",
       "time": "4 PM - 9 AM",
-      "catchStartTime": [16],
-      "catchEndTime": [9],
+      "catchStartTime": [
+        16
+      ],
+      "catchEndTime": [
+        9
+      ],
       "monthsAvailable": {
-        "JAN": false,
-        "FEB": false,
-        "MAR": false,
-        "APR": false,
-        "MAY": true,
-        "JUN": true,
-        "JUL": true,
-        "AUG": true,
-        "SEP": true,
-        "OCT": true,
-        "NOV": false,
-        "DEC": false
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": false,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": false,
+        "dec": false
       },
       "rarity": 1,
       "rarityName": "Common",
@@ -1125,21 +1269,25 @@
       "shadowSize": 2,
       "shadowSizeName": "Small",
       "time": "9 AM - 4 PM",
-      "catchStartTime": [9],
-      "catchEndTime": [16],
+      "catchStartTime": [
+        9
+      ],
+      "catchEndTime": [
+        16
+      ],
       "monthsAvailable": {
-        "JAN": false,
-        "FEB": false,
-        "MAR": false,
-        "APR": false,
-        "MAY": true,
-        "JUN": true,
-        "JUL": true,
-        "AUG": true,
-        "SEP": true,
-        "OCT": true,
-        "NOV": false,
-        "DEC": false
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": false,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": false,
+        "dec": false
       },
       "rarity": 1,
       "rarityName": "Common",
@@ -1156,21 +1304,25 @@
       "shadowSize": 1,
       "shadowSizeName": "Tiny",
       "time": "9 AM - 4 PM",
-      "catchStartTime": [9],
-      "catchEndTime": [16],
+      "catchStartTime": [
+        9
+      ],
+      "catchEndTime": [
+        16
+      ],
       "monthsAvailable": {
-        "JAN": false,
-        "FEB": false,
-        "MAR": false,
-        "APR": true,
-        "MAY": true,
-        "JUN": true,
-        "JUL": true,
-        "AUG": true,
-        "SEP": true,
-        "OCT": true,
-        "NOV": true,
-        "DEC": false
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": true,
+        "dec": false
       },
       "rarity": 1,
       "rarityName": "Common",
@@ -1187,21 +1339,25 @@
       "shadowSize": 1,
       "shadowSizeName": "Tiny",
       "time": "9 AM - 4 PM",
-      "catchStartTime": [9],
-      "catchEndTime": [16],
+      "catchStartTime": [
+        9
+      ],
+      "catchEndTime": [
+        16
+      ],
       "monthsAvailable": {
-        "JAN": false,
-        "FEB": false,
-        "MAR": false,
-        "APR": false,
-        "MAY": true,
-        "JUN": true,
-        "JUL": true,
-        "AUG": true,
-        "SEP": true,
-        "OCT": true,
-        "NOV": false,
-        "DEC": false
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": false,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": false,
+        "dec": false
       },
       "rarity": 1,
       "rarityName": "Common",
@@ -1218,21 +1374,27 @@
       "shadowSize": 2,
       "shadowSizeName": "Small",
       "time": "9 AM - 4 PM & 9 PM - 4 AM",
-      "catchStartTime": [9, 21],
-      "catchEndTime": [16, 4],
+      "catchStartTime": [
+        9,
+        21
+      ],
+      "catchEndTime": [
+        16,
+        4
+      ],
       "monthsAvailable": {
-        "JAN": false,
-        "FEB": false,
-        "MAR": false,
-        "APR": false,
-        "MAY": false,
-        "JUN": true,
-        "JUL": true,
-        "AUG": true,
-        "SEP": true,
-        "OCT": false,
-        "NOV": false,
-        "DEC": false
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": false,
+        "may": false,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": false,
+        "nov": false,
+        "dec": false
       },
       "rarity": 1,
       "rarityName": "Common",
@@ -1249,21 +1411,25 @@
       "shadowSize": 4,
       "shadowSizeName": "Large",
       "time": "4 PM - 9 AM",
-      "catchStartTime": [16],
-      "catchEndTime": [9],
+      "catchStartTime": [
+        16
+      ],
+      "catchEndTime": [
+        9
+      ],
       "monthsAvailable": {
-        "JAN": false,
-        "FEB": false,
-        "MAR": false,
-        "APR": false,
-        "MAY": false,
-        "JUN": true,
-        "JUL": true,
-        "AUG": true,
-        "SEP": true,
-        "OCT": false,
-        "NOV": false,
-        "DEC": false
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": false,
+        "may": false,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": false,
+        "nov": false,
+        "dec": false
       },
       "rarity": 1,
       "rarityName": "Common",
@@ -1280,21 +1446,25 @@
       "shadowSize": 5,
       "shadowSizeName": "Huge",
       "time": "4 AM - 9 PM",
-      "catchStartTime": [4],
-      "catchEndTime": [21],
+      "catchStartTime": [
+        4
+      ],
+      "catchEndTime": [
+        21
+      ],
       "monthsAvailable": {
-        "JAN": false,
-        "FEB": false,
-        "MAR": false,
-        "APR": false,
-        "MAY": false,
-        "JUN": true,
-        "JUL": true,
-        "AUG": true,
-        "SEP": true,
-        "OCT": false,
-        "NOV": false,
-        "DEC": false
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": false,
+        "may": false,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": false,
+        "nov": false,
+        "dec": false
       },
       "rarity": 1,
       "rarityName": "Common",
@@ -1311,21 +1481,25 @@
       "shadowSize": 6,
       "shadowSizeName": "Gigantic",
       "time": "4 PM - 9 AM",
-      "catchStartTime": [16],
-      "catchEndTime": [9],
+      "catchStartTime": [
+        16
+      ],
+      "catchEndTime": [
+        9
+      ],
       "monthsAvailable": {
-        "JAN": false,
-        "FEB": false,
-        "MAR": false,
-        "APR": false,
-        "MAY": false,
-        "JUN": true,
-        "JUL": true,
-        "AUG": true,
-        "SEP": true,
-        "OCT": false,
-        "NOV": false,
-        "DEC": false
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": false,
+        "may": false,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": false,
+        "nov": false,
+        "dec": false
       },
       "rarity": 1,
       "rarityName": "Common",
@@ -1342,21 +1516,25 @@
       "shadowSize": 6,
       "shadowSizeName": "Gigantic",
       "time": "4 PM - 9 AM",
-      "catchStartTime": [16],
-      "catchEndTime": [9],
+      "catchStartTime": [
+        16
+      ],
+      "catchEndTime": [
+        9
+      ],
       "monthsAvailable": {
-        "JAN": false,
-        "FEB": false,
-        "MAR": false,
-        "APR": false,
-        "MAY": false,
-        "JUN": true,
-        "JUL": true,
-        "AUG": true,
-        "SEP": true,
-        "OCT": false,
-        "NOV": false,
-        "DEC": false
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": false,
+        "may": false,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": false,
+        "nov": false,
+        "dec": false
       },
       "rarity": 1,
       "rarityName": "Common",
@@ -1373,21 +1551,25 @@
       "shadowSize": 4,
       "shadowSizeName": "Large",
       "time": "9 PM - 4 AM",
-      "catchStartTime": [21],
-      "catchEndTime": [4],
+      "catchStartTime": [
+        21
+      ],
+      "catchEndTime": [
+        4
+      ],
       "monthsAvailable": {
-        "JAN": false,
-        "FEB": false,
-        "MAR": false,
-        "APR": false,
-        "MAY": false,
-        "JUN": true,
-        "JUL": true,
-        "AUG": true,
-        "SEP": true,
-        "OCT": false,
-        "NOV": false,
-        "DEC": false
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": false,
+        "may": false,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": false,
+        "nov": false,
+        "dec": false
       },
       "rarity": 1,
       "rarityName": "Common",
@@ -1404,21 +1586,25 @@
       "shadowSize": 6,
       "shadowSizeName": "Gigantic",
       "time": "All day",
-      "catchStartTime": [0],
-      "catchEndTime": [24],
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
       "monthsAvailable": {
-        "JAN": true,
-        "FEB": true,
-        "MAR": true,
-        "APR": false,
-        "MAY": false,
-        "JUN": false,
-        "JUL": false,
-        "AUG": false,
-        "SEP": true,
-        "OCT": true,
-        "NOV": true,
-        "DEC": true
+        "jan": true,
+        "feb": true,
+        "mar": true,
+        "apr": false,
+        "may": false,
+        "jun": false,
+        "jul": false,
+        "aug": false,
+        "sep": true,
+        "oct": true,
+        "nov": true,
+        "dec": true
       },
       "rarity": 1,
       "rarityName": "Common",
@@ -1435,21 +1621,25 @@
       "shadowSize": 1,
       "shadowSizeName": "Tiny",
       "time": "All day",
-      "catchStartTime": [0],
-      "catchEndTime": [24],
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
       "monthsAvailable": {
-        "JAN": true,
-        "FEB": true,
-        "MAR": true,
-        "APR": false,
-        "MAY": false,
-        "JUN": false,
-        "JUL": false,
-        "AUG": false,
-        "SEP": false,
-        "OCT": false,
-        "NOV": false,
-        "DEC": true
+        "jan": true,
+        "feb": true,
+        "mar": true,
+        "apr": false,
+        "may": false,
+        "jun": false,
+        "jul": false,
+        "aug": false,
+        "sep": false,
+        "oct": false,
+        "nov": false,
+        "dec": true
       },
       "rarity": 1,
       "rarityName": "Common",
@@ -1466,21 +1656,25 @@
       "shadowSize": 1,
       "shadowSizeName": "Tiny",
       "time": "All day",
-      "catchStartTime": [0],
-      "catchEndTime": [24],
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
       "monthsAvailable": {
-        "JAN": false,
-        "FEB": false,
-        "MAR": false,
-        "APR": true,
-        "MAY": true,
-        "JUN": true,
-        "JUL": true,
-        "AUG": true,
-        "SEP": true,
-        "OCT": true,
-        "NOV": true,
-        "DEC": false
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": true,
+        "dec": false
       },
       "rarity": 1,
       "rarityName": "Common",
@@ -1497,21 +1691,25 @@
       "shadowSize": 1,
       "shadowSizeName": "Tiny",
       "time": "All day",
-      "catchStartTime": [0],
-      "catchEndTime": [24],
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
       "monthsAvailable": {
-        "JAN": false,
-        "FEB": false,
-        "MAR": false,
-        "APR": true,
-        "MAY": true,
-        "JUN": true,
-        "JUL": true,
-        "AUG": true,
-        "SEP": true,
-        "OCT": false,
-        "NOV": false,
-        "DEC": false
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": false,
+        "nov": false,
+        "dec": false
       },
       "rarity": 1,
       "rarityName": "Common",
@@ -1528,21 +1726,25 @@
       "shadowSize": 2,
       "shadowSizeName": "Small",
       "time": "All day",
-      "catchStartTime": [0],
-      "catchEndTime": [24],
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
       "monthsAvailable": {
-        "JAN": false,
-        "FEB": false,
-        "MAR": false,
-        "APR": true,
-        "MAY": true,
-        "JUN": true,
-        "JUL": true,
-        "AUG": true,
-        "SEP": true,
-        "OCT": false,
-        "NOV": false,
-        "DEC": false
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": false,
+        "nov": false,
+        "dec": false
       },
       "rarity": 1,
       "rarityName": "Common",
@@ -1559,21 +1761,25 @@
       "shadowSize": 2,
       "shadowSizeName": "Small",
       "time": "All day",
-      "catchStartTime": [0],
-      "catchEndTime": [24],
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
       "monthsAvailable": {
-        "JAN": false,
-        "FEB": false,
-        "MAR": false,
-        "APR": true,
-        "MAY": true,
-        "JUN": true,
-        "JUL": true,
-        "AUG": true,
-        "SEP": true,
-        "OCT": false,
-        "NOV": false,
-        "DEC": false
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": false,
+        "nov": false,
+        "dec": false
       },
       "rarity": 1,
       "rarityName": "Common",
@@ -1590,21 +1796,25 @@
       "shadowSize": 6,
       "shadowSizeName": "Gigantic",
       "time": "4 AM - 9 PM",
-      "catchStartTime": [4],
-      "catchEndTime": [21],
+      "catchStartTime": [
+        4
+      ],
+      "catchEndTime": [
+        21
+      ],
       "monthsAvailable": {
-        "JAN": false,
-        "FEB": false,
-        "MAR": false,
-        "APR": false,
-        "MAY": false,
-        "JUN": false,
-        "JUL": true,
-        "AUG": true,
-        "SEP": false,
-        "OCT": false,
-        "NOV": false,
-        "DEC": false
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": false,
+        "may": false,
+        "jun": false,
+        "jul": true,
+        "aug": true,
+        "sep": false,
+        "oct": false,
+        "nov": false,
+        "dec": false
       },
       "rarity": 1,
       "rarityName": "Common",
@@ -1621,21 +1831,25 @@
       "shadowSize": 3,
       "shadowSizeName": "Medium",
       "time": "All day",
-      "catchStartTime": [0],
-      "catchEndTime": [24],
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
       "monthsAvailable": {
-        "JAN": false,
-        "FEB": false,
-        "MAR": false,
-        "APR": true,
-        "MAY": true,
-        "JUN": true,
-        "JUL": true,
-        "AUG": true,
-        "SEP": true,
-        "OCT": true,
-        "NOV": true,
-        "DEC": false
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": true,
+        "dec": false
       },
       "rarity": 1,
       "rarityName": "Common",
@@ -1652,21 +1866,25 @@
       "shadowSize": 3,
       "shadowSizeName": "Medium",
       "time": "9 PM - 4 AM",
-      "catchStartTime": [21],
-      "catchEndTime": [4],
+      "catchStartTime": [
+        21
+      ],
+      "catchEndTime": [
+        4
+      ],
       "monthsAvailable": {
-        "JAN": true,
-        "FEB": true,
-        "MAR": false,
-        "APR": false,
-        "MAY": false,
-        "JUN": false,
-        "JUL": false,
-        "AUG": false,
-        "SEP": false,
-        "OCT": false,
-        "NOV": true,
-        "DEC": true
+        "jan": true,
+        "feb": true,
+        "mar": false,
+        "apr": false,
+        "may": false,
+        "jun": false,
+        "jul": false,
+        "aug": false,
+        "sep": false,
+        "oct": false,
+        "nov": true,
+        "dec": true
       },
       "rarity": 1,
       "rarityName": "Common",
@@ -1683,21 +1901,25 @@
       "shadowSize": 3,
       "shadowSizeName": "Medium",
       "time": "All day",
-      "catchStartTime": [0],
-      "catchEndTime": [24],
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
       "monthsAvailable": {
-        "JAN": false,
-        "FEB": false,
-        "MAR": false,
-        "APR": false,
-        "MAY": false,
-        "JUN": false,
-        "JUL": true,
-        "AUG": true,
-        "SEP": true,
-        "OCT": false,
-        "NOV": false,
-        "DEC": false
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": false,
+        "may": false,
+        "jun": false,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": false,
+        "nov": false,
+        "dec": false
       },
       "rarity": 1,
       "rarityName": "Common",
@@ -1714,21 +1936,25 @@
       "shadowSize": 2,
       "shadowSizeName": "Small",
       "time": "4 AM - 9 PM",
-      "catchStartTime": [4],
-      "catchEndTime": [21],
+      "catchStartTime": [
+        4
+      ],
+      "catchEndTime": [
+        21
+      ],
       "monthsAvailable": {
-        "JAN": true,
-        "FEB": true,
-        "MAR": true,
-        "APR": true,
-        "MAY": true,
-        "JUN": true,
-        "JUL": true,
-        "AUG": true,
-        "SEP": true,
-        "OCT": true,
-        "NOV": true,
-        "DEC": true
+        "jan": true,
+        "feb": true,
+        "mar": true,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": true,
+        "dec": true
       },
       "rarity": 1,
       "rarityName": "Common",
@@ -1745,21 +1971,25 @@
       "shadowSize": 2,
       "shadowSizeName": "Small",
       "time": "All day",
-      "catchStartTime": [0],
-      "catchEndTime": [24],
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
       "monthsAvailable": {
-        "JAN": true,
-        "FEB": true,
-        "MAR": true,
-        "APR": true,
-        "MAY": true,
-        "JUN": true,
-        "JUL": true,
-        "AUG": true,
-        "SEP": true,
-        "OCT": true,
-        "NOV": true,
-        "DEC": true
+        "jan": true,
+        "feb": true,
+        "mar": true,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": true,
+        "dec": true
       },
       "rarity": 1,
       "rarityName": "Common",
@@ -1776,21 +2006,25 @@
       "shadowSize": 3,
       "shadowSizeName": "Medium",
       "time": "All day",
-      "catchStartTime": [0],
-      "catchEndTime": [24],
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
       "monthsAvailable": {
-        "JAN": false,
-        "FEB": false,
-        "MAR": true,
-        "APR": true,
-        "MAY": true,
-        "JUN": true,
-        "JUL": true,
-        "AUG": true,
-        "SEP": true,
-        "OCT": true,
-        "NOV": true,
-        "DEC": false
+        "jan": false,
+        "feb": false,
+        "mar": true,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": true,
+        "dec": false
       },
       "rarity": 1,
       "rarityName": "Common",
@@ -1807,21 +2041,25 @@
       "shadowSize": 5,
       "shadowSizeName": "Huge",
       "time": "All day",
-      "catchStartTime": [0],
-      "catchEndTime": [24],
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
       "monthsAvailable": {
-        "JAN": true,
-        "FEB": true,
-        "MAR": true,
-        "APR": true,
-        "MAY": true,
-        "JUN": true,
-        "JUL": true,
-        "AUG": true,
-        "SEP": true,
-        "OCT": true,
-        "NOV": true,
-        "DEC": true
+        "jan": true,
+        "feb": true,
+        "mar": true,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": true,
+        "dec": true
       },
       "rarity": 1,
       "rarityName": "Common",
@@ -1838,21 +2076,25 @@
       "shadowSize": 4,
       "shadowSizeName": "Large",
       "time": "All day",
-      "catchStartTime": [0],
-      "catchEndTime": [24],
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
       "monthsAvailable": {
-        "JAN": true,
-        "FEB": true,
-        "MAR": true,
-        "APR": true,
-        "MAY": true,
-        "JUN": true,
-        "JUL": true,
-        "AUG": true,
-        "SEP": true,
-        "OCT": true,
-        "NOV": true,
-        "DEC": true
+        "jan": true,
+        "feb": true,
+        "mar": true,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": true,
+        "dec": true
       },
       "rarity": 1,
       "rarityName": "Common",
@@ -1869,21 +2111,25 @@
       "shadowSize": 3,
       "shadowSizeName": "Medium",
       "time": "All day",
-      "catchStartTime": [0],
-      "catchEndTime": [24],
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
       "monthsAvailable": {
-        "JAN": true,
-        "FEB": true,
-        "MAR": true,
-        "APR": true,
-        "MAY": false,
-        "JUN": false,
-        "JUL": false,
-        "AUG": false,
-        "SEP": false,
-        "OCT": true,
-        "NOV": true,
-        "DEC": true
+        "jan": true,
+        "feb": true,
+        "mar": true,
+        "apr": true,
+        "may": false,
+        "jun": false,
+        "jul": false,
+        "aug": false,
+        "sep": false,
+        "oct": true,
+        "nov": true,
+        "dec": true
       },
       "rarity": 1,
       "rarityName": "Common",
@@ -1900,21 +2146,25 @@
       "shadowSize": 5,
       "shadowSizeName": "Huge",
       "time": "All day",
-      "catchStartTime": [0],
-      "catchEndTime": [24],
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
       "monthsAvailable": {
-        "JAN": true,
-        "FEB": true,
-        "MAR": true,
-        "APR": true,
-        "MAY": true,
-        "JUN": true,
-        "JUL": true,
-        "AUG": true,
-        "SEP": true,
-        "OCT": true,
-        "NOV": true,
-        "DEC": true
+        "jan": true,
+        "feb": true,
+        "mar": true,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": true,
+        "dec": true
       },
       "rarity": 1,
       "rarityName": "Common",
@@ -1931,21 +2181,25 @@
       "shadowSize": 3,
       "shadowSizeName": "Medium",
       "time": "All day",
-      "catchStartTime": [0],
-      "catchEndTime": [24],
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
       "monthsAvailable": {
-        "JAN": true,
-        "FEB": true,
-        "MAR": true,
-        "APR": true,
-        "MAY": true,
-        "JUN": true,
-        "JUL": true,
-        "AUG": true,
-        "SEP": false,
-        "OCT": false,
-        "NOV": false,
-        "DEC": true
+        "jan": true,
+        "feb": true,
+        "mar": true,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": false,
+        "oct": false,
+        "nov": false,
+        "dec": true
       },
       "rarity": 1,
       "rarityName": "Common",
@@ -1962,21 +2216,25 @@
       "shadowSize": 7,
       "shadowSizeName": "Narrow",
       "time": "All day",
-      "catchStartTime": [0],
-      "catchEndTime": [24],
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
       "monthsAvailable": {
-        "JAN": false,
-        "FEB": false,
-        "MAR": false,
-        "APR": false,
-        "MAY": false,
-        "JUN": false,
-        "JUL": false,
-        "AUG": true,
-        "SEP": true,
-        "OCT": true,
-        "NOV": false,
-        "DEC": false
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": false,
+        "may": false,
+        "jun": false,
+        "jul": false,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": false,
+        "dec": false
       },
       "rarity": 1,
       "rarityName": "Common",
@@ -1993,21 +2251,25 @@
       "shadowSize": 7,
       "shadowSizeName": "Narrow",
       "time": "All day",
-      "catchStartTime": [0],
-      "catchEndTime": [24],
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
       "monthsAvailable": {
-        "JAN": false,
-        "FEB": false,
-        "MAR": false,
-        "APR": false,
-        "MAY": false,
-        "JUN": true,
-        "JUL": true,
-        "AUG": true,
-        "SEP": true,
-        "OCT": true,
-        "NOV": false,
-        "DEC": false
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": false,
+        "may": false,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": false,
+        "dec": false
       },
       "rarity": 1,
       "rarityName": "Common",
@@ -2024,21 +2286,25 @@
       "shadowSize": 6,
       "shadowSizeName": "Gigantic",
       "time": "All day",
-      "catchStartTime": [0],
-      "catchEndTime": [24],
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
       "monthsAvailable": {
-        "JAN": true,
-        "FEB": true,
-        "MAR": true,
-        "APR": true,
-        "MAY": false,
-        "JUN": false,
-        "JUL": false,
-        "AUG": false,
-        "SEP": false,
-        "OCT": false,
-        "NOV": true,
-        "DEC": true
+        "jan": true,
+        "feb": true,
+        "mar": true,
+        "apr": true,
+        "may": false,
+        "jun": false,
+        "jul": false,
+        "aug": false,
+        "sep": false,
+        "oct": false,
+        "nov": true,
+        "dec": true
       },
       "rarity": 1,
       "rarityName": "Common",
@@ -2055,21 +2321,25 @@
       "shadowSize": 6,
       "shadowSizeName": "Gigantic",
       "time": "All day",
-      "catchStartTime": [0],
-      "catchEndTime": [24],
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
       "monthsAvailable": {
-        "JAN": true,
-        "FEB": true,
-        "MAR": true,
-        "APR": true,
-        "MAY": false,
-        "JUN": false,
-        "JUL": true,
-        "AUG": true,
-        "SEP": true,
-        "OCT": false,
-        "NOV": true,
-        "DEC": true
+        "jan": true,
+        "feb": true,
+        "mar": true,
+        "apr": true,
+        "may": false,
+        "jun": false,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": false,
+        "nov": true,
+        "dec": true
       },
       "rarity": 1,
       "rarityName": "Common",
@@ -2086,21 +2356,25 @@
       "shadowSize": 5,
       "shadowSizeName": "Huge",
       "time": "All day",
-      "catchStartTime": [0],
-      "catchEndTime": [24],
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
       "monthsAvailable": {
-        "JAN": false,
-        "FEB": false,
-        "MAR": false,
-        "APR": false,
-        "MAY": true,
-        "JUN": true,
-        "JUL": true,
-        "AUG": true,
-        "SEP": true,
-        "OCT": true,
-        "NOV": false,
-        "DEC": false
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": false,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": false,
+        "dec": false
       },
       "rarity": 1,
       "rarityName": "Common",
@@ -2117,21 +2391,25 @@
       "shadowSize": 5,
       "shadowSizeName": "Huge",
       "time": "All day",
-      "catchStartTime": [0],
-      "catchEndTime": [24],
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
       "monthsAvailable": {
-        "JAN": false,
-        "FEB": false,
-        "MAR": false,
-        "APR": false,
-        "MAY": true,
-        "JUN": true,
-        "JUL": true,
-        "AUG": true,
-        "SEP": true,
-        "OCT": true,
-        "NOV": false,
-        "DEC": false
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": false,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": false,
+        "dec": false
       },
       "rarity": 1,
       "rarityName": "Common",
@@ -2148,21 +2426,25 @@
       "shadowSize": 6,
       "shadowSizeName": "Gigantic",
       "time": "4 AM - 9 PM",
-      "catchStartTime": [4],
-      "catchEndTime": [21],
+      "catchStartTime": [
+        4
+      ],
+      "catchEndTime": [
+        21
+      ],
       "monthsAvailable": {
-        "JAN": false,
-        "FEB": false,
-        "MAR": false,
-        "APR": false,
-        "MAY": false,
-        "JUN": false,
-        "JUL": true,
-        "AUG": true,
-        "SEP": true,
-        "OCT": false,
-        "NOV": false,
-        "DEC": false
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": false,
+        "may": false,
+        "jun": false,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": false,
+        "nov": false,
+        "dec": false
       },
       "rarity": 1,
       "rarityName": "Common",
@@ -2179,21 +2461,25 @@
       "shadowSize": 5,
       "shadowSizeName": "Huge",
       "time": "4 AM - 9 PM",
-      "catchStartTime": [4],
-      "catchEndTime": [21],
+      "catchStartTime": [
+        4
+      ],
+      "catchEndTime": [
+        21
+      ],
       "monthsAvailable": {
-        "JAN": false,
-        "FEB": false,
-        "MAR": false,
-        "APR": false,
-        "MAY": false,
-        "JUN": false,
-        "JUL": false,
-        "AUG": true,
-        "SEP": true,
-        "OCT": true,
-        "NOV": true,
-        "DEC": false
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": false,
+        "may": false,
+        "jun": false,
+        "jul": false,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": true,
+        "dec": false
       },
       "rarity": 1,
       "rarityName": "Common",
@@ -2210,21 +2496,25 @@
       "shadowSize": 6,
       "shadowSizeName": "Gigantic",
       "time": "4 PM - 9 AM",
-      "catchStartTime": [16],
-      "catchEndTime": [9],
+      "catchStartTime": [
+        16
+      ],
+      "catchEndTime": [
+        9
+      ],
       "monthsAvailable": {
-        "JAN": false,
-        "FEB": false,
-        "MAR": false,
-        "APR": false,
-        "MAY": false,
-        "JUN": true,
-        "JUL": true,
-        "AUG": true,
-        "SEP": true,
-        "OCT": false,
-        "NOV": false,
-        "DEC": false
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": false,
+        "may": false,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": false,
+        "nov": false,
+        "dec": false
       },
       "rarity": 1,
       "rarityName": "Common",
@@ -2241,21 +2531,25 @@
       "shadowSize": 6,
       "shadowSizeName": "Gigantic",
       "time": "4 PM - 9 AM",
-      "catchStartTime": [16],
-      "catchEndTime": [9],
+      "catchStartTime": [
+        16
+      ],
+      "catchEndTime": [
+        9
+      ],
       "monthsAvailable": {
-        "JAN": false,
-        "FEB": false,
-        "MAR": false,
-        "APR": false,
-        "MAY": false,
-        "JUN": true,
-        "JUL": true,
-        "AUG": true,
-        "SEP": true,
-        "OCT": false,
-        "NOV": false,
-        "DEC": false
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": false,
+        "may": false,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": false,
+        "nov": false,
+        "dec": false
       },
       "rarity": 1,
       "rarityName": "Common",
@@ -2272,21 +2566,25 @@
       "shadowSize": 6,
       "shadowSizeName": "Gigantic",
       "time": "4 PM - 9 AM",
-      "catchStartTime": [16],
-      "catchEndTime": [9],
+      "catchStartTime": [
+        16
+      ],
+      "catchEndTime": [
+        9
+      ],
       "monthsAvailable": {
-        "JAN": false,
-        "FEB": false,
-        "MAR": false,
-        "APR": false,
-        "MAY": false,
-        "JUN": true,
-        "JUL": true,
-        "AUG": true,
-        "SEP": true,
-        "OCT": false,
-        "NOV": false,
-        "DEC": false
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": false,
+        "may": false,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": false,
+        "nov": false,
+        "dec": false
       },
       "rarity": 1,
       "rarityName": "Common",
@@ -2303,21 +2601,25 @@
       "shadowSize": 6,
       "shadowSizeName": "Gigantic",
       "time": "All day",
-      "catchStartTime": [0],
-      "catchEndTime": [24],
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
       "monthsAvailable": {
-        "JAN": false,
-        "FEB": false,
-        "MAR": false,
-        "APR": false,
-        "MAY": false,
-        "JUN": true,
-        "JUL": true,
-        "AUG": true,
-        "SEP": true,
-        "OCT": false,
-        "NOV": false,
-        "DEC": false
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": false,
+        "may": false,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": false,
+        "nov": false,
+        "dec": false
       },
       "rarity": 1,
       "rarityName": "Common",
@@ -2334,21 +2636,25 @@
       "shadowSize": 4,
       "shadowSizeName": "Large",
       "time": "All day",
-      "catchStartTime": [0],
-      "catchEndTime": [24],
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
       "monthsAvailable": {
-        "JAN": false,
-        "FEB": false,
-        "MAR": false,
-        "APR": false,
-        "MAY": false,
-        "JUN": true,
-        "JUL": true,
-        "AUG": true,
-        "SEP": true,
-        "OCT": false,
-        "NOV": false,
-        "DEC": false
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": false,
+        "may": false,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": false,
+        "nov": false,
+        "dec": false
       },
       "rarity": 1,
       "rarityName": "Common",
@@ -2365,21 +2671,25 @@
       "shadowSize": 4,
       "shadowSizeName": "Large",
       "time": "4 PM - 9 AM",
-      "catchStartTime": [16],
-      "catchEndTime": [9],
+      "catchStartTime": [
+        16
+      ],
+      "catchEndTime": [
+        9
+      ],
       "monthsAvailable": {
-        "JAN": true,
-        "FEB": true,
-        "MAR": true,
-        "APR": false,
-        "MAY": false,
-        "JUN": false,
-        "JUL": false,
-        "AUG": false,
-        "SEP": false,
-        "OCT": false,
-        "NOV": true,
-        "DEC": true
+        "jan": true,
+        "feb": true,
+        "mar": true,
+        "apr": false,
+        "may": false,
+        "jun": false,
+        "jul": false,
+        "aug": false,
+        "sep": false,
+        "oct": false,
+        "nov": true,
+        "dec": true
       },
       "rarity": 1,
       "rarityName": "Common",
@@ -2396,21 +2706,25 @@
       "shadowSize": 6,
       "shadowSizeName": "Gigantic",
       "time": "All day",
-      "catchStartTime": [0],
-      "catchEndTime": [24],
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
       "monthsAvailable": {
-        "JAN": true,
-        "FEB": true,
-        "MAR": true,
-        "APR": true,
-        "MAY": true,
-        "JUN": false,
-        "JUL": false,
-        "AUG": false,
-        "SEP": false,
-        "OCT": false,
-        "NOV": false,
-        "DEC": true
+        "jan": true,
+        "feb": true,
+        "mar": true,
+        "apr": true,
+        "may": true,
+        "jun": false,
+        "jul": false,
+        "aug": false,
+        "sep": false,
+        "oct": false,
+        "nov": false,
+        "dec": true
       },
       "rarity": 1,
       "rarityName": "Common",
@@ -2427,21 +2741,25 @@
       "shadowSize": 2,
       "shadowSizeName": "Small",
       "time": "9 PM - 4 AM",
-      "catchStartTime": [21],
-      "catchEndTime": [4],
+      "catchStartTime": [
+        21
+      ],
+      "catchEndTime": [
+        4
+      ],
       "monthsAvailable": {
-        "JAN": true,
-        "FEB": true,
-        "MAR": true,
-        "APR": true,
-        "MAY": true,
-        "JUN": true,
-        "JUL": true,
-        "AUG": true,
-        "SEP": true,
-        "OCT": true,
-        "NOV": true,
-        "DEC": true
+        "jan": true,
+        "feb": true,
+        "mar": true,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": true,
+        "dec": true
       },
       "rarity": 1,
       "rarityName": "Common",
@@ -2458,21 +2776,25 @@
       "shadowSize": 6,
       "shadowSizeName": "Gigantic",
       "time": "All day",
-      "catchStartTime": [0],
-      "catchEndTime": [24],
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
       "monthsAvailable": {
-        "JAN": true,
-        "FEB": true,
-        "MAR": true,
-        "APR": true,
-        "MAY": true,
-        "JUN": true,
-        "JUL": true,
-        "AUG": true,
-        "SEP": true,
-        "OCT": true,
-        "NOV": true,
-        "DEC": true
+        "jan": true,
+        "feb": true,
+        "mar": true,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": true,
+        "dec": true
       },
       "rarity": 1,
       "rarityName": "Common",
