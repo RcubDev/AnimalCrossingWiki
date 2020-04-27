@@ -5,38 +5,40 @@ import fish from '../../data/fish.json'
 import { Col, Row, Grid } from 'react-native-easy-grid';
 import { Container, Content, Card, CardItem, Body, H1, Header, Item, Icon, Input, Button } from 'native-base';
 import { ScrollView, FlatList } from 'react-native-gesture-handler';
-import { FishModel } from '../../models/models';
+import { CritterCollectionModel } from '../../models/models';
 import { FishGridItem } from './FishGridItem'
 import { AppLoading } from 'expo';
 import styles from './FishScreen.styles';
 import { FishScreenProps } from '../../models/FishScreen/FishScreenProps';
 import { FishScreenState } from '../../models/FishScreen/FishScreenState';
-import { FishCardModel } from '../../models/FishScreen/FishCardModel';
+import { CritterCollectionCardModel } from '../../models/FishScreen/FishCardModel';
 import { connect } from 'react-redux';
-import {bindActionCreators} from 'redux'
 import { updateFishCaught, updateFishDonated } from '../Redux/CollectionActions';
+import { Fish } from '../../models/fish';
+import { filterCollectionByTextSpecial } from '../Filter/Filter';
 
-//let items: Array<FishCardModel> = fish.map(x => { return { fish:x, caught: false, donated: false} } );
 
 class FishScreen extends Component<FishScreenProps, FishScreenState> {
     focusListener: any;
     constructor(props: FishScreenProps){
-        super(props);
+        super(props);        
         this.state = {
             isReady: false,
-            fishList: this.props.collections.fish
+            fishList: this.filterFishByText("filter:name%bar|(name=koi|name=pale chub&(value>=200))")
+            //name%bar|(name=koi|name=pale chub&(value=200))
+            //name%bar|(name=koi|name=pale chub)
+            //(name%bar|value=1000)&value=900 - GOOD
+            //(name%bar|value=1000)&(value=900|name=koi)  - GOOD   
+            //(name%bar&value=5000)|(value=900|name=koi)|(name=pale chub&name=black bass) - GOOD
+            //(value>=1000&value<=10000)&(name%a) - GOOD
+            //((value>=1000&value<=10000)&(name%a))&(name=Barred Knifejaw) - GOOD
+            //(value>=1000&value<=10000)&name%a - GOOD
         }
+        console.log(this.state.fishList);
     }
-
-    UpdateState(){
-        this.setState({fishList: this.props.collections.fish});
-    };
 
     async componentDidMount() {
         this.setState({ isReady: true });
-        this.props.navigation.addListener('didFocus', () => {
-            console.log('here');
-        });
     }
 
     SetItemCaught = (caught: boolean, index: number) => {
@@ -44,11 +46,40 @@ class FishScreen extends Component<FishScreenProps, FishScreenState> {
         this.props.updateFishCaught({caught, index});
     }
 
-
     SetItemDonated = (donated: boolean, index: number) => {
         console.log('donated');
         this.props.updateFishDonated({donated, index});
     }
+
+    filterFishByText(text:string): Array<CritterCollectionCardModel>  {
+        
+        var allFish = this.props.collections.collection
+        //read text until key word -- if no key words involved assume name
+        let fishArray: Array<CritterCollectionCardModel> = [];
+        let filterSpecial = text.includes("filter:");
+        debugger;        
+        
+        if(filterSpecial){
+            try{
+                //Check matching parens before doing this. If they're not matching return no fish.
+                fishArray = filterCollectionByTextSpecial(text.substr(7), this.props.collections.collection);
+            }
+            catch(err){
+                console.error(err);
+                console.error('an error occured parsing your filter text. Check your parenthesis.');
+                fishArray = [];
+            }
+            
+        }
+        else{
+            fishArray = allFish.filter(x => x.collection.name.toLowerCase().includes(text));              
+            
+        }
+        return fishArray;
+    }    
+
+    
+    //End Region
 
     render(){
         if (!this.state.isReady) {
@@ -59,18 +90,20 @@ class FishScreen extends Component<FishScreenProps, FishScreenState> {
                     <Header searchBar rounded>
                         <Item>
                            <Icon name="ios-search"></Icon> 
-                           <Input placeholder="Search"></Input>                           
+                           <Input placeholder="Search" onChangeText={text => this.filterFishByText(text)}></Input>                           
                         </Item>
                         <Button transparent>
                             <Text>Advanced</Text>
                         </Button>
                     </Header>
                         <FlatList
-                            data={this.props.collections.fish}
-                            renderItem={({ item, index }: {item: FishCardModel, index: number}) => <FishGridItem model={item} index={index} nav={this.props.navigation} 
+                            data={this.state.fishList}
+                            renderItem={({ item, index }: {item: CritterCollectionCardModel, index: number}) => <FishGridItem model={item} index={index} nav={this.props.navigation} 
                                             updateFishCaught={this.SetItemCaught} updateFishDonated={this.SetItemDonated} />}                            
-                            numColumns={Platform.OS !== 'web' ? 3 : 5}
+                            numColumns={4}
                             keyExtractor={(item, index) => index.toString()}
+                            contentContainerStyle={{justifyContent: "center",  alignItems: 'center', alignContent: 'center' }}
+                            style={{flex: 1}}
                             >
                         </FlatList>
                 </Container>

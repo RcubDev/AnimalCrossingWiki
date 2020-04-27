@@ -1,7 +1,7 @@
-import { FishModel } from "../models";
-import { FishCardModel } from "./FishCardModel";
+import { CritterCollectionModel } from "../models";
+import { CritterCollectionCardModel } from "./FishCardModel";
 
 export interface FishScreenState {
     isReady: boolean,
-    fishList: Array<FishCardModel>
+    fishList: Array<CritterCollectionCardModel>
 }

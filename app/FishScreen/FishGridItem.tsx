@@ -1,38 +1,38 @@
 import React, { Component, useState } from 'react';
 import { Text, View, Container, Card, CardItem, CheckBox } from 'native-base';
-import { FishModel } from '../../models/models';
+import { CritterCollectionModel } from '../../models/models';
 import styles from './FishScreen.styles';
 import { Image, StyleSheet } from 'react-native';
 import FishImages from '../Images/FishImages';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { NavigationScreenProp } from 'react-navigation';
-import { FishCardModel } from '../../models/FishScreen/FishCardModel';
+import { CritterCollectionCardModel } from '../../models/FishScreen/FishCardModel';
 
 
 
 export function FishGridItem({model, index, nav, updateFishCaught, updateFishDonated}:
-                             {model: FishCardModel, index: number, nav:NavigationScreenProp<any>, updateFishCaught: any,
+                             {model: CritterCollectionCardModel, index: number, nav:NavigationScreenProp<any>, updateFishCaught: any,
                               updateFishDonated: any}) {  
   const onPress = () => {
     nav.navigate("FishDetails", {fish: model, index});
   };
   const caughtOnPress = () => {
+    console.log('caught');
     updateFishCaught(!model.caught, index);
+    console.log('updated caught');
   };
 
-  const donatedOnPress = () => {
+  const donatedOnPress = () => {    
     updateFishDonated(!model.donated, index);
   }
 
-  const maxFishNameLength = 10;
-  return(    
-  <Container key={`${index}FishGridItem`} style={{height: 120, backgroundColor: "#c2b280"}}>
-      <Card>
-        <CardItem style={styles.fishGridItemCard}>
+  return(
+      <Card style={{width: "23%"}}>
+        <CardItem style={{flexDirection: "column", backgroundColor:'#c2b280'}}>
           <View>
             <TouchableOpacity onPress={onPress} style={styles.fishGridItemCard}>
-              <Text key={`${index}FishGridItemName`} numberOfLines={1}>{ model.fish.fishName}</Text>
-              <Image source={FishImages[model.fish.fishName]} style={styles.fishGridItem} key={`${index}FishGridItemImage`}></Image>            
+              <Text key={`${index}FishGridItemName`} numberOfLines={1}>{ model.collection.name}</Text>
+              <Image source={FishImages[model.collection.name]} style={styles.fishGridItem} key={`${index}FishGridItemImage`}></Image>            
             </TouchableOpacity>   
           </View>
           <View style={{flexDirection: "row", width:'100%', alignItems: 'stretch'}}>
@@ -45,7 +45,6 @@ export function FishGridItem({model, index, nav, updateFishCaught, updateFishDon
             </View>
         </CardItem>
       </Card>
-  </Container>
   )
 };
 

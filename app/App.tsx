@@ -11,7 +11,7 @@ import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
 import { Container, Button, Text, Content, Footer } from 'native-base';
 import { Header } from 'react-native/Libraries/NewAppScreen';
-import { FishModel } from '../models/models';
+import { CritterCollectionModel } from '../models/models';
 import FishDetails from './FishScreen/FishDetailScreen';
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
