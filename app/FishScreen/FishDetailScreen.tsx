@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import { Container, Button, Text, Header, Content, Footer, View, H1, CardItem, Card, CheckBox } from 'native-base';
-import { CritterCollectionModel } from '../../models/models';
 import { Image } from 'react-native';
 import FishImages from '../Images/FishImages';
-import { CritterCollectionCardModel } from '../../models/FishScreen/FishCardModel';
 import { connect } from 'react-redux';
 import { updateFishCaught, updateFishDonated } from '../Redux/CollectionActions';
 import { NavigationScreenProp } from 'react-navigation';
 import { CollectionStateModel } from '../../models/CollectionStateModel';
+import { NewFishModel } from '../../models/CollectionModels/NewFishModel';
 
 
 interface FishDetailsProps {
@@ -20,39 +19,35 @@ interface FishDetailsProps {
         name: string,
         params: {
             index: number,
-            fish: CritterCollectionCardModel
+            fish: NewFishModel
         }   
     }
 }
 
 interface FishDetailsState {
-    model: CritterCollectionCardModel
+    model: NewFishModel
 }
 
 
 
 class FishDetails extends Component<FishDetailsProps, FishDetailsState> {
     index = this.props.route.params.index;
-    fishCardModel = this.props.collections.collection[this.index];
-    fish = this.props.collections.collection[this.index].collection;
+    fish = this.props.collections.fishCollection[this.index];
     SetItemCaught = (caught: boolean, index: number) => {
-        console.log('caught');
         this.props.updateFishCaught({caught, index});
-        this.setState({model: this.props.collections.collection[index]});
+        this.setState({model: this.props.collections.fishCollection[index]});
     }
 
 
     SetItemDonated = (donated: boolean, index: number) => {
-        console.log('donated');
         this.props.updateFishDonated({donated, index});
-        this.setState({model: this.props.collections.collection[index]});
+        this.setState({model: this.props.collections.fishCollection[index]});
     }
 
     constructor(props: FishDetailsProps){
         super(props);
-        this.index = props.route.params.index;
-        this.fishCardModel = this.props.route.params.fish;
-        this.fish = this.fishCardModel.collection;
+        this.index = props.route.params.index;        
+        this.fish = props.route.params.fish;
     }
 
     render() {
@@ -60,8 +55,8 @@ class FishDetails extends Component<FishDetailsProps, FishDetailsState> {
             <View style={{flex: 1, justifyContent: 'flex-start', alignItems: 'center', alignContent: 'center', marginTop: '20%'}}>
                 <H1>{this.fish.name}</H1>
                 <Image source={FishImages[this.fish.name]} style={{width:100, height:100}}></Image>
-                <CheckBox checked={this.fishCardModel.caught} onPress={() => {this.SetItemCaught(!this.fishCardModel.caught, this.fishCardModel.collection.id)}}></CheckBox>
-                <CheckBox checked={this.fishCardModel.donated} onPress={() => {this.SetItemDonated(!this.fishCardModel.donated, this.fishCardModel.collection.id)}}></CheckBox>
+                <CheckBox checked={this.fish.caught} onPress={() => {this.SetItemCaught(!this.fish.caught, this.fish.id)}}></CheckBox>
+                <CheckBox checked={this.fish.donated} onPress={() => {this.SetItemDonated(!this.fish.donated, this.fish.id)}}></CheckBox>
                 <Image source={require('../Images/Other/MuseumSymbol.png')} style={{width:32, height:32}} />
                 <View>
                     <Card>

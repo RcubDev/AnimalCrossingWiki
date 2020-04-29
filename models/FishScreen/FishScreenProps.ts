@@ -1,5 +1,4 @@
 import { NavigationScreenProp } from "react-navigation";
-import { CritterCollectionCardModel } from "./FishCardModel";
 import { updateFishCaught, updateFishDonated } from "../../app/Redux/CollectionActions";
 import { CollectionStateModel } from "../CollectionStateModel";
 

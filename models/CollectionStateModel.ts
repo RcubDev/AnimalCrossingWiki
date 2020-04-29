@@ -1,5 +1,5 @@
-import { CritterCollectionCardModel } from "./FishScreen/FishCardModel";
+import { NewFishModel } from "./CollectionModels/NewFishModel";
 
 export interface CollectionStateModel {
-    collection: Array<CritterCollectionCardModel>    
+    fishCollection: Array<NewFishModel>    
 }

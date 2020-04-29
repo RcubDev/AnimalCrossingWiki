@@ -4,7 +4,7 @@ import {UPDATE_FISH_CAUGHT, UPDATE_FISH_DONATED, FishActionTypes, FishCaughtPayl
 import { CollectionStateModel } from '../../models/CollectionStateModel';
 import { updateFishCaught, updateFishDonated } from './CollectionActions';
 
-const INITIAL_STATE2:CollectionStateModel = { collection: fish.fish.map(x => {return {collection: x, caught: false, donated: false}})};
+const INITIAL_STATE2:CollectionStateModel = { fishCollection: fish.fish};
 
 const collectionReducer = (state = INITIAL_STATE2, action: FishActionTypes): CollectionStateModel => {
     switch (action.type) {
@@ -19,17 +19,24 @@ const collectionReducer = (state = INITIAL_STATE2, action: FishActionTypes): Col
 
 function updateFishCaughtAction(state: CollectionStateModel, action: UpdateFishCaught): CollectionStateModel {
     const currentCollection = state;
-    const updatedFish = currentCollection.collection[action.payload.index];
-    updatedFish.caught = action.payload.caught;    
-    console.log('start assign');
-    let updatedCollection = Object.assign({}, currentCollection)
-    console.log('end here');
-    return updatedCollection;
+    // const updatedFish = currentCollection.fishCollection[action.payload.index];
+    // updatedFish.caught = action.payload.caught;    
+    // let updatedCollection = Object.assign({}, currentCollection)
+    return Object.assign({}, state, {
+      fishCollection: state.fishCollection.map((fish, index) => {
+        if(index === action.payload.index){
+          return Object.assign({}, fish, {
+            caught: action.payload.caught
+          });
+        }
+        return fish;
+      })
+    });
 }
 
 function updateFishDonatedAction(state: CollectionStateModel, action: UpdateFishDonated): CollectionStateModel {
     const currentCollection = state;
-    const updatedFish = currentCollection.collection[action.payload.index];
+    const updatedFish = currentCollection.fishCollection[action.payload.index];
     if(action.payload.donated) {
         updatedFish.caught = true;
     }

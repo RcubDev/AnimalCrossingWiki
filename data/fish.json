@@ -1,2646 +1,2806 @@
 {
-   "fish": [
-      {
-         "id": 1,
-         "name": "Bitterling",
-         "value": 900,
-         "locationName": "River",
-         "location": 1,
-         "shadowSize": 1,
-         "shadowSizeName": "Tiny",
-         "time": "All day",
-         "catchStartTime": [
-            0
-         ],
-         "catchEndTime": [
-            24
-         ],
-         "monthsAvailable": {
-            "JAN": true,
-            "FEB": true,
-            "MAR": true,
-            "APR": false,
-            "MAY": false,
-            "JUN": false,
-            "JUL": false,
-            "AUG": false,
-            "SEP": false,
-            "OCT": false,
-            "NOV": true,
-            "DEC": true
-         },
-         "rarity": 1,
-         "rarityName": "Common",
-         "weather": "Any"
-      },
-      {
-         "id": 2,
-         "name": "Pale Chub",
-         "value": 200,
-         "locationName": "River",
-         "location": 1,
-         "shadowSize": 1,
-         "shadowSizeName": "Tiny",
-         "time": "9 AM - 4 PM",
-         "catchStartTime": [
-            9
-         ],
-         "catchEndTime": [
-            16
-         ],
-         "monthsAvailable": {
-            "JAN": true,
-            "FEB": true,
-            "MAR": true,
-            "APR": true,
-            "MAY": true,
-            "JUN": true,
-            "JUL": true,
-            "AUG": true,
-            "SEP": true,
-            "OCT": true,
-            "NOV": true,
-            "DEC": true
-         },
-         "rarity": 1,
-         "rarityName": "Common",
-         "weather": "Any"
-      },
-      {
-         "id": 3,
-         "name": "Crucian Carp",
-         "value": 160,
-         "locationName": "River",
-         "location": 1,
-         "shadowSize": 2,
-         "shadowSizeName": "Small",
-         "time": "All day",
-         "catchStartTime": [
-            0
-         ],
-         "catchEndTime": [
-            24
-         ],
-         "monthsAvailable": {
-            "JAN": true,
-            "FEB": true,
-            "MAR": true,
-            "APR": true,
-            "MAY": true,
-            "JUN": true,
-            "JUL": true,
-            "AUG": true,
-            "SEP": true,
-            "OCT": true,
-            "NOV": true,
-            "DEC": true
-         },
-         "rarity": 1,
-         "rarityName": "Common",
-         "weather": "Any"
-      },
-      {
-         "id": 4,
-         "name": "Dace",
-         "value": 240,
-         "locationName": "River",
-         "location": 1,
-         "shadowSize": 3,
-         "shadowSizeName": "Medium",
-         "time": "4 PM - 9 AM",
-         "catchStartTime": [
-            16
-         ],
-         "catchEndTime": [
-            9
-         ],
-         "monthsAvailable": {
-            "JAN": true,
-            "FEB": true,
-            "MAR": true,
-            "APR": true,
-            "MAY": true,
-            "JUN": true,
-            "JUL": true,
-            "AUG": true,
-            "SEP": true,
-            "OCT": true,
-            "NOV": true,
-            "DEC": true
-         },
-         "rarity": 1,
-         "rarityName": "Common",
-         "weather": "Any"
-      },
-      {
-         "id": 5,
-         "name": "Carp",
-         "value": 300,
-         "locationName": "Pond",
-         "location": 4,
-         "shadowSize": 4,
-         "shadowSizeName": "Large",
-         "time": "All day",
-         "catchStartTime": [
-            0
-         ],
-         "catchEndTime": [
-            24
-         ],
-         "monthsAvailable": {
-            "JAN": true,
-            "FEB": true,
-            "MAR": true,
-            "APR": true,
-            "MAY": true,
-            "JUN": true,
-            "JUL": true,
-            "AUG": true,
-            "SEP": true,
-            "OCT": true,
-            "NOV": true,
-            "DEC": true
-         },
-         "rarity": 1,
-         "rarityName": "Common",
-         "weather": "Any"
-      },
-      {
-         "id": 6,
-         "name": "Koi",
-         "value": 4000,
-         "locationName": "Pond",
-         "location": 4,
-         "shadowSize": 4,
-         "shadowSizeName": "Large",
-         "time": "4 PM - 9 AM",
-         "catchStartTime": [
-            16
-         ],
-         "catchEndTime": [
-            9
-         ],
-         "monthsAvailable": {
-            "JAN": true,
-            "FEB": true,
-            "MAR": true,
-            "APR": true,
-            "MAY": true,
-            "JUN": true,
-            "JUL": true,
-            "AUG": true,
-            "SEP": true,
-            "OCT": true,
-            "NOV": true,
-            "DEC": true
-         },
-         "rarity": 1,
-         "rarityName": "Common",
-         "weather": "Any"
-      },
-      {
-         "id": 7,
-         "name": "Goldfish",
-         "value": 1300,
-         "locationName": "Pond",
-         "location": 4,
-         "shadowSize": 1,
-         "shadowSizeName": "Tiny",
-         "time": "All day",
-         "catchStartTime": [
-            0
-         ],
-         "catchEndTime": [
-            24
-         ],
-         "monthsAvailable": {
-            "JAN": true,
-            "FEB": true,
-            "MAR": true,
-            "APR": true,
-            "MAY": true,
-            "JUN": true,
-            "JUL": true,
-            "AUG": true,
-            "SEP": true,
-            "OCT": true,
-            "NOV": true,
-            "DEC": true
-         },
-         "rarity": 1,
-         "rarityName": "Common",
-         "weather": "Any"
-      },
-      {
-         "id": 8,
-         "name": "Pop-Eyed Goldfish",
-         "value": 1300,
-         "locationName": "Pond",
-         "location": 4,
-         "shadowSize": 1,
-         "shadowSizeName": "Tiny",
-         "time": "9 AM - 4 PM",
-         "catchStartTime": [
-            9
-         ],
-         "catchEndTime": [
-            16
-         ],
-         "monthsAvailable": {
-            "JAN": true,
-            "FEB": true,
-            "MAR": true,
-            "APR": true,
-            "MAY": true,
-            "JUN": true,
-            "JUL": true,
-            "AUG": true,
-            "SEP": true,
-            "OCT": true,
-            "NOV": true,
-            "DEC": true
-         },
-         "rarity": 1,
-         "rarityName": "Common",
-         "weather": "Any"
-      },
-      {
-         "id": 9,
-         "name": "Ranchu Goldfish",
-         "value": 4500,
-         "locationName": "Pond",
-         "location": 4,
-         "shadowSize": 2,
-         "shadowSizeName": "Small",
-         "time": "9 AM - 4 PM",
-         "catchStartTime": [
-            9
-         ],
-         "catchEndTime": [
-            16
-         ],
-         "monthsAvailable": {
-            "JAN": true,
-            "FEB": true,
-            "MAR": true,
-            "APR": true,
-            "MAY": true,
-            "JUN": true,
-            "JUL": true,
-            "AUG": true,
-            "SEP": true,
-            "OCT": true,
-            "NOV": true,
-            "DEC": true
-         },
-         "rarity": 1,
-         "rarityName": "Common",
-         "weather": "Any"
-      },
-      {
-         "id": 10,
-         "name": "Killifish",
-         "value": 300,
-         "locationName": "Pond",
-         "location": 4,
-         "shadowSize": 1,
-         "shadowSizeName": "Tiny",
-         "time": "All day",
-         "catchStartTime": [
-            0
-         ],
-         "catchEndTime": [
-            24
-         ],
-         "monthsAvailable": {
-            "JAN": false,
-            "FEB": false,
-            "MAR": false,
-            "APR": true,
-            "MAY": true,
-            "JUN": true,
-            "JUL": true,
-            "AUG": true,
-            "SEP": false,
-            "OCT": false,
-            "NOV": false,
-            "DEC": false
-         },
-         "rarity": 1,
-         "rarityName": "Common",
-         "weather": "Any"
-      },
-      {
-         "id": 11,
-         "name": "Crawfish",
-         "value": 200,
-         "locationName": "Pond",
-         "location": 4,
-         "shadowSize": 2,
-         "shadowSizeName": "Small",
-         "time": "All day",
-         "catchStartTime": [
-            0
-         ],
-         "catchEndTime": [
-            24
-         ],
-         "monthsAvailable": {
-            "JAN": false,
-            "FEB": false,
-            "MAR": false,
-            "APR": true,
-            "MAY": true,
-            "JUN": true,
-            "JUL": true,
-            "AUG": true,
-            "SEP": true,
-            "OCT": false,
-            "NOV": false,
-            "DEC": false
-         },
-         "rarity": 1,
-         "rarityName": "Common",
-         "weather": "Any"
-      },
-      {
-         "id": 12,
-         "name": "Soft-Shelled Turtle",
-         "value": 3750,
-         "locationName": "River",
-         "location": 1,
-         "shadowSize": 4,
-         "shadowSizeName": "Large",
-         "time": "4 PM - 9 AM",
-         "catchStartTime": [
-            16
-         ],
-         "catchEndTime": [
-            9
-         ],
-         "monthsAvailable": {
-            "JAN": false,
-            "FEB": false,
-            "MAR": false,
-            "APR": false,
-            "MAY": false,
-            "JUN": false,
-            "JUL": false,
-            "AUG": true,
-            "SEP": true,
-            "OCT": false,
-            "NOV": false,
-            "DEC": false
-         },
-         "rarity": 1,
-         "rarityName": "Common",
-         "weather": "Any"
-      },
-      {
-         "id": 13,
-         "name": "Snapping Turtle",
-         "value": 5000,
-         "locationName": "River",
-         "location": 1,
-         "shadowSize": 5,
-         "shadowSizeName": "Huge",
-         "time": "9 PM - 4 AM",
-         "catchStartTime": [
-            21
-         ],
-         "catchEndTime": [
-            4
-         ],
-         "monthsAvailable": {
-            "JAN": false,
-            "FEB": false,
-            "MAR": false,
-            "APR": true,
-            "MAY": true,
-            "JUN": true,
-            "JUL": true,
-            "AUG": true,
-            "SEP": true,
-            "OCT": true,
-            "NOV": false,
-            "DEC": false
-         },
-         "rarity": 1,
-         "rarityName": "Common",
-         "weather": "Any"
-      },
-      {
-         "id": 14,
-         "name": "Tadpole",
-         "value": 100,
-         "locationName": "Pond",
-         "location": 4,
-         "shadowSize": 1,
-         "shadowSizeName": "Tiny",
-         "time": "All day",
-         "catchStartTime": [
-            0
-         ],
-         "catchEndTime": [
-            24
-         ],
-         "monthsAvailable": {
-            "JAN": false,
-            "FEB": false,
-            "MAR": true,
-            "APR": true,
-            "MAY": true,
-            "JUN": true,
-            "JUL": true,
-            "AUG": false,
-            "SEP": false,
-            "OCT": false,
-            "NOV": false,
-            "DEC": false
-         },
-         "rarity": 1,
-         "rarityName": "Common",
-         "weather": "Any"
-      },
-      {
-         "id": 15,
-         "name": "Frog",
-         "value": 120,
-         "locationName": "Pond",
-         "location": 4,
-         "shadowSize": 2,
-         "shadowSizeName": "Small",
-         "time": "All day",
-         "catchStartTime": [
-            0
-         ],
-         "catchEndTime": [
-            24
-         ],
-         "monthsAvailable": {
-            "JAN": false,
-            "FEB": false,
-            "MAR": false,
-            "APR": false,
-            "MAY": true,
-            "JUN": true,
-            "JUL": true,
-            "AUG": true,
-            "SEP": false,
-            "OCT": false,
-            "NOV": false,
-            "DEC": false
-         },
-         "rarity": 1,
-         "rarityName": "Common",
-         "weather": "Any"
-      },
-      {
-         "id": 16,
-         "name": "Freshwater Goby",
-         "value": 400,
-         "locationName": "River",
-         "location": 1,
-         "shadowSize": 2,
-         "shadowSizeName": "Small",
-         "time": "4 PM - 9 AM",
-         "catchStartTime": [
-            16
-         ],
-         "catchEndTime": [
-            9
-         ],
-         "monthsAvailable": {
-            "JAN": true,
-            "FEB": true,
-            "MAR": true,
-            "APR": true,
-            "MAY": true,
-            "JUN": true,
-            "JUL": true,
-            "AUG": true,
-            "SEP": true,
-            "OCT": true,
-            "NOV": true,
-            "DEC": true
-         },
-         "rarity": 1,
-         "rarityName": "Common",
-         "weather": "Any"
-      },
-      {
-         "id": 17,
-         "name": "Loach",
-         "value": 400,
-         "locationName": "River",
-         "location": 1,
-         "shadowSize": 2,
-         "shadowSizeName": "Small",
-         "time": "All day",
-         "catchStartTime": [
-            0
-         ],
-         "catchEndTime": [
-            24
-         ],
-         "monthsAvailable": {
-            "JAN": false,
-            "FEB": false,
-            "MAR": true,
-            "APR": true,
-            "MAY": true,
-            "JUN": false,
-            "JUL": false,
-            "AUG": false,
-            "SEP": false,
-            "OCT": false,
-            "NOV": false,
-            "DEC": false
-         },
-         "rarity": 1,
-         "rarityName": "Common",
-         "weather": "Any"
-      },
-      {
-         "id": 18,
-         "name": "Catfish",
-         "value": 800,
-         "locationName": "Pond",
-         "location": 4,
-         "shadowSize": 4,
-         "shadowSizeName": "Large",
-         "time": "4 PM - 9 AM",
-         "catchStartTime": [
-            16
-         ],
-         "catchEndTime": [
-            9
-         ],
-         "monthsAvailable": {
-            "JAN": false,
-            "FEB": false,
-            "MAR": false,
-            "APR": false,
-            "MAY": true,
-            "JUN": true,
-            "JUL": true,
-            "AUG": true,
-            "SEP": true,
-            "OCT": true,
-            "NOV": false,
-            "DEC": false
-         },
-         "rarity": 1,
-         "rarityName": "Common",
-         "weather": "Any"
-      },
-      {
-         "id": 19,
-         "name": "Giant Snakehead",
-         "value": 5500,
-         "locationName": "Pond",
-         "location": 4,
-         "shadowSize": 5,
-         "shadowSizeName": "Huge",
-         "time": "9 AM - 4 PM",
-         "catchStartTime": [
-            9
-         ],
-         "catchEndTime": [
-            16
-         ],
-         "monthsAvailable": {
-            "JAN": false,
-            "FEB": false,
-            "MAR": false,
-            "APR": false,
-            "MAY": false,
-            "JUN": true,
-            "JUL": true,
-            "AUG": true,
-            "SEP": false,
-            "OCT": false,
-            "NOV": false,
-            "DEC": false
-         },
-         "rarity": 1,
-         "rarityName": "Common",
-         "weather": "Any"
-      },
-      {
-         "id": 20,
-         "name": "Bluegill",
-         "value": 180,
-         "locationName": "River",
-         "location": 1,
-         "shadowSize": 2,
-         "shadowSizeName": "Small",
-         "time": "9 AM - 4 PM",
-         "catchStartTime": [
-            9
-         ],
-         "catchEndTime": [
-            16
-         ],
-         "monthsAvailable": {
-            "JAN": true,
-            "FEB": true,
-            "MAR": true,
-            "APR": true,
-            "MAY": true,
-            "JUN": true,
-            "JUL": true,
-            "AUG": true,
-            "SEP": true,
-            "OCT": true,
-            "NOV": true,
-            "DEC": true
-         },
-         "rarity": 1,
-         "rarityName": "Common",
-         "weather": "Any"
-      },
-      {
-         "id": 21,
-         "name": "Yellow Perch",
-         "value": 300,
-         "locationName": "River",
-         "location": 1,
-         "shadowSize": 3,
-         "shadowSizeName": "Medium",
-         "time": "All day",
-         "catchStartTime": [
-            0
-         ],
-         "catchEndTime": [
-            24
-         ],
-         "monthsAvailable": {
-            "JAN": true,
-            "FEB": true,
-            "MAR": true,
-            "APR": false,
-            "MAY": false,
-            "JUN": false,
-            "JUL": false,
-            "AUG": false,
-            "SEP": false,
-            "OCT": true,
-            "NOV": true,
-            "DEC": true
-         },
-         "rarity": 1,
-         "rarityName": "Common",
-         "weather": "Any"
-      },
-      {
-         "id": 22,
-         "name": "Black Bass",
-         "value": 400,
-         "locationName": "River",
-         "location": 1,
-         "shadowSize": 4,
-         "shadowSizeName": "Large",
-         "time": "All day",
-         "catchStartTime": [
-            0
-         ],
-         "catchEndTime": [
-            24
-         ],
-         "monthsAvailable": {
-            "JAN": true,
-            "FEB": true,
-            "MAR": true,
-            "APR": true,
-            "MAY": true,
-            "JUN": true,
-            "JUL": true,
-            "AUG": true,
-            "SEP": true,
-            "OCT": true,
-            "NOV": true,
-            "DEC": true
-         },
-         "rarity": 1,
-         "rarityName": "Common",
-         "weather": "Any"
-      },
-      {
-         "id": 23,
-         "name": "Tilapia",
-         "value": 800,
-         "locationName": "River",
-         "location": 1,
-         "shadowSize": 3,
-         "shadowSizeName": "Medium",
-         "time": "All day",
-         "catchStartTime": [
-            0
-         ],
-         "catchEndTime": [
-            24
-         ],
-         "monthsAvailable": {
-            "JAN": false,
-            "FEB": false,
-            "MAR": false,
-            "APR": false,
-            "MAY": false,
-            "JUN": true,
-            "JUL": true,
-            "AUG": true,
-            "SEP": true,
-            "OCT": true,
-            "NOV": false,
-            "DEC": false
-         },
-         "rarity": 1,
-         "rarityName": "Common",
-         "weather": "Any"
-      },
-      {
-         "id": 24,
-         "name": "Pike",
-         "value": 1800,
-         "locationName": "River",
-         "location": 1,
-         "shadowSize": 5,
-         "shadowSizeName": "Huge",
-         "time": "All day",
-         "catchStartTime": [
-            0
-         ],
-         "catchEndTime": [
-            24
-         ],
-         "monthsAvailable": {
-            "JAN": false,
-            "FEB": false,
-            "MAR": false,
-            "APR": false,
-            "MAY": false,
-            "JUN": false,
-            "JUL": false,
-            "AUG": false,
-            "SEP": true,
-            "OCT": true,
-            "NOV": true,
-            "DEC": true
-         },
-         "rarity": 1,
-         "rarityName": "Common",
-         "weather": "Any"
-      },
-      {
-         "id": 25,
-         "name": "Pond Smelt",
-         "value": 500,
-         "locationName": "River",
-         "location": 1,
-         "shadowSize": 2,
-         "shadowSizeName": "Small",
-         "time": "All day",
-         "catchStartTime": [
-            0
-         ],
-         "catchEndTime": [
-            24
-         ],
-         "monthsAvailable": {
-            "JAN": true,
-            "FEB": true,
-            "MAR": false,
-            "APR": false,
-            "MAY": false,
-            "JUN": false,
-            "JUL": false,
-            "AUG": false,
-            "SEP": false,
-            "OCT": false,
-            "NOV": false,
-            "DEC": true
-         },
-         "rarity": 1,
-         "rarityName": "Common",
-         "weather": "Any"
-      },
-      {
-         "id": 26,
-         "name": "Sweetfish",
-         "value": 900,
-         "locationName": "River",
-         "location": 1,
-         "shadowSize": 3,
-         "shadowSizeName": "Medium",
-         "time": "All day",
-         "catchStartTime": [
-            0
-         ],
-         "catchEndTime": [
-            24
-         ],
-         "monthsAvailable": {
-            "JAN": false,
-            "FEB": false,
-            "MAR": false,
-            "APR": false,
-            "MAY": false,
-            "JUN": false,
-            "JUL": true,
-            "AUG": true,
-            "SEP": true,
-            "OCT": false,
-            "NOV": false,
-            "DEC": false
-         },
-         "rarity": 1,
-         "rarityName": "Common",
-         "weather": "Any"
-      },
-      {
-         "id": 27,
-         "name": "Cherry Salmon",
-         "value": 800,
-         "locationName": "River (Clifftop)",
-         "location": 3,
-         "shadowSize": 3,
-         "shadowSizeName": "Medium",
-         "time": "4 PM - 9 AM",
-         "catchStartTime": [
-            16
-         ],
-         "catchEndTime": [
-            9
-         ],
-         "monthsAvailable": {
-            "JAN": false,
-            "FEB": false,
-            "MAR": true,
-            "APR": true,
-            "MAY": true,
-            "JUN": true,
-            "JUL": false,
-            "AUG": false,
-            "SEP": true,
-            "OCT": true,
-            "NOV": true,
-            "DEC": false
-         },
-         "rarity": 1,
-         "rarityName": "Common",
-         "weather": "Any"
-      },
-      {
-         "id": 28,
-         "name": "Char",
-         "value": 3800,
-         "locationName": "River (Clifftop), Pond",
-         "location": 7,
-         "shadowSize": 3,
-         "shadowSizeName": "Medium",
-         "time": "4 PM - 9 AM",
-         "catchStartTime": [
-            16
-         ],
-         "catchEndTime": [
-            9
-         ],
-         "monthsAvailable": {
-            "JAN": false,
-            "FEB": false,
-            "MAR": true,
-            "APR": true,
-            "MAY": true,
-            "JUN": true,
-            "JUL": false,
-            "AUG": false,
-            "SEP": true,
-            "OCT": true,
-            "NOV": true,
-            "DEC": false
-         },
-         "rarity": 1,
-         "rarityName": "Common",
-         "weather": "Any"
-      },
-      {
-         "id": 29,
-         "name": "Golden Trout",
-         "value": 15000,
-         "locationName": "River (Clifftop)",
-         "location": 3,
-         "shadowSize": 3,
-         "shadowSizeName": "Medium",
-         "time": "4 PM - 9 AM",
-         "catchStartTime": [
-            16
-         ],
-         "catchEndTime": [
-            9
-         ],
-         "monthsAvailable": {
-            "JAN": false,
-            "FEB": false,
-            "MAR": true,
-            "APR": true,
-            "MAY": true,
-            "JUN": false,
-            "JUL": false,
-            "AUG": false,
-            "SEP": true,
-            "OCT": true,
-            "NOV": true,
-            "DEC": false
-         },
-         "rarity": 1,
-         "rarityName": "Common",
-         "weather": "Any"
-      },
-      {
-         "id": 30,
-         "name": "Stringfish",
-         "value": 15000,
-         "locationName": "River (Clifftop)",
-         "location": 3,
-         "shadowSize": 5,
-         "shadowSizeName": "Huge",
-         "time": "4 PM - 9 AM",
-         "catchStartTime": [
-            16
-         ],
-         "catchEndTime": [
-            9
-         ],
-         "monthsAvailable": {
-            "JAN": true,
-            "FEB": true,
-            "MAR": true,
-            "APR": false,
-            "MAY": false,
-            "JUN": false,
-            "JUL": false,
-            "AUG": false,
-            "SEP": false,
-            "OCT": false,
-            "NOV": false,
-            "DEC": true
-         },
-         "rarity": 1,
-         "rarityName": "Common",
-         "weather": "Any"
-      },
-      {
-         "id": 31,
-         "name": "Salmon",
-         "value": 700,
-         "locationName": "River (Mouth)",
-         "location": 2,
-         "shadowSize": 4,
-         "shadowSizeName": "Large",
-         "time": "All day",
-         "catchStartTime": [
-            0
-         ],
-         "catchEndTime": [
-            24
-         ],
-         "monthsAvailable": {
-            "JAN": false,
-            "FEB": false,
-            "MAR": false,
-            "APR": false,
-            "MAY": false,
-            "JUN": false,
-            "JUL": false,
-            "AUG": false,
-            "SEP": true,
-            "OCT": false,
-            "NOV": false,
-            "DEC": false
-         },
-         "rarity": 1,
-         "rarityName": "Common",
-         "weather": "Any"
-      },
-      {
-         "id": 32,
-         "name": "King Salmon",
-         "value": 1800,
-         "locationName": "River (Mouth)",
-         "location": 2,
-         "shadowSize": 6,
-         "shadowSizeName": "Gigantic",
-         "time": "All day",
-         "catchStartTime": [
-            0
-         ],
-         "catchEndTime": [
-            24
-         ],
-         "monthsAvailable": {
-            "JAN": false,
-            "FEB": false,
-            "MAR": false,
-            "APR": false,
-            "MAY": false,
-            "JUN": false,
-            "JUL": false,
-            "AUG": false,
-            "SEP": true,
-            "OCT": false,
-            "NOV": false,
-            "DEC": false
-         },
-         "rarity": 1,
-         "rarityName": "Common",
-         "weather": "Any"
-      },
-      {
-         "id": 33,
-         "name": "Mitten Crab",
-         "value": 2000,
-         "locationName": "River",
-         "location": 1,
-         "shadowSize": 2,
-         "shadowSizeName": "Small",
-         "time": "4 PM - 9 AM",
-         "catchStartTime": [
-            16
-         ],
-         "catchEndTime": [
-            9
-         ],
-         "monthsAvailable": {
-            "JAN": false,
-            "FEB": false,
-            "MAR": false,
-            "APR": false,
-            "MAY": false,
-            "JUN": false,
-            "JUL": false,
-            "AUG": false,
-            "SEP": true,
-            "OCT": true,
-            "NOV": true,
-            "DEC": false
-         },
-         "rarity": 1,
-         "rarityName": "Common",
-         "weather": "Any"
-      },
-      {
-         "id": 34,
-         "name": "Guppy",
-         "value": 1300,
-         "locationName": "River",
-         "location": 1,
-         "shadowSize": 1,
-         "shadowSizeName": "Tiny",
-         "time": "9 AM - 4 PM",
-         "catchStartTime": [
-            9
-         ],
-         "catchEndTime": [
-            16
-         ],
-         "monthsAvailable": {
-            "JAN": false,
-            "FEB": false,
-            "MAR": false,
-            "APR": true,
-            "MAY": true,
-            "JUN": true,
-            "JUL": true,
-            "AUG": true,
-            "SEP": true,
-            "OCT": true,
-            "NOV": true,
-            "DEC": false
-         },
-         "rarity": 1,
-         "rarityName": "Common",
-         "weather": "Any"
-      },
-      {
-         "id": 35,
-         "name": "Nibble Fish",
-         "value": 1500,
-         "locationName": "River",
-         "location": 1,
-         "shadowSize": 1,
-         "shadowSizeName": "Tiny",
-         "time": "9 AM - 4 PM",
-         "catchStartTime": [
-            9
-         ],
-         "catchEndTime": [
-            16
-         ],
-         "monthsAvailable": {
-            "JAN": false,
-            "FEB": false,
-            "MAR": false,
-            "APR": false,
-            "MAY": true,
-            "JUN": true,
-            "JUL": true,
-            "AUG": true,
-            "SEP": true,
-            "OCT": false,
-            "NOV": false,
-            "DEC": false
-         },
-         "rarity": 1,
-         "rarityName": "Common",
-         "weather": "Any"
-      },
-      {
-         "id": 36,
-         "name": "Angelfish",
-         "value": 3000,
-         "locationName": "River",
-         "location": 1,
-         "shadowSize": 2,
-         "shadowSizeName": "Small",
-         "time": "4 PM - 9 AM",
-         "catchStartTime": [
-            16
-         ],
-         "catchEndTime": [
-            9
-         ],
-         "monthsAvailable": {
-            "JAN": false,
-            "FEB": false,
-            "MAR": false,
-            "APR": false,
-            "MAY": true,
-            "JUN": true,
-            "JUL": true,
-            "AUG": true,
-            "SEP": true,
-            "OCT": true,
-            "NOV": false,
-            "DEC": false
-         },
-         "rarity": 1,
-         "rarityName": "Common",
-         "weather": "Any"
-      },
-      {
-         "id": 37,
-         "name": "Betta",
-         "value": 2500,
-         "locationName": "River",
-         "location": 1,
-         "shadowSize": 2,
-         "shadowSizeName": "Small",
-         "time": "9 AM - 4 PM",
-         "catchStartTime": [
-            9
-         ],
-         "catchEndTime": [
-            16
-         ],
-         "monthsAvailable": {
-            "JAN": false,
-            "FEB": false,
-            "MAR": false,
-            "APR": false,
-            "MAY": true,
-            "JUN": true,
-            "JUL": true,
-            "AUG": true,
-            "SEP": true,
-            "OCT": true,
-            "NOV": false,
-            "DEC": false
-         },
-         "rarity": 1,
-         "rarityName": "Common",
-         "weather": "Any"
-      },
-      {
-         "id": 38,
-         "name": "Neon Tetra",
-         "value": 500,
-         "locationName": "River",
-         "location": 1,
-         "shadowSize": 1,
-         "shadowSizeName": "Tiny",
-         "time": "9 AM - 4 PM",
-         "catchStartTime": [
-            9
-         ],
-         "catchEndTime": [
-            16
-         ],
-         "monthsAvailable": {
-            "JAN": false,
-            "FEB": false,
-            "MAR": false,
-            "APR": true,
-            "MAY": true,
-            "JUN": true,
-            "JUL": true,
-            "AUG": true,
-            "SEP": true,
-            "OCT": true,
-            "NOV": true,
-            "DEC": false
-         },
-         "rarity": 1,
-         "rarityName": "Common",
-         "weather": "Any"
-      },
-      {
-         "id": 39,
-         "name": "Rainbowfish",
-         "value": 800,
-         "locationName": "River",
-         "location": 1,
-         "shadowSize": 1,
-         "shadowSizeName": "Tiny",
-         "time": "9 AM - 4 PM",
-         "catchStartTime": [
-            9
-         ],
-         "catchEndTime": [
-            16
-         ],
-         "monthsAvailable": {
-            "JAN": false,
-            "FEB": false,
-            "MAR": false,
-            "APR": false,
-            "MAY": true,
-            "JUN": true,
-            "JUL": true,
-            "AUG": true,
-            "SEP": true,
-            "OCT": true,
-            "NOV": false,
-            "DEC": false
-         },
-         "rarity": 1,
-         "rarityName": "Common",
-         "weather": "Any"
-      },
-      {
-         "id": 40,
-         "name": "Piranha",
-         "value": 2500,
-         "locationName": "River",
-         "location": 1,
-         "shadowSize": 2,
-         "shadowSizeName": "Small",
-         "time": "9 AM - 4 PM & 9 PM - 4 AM",
-         "catchStartTime": [
-            9,
-            21
-         ],
-         "catchEndTime": [
-            16,
-            4
-         ],
-         "monthsAvailable": {
-            "JAN": false,
-            "FEB": false,
-            "MAR": false,
-            "APR": false,
-            "MAY": false,
-            "JUN": true,
-            "JUL": true,
-            "AUG": true,
-            "SEP": true,
-            "OCT": false,
-            "NOV": false,
-            "DEC": false
-         },
-         "rarity": 1,
-         "rarityName": "Common",
-         "weather": "Any"
-      },
-      {
-         "id": 41,
-         "name": "Arowana",
-         "value": 10000,
-         "locationName": "River",
-         "location": 1,
-         "shadowSize": 4,
-         "shadowSizeName": "Large",
-         "time": "4 PM - 9 AM",
-         "catchStartTime": [
-            16
-         ],
-         "catchEndTime": [
-            9
-         ],
-         "monthsAvailable": {
-            "JAN": false,
-            "FEB": false,
-            "MAR": false,
-            "APR": false,
-            "MAY": false,
-            "JUN": true,
-            "JUL": true,
-            "AUG": true,
-            "SEP": true,
-            "OCT": false,
-            "NOV": false,
-            "DEC": false
-         },
-         "rarity": 1,
-         "rarityName": "Common",
-         "weather": "Any"
-      },
-      {
-         "id": 42,
-         "name": "Dorado",
-         "value": 15000,
-         "locationName": "River",
-         "location": 1,
-         "shadowSize": 5,
-         "shadowSizeName": "Huge",
-         "time": "4 AM - 9 PM",
-         "catchStartTime": [
-            4
-         ],
-         "catchEndTime": [
-            21
-         ],
-         "monthsAvailable": {
-            "JAN": false,
-            "FEB": false,
-            "MAR": false,
-            "APR": false,
-            "MAY": false,
-            "JUN": true,
-            "JUL": true,
-            "AUG": true,
-            "SEP": true,
-            "OCT": false,
-            "NOV": false,
-            "DEC": false
-         },
-         "rarity": 1,
-         "rarityName": "Common",
-         "weather": "Any"
-      },
-      {
-         "id": 43,
-         "name": "Gar",
-         "value": 6000,
-         "locationName": "Pond",
-         "location": 4,
-         "shadowSize": 6,
-         "shadowSizeName": "Gigantic",
-         "time": "4 PM - 9 AM",
-         "catchStartTime": [
-            16
-         ],
-         "catchEndTime": [
-            9
-         ],
-         "monthsAvailable": {
-            "JAN": false,
-            "FEB": false,
-            "MAR": false,
-            "APR": false,
-            "MAY": false,
-            "JUN": true,
-            "JUL": true,
-            "AUG": true,
-            "SEP": true,
-            "OCT": false,
-            "NOV": false,
-            "DEC": false
-         },
-         "rarity": 1,
-         "rarityName": "Common",
-         "weather": "Any"
-      },
-      {
-         "id": 44,
-         "name": "Arapaima",
-         "value": 10000,
-         "locationName": "River",
-         "location": 1,
-         "shadowSize": 6,
-         "shadowSizeName": "Gigantic",
-         "time": "4 PM - 9 AM",
-         "catchStartTime": [
-            16
-         ],
-         "catchEndTime": [
-            9
-         ],
-         "monthsAvailable": {
-            "JAN": false,
-            "FEB": false,
-            "MAR": false,
-            "APR": false,
-            "MAY": false,
-            "JUN": true,
-            "JUL": true,
-            "AUG": true,
-            "SEP": true,
-            "OCT": false,
-            "NOV": false,
-            "DEC": false
-         },
-         "rarity": 1,
-         "rarityName": "Common",
-         "weather": "Any"
-      },
-      {
-         "id": 45,
-         "name": "Saddled Bichir",
-         "value": 4000,
-         "locationName": "River",
-         "location": 1,
-         "shadowSize": 4,
-         "shadowSizeName": "Large",
-         "time": "9 PM - 4 AM",
-         "catchStartTime": [
-            21
-         ],
-         "catchEndTime": [
-            4
-         ],
-         "monthsAvailable": {
-            "JAN": false,
-            "FEB": false,
-            "MAR": false,
-            "APR": false,
-            "MAY": false,
-            "JUN": true,
-            "JUL": true,
-            "AUG": true,
-            "SEP": true,
-            "OCT": false,
-            "NOV": false,
-            "DEC": false
-         },
-         "rarity": 1,
-         "rarityName": "Common",
-         "weather": "Any"
-      },
-      {
-         "id": 46,
-         "name": "Sturgeon",
-         "value": 10000,
-         "locationName": "River (Mouth)",
-         "location": 2,
-         "shadowSize": 6,
-         "shadowSizeName": "Gigantic",
-         "time": "All day",
-         "catchStartTime": [
-            0
-         ],
-         "catchEndTime": [
-            24
-         ],
-         "monthsAvailable": {
-            "JAN": true,
-            "FEB": true,
-            "MAR": true,
-            "APR": false,
-            "MAY": false,
-            "JUN": false,
-            "JUL": false,
-            "AUG": false,
-            "SEP": true,
-            "OCT": true,
-            "NOV": true,
-            "DEC": true
-         },
-         "rarity": 1,
-         "rarityName": "Common",
-         "weather": "Any"
-      },
-      {
-         "id": 47,
-         "name": "Sea Butterfly",
-         "value": 1000,
-         "locationName": "Sea",
-         "location": 6,
-         "shadowSize": 1,
-         "shadowSizeName": "Tiny",
-         "time": "All day",
-         "catchStartTime": [
-            0
-         ],
-         "catchEndTime": [
-            24
-         ],
-         "monthsAvailable": {
-            "JAN": true,
-            "FEB": true,
-            "MAR": true,
-            "APR": false,
-            "MAY": false,
-            "JUN": false,
-            "JUL": false,
-            "AUG": false,
-            "SEP": false,
-            "OCT": false,
-            "NOV": false,
-            "DEC": true
-         },
-         "rarity": 1,
-         "rarityName": "Common",
-         "weather": "Any"
-      },
-      {
-         "id": 48,
-         "name": "Sea Horse",
-         "value": 1100,
-         "locationName": "Sea",
-         "location": 6,
-         "shadowSize": 1,
-         "shadowSizeName": "Tiny",
-         "time": "All day",
-         "catchStartTime": [
-            0
-         ],
-         "catchEndTime": [
-            24
-         ],
-         "monthsAvailable": {
-            "JAN": false,
-            "FEB": false,
-            "MAR": false,
-            "APR": true,
-            "MAY": true,
-            "JUN": true,
-            "JUL": true,
-            "AUG": true,
-            "SEP": true,
-            "OCT": true,
-            "NOV": true,
-            "DEC": false
-         },
-         "rarity": 1,
-         "rarityName": "Common",
-         "weather": "Any"
-      },
-      {
-         "id": 49,
-         "name": "Clown Fish",
-         "value": 650,
-         "locationName": "Sea",
-         "location": 6,
-         "shadowSize": 1,
-         "shadowSizeName": "Tiny",
-         "time": "All day",
-         "catchStartTime": [
-            0
-         ],
-         "catchEndTime": [
-            24
-         ],
-         "monthsAvailable": {
-            "JAN": false,
-            "FEB": false,
-            "MAR": false,
-            "APR": true,
-            "MAY": true,
-            "JUN": true,
-            "JUL": true,
-            "AUG": true,
-            "SEP": true,
-            "OCT": false,
-            "NOV": false,
-            "DEC": false
-         },
-         "rarity": 1,
-         "rarityName": "Common",
-         "weather": "Any"
-      },
-      {
-         "id": 50,
-         "name": "Surgeonfish",
-         "value": 1000,
-         "locationName": "Sea",
-         "location": 6,
-         "shadowSize": 2,
-         "shadowSizeName": "Small",
-         "time": "All day",
-         "catchStartTime": [
-            0
-         ],
-         "catchEndTime": [
-            24
-         ],
-         "monthsAvailable": {
-            "JAN": false,
-            "FEB": false,
-            "MAR": false,
-            "APR": true,
-            "MAY": true,
-            "JUN": true,
-            "JUL": true,
-            "AUG": true,
-            "SEP": true,
-            "OCT": false,
-            "NOV": false,
-            "DEC": false
-         },
-         "rarity": 1,
-         "rarityName": "Common",
-         "weather": "Any"
-      },
-      {
-         "id": 51,
-         "name": "Butterfly Fish",
-         "value": 1000,
-         "locationName": "Sea",
-         "location": 6,
-         "shadowSize": 2,
-         "shadowSizeName": "Small",
-         "time": "All day",
-         "catchStartTime": [
-            0
-         ],
-         "catchEndTime": [
-            24
-         ],
-         "monthsAvailable": {
-            "JAN": false,
-            "FEB": false,
-            "MAR": false,
-            "APR": true,
-            "MAY": true,
-            "JUN": true,
-            "JUL": true,
-            "AUG": true,
-            "SEP": true,
-            "OCT": false,
-            "NOV": false,
-            "DEC": false
-         },
-         "rarity": 1,
-         "rarityName": "Common",
-         "weather": "Any"
-      },
-      {
-         "id": 52,
-         "name": "Napoleonfish",
-         "value": 10000,
-         "locationName": "Sea",
-         "location": 6,
-         "shadowSize": 6,
-         "shadowSizeName": "Gigantic",
-         "time": "4 AM - 9 PM",
-         "catchStartTime": [
-            4
-         ],
-         "catchEndTime": [
-            21
-         ],
-         "monthsAvailable": {
-            "JAN": false,
-            "FEB": false,
-            "MAR": false,
-            "APR": false,
-            "MAY": false,
-            "JUN": false,
-            "JUL": true,
-            "AUG": true,
-            "SEP": false,
-            "OCT": false,
-            "NOV": false,
-            "DEC": false
-         },
-         "rarity": 1,
-         "rarityName": "Common",
-         "weather": "Any"
-      },
-      {
-         "id": 53,
-         "name": "Zebra Turkeyfish",
-         "value": 500,
-         "locationName": "Sea",
-         "location": 6,
-         "shadowSize": 3,
-         "shadowSizeName": "Medium",
-         "time": "All day",
-         "catchStartTime": [
-            0
-         ],
-         "catchEndTime": [
-            24
-         ],
-         "monthsAvailable": {
-            "JAN": false,
-            "FEB": false,
-            "MAR": false,
-            "APR": true,
-            "MAY": true,
-            "JUN": true,
-            "JUL": true,
-            "AUG": true,
-            "SEP": true,
-            "OCT": true,
-            "NOV": true,
-            "DEC": false
-         },
-         "rarity": 1,
-         "rarityName": "Common",
-         "weather": "Any"
-      },
-      {
-         "id": 54,
-         "name": "Blowfish",
-         "value": 5000,
-         "locationName": "Sea",
-         "location": 6,
-         "shadowSize": 3,
-         "shadowSizeName": "Medium",
-         "time": "9 PM - 4 AM",
-         "catchStartTime": [
-            21
-         ],
-         "catchEndTime": [
-            4
-         ],
-         "monthsAvailable": {
-            "JAN": true,
-            "FEB": true,
-            "MAR": false,
-            "APR": false,
-            "MAY": false,
-            "JUN": false,
-            "JUL": false,
-            "AUG": false,
-            "SEP": false,
-            "OCT": false,
-            "NOV": true,
-            "DEC": true
-         },
-         "rarity": 1,
-         "rarityName": "Common",
-         "weather": "Any"
-      },
-      {
-         "id": 55,
-         "name": "Puffer Fish",
-         "value": 250,
-         "locationName": "Sea",
-         "location": 6,
-         "shadowSize": 3,
-         "shadowSizeName": "Medium",
-         "time": "All day",
-         "catchStartTime": [
-            0
-         ],
-         "catchEndTime": [
-            24
-         ],
-         "monthsAvailable": {
-            "JAN": false,
-            "FEB": false,
-            "MAR": false,
-            "APR": false,
-            "MAY": false,
-            "JUN": false,
-            "JUL": true,
-            "AUG": true,
-            "SEP": true,
-            "OCT": false,
-            "NOV": false,
-            "DEC": false
-         },
-         "rarity": 1,
-         "rarityName": "Common",
-         "weather": "Any"
-      },
-      {
-         "id": 56,
-         "name": "Anchovy",
-         "value": 200,
-         "locationName": "Sea",
-         "location": 6,
-         "shadowSize": 2,
-         "shadowSizeName": "Small",
-         "time": "4 AM - 9 PM",
-         "catchStartTime": [
-            4
-         ],
-         "catchEndTime": [
-            21
-         ],
-         "monthsAvailable": {
-            "JAN": true,
-            "FEB": true,
-            "MAR": true,
-            "APR": true,
-            "MAY": true,
-            "JUN": true,
-            "JUL": true,
-            "AUG": true,
-            "SEP": true,
-            "OCT": true,
-            "NOV": true,
-            "DEC": true
-         },
-         "rarity": 1,
-         "rarityName": "Common",
-         "weather": "Any"
-      },
-      {
-         "id": 57,
-         "name": "Horse Mackerel",
-         "value": 150,
-         "locationName": "Sea",
-         "location": 6,
-         "shadowSize": 2,
-         "shadowSizeName": "Small",
-         "time": "All day",
-         "catchStartTime": [
-            0
-         ],
-         "catchEndTime": [
-            24
-         ],
-         "monthsAvailable": {
-            "JAN": true,
-            "FEB": true,
-            "MAR": true,
-            "APR": true,
-            "MAY": true,
-            "JUN": true,
-            "JUL": true,
-            "AUG": true,
-            "SEP": true,
-            "OCT": true,
-            "NOV": true,
-            "DEC": true
-         },
-         "rarity": 1,
-         "rarityName": "Common",
-         "weather": "Any"
-      },
-      {
-         "id": 58,
-         "name": "Barred Knifejaw",
-         "value": 5000,
-         "locationName": "Sea",
-         "location": 6,
-         "shadowSize": 3,
-         "shadowSizeName": "Medium",
-         "time": "All day",
-         "catchStartTime": [
-            0
-         ],
-         "catchEndTime": [
-            24
-         ],
-         "monthsAvailable": {
-            "JAN": false,
-            "FEB": false,
-            "MAR": true,
-            "APR": true,
-            "MAY": true,
-            "JUN": true,
-            "JUL": true,
-            "AUG": true,
-            "SEP": true,
-            "OCT": true,
-            "NOV": true,
-            "DEC": false
-         },
-         "rarity": 1,
-         "rarityName": "Common",
-         "weather": "Any"
-      },
-      {
-         "id": 59,
-         "name": "Sea Bass",
-         "value": 400,
-         "locationName": "Sea",
-         "location": 6,
-         "shadowSize": 5,
-         "shadowSizeName": "Huge",
-         "time": "All day",
-         "catchStartTime": [
-            0
-         ],
-         "catchEndTime": [
-            24
-         ],
-         "monthsAvailable": {
-            "JAN": true,
-            "FEB": true,
-            "MAR": true,
-            "APR": true,
-            "MAY": true,
-            "JUN": true,
-            "JUL": true,
-            "AUG": true,
-            "SEP": true,
-            "OCT": true,
-            "NOV": true,
-            "DEC": true
-         },
-         "rarity": 1,
-         "rarityName": "Common",
-         "weather": "Any"
-      },
-      {
-         "id": 60,
-         "name": "Red Snapper",
-         "value": 3000,
-         "locationName": "Sea",
-         "location": 6,
-         "shadowSize": 4,
-         "shadowSizeName": "Large",
-         "time": "All day",
-         "catchStartTime": [
-            0
-         ],
-         "catchEndTime": [
-            24
-         ],
-         "monthsAvailable": {
-            "JAN": true,
-            "FEB": true,
-            "MAR": true,
-            "APR": true,
-            "MAY": true,
-            "JUN": true,
-            "JUL": true,
-            "AUG": true,
-            "SEP": true,
-            "OCT": true,
-            "NOV": true,
-            "DEC": true
-         },
-         "rarity": 1,
-         "rarityName": "Common",
-         "weather": "Any"
-      },
-      {
-         "id": 61,
-         "name": "Dab",
-         "value": 300,
-         "locationName": "Sea",
-         "location": 6,
-         "shadowSize": 3,
-         "shadowSizeName": "Medium",
-         "time": "All day",
-         "catchStartTime": [
-            0
-         ],
-         "catchEndTime": [
-            24
-         ],
-         "monthsAvailable": {
-            "JAN": true,
-            "FEB": true,
-            "MAR": true,
-            "APR": true,
-            "MAY": false,
-            "JUN": false,
-            "JUL": false,
-            "AUG": false,
-            "SEP": false,
-            "OCT": true,
-            "NOV": true,
-            "DEC": true
-         },
-         "rarity": 1,
-         "rarityName": "Common",
-         "weather": "Any"
-      },
-      {
-         "id": 62,
-         "name": "Olive Flounder",
-         "value": 800,
-         "locationName": "Sea",
-         "location": 6,
-         "shadowSize": 5,
-         "shadowSizeName": "Huge",
-         "time": "All day",
-         "catchStartTime": [
-            0
-         ],
-         "catchEndTime": [
-            24
-         ],
-         "monthsAvailable": {
-            "JAN": true,
-            "FEB": true,
-            "MAR": true,
-            "APR": true,
-            "MAY": true,
-            "JUN": true,
-            "JUL": true,
-            "AUG": true,
-            "SEP": true,
-            "OCT": true,
-            "NOV": true,
-            "DEC": true
-         },
-         "rarity": 1,
-         "rarityName": "Common",
-         "weather": "Any"
-      },
-      {
-         "id": 63,
-         "name": "Squid",
-         "value": 500,
-         "locationName": "Sea",
-         "location": 6,
-         "shadowSize": 3,
-         "shadowSizeName": "Medium",
-         "time": "All day",
-         "catchStartTime": [
-            0
-         ],
-         "catchEndTime": [
-            24
-         ],
-         "monthsAvailable": {
-            "JAN": true,
-            "FEB": true,
-            "MAR": true,
-            "APR": true,
-            "MAY": true,
-            "JUN": true,
-            "JUL": true,
-            "AUG": true,
-            "SEP": false,
-            "OCT": false,
-            "NOV": false,
-            "DEC": true
-         },
-         "rarity": 1,
-         "rarityName": "Common",
-         "weather": "Any"
-      },
-      {
-         "id": 64,
-         "name": "Moray Eel",
-         "value": 2000,
-         "locationName": "Sea",
-         "location": 6,
-         "shadowSize": 7,
-         "shadowSizeName": "Narrow",
-         "time": "All day",
-         "catchStartTime": [
-            0
-         ],
-         "catchEndTime": [
-            24
-         ],
-         "monthsAvailable": {
-            "JAN": false,
-            "FEB": false,
-            "MAR": false,
-            "APR": false,
-            "MAY": false,
-            "JUN": false,
-            "JUL": false,
-            "AUG": true,
-            "SEP": true,
-            "OCT": true,
-            "NOV": false,
-            "DEC": false
-         },
-         "rarity": 1,
-         "rarityName": "Common",
-         "weather": "Any"
-      },
-      {
-         "id": 65,
-         "name": "Ribbon Eel",
-         "value": 600,
-         "locationName": "Sea",
-         "location": 6,
-         "shadowSize": 7,
-         "shadowSizeName": "Narrow",
-         "time": "All day",
-         "catchStartTime": [
-            0
-         ],
-         "catchEndTime": [
-            24
-         ],
-         "monthsAvailable": {
-            "JAN": false,
-            "FEB": false,
-            "MAR": false,
-            "APR": false,
-            "MAY": false,
-            "JUN": true,
-            "JUL": true,
-            "AUG": true,
-            "SEP": true,
-            "OCT": true,
-            "NOV": false,
-            "DEC": false
-         },
-         "rarity": 1,
-         "rarityName": "Common",
-         "weather": "Any"
-      },
-      {
-         "id": 66,
-         "name": "Tuna",
-         "value": 7000,
-         "locationName": "Pier",
-         "location": 5,
-         "shadowSize": 6,
-         "shadowSizeName": "Gigantic",
-         "time": "All day",
-         "catchStartTime": [
-            0
-         ],
-         "catchEndTime": [
-            24
-         ],
-         "monthsAvailable": {
-            "JAN": true,
-            "FEB": true,
-            "MAR": true,
-            "APR": true,
-            "MAY": false,
-            "JUN": false,
-            "JUL": false,
-            "AUG": false,
-            "SEP": false,
-            "OCT": false,
-            "NOV": true,
-            "DEC": true
-         },
-         "rarity": 1,
-         "rarityName": "Common",
-         "weather": "Any"
-      },
-      {
-         "id": 67,
-         "name": "Blue Marlin",
-         "value": 10000,
-         "locationName": "Pier",
-         "location": 5,
-         "shadowSize": 6,
-         "shadowSizeName": "Gigantic",
-         "time": "All day",
-         "catchStartTime": [
-            0
-         ],
-         "catchEndTime": [
-            24
-         ],
-         "monthsAvailable": {
-            "JAN": true,
-            "FEB": true,
-            "MAR": true,
-            "APR": true,
-            "MAY": false,
-            "JUN": false,
-            "JUL": true,
-            "AUG": true,
-            "SEP": true,
-            "OCT": false,
-            "NOV": true,
-            "DEC": true
-         },
-         "rarity": 1,
-         "rarityName": "Common",
-         "weather": "Any"
-      },
-      {
-         "id": 68,
-         "name": "Giant Trevally",
-         "value": 4500,
-         "locationName": "Pier",
-         "location": 5,
-         "shadowSize": 5,
-         "shadowSizeName": "Huge",
-         "time": "All day",
-         "catchStartTime": [
-            0
-         ],
-         "catchEndTime": [
-            24
-         ],
-         "monthsAvailable": {
-            "JAN": false,
-            "FEB": false,
-            "MAR": false,
-            "APR": false,
-            "MAY": true,
-            "JUN": true,
-            "JUL": true,
-            "AUG": true,
-            "SEP": true,
-            "OCT": true,
-            "NOV": false,
-            "DEC": false
-         },
-         "rarity": 1,
-         "rarityName": "Common",
-         "weather": "Any"
-      },
-      {
-         "id": 69,
-         "name": "Mahi-Mahi",
-         "value": 6000,
-         "locationName": "Pier",
-         "location": 5,
-         "shadowSize": 5,
-         "shadowSizeName": "Huge",
-         "time": "All day",
-         "catchStartTime": [
-            0
-         ],
-         "catchEndTime": [
-            24
-         ],
-         "monthsAvailable": {
-            "JAN": false,
-            "FEB": false,
-            "MAR": false,
-            "APR": false,
-            "MAY": true,
-            "JUN": true,
-            "JUL": true,
-            "AUG": true,
-            "SEP": true,
-            "OCT": true,
-            "NOV": false,
-            "DEC": false
-         },
-         "rarity": 1,
-         "rarityName": "Common",
-         "weather": "Any"
-      },
-      {
-         "id": 70,
-         "name": "Ocean Sunfish",
-         "value": 4000,
-         "locationName": "Sea",
-         "location": 6,
-         "shadowSize": 6,
-         "shadowSizeName": "Gigantic",
-         "time": "4 AM - 9 PM",
-         "catchStartTime": [
-            4
-         ],
-         "catchEndTime": [
-            21
-         ],
-         "monthsAvailable": {
-            "JAN": false,
-            "FEB": false,
-            "MAR": false,
-            "APR": false,
-            "MAY": false,
-            "JUN": false,
-            "JUL": true,
-            "AUG": true,
-            "SEP": true,
-            "OCT": false,
-            "NOV": false,
-            "DEC": false
-         },
-         "rarity": 1,
-         "rarityName": "Common",
-         "weather": "Any"
-      },
-      {
-         "id": 71,
-         "name": "Ray",
-         "value": 3000,
-         "locationName": "Sea",
-         "location": 6,
-         "shadowSize": 5,
-         "shadowSizeName": "Huge",
-         "time": "4 AM - 9 PM",
-         "catchStartTime": [
-            4
-         ],
-         "catchEndTime": [
-            21
-         ],
-         "monthsAvailable": {
-            "JAN": false,
-            "FEB": false,
-            "MAR": false,
-            "APR": false,
-            "MAY": false,
-            "JUN": false,
-            "JUL": false,
-            "AUG": true,
-            "SEP": true,
-            "OCT": true,
-            "NOV": true,
-            "DEC": false
-         },
-         "rarity": 1,
-         "rarityName": "Common",
-         "weather": "Any"
-      },
-      {
-         "id": 72,
-         "name": "Saw Shark",
-         "value": 12000,
-         "locationName": "Sea",
-         "location": 6,
-         "shadowSize": 6,
-         "shadowSizeName": "Gigantic",
-         "time": "4 PM - 9 AM",
-         "catchStartTime": [
-            16
-         ],
-         "catchEndTime": [
-            9
-         ],
-         "monthsAvailable": {
-            "JAN": false,
-            "FEB": false,
-            "MAR": false,
-            "APR": false,
-            "MAY": false,
-            "JUN": true,
-            "JUL": true,
-            "AUG": true,
-            "SEP": true,
-            "OCT": false,
-            "NOV": false,
-            "DEC": false
-         },
-         "rarity": 1,
-         "rarityName": "Common",
-         "weather": "Any"
-      },
-      {
-         "id": 73,
-         "name": "Hammerhead Shark",
-         "value": 8000,
-         "locationName": "Sea",
-         "location": 6,
-         "shadowSize": 6,
-         "shadowSizeName": "Gigantic",
-         "time": "4 PM - 9 AM",
-         "catchStartTime": [
-            16
-         ],
-         "catchEndTime": [
-            9
-         ],
-         "monthsAvailable": {
-            "JAN": false,
-            "FEB": false,
-            "MAR": false,
-            "APR": false,
-            "MAY": false,
-            "JUN": true,
-            "JUL": true,
-            "AUG": true,
-            "SEP": true,
-            "OCT": false,
-            "NOV": false,
-            "DEC": false
-         },
-         "rarity": 1,
-         "rarityName": "Common",
-         "weather": "Any"
-      },
-      {
-         "id": 74,
-         "name": "Great White Shark",
-         "value": 15000,
-         "locationName": "Sea",
-         "location": 6,
-         "shadowSize": 6,
-         "shadowSizeName": "Gigantic",
-         "time": "4 PM - 9 AM",
-         "catchStartTime": [
-            16
-         ],
-         "catchEndTime": [
-            9
-         ],
-         "monthsAvailable": {
-            "JAN": false,
-            "FEB": false,
-            "MAR": false,
-            "APR": false,
-            "MAY": false,
-            "JUN": true,
-            "JUL": true,
-            "AUG": true,
-            "SEP": true,
-            "OCT": false,
-            "NOV": false,
-            "DEC": false
-         },
-         "rarity": 1,
-         "rarityName": "Common",
-         "weather": "Any"
-      },
-      {
-         "id": 75,
-         "name": "Whale Shark",
-         "value": 13000,
-         "locationName": "Sea",
-         "location": 6,
-         "shadowSize": 6,
-         "shadowSizeName": "Gigantic",
-         "time": "All day",
-         "catchStartTime": [
-            0
-         ],
-         "catchEndTime": [
-            24
-         ],
-         "monthsAvailable": {
-            "JAN": false,
-            "FEB": false,
-            "MAR": false,
-            "APR": false,
-            "MAY": false,
-            "JUN": true,
-            "JUL": true,
-            "AUG": true,
-            "SEP": true,
-            "OCT": false,
-            "NOV": false,
-            "DEC": false
-         },
-         "rarity": 1,
-         "rarityName": "Common",
-         "weather": "Any"
-      },
-      {
-         "id": 76,
-         "name": "Suckerfish",
-         "value": 1500,
-         "locationName": "Sea",
-         "location": 6,
-         "shadowSize": 4,
-         "shadowSizeName": "Large",
-         "time": "All day",
-         "catchStartTime": [
-            0
-         ],
-         "catchEndTime": [
-            24
-         ],
-         "monthsAvailable": {
-            "JAN": false,
-            "FEB": false,
-            "MAR": false,
-            "APR": false,
-            "MAY": false,
-            "JUN": true,
-            "JUL": true,
-            "AUG": true,
-            "SEP": true,
-            "OCT": false,
-            "NOV": false,
-            "DEC": false
-         },
-         "rarity": 1,
-         "rarityName": "Common",
-         "weather": "Any"
-      },
-      {
-         "id": 77,
-         "name": "Football Fish",
-         "value": 2500,
-         "locationName": "Sea",
-         "location": 6,
-         "shadowSize": 4,
-         "shadowSizeName": "Large",
-         "time": "4 PM - 9 AM",
-         "catchStartTime": [
-            16
-         ],
-         "catchEndTime": [
-            9
-         ],
-         "monthsAvailable": {
-            "JAN": true,
-            "FEB": true,
-            "MAR": true,
-            "APR": false,
-            "MAY": false,
-            "JUN": false,
-            "JUL": false,
-            "AUG": false,
-            "SEP": false,
-            "OCT": false,
-            "NOV": true,
-            "DEC": true
-         },
-         "rarity": 1,
-         "rarityName": "Common",
-         "weather": "Any"
-      },
-      {
-         "id": 78,
-         "name": "Oarfish",
-         "value": 9000,
-         "locationName": "Sea",
-         "location": 6,
-         "shadowSize": 6,
-         "shadowSizeName": "Gigantic",
-         "time": "All day",
-         "catchStartTime": [
-            0
-         ],
-         "catchEndTime": [
-            24
-         ],
-         "monthsAvailable": {
-            "JAN": true,
-            "FEB": true,
-            "MAR": true,
-            "APR": true,
-            "MAY": true,
-            "JUN": false,
-            "JUL": false,
-            "AUG": false,
-            "SEP": false,
-            "OCT": false,
-            "NOV": false,
-            "DEC": true
-         },
-         "rarity": 1,
-         "rarityName": "Common",
-         "weather": "Any"
-      },
-      {
-         "id": 79,
-         "name": "Barreleye",
-         "value": 15000,
-         "locationName": "Sea",
-         "location": 6,
-         "shadowSize": 2,
-         "shadowSizeName": "Small",
-         "time": "9 PM - 4 AM",
-         "catchStartTime": [
-            21
-         ],
-         "catchEndTime": [
-            4
-         ],
-         "monthsAvailable": {
-            "JAN": true,
-            "FEB": true,
-            "MAR": true,
-            "APR": true,
-            "MAY": true,
-            "JUN": true,
-            "JUL": true,
-            "AUG": true,
-            "SEP": true,
-            "OCT": true,
-            "NOV": true,
-            "DEC": true
-         },
-         "rarity": 1,
-         "rarityName": "Common",
-         "weather": "Any"
-      },
-      {
-         "id": 80,
-         "name": "Coelacanth",
-         "value": 15000,
-         "locationName": "Sea",
-         "location": 6,
-         "shadowSize": 6,
-         "shadowSizeName": "Gigantic",
-         "time": "All day",
-         "catchStartTime": [
-            0
-         ],
-         "catchEndTime": [
-            24
-         ],
-         "monthsAvailable": {
-            "JAN": true,
-            "FEB": true,
-            "MAR": true,
-            "APR": true,
-            "MAY": true,
-            "JUN": true,
-            "JUL": true,
-            "AUG": true,
-            "SEP": true,
-            "OCT": true,
-            "NOV": true,
-            "DEC": true
-         },
-         "rarity": 1,
-         "rarityName": "Common",
-         "weather": "Rain"
-      }
-   ]
+  "fish": [
+    {
+      "id": 1,
+      "name": "Bitterling",
+      "value": 900,
+      "locationName": "River",
+      "location": 1,
+      "shadowSize": 1,
+      "shadowSizeName": "Tiny",
+      "time": "All day",
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
+      "monthsAvailable": {
+        "jan": true,
+        "feb": true,
+        "mar": true,
+        "apr": false,
+        "may": false,
+        "jun": false,
+        "jul": false,
+        "aug": false,
+        "sep": false,
+        "oct": false,
+        "nov": true,
+        "dec": true
+      },
+      "rarity": 1,
+      "rarityName": "Common",
+      "weather": "Any",
+      "caught": false,
+      "donated": false
+    },
+    {
+      "id": 2,
+      "name": "Pale Chub",
+      "value": 200,
+      "locationName": "River",
+      "location": 1,
+      "shadowSize": 1,
+      "shadowSizeName": "Tiny",
+      "time": "9 AM - 4 PM",
+      "catchStartTime": [
+        9
+      ],
+      "catchEndTime": [
+        16
+      ],
+      "monthsAvailable": {
+        "jan": true,
+        "feb": true,
+        "mar": true,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": true,
+        "dec": true
+      },
+      "rarity": 1,
+      "rarityName": "Common",
+      "weather": "Any",
+      "caught": false,
+      "donated": false
+    },
+    {
+      "id": 3,
+      "name": "Crucian Carp",
+      "value": 160,
+      "locationName": "River",
+      "location": 1,
+      "shadowSize": 2,
+      "shadowSizeName": "Small",
+      "time": "All day",
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
+      "monthsAvailable": {
+        "jan": true,
+        "feb": true,
+        "mar": true,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": true,
+        "dec": true
+      },
+      "rarity": 1,
+      "rarityName": "Common",
+      "weather": "Any",
+      "caught": false,
+      "donated": false
+    },
+    {
+      "id": 4,
+      "name": "Dace",
+      "value": 240,
+      "locationName": "River",
+      "location": 1,
+      "shadowSize": 3,
+      "shadowSizeName": "Medium",
+      "time": "4 PM - 9 AM",
+      "catchStartTime": [
+        16
+      ],
+      "catchEndTime": [
+        9
+      ],
+      "monthsAvailable": {
+        "jan": true,
+        "feb": true,
+        "mar": true,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": true,
+        "dec": true
+      },
+      "rarity": 1,
+      "rarityName": "Common",
+      "weather": "Any",
+      "caught": false,
+      "donated": false
+    },
+    {
+      "id": 5,
+      "name": "Carp",
+      "value": 300,
+      "locationName": "Pond",
+      "location": 4,
+      "shadowSize": 4,
+      "shadowSizeName": "Large",
+      "time": "All day",
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
+      "monthsAvailable": {
+        "jan": true,
+        "feb": true,
+        "mar": true,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": true,
+        "dec": true
+      },
+      "rarity": 1,
+      "rarityName": "Common",
+      "weather": "Any",
+      "caught": false,
+      "donated": false
+    },
+    {
+      "id": 6,
+      "name": "Koi",
+      "value": 4000,
+      "locationName": "Pond",
+      "location": 4,
+      "shadowSize": 4,
+      "shadowSizeName": "Large",
+      "time": "4 PM - 9 AM",
+      "catchStartTime": [
+        16
+      ],
+      "catchEndTime": [
+        9
+      ],
+      "monthsAvailable": {
+        "jan": true,
+        "feb": true,
+        "mar": true,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": true,
+        "dec": true
+      },
+      "rarity": 1,
+      "rarityName": "Common",
+      "weather": "Any",
+      "caught": false,
+      "donated": false
+    },
+    {
+      "id": 7,
+      "name": "Goldfish",
+      "value": 1300,
+      "locationName": "Pond",
+      "location": 4,
+      "shadowSize": 1,
+      "shadowSizeName": "Tiny",
+      "time": "All day",
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
+      "monthsAvailable": {
+        "jan": true,
+        "feb": true,
+        "mar": true,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": true,
+        "dec": true
+      },
+      "rarity": 1,
+      "rarityName": "Common",
+      "weather": "Any",
+      "caught": false,
+      "donated": false
+    },
+    {
+      "id": 8,
+      "name": "Pop-Eyed Goldfish",
+      "value": 1300,
+      "locationName": "Pond",
+      "location": 4,
+      "shadowSize": 1,
+      "shadowSizeName": "Tiny",
+      "time": "9 AM - 4 PM",
+      "catchStartTime": [
+        9
+      ],
+      "catchEndTime": [
+        16
+      ],
+      "monthsAvailable": {
+        "jan": true,
+        "feb": true,
+        "mar": true,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": true,
+        "dec": true
+      },
+      "rarity": 1,
+      "rarityName": "Common",
+      "weather": "Any",
+      "caught": false,
+      "donated": false
+    },
+    {
+      "id": 9,
+      "name": "Ranchu Goldfish",
+      "value": 4500,
+      "locationName": "Pond",
+      "location": 4,
+      "shadowSize": 2,
+      "shadowSizeName": "Small",
+      "time": "9 AM - 4 PM",
+      "catchStartTime": [
+        9
+      ],
+      "catchEndTime": [
+        16
+      ],
+      "monthsAvailable": {
+        "jan": true,
+        "feb": true,
+        "mar": true,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": true,
+        "dec": true
+      },
+      "rarity": 1,
+      "rarityName": "Common",
+      "weather": "Any",
+      "caught": false,
+      "donated": false
+    },
+    {
+      "id": 10,
+      "name": "Killifish",
+      "value": 300,
+      "locationName": "Pond",
+      "location": 4,
+      "shadowSize": 1,
+      "shadowSizeName": "Tiny",
+      "time": "All day",
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
+      "monthsAvailable": {
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": false,
+        "oct": false,
+        "nov": false,
+        "dec": false
+      },
+      "rarity": 1,
+      "rarityName": "Common",
+      "weather": "Any",
+      "caught": false,
+      "donated": false
+    },
+    {
+      "id": 11,
+      "name": "Crawfish",
+      "value": 200,
+      "locationName": "Pond",
+      "location": 4,
+      "shadowSize": 2,
+      "shadowSizeName": "Small",
+      "time": "All day",
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
+      "monthsAvailable": {
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": false,
+        "nov": false,
+        "dec": false
+      },
+      "rarity": 1,
+      "rarityName": "Common",
+      "weather": "Any",
+      "caught": false,
+      "donated": false
+    },
+    {
+      "id": 12,
+      "name": "Soft-Shelled Turtle",
+      "value": 3750,
+      "locationName": "River",
+      "location": 1,
+      "shadowSize": 4,
+      "shadowSizeName": "Large",
+      "time": "4 PM - 9 AM",
+      "catchStartTime": [
+        16
+      ],
+      "catchEndTime": [
+        9
+      ],
+      "monthsAvailable": {
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": false,
+        "may": false,
+        "jun": false,
+        "jul": false,
+        "aug": true,
+        "sep": true,
+        "oct": false,
+        "nov": false,
+        "dec": false
+      },
+      "rarity": 1,
+      "rarityName": "Common",
+      "weather": "Any",
+      "caught": false,
+      "donated": false
+    },
+    {
+      "id": 13,
+      "name": "Snapping Turtle",
+      "value": 5000,
+      "locationName": "River",
+      "location": 1,
+      "shadowSize": 5,
+      "shadowSizeName": "Huge",
+      "time": "9 PM - 4 AM",
+      "catchStartTime": [
+        21
+      ],
+      "catchEndTime": [
+        4
+      ],
+      "monthsAvailable": {
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": false,
+        "dec": false
+      },
+      "rarity": 1,
+      "rarityName": "Common",
+      "weather": "Any",
+      "caught": false,
+      "donated": false
+    },
+    {
+      "id": 14,
+      "name": "Tadpole",
+      "value": 100,
+      "locationName": "Pond",
+      "location": 4,
+      "shadowSize": 1,
+      "shadowSizeName": "Tiny",
+      "time": "All day",
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
+      "monthsAvailable": {
+        "jan": false,
+        "feb": false,
+        "mar": true,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": false,
+        "sep": false,
+        "oct": false,
+        "nov": false,
+        "dec": false
+      },
+      "rarity": 1,
+      "rarityName": "Common",
+      "weather": "Any",
+      "caught": false,
+      "donated": false
+    },
+    {
+      "id": 15,
+      "name": "Frog",
+      "value": 120,
+      "locationName": "Pond",
+      "location": 4,
+      "shadowSize": 2,
+      "shadowSizeName": "Small",
+      "time": "All day",
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
+      "monthsAvailable": {
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": false,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": false,
+        "oct": false,
+        "nov": false,
+        "dec": false
+      },
+      "rarity": 1,
+      "rarityName": "Common",
+      "weather": "Any",
+      "caught": false,
+      "donated": false
+    },
+    {
+      "id": 16,
+      "name": "Freshwater Goby",
+      "value": 400,
+      "locationName": "River",
+      "location": 1,
+      "shadowSize": 2,
+      "shadowSizeName": "Small",
+      "time": "4 PM - 9 AM",
+      "catchStartTime": [
+        16
+      ],
+      "catchEndTime": [
+        9
+      ],
+      "monthsAvailable": {
+        "jan": true,
+        "feb": true,
+        "mar": true,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": true,
+        "dec": true
+      },
+      "rarity": 1,
+      "rarityName": "Common",
+      "weather": "Any",
+      "caught": false,
+      "donated": false
+    },
+    {
+      "id": 17,
+      "name": "Loach",
+      "value": 400,
+      "locationName": "River",
+      "location": 1,
+      "shadowSize": 2,
+      "shadowSizeName": "Small",
+      "time": "All day",
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
+      "monthsAvailable": {
+        "jan": false,
+        "feb": false,
+        "mar": true,
+        "apr": true,
+        "may": true,
+        "jun": false,
+        "jul": false,
+        "aug": false,
+        "sep": false,
+        "oct": false,
+        "nov": false,
+        "dec": false
+      },
+      "rarity": 1,
+      "rarityName": "Common",
+      "weather": "Any",
+      "caught": false,
+      "donated": false
+    },
+    {
+      "id": 18,
+      "name": "Catfish",
+      "value": 800,
+      "locationName": "Pond",
+      "location": 4,
+      "shadowSize": 4,
+      "shadowSizeName": "Large",
+      "time": "4 PM - 9 AM",
+      "catchStartTime": [
+        16
+      ],
+      "catchEndTime": [
+        9
+      ],
+      "monthsAvailable": {
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": false,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": false,
+        "dec": false
+      },
+      "rarity": 1,
+      "rarityName": "Common",
+      "weather": "Any",
+      "caught": false,
+      "donated": false
+    },
+    {
+      "id": 19,
+      "name": "Giant Snakehead",
+      "value": 5500,
+      "locationName": "Pond",
+      "location": 4,
+      "shadowSize": 5,
+      "shadowSizeName": "Huge",
+      "time": "9 AM - 4 PM",
+      "catchStartTime": [
+        9
+      ],
+      "catchEndTime": [
+        16
+      ],
+      "monthsAvailable": {
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": false,
+        "may": false,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": false,
+        "oct": false,
+        "nov": false,
+        "dec": false
+      },
+      "rarity": 1,
+      "rarityName": "Common",
+      "weather": "Any",
+      "caught": false,
+      "donated": false
+    },
+    {
+      "id": 20,
+      "name": "Bluegill",
+      "value": 180,
+      "locationName": "River",
+      "location": 1,
+      "shadowSize": 2,
+      "shadowSizeName": "Small",
+      "time": "9 AM - 4 PM",
+      "catchStartTime": [
+        9
+      ],
+      "catchEndTime": [
+        16
+      ],
+      "monthsAvailable": {
+        "jan": true,
+        "feb": true,
+        "mar": true,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": true,
+        "dec": true
+      },
+      "rarity": 1,
+      "rarityName": "Common",
+      "weather": "Any",
+      "caught": false,
+      "donated": false
+    },
+    {
+      "id": 21,
+      "name": "Yellow Perch",
+      "value": 300,
+      "locationName": "River",
+      "location": 1,
+      "shadowSize": 3,
+      "shadowSizeName": "Medium",
+      "time": "All day",
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
+      "monthsAvailable": {
+        "jan": true,
+        "feb": true,
+        "mar": true,
+        "apr": false,
+        "may": false,
+        "jun": false,
+        "jul": false,
+        "aug": false,
+        "sep": false,
+        "oct": true,
+        "nov": true,
+        "dec": true
+      },
+      "rarity": 1,
+      "rarityName": "Common",
+      "weather": "Any",
+      "caught": false,
+      "donated": false
+    },
+    {
+      "id": 22,
+      "name": "Black Bass",
+      "value": 400,
+      "locationName": "River",
+      "location": 1,
+      "shadowSize": 4,
+      "shadowSizeName": "Large",
+      "time": "All day",
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
+      "monthsAvailable": {
+        "jan": true,
+        "feb": true,
+        "mar": true,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": true,
+        "dec": true
+      },
+      "rarity": 1,
+      "rarityName": "Common",
+      "weather": "Any",
+      "caught": false,
+      "donated": false
+    },
+    {
+      "id": 23,
+      "name": "Tilapia",
+      "value": 800,
+      "locationName": "River",
+      "location": 1,
+      "shadowSize": 3,
+      "shadowSizeName": "Medium",
+      "time": "All day",
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
+      "monthsAvailable": {
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": false,
+        "may": false,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": false,
+        "dec": false
+      },
+      "rarity": 1,
+      "rarityName": "Common",
+      "weather": "Any",
+      "caught": false,
+      "donated": false
+    },
+    {
+      "id": 24,
+      "name": "Pike",
+      "value": 1800,
+      "locationName": "River",
+      "location": 1,
+      "shadowSize": 5,
+      "shadowSizeName": "Huge",
+      "time": "All day",
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
+      "monthsAvailable": {
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": false,
+        "may": false,
+        "jun": false,
+        "jul": false,
+        "aug": false,
+        "sep": true,
+        "oct": true,
+        "nov": true,
+        "dec": true
+      },
+      "rarity": 1,
+      "rarityName": "Common",
+      "weather": "Any",
+      "caught": false,
+      "donated": false
+    },
+    {
+      "id": 25,
+      "name": "Pond Smelt",
+      "value": 500,
+      "locationName": "River",
+      "location": 1,
+      "shadowSize": 2,
+      "shadowSizeName": "Small",
+      "time": "All day",
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
+      "monthsAvailable": {
+        "jan": true,
+        "feb": true,
+        "mar": false,
+        "apr": false,
+        "may": false,
+        "jun": false,
+        "jul": false,
+        "aug": false,
+        "sep": false,
+        "oct": false,
+        "nov": false,
+        "dec": true
+      },
+      "rarity": 1,
+      "rarityName": "Common",
+      "weather": "Any",
+      "caught": false,
+      "donated": false
+    },
+    {
+      "id": 26,
+      "name": "Sweetfish",
+      "value": 900,
+      "locationName": "River",
+      "location": 1,
+      "shadowSize": 3,
+      "shadowSizeName": "Medium",
+      "time": "All day",
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
+      "monthsAvailable": {
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": false,
+        "may": false,
+        "jun": false,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": false,
+        "nov": false,
+        "dec": false
+      },
+      "rarity": 1,
+      "rarityName": "Common",
+      "weather": "Any",
+      "caught": false,
+      "donated": false
+    },
+    {
+      "id": 27,
+      "name": "Cherry Salmon",
+      "value": 800,
+      "locationName": "River (Clifftop)",
+      "location": 3,
+      "shadowSize": 3,
+      "shadowSizeName": "Medium",
+      "time": "4 PM - 9 AM",
+      "catchStartTime": [
+        16
+      ],
+      "catchEndTime": [
+        9
+      ],
+      "monthsAvailable": {
+        "jan": false,
+        "feb": false,
+        "mar": true,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": false,
+        "aug": false,
+        "sep": true,
+        "oct": true,
+        "nov": true,
+        "dec": false
+      },
+      "rarity": 1,
+      "rarityName": "Common",
+      "weather": "Any",
+      "caught": false,
+      "donated": false
+    },
+    {
+      "id": 28,
+      "name": "Char",
+      "value": 3800,
+      "locationName": "River (Clifftop), Pond",
+      "location": 7,
+      "shadowSize": 3,
+      "shadowSizeName": "Medium",
+      "time": "4 PM - 9 AM",
+      "catchStartTime": [
+        16
+      ],
+      "catchEndTime": [
+        9
+      ],
+      "monthsAvailable": {
+        "jan": false,
+        "feb": false,
+        "mar": true,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": false,
+        "aug": false,
+        "sep": true,
+        "oct": true,
+        "nov": true,
+        "dec": false
+      },
+      "rarity": 1,
+      "rarityName": "Common",
+      "weather": "Any",
+      "caught": false,
+      "donated": false
+    },
+    {
+      "id": 29,
+      "name": "Golden Trout",
+      "value": 15000,
+      "locationName": "River (Clifftop)",
+      "location": 3,
+      "shadowSize": 3,
+      "shadowSizeName": "Medium",
+      "time": "4 PM - 9 AM",
+      "catchStartTime": [
+        16
+      ],
+      "catchEndTime": [
+        9
+      ],
+      "monthsAvailable": {
+        "jan": false,
+        "feb": false,
+        "mar": true,
+        "apr": true,
+        "may": true,
+        "jun": false,
+        "jul": false,
+        "aug": false,
+        "sep": true,
+        "oct": true,
+        "nov": true,
+        "dec": false
+      },
+      "rarity": 1,
+      "rarityName": "Common",
+      "weather": "Any",
+      "caught": false,
+      "donated": false
+    },
+    {
+      "id": 30,
+      "name": "Stringfish",
+      "value": 15000,
+      "locationName": "River (Clifftop)",
+      "location": 3,
+      "shadowSize": 5,
+      "shadowSizeName": "Huge",
+      "time": "4 PM - 9 AM",
+      "catchStartTime": [
+        16
+      ],
+      "catchEndTime": [
+        9
+      ],
+      "monthsAvailable": {
+        "jan": true,
+        "feb": true,
+        "mar": true,
+        "apr": false,
+        "may": false,
+        "jun": false,
+        "jul": false,
+        "aug": false,
+        "sep": false,
+        "oct": false,
+        "nov": false,
+        "dec": true
+      },
+      "rarity": 1,
+      "rarityName": "Common",
+      "weather": "Any",
+      "caught": false,
+      "donated": false
+    },
+    {
+      "id": 31,
+      "name": "Salmon",
+      "value": 700,
+      "locationName": "River (Mouth)",
+      "location": 2,
+      "shadowSize": 4,
+      "shadowSizeName": "Large",
+      "time": "All day",
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
+      "monthsAvailable": {
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": false,
+        "may": false,
+        "jun": false,
+        "jul": false,
+        "aug": false,
+        "sep": true,
+        "oct": false,
+        "nov": false,
+        "dec": false
+      },
+      "rarity": 1,
+      "rarityName": "Common",
+      "weather": "Any",
+      "caught": false,
+      "donated": false
+    },
+    {
+      "id": 32,
+      "name": "King Salmon",
+      "value": 1800,
+      "locationName": "River (Mouth)",
+      "location": 2,
+      "shadowSize": 6,
+      "shadowSizeName": "Gigantic",
+      "time": "All day",
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
+      "monthsAvailable": {
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": false,
+        "may": false,
+        "jun": false,
+        "jul": false,
+        "aug": false,
+        "sep": true,
+        "oct": false,
+        "nov": false,
+        "dec": false
+      },
+      "rarity": 1,
+      "rarityName": "Common",
+      "weather": "Any",
+      "caught": false,
+      "donated": false
+    },
+    {
+      "id": 33,
+      "name": "Mitten Crab",
+      "value": 2000,
+      "locationName": "River",
+      "location": 1,
+      "shadowSize": 2,
+      "shadowSizeName": "Small",
+      "time": "4 PM - 9 AM",
+      "catchStartTime": [
+        16
+      ],
+      "catchEndTime": [
+        9
+      ],
+      "monthsAvailable": {
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": false,
+        "may": false,
+        "jun": false,
+        "jul": false,
+        "aug": false,
+        "sep": true,
+        "oct": true,
+        "nov": true,
+        "dec": false
+      },
+      "rarity": 1,
+      "rarityName": "Common",
+      "weather": "Any",
+      "caught": false,
+      "donated": false
+    },
+    {
+      "id": 34,
+      "name": "Guppy",
+      "value": 1300,
+      "locationName": "River",
+      "location": 1,
+      "shadowSize": 1,
+      "shadowSizeName": "Tiny",
+      "time": "9 AM - 4 PM",
+      "catchStartTime": [
+        9
+      ],
+      "catchEndTime": [
+        16
+      ],
+      "monthsAvailable": {
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": true,
+        "dec": false
+      },
+      "rarity": 1,
+      "rarityName": "Common",
+      "weather": "Any",
+      "caught": false,
+      "donated": false
+    },
+    {
+      "id": 35,
+      "name": "Nibble Fish",
+      "value": 1500,
+      "locationName": "River",
+      "location": 1,
+      "shadowSize": 1,
+      "shadowSizeName": "Tiny",
+      "time": "9 AM - 4 PM",
+      "catchStartTime": [
+        9
+      ],
+      "catchEndTime": [
+        16
+      ],
+      "monthsAvailable": {
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": false,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": false,
+        "nov": false,
+        "dec": false
+      },
+      "rarity": 1,
+      "rarityName": "Common",
+      "weather": "Any",
+      "caught": false,
+      "donated": false
+    },
+    {
+      "id": 36,
+      "name": "Angelfish",
+      "value": 3000,
+      "locationName": "River",
+      "location": 1,
+      "shadowSize": 2,
+      "shadowSizeName": "Small",
+      "time": "4 PM - 9 AM",
+      "catchStartTime": [
+        16
+      ],
+      "catchEndTime": [
+        9
+      ],
+      "monthsAvailable": {
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": false,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": false,
+        "dec": false
+      },
+      "rarity": 1,
+      "rarityName": "Common",
+      "weather": "Any",
+      "caught": false,
+      "donated": false
+    },
+    {
+      "id": 37,
+      "name": "Betta",
+      "value": 2500,
+      "locationName": "River",
+      "location": 1,
+      "shadowSize": 2,
+      "shadowSizeName": "Small",
+      "time": "9 AM - 4 PM",
+      "catchStartTime": [
+        9
+      ],
+      "catchEndTime": [
+        16
+      ],
+      "monthsAvailable": {
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": false,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": false,
+        "dec": false
+      },
+      "rarity": 1,
+      "rarityName": "Common",
+      "weather": "Any",
+      "caught": false,
+      "donated": false
+    },
+    {
+      "id": 38,
+      "name": "Neon Tetra",
+      "value": 500,
+      "locationName": "River",
+      "location": 1,
+      "shadowSize": 1,
+      "shadowSizeName": "Tiny",
+      "time": "9 AM - 4 PM",
+      "catchStartTime": [
+        9
+      ],
+      "catchEndTime": [
+        16
+      ],
+      "monthsAvailable": {
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": true,
+        "dec": false
+      },
+      "rarity": 1,
+      "rarityName": "Common",
+      "weather": "Any",
+      "caught": false,
+      "donated": false
+    },
+    {
+      "id": 39,
+      "name": "Rainbowfish",
+      "value": 800,
+      "locationName": "River",
+      "location": 1,
+      "shadowSize": 1,
+      "shadowSizeName": "Tiny",
+      "time": "9 AM - 4 PM",
+      "catchStartTime": [
+        9
+      ],
+      "catchEndTime": [
+        16
+      ],
+      "monthsAvailable": {
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": false,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": false,
+        "dec": false
+      },
+      "rarity": 1,
+      "rarityName": "Common",
+      "weather": "Any",
+      "caught": false,
+      "donated": false
+    },
+    {
+      "id": 40,
+      "name": "Piranha",
+      "value": 2500,
+      "locationName": "River",
+      "location": 1,
+      "shadowSize": 2,
+      "shadowSizeName": "Small",
+      "time": "9 AM - 4 PM & 9 PM - 4 AM",
+      "catchStartTime": [
+        9,
+        21
+      ],
+      "catchEndTime": [
+        16,
+        4
+      ],
+      "monthsAvailable": {
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": false,
+        "may": false,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": false,
+        "nov": false,
+        "dec": false
+      },
+      "rarity": 1,
+      "rarityName": "Common",
+      "weather": "Any",
+      "caught": false,
+      "donated": false
+    },
+    {
+      "id": 41,
+      "name": "Arowana",
+      "value": 10000,
+      "locationName": "River",
+      "location": 1,
+      "shadowSize": 4,
+      "shadowSizeName": "Large",
+      "time": "4 PM - 9 AM",
+      "catchStartTime": [
+        16
+      ],
+      "catchEndTime": [
+        9
+      ],
+      "monthsAvailable": {
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": false,
+        "may": false,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": false,
+        "nov": false,
+        "dec": false
+      },
+      "rarity": 1,
+      "rarityName": "Common",
+      "weather": "Any",
+      "caught": false,
+      "donated": false
+    },
+    {
+      "id": 42,
+      "name": "Dorado",
+      "value": 15000,
+      "locationName": "River",
+      "location": 1,
+      "shadowSize": 5,
+      "shadowSizeName": "Huge",
+      "time": "4 AM - 9 PM",
+      "catchStartTime": [
+        4
+      ],
+      "catchEndTime": [
+        21
+      ],
+      "monthsAvailable": {
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": false,
+        "may": false,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": false,
+        "nov": false,
+        "dec": false
+      },
+      "rarity": 1,
+      "rarityName": "Common",
+      "weather": "Any",
+      "caught": false,
+      "donated": false
+    },
+    {
+      "id": 43,
+      "name": "Gar",
+      "value": 6000,
+      "locationName": "Pond",
+      "location": 4,
+      "shadowSize": 6,
+      "shadowSizeName": "Gigantic",
+      "time": "4 PM - 9 AM",
+      "catchStartTime": [
+        16
+      ],
+      "catchEndTime": [
+        9
+      ],
+      "monthsAvailable": {
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": false,
+        "may": false,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": false,
+        "nov": false,
+        "dec": false
+      },
+      "rarity": 1,
+      "rarityName": "Common",
+      "weather": "Any",
+      "caught": false,
+      "donated": false
+    },
+    {
+      "id": 44,
+      "name": "Arapaima",
+      "value": 10000,
+      "locationName": "River",
+      "location": 1,
+      "shadowSize": 6,
+      "shadowSizeName": "Gigantic",
+      "time": "4 PM - 9 AM",
+      "catchStartTime": [
+        16
+      ],
+      "catchEndTime": [
+        9
+      ],
+      "monthsAvailable": {
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": false,
+        "may": false,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": false,
+        "nov": false,
+        "dec": false
+      },
+      "rarity": 1,
+      "rarityName": "Common",
+      "weather": "Any",
+      "caught": false,
+      "donated": false
+    },
+    {
+      "id": 45,
+      "name": "Saddled Bichir",
+      "value": 4000,
+      "locationName": "River",
+      "location": 1,
+      "shadowSize": 4,
+      "shadowSizeName": "Large",
+      "time": "9 PM - 4 AM",
+      "catchStartTime": [
+        21
+      ],
+      "catchEndTime": [
+        4
+      ],
+      "monthsAvailable": {
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": false,
+        "may": false,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": false,
+        "nov": false,
+        "dec": false
+      },
+      "rarity": 1,
+      "rarityName": "Common",
+      "weather": "Any",
+      "caught": false,
+      "donated": false
+    },
+    {
+      "id": 46,
+      "name": "Sturgeon",
+      "value": 10000,
+      "locationName": "River (Mouth)",
+      "location": 2,
+      "shadowSize": 6,
+      "shadowSizeName": "Gigantic",
+      "time": "All day",
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
+      "monthsAvailable": {
+        "jan": true,
+        "feb": true,
+        "mar": true,
+        "apr": false,
+        "may": false,
+        "jun": false,
+        "jul": false,
+        "aug": false,
+        "sep": true,
+        "oct": true,
+        "nov": true,
+        "dec": true
+      },
+      "rarity": 1,
+      "rarityName": "Common",
+      "weather": "Any",
+      "caught": false,
+      "donated": false
+    },
+    {
+      "id": 47,
+      "name": "Sea Butterfly",
+      "value": 1000,
+      "locationName": "Sea",
+      "location": 6,
+      "shadowSize": 1,
+      "shadowSizeName": "Tiny",
+      "time": "All day",
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
+      "monthsAvailable": {
+        "jan": true,
+        "feb": true,
+        "mar": true,
+        "apr": false,
+        "may": false,
+        "jun": false,
+        "jul": false,
+        "aug": false,
+        "sep": false,
+        "oct": false,
+        "nov": false,
+        "dec": true
+      },
+      "rarity": 1,
+      "rarityName": "Common",
+      "weather": "Any",
+      "caught": false,
+      "donated": false
+    },
+    {
+      "id": 48,
+      "name": "Sea Horse",
+      "value": 1100,
+      "locationName": "Sea",
+      "location": 6,
+      "shadowSize": 1,
+      "shadowSizeName": "Tiny",
+      "time": "All day",
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
+      "monthsAvailable": {
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": true,
+        "dec": false
+      },
+      "rarity": 1,
+      "rarityName": "Common",
+      "weather": "Any",
+      "caught": false,
+      "donated": false
+    },
+    {
+      "id": 49,
+      "name": "Clown Fish",
+      "value": 650,
+      "locationName": "Sea",
+      "location": 6,
+      "shadowSize": 1,
+      "shadowSizeName": "Tiny",
+      "time": "All day",
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
+      "monthsAvailable": {
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": false,
+        "nov": false,
+        "dec": false
+      },
+      "rarity": 1,
+      "rarityName": "Common",
+      "weather": "Any",
+      "caught": false,
+      "donated": false
+    },
+    {
+      "id": 50,
+      "name": "Surgeonfish",
+      "value": 1000,
+      "locationName": "Sea",
+      "location": 6,
+      "shadowSize": 2,
+      "shadowSizeName": "Small",
+      "time": "All day",
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
+      "monthsAvailable": {
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": false,
+        "nov": false,
+        "dec": false
+      },
+      "rarity": 1,
+      "rarityName": "Common",
+      "weather": "Any",
+      "caught": false,
+      "donated": false
+    },
+    {
+      "id": 51,
+      "name": "Butterfly Fish",
+      "value": 1000,
+      "locationName": "Sea",
+      "location": 6,
+      "shadowSize": 2,
+      "shadowSizeName": "Small",
+      "time": "All day",
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
+      "monthsAvailable": {
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": false,
+        "nov": false,
+        "dec": false
+      },
+      "rarity": 1,
+      "rarityName": "Common",
+      "weather": "Any",
+      "caught": false,
+      "donated": false
+    },
+    {
+      "id": 52,
+      "name": "Napoleonfish",
+      "value": 10000,
+      "locationName": "Sea",
+      "location": 6,
+      "shadowSize": 6,
+      "shadowSizeName": "Gigantic",
+      "time": "4 AM - 9 PM",
+      "catchStartTime": [
+        4
+      ],
+      "catchEndTime": [
+        21
+      ],
+      "monthsAvailable": {
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": false,
+        "may": false,
+        "jun": false,
+        "jul": true,
+        "aug": true,
+        "sep": false,
+        "oct": false,
+        "nov": false,
+        "dec": false
+      },
+      "rarity": 1,
+      "rarityName": "Common",
+      "weather": "Any",
+      "caught": false,
+      "donated": false
+    },
+    {
+      "id": 53,
+      "name": "Zebra Turkeyfish",
+      "value": 500,
+      "locationName": "Sea",
+      "location": 6,
+      "shadowSize": 3,
+      "shadowSizeName": "Medium",
+      "time": "All day",
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
+      "monthsAvailable": {
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": true,
+        "dec": false
+      },
+      "rarity": 1,
+      "rarityName": "Common",
+      "weather": "Any",
+      "caught": false,
+      "donated": false
+    },
+    {
+      "id": 54,
+      "name": "Blowfish",
+      "value": 5000,
+      "locationName": "Sea",
+      "location": 6,
+      "shadowSize": 3,
+      "shadowSizeName": "Medium",
+      "time": "9 PM - 4 AM",
+      "catchStartTime": [
+        21
+      ],
+      "catchEndTime": [
+        4
+      ],
+      "monthsAvailable": {
+        "jan": true,
+        "feb": true,
+        "mar": false,
+        "apr": false,
+        "may": false,
+        "jun": false,
+        "jul": false,
+        "aug": false,
+        "sep": false,
+        "oct": false,
+        "nov": true,
+        "dec": true
+      },
+      "rarity": 1,
+      "rarityName": "Common",
+      "weather": "Any",
+      "caught": false,
+      "donated": false
+    },
+    {
+      "id": 55,
+      "name": "Puffer Fish",
+      "value": 250,
+      "locationName": "Sea",
+      "location": 6,
+      "shadowSize": 3,
+      "shadowSizeName": "Medium",
+      "time": "All day",
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
+      "monthsAvailable": {
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": false,
+        "may": false,
+        "jun": false,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": false,
+        "nov": false,
+        "dec": false
+      },
+      "rarity": 1,
+      "rarityName": "Common",
+      "weather": "Any",
+      "caught": false,
+      "donated": false
+    },
+    {
+      "id": 56,
+      "name": "Anchovy",
+      "value": 200,
+      "locationName": "Sea",
+      "location": 6,
+      "shadowSize": 2,
+      "shadowSizeName": "Small",
+      "time": "4 AM - 9 PM",
+      "catchStartTime": [
+        4
+      ],
+      "catchEndTime": [
+        21
+      ],
+      "monthsAvailable": {
+        "jan": true,
+        "feb": true,
+        "mar": true,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": true,
+        "dec": true
+      },
+      "rarity": 1,
+      "rarityName": "Common",
+      "weather": "Any",
+      "caught": false,
+      "donated": false
+    },
+    {
+      "id": 57,
+      "name": "Horse Mackerel",
+      "value": 150,
+      "locationName": "Sea",
+      "location": 6,
+      "shadowSize": 2,
+      "shadowSizeName": "Small",
+      "time": "All day",
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
+      "monthsAvailable": {
+        "jan": true,
+        "feb": true,
+        "mar": true,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": true,
+        "dec": true
+      },
+      "rarity": 1,
+      "rarityName": "Common",
+      "weather": "Any",
+      "caught": false,
+      "donated": false
+    },
+    {
+      "id": 58,
+      "name": "Barred Knifejaw",
+      "value": 5000,
+      "locationName": "Sea",
+      "location": 6,
+      "shadowSize": 3,
+      "shadowSizeName": "Medium",
+      "time": "All day",
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
+      "monthsAvailable": {
+        "jan": false,
+        "feb": false,
+        "mar": true,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": true,
+        "dec": false
+      },
+      "rarity": 1,
+      "rarityName": "Common",
+      "weather": "Any",
+      "caught": false,
+      "donated": false
+    },
+    {
+      "id": 59,
+      "name": "Sea Bass",
+      "value": 400,
+      "locationName": "Sea",
+      "location": 6,
+      "shadowSize": 5,
+      "shadowSizeName": "Huge",
+      "time": "All day",
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
+      "monthsAvailable": {
+        "jan": true,
+        "feb": true,
+        "mar": true,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": true,
+        "dec": true
+      },
+      "rarity": 1,
+      "rarityName": "Common",
+      "weather": "Any",
+      "caught": false,
+      "donated": false
+    },
+    {
+      "id": 60,
+      "name": "Red Snapper",
+      "value": 3000,
+      "locationName": "Sea",
+      "location": 6,
+      "shadowSize": 4,
+      "shadowSizeName": "Large",
+      "time": "All day",
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
+      "monthsAvailable": {
+        "jan": true,
+        "feb": true,
+        "mar": true,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": true,
+        "dec": true
+      },
+      "rarity": 1,
+      "rarityName": "Common",
+      "weather": "Any",
+      "caught": false,
+      "donated": false
+    },
+    {
+      "id": 61,
+      "name": "Dab",
+      "value": 300,
+      "locationName": "Sea",
+      "location": 6,
+      "shadowSize": 3,
+      "shadowSizeName": "Medium",
+      "time": "All day",
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
+      "monthsAvailable": {
+        "jan": true,
+        "feb": true,
+        "mar": true,
+        "apr": true,
+        "may": false,
+        "jun": false,
+        "jul": false,
+        "aug": false,
+        "sep": false,
+        "oct": true,
+        "nov": true,
+        "dec": true
+      },
+      "rarity": 1,
+      "rarityName": "Common",
+      "weather": "Any",
+      "caught": false,
+      "donated": false
+    },
+    {
+      "id": 62,
+      "name": "Olive Flounder",
+      "value": 800,
+      "locationName": "Sea",
+      "location": 6,
+      "shadowSize": 5,
+      "shadowSizeName": "Huge",
+      "time": "All day",
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
+      "monthsAvailable": {
+        "jan": true,
+        "feb": true,
+        "mar": true,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": true,
+        "dec": true
+      },
+      "rarity": 1,
+      "rarityName": "Common",
+      "weather": "Any",
+      "caught": false,
+      "donated": false
+    },
+    {
+      "id": 63,
+      "name": "Squid",
+      "value": 500,
+      "locationName": "Sea",
+      "location": 6,
+      "shadowSize": 3,
+      "shadowSizeName": "Medium",
+      "time": "All day",
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
+      "monthsAvailable": {
+        "jan": true,
+        "feb": true,
+        "mar": true,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": false,
+        "oct": false,
+        "nov": false,
+        "dec": true
+      },
+      "rarity": 1,
+      "rarityName": "Common",
+      "weather": "Any",
+      "caught": false,
+      "donated": false
+    },
+    {
+      "id": 64,
+      "name": "Moray Eel",
+      "value": 2000,
+      "locationName": "Sea",
+      "location": 6,
+      "shadowSize": 7,
+      "shadowSizeName": "Narrow",
+      "time": "All day",
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
+      "monthsAvailable": {
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": false,
+        "may": false,
+        "jun": false,
+        "jul": false,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": false,
+        "dec": false
+      },
+      "rarity": 1,
+      "rarityName": "Common",
+      "weather": "Any",
+      "caught": false,
+      "donated": false
+    },
+    {
+      "id": 65,
+      "name": "Ribbon Eel",
+      "value": 600,
+      "locationName": "Sea",
+      "location": 6,
+      "shadowSize": 7,
+      "shadowSizeName": "Narrow",
+      "time": "All day",
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
+      "monthsAvailable": {
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": false,
+        "may": false,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": false,
+        "dec": false
+      },
+      "rarity": 1,
+      "rarityName": "Common",
+      "weather": "Any",
+      "caught": false,
+      "donated": false
+    },
+    {
+      "id": 66,
+      "name": "Tuna",
+      "value": 7000,
+      "locationName": "Pier",
+      "location": 5,
+      "shadowSize": 6,
+      "shadowSizeName": "Gigantic",
+      "time": "All day",
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
+      "monthsAvailable": {
+        "jan": true,
+        "feb": true,
+        "mar": true,
+        "apr": true,
+        "may": false,
+        "jun": false,
+        "jul": false,
+        "aug": false,
+        "sep": false,
+        "oct": false,
+        "nov": true,
+        "dec": true
+      },
+      "rarity": 1,
+      "rarityName": "Common",
+      "weather": "Any",
+      "caught": false,
+      "donated": false
+    },
+    {
+      "id": 67,
+      "name": "Blue Marlin",
+      "value": 10000,
+      "locationName": "Pier",
+      "location": 5,
+      "shadowSize": 6,
+      "shadowSizeName": "Gigantic",
+      "time": "All day",
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
+      "monthsAvailable": {
+        "jan": true,
+        "feb": true,
+        "mar": true,
+        "apr": true,
+        "may": false,
+        "jun": false,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": false,
+        "nov": true,
+        "dec": true
+      },
+      "rarity": 1,
+      "rarityName": "Common",
+      "weather": "Any",
+      "caught": false,
+      "donated": false
+    },
+    {
+      "id": 68,
+      "name": "Giant Trevally",
+      "value": 4500,
+      "locationName": "Pier",
+      "location": 5,
+      "shadowSize": 5,
+      "shadowSizeName": "Huge",
+      "time": "All day",
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
+      "monthsAvailable": {
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": false,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": false,
+        "dec": false
+      },
+      "rarity": 1,
+      "rarityName": "Common",
+      "weather": "Any",
+      "caught": false,
+      "donated": false
+    },
+    {
+      "id": 69,
+      "name": "Mahi-Mahi",
+      "value": 6000,
+      "locationName": "Pier",
+      "location": 5,
+      "shadowSize": 5,
+      "shadowSizeName": "Huge",
+      "time": "All day",
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
+      "monthsAvailable": {
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": false,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": false,
+        "dec": false
+      },
+      "rarity": 1,
+      "rarityName": "Common",
+      "weather": "Any",
+      "caught": false,
+      "donated": false
+    },
+    {
+      "id": 70,
+      "name": "Ocean Sunfish",
+      "value": 4000,
+      "locationName": "Sea",
+      "location": 6,
+      "shadowSize": 6,
+      "shadowSizeName": "Gigantic",
+      "time": "4 AM - 9 PM",
+      "catchStartTime": [
+        4
+      ],
+      "catchEndTime": [
+        21
+      ],
+      "monthsAvailable": {
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": false,
+        "may": false,
+        "jun": false,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": false,
+        "nov": false,
+        "dec": false
+      },
+      "rarity": 1,
+      "rarityName": "Common",
+      "weather": "Any",
+      "caught": false,
+      "donated": false
+    },
+    {
+      "id": 71,
+      "name": "Ray",
+      "value": 3000,
+      "locationName": "Sea",
+      "location": 6,
+      "shadowSize": 5,
+      "shadowSizeName": "Huge",
+      "time": "4 AM - 9 PM",
+      "catchStartTime": [
+        4
+      ],
+      "catchEndTime": [
+        21
+      ],
+      "monthsAvailable": {
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": false,
+        "may": false,
+        "jun": false,
+        "jul": false,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": true,
+        "dec": false
+      },
+      "rarity": 1,
+      "rarityName": "Common",
+      "weather": "Any",
+      "caught": false,
+      "donated": false
+    },
+    {
+      "id": 72,
+      "name": "Saw Shark",
+      "value": 12000,
+      "locationName": "Sea",
+      "location": 6,
+      "shadowSize": 6,
+      "shadowSizeName": "Gigantic",
+      "time": "4 PM - 9 AM",
+      "catchStartTime": [
+        16
+      ],
+      "catchEndTime": [
+        9
+      ],
+      "monthsAvailable": {
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": false,
+        "may": false,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": false,
+        "nov": false,
+        "dec": false
+      },
+      "rarity": 1,
+      "rarityName": "Common",
+      "weather": "Any",
+      "caught": false,
+      "donated": false
+    },
+    {
+      "id": 73,
+      "name": "Hammerhead Shark",
+      "value": 8000,
+      "locationName": "Sea",
+      "location": 6,
+      "shadowSize": 6,
+      "shadowSizeName": "Gigantic",
+      "time": "4 PM - 9 AM",
+      "catchStartTime": [
+        16
+      ],
+      "catchEndTime": [
+        9
+      ],
+      "monthsAvailable": {
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": false,
+        "may": false,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": false,
+        "nov": false,
+        "dec": false
+      },
+      "rarity": 1,
+      "rarityName": "Common",
+      "weather": "Any",
+      "caught": false,
+      "donated": false
+    },
+    {
+      "id": 74,
+      "name": "Great White Shark",
+      "value": 15000,
+      "locationName": "Sea",
+      "location": 6,
+      "shadowSize": 6,
+      "shadowSizeName": "Gigantic",
+      "time": "4 PM - 9 AM",
+      "catchStartTime": [
+        16
+      ],
+      "catchEndTime": [
+        9
+      ],
+      "monthsAvailable": {
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": false,
+        "may": false,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": false,
+        "nov": false,
+        "dec": false
+      },
+      "rarity": 1,
+      "rarityName": "Common",
+      "weather": "Any",
+      "caught": false,
+      "donated": false
+    },
+    {
+      "id": 75,
+      "name": "Whale Shark",
+      "value": 13000,
+      "locationName": "Sea",
+      "location": 6,
+      "shadowSize": 6,
+      "shadowSizeName": "Gigantic",
+      "time": "All day",
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
+      "monthsAvailable": {
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": false,
+        "may": false,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": false,
+        "nov": false,
+        "dec": false
+      },
+      "rarity": 1,
+      "rarityName": "Common",
+      "weather": "Any",
+      "caught": false,
+      "donated": false
+    },
+    {
+      "id": 76,
+      "name": "Suckerfish",
+      "value": 1500,
+      "locationName": "Sea",
+      "location": 6,
+      "shadowSize": 4,
+      "shadowSizeName": "Large",
+      "time": "All day",
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
+      "monthsAvailable": {
+        "jan": false,
+        "feb": false,
+        "mar": false,
+        "apr": false,
+        "may": false,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": false,
+        "nov": false,
+        "dec": false
+      },
+      "rarity": 1,
+      "rarityName": "Common",
+      "weather": "Any",
+      "caught": false,
+      "donated": false
+    },
+    {
+      "id": 77,
+      "name": "Football Fish",
+      "value": 2500,
+      "locationName": "Sea",
+      "location": 6,
+      "shadowSize": 4,
+      "shadowSizeName": "Large",
+      "time": "4 PM - 9 AM",
+      "catchStartTime": [
+        16
+      ],
+      "catchEndTime": [
+        9
+      ],
+      "monthsAvailable": {
+        "jan": true,
+        "feb": true,
+        "mar": true,
+        "apr": false,
+        "may": false,
+        "jun": false,
+        "jul": false,
+        "aug": false,
+        "sep": false,
+        "oct": false,
+        "nov": true,
+        "dec": true
+      },
+      "rarity": 1,
+      "rarityName": "Common",
+      "weather": "Any",
+      "caught": false,
+      "donated": false
+    },
+    {
+      "id": 78,
+      "name": "Oarfish",
+      "value": 9000,
+      "locationName": "Sea",
+      "location": 6,
+      "shadowSize": 6,
+      "shadowSizeName": "Gigantic",
+      "time": "All day",
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
+      "monthsAvailable": {
+        "jan": true,
+        "feb": true,
+        "mar": true,
+        "apr": true,
+        "may": true,
+        "jun": false,
+        "jul": false,
+        "aug": false,
+        "sep": false,
+        "oct": false,
+        "nov": false,
+        "dec": true
+      },
+      "rarity": 1,
+      "rarityName": "Common",
+      "weather": "Any",
+      "caught": false,
+      "donated": false
+    },
+    {
+      "id": 79,
+      "name": "Barreleye",
+      "value": 15000,
+      "locationName": "Sea",
+      "location": 6,
+      "shadowSize": 2,
+      "shadowSizeName": "Small",
+      "time": "9 PM - 4 AM",
+      "catchStartTime": [
+        21
+      ],
+      "catchEndTime": [
+        4
+      ],
+      "monthsAvailable": {
+        "jan": true,
+        "feb": true,
+        "mar": true,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": true,
+        "dec": true
+      },
+      "rarity": 1,
+      "rarityName": "Common",
+      "weather": "Any",
+      "caught": false,
+      "donated": false
+    },
+    {
+      "id": 80,
+      "name": "Coelacanth",
+      "value": 15000,
+      "locationName": "Sea",
+      "location": 6,
+      "shadowSize": 6,
+      "shadowSizeName": "Gigantic",
+      "time": "All day",
+      "catchStartTime": [
+        0
+      ],
+      "catchEndTime": [
+        24
+      ],
+      "monthsAvailable": {
+        "jan": true,
+        "feb": true,
+        "mar": true,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": true,
+        "dec": true
+      },
+      "rarity": 1,
+      "rarityName": "Common",
+      "weather": "Rain",
+      "caught": false,
+      "donated": false
+    }
+  ]
 }

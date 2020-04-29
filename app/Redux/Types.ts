@@ -1,3 +1,6 @@
+import { NewFishModel } from "../../models/CollectionModels/NewFishModel";
+import { BugModel } from "../../models/CollectionModels/BugModel";
+
 export interface FishCaughtPayload {
     index:number,
     caught: boolean
