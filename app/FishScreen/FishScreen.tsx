@@ -25,18 +25,8 @@ class FishScreen extends Component<FishScreenProps, FishScreenState> {
         super(props);        
         this.state = {
             isReady: false,
-            fishList: this.props.collections.fishCollection//this.filterFishByText("filter:month:april&name+b")
-            //name%bar|(name=koi|name=pale chub&(value>=200))
-            //name%bar|(name=koi|name=pale chub&(value=200))
-            //name%bar|(name=koi|name=pale chub)
-            //(name%bar|value=1000)&value=900 - GOOD
-            //(name%bar|value=1000)&(value=900|name=koi)  - GOOD   
-            //(name%bar&value=5000)|(value=900|name=koi)|(name=pale chub&name=black bass) - GOOD
-            //(value>=1000&value<=10000)&(name%a) - GOOD
-            //((value>=1000&value<=10000)&(name%a))&(name=Barred Knifejaw) - GOOD
-            //(value>=1000&value<=10000)&name%a - GOOD
+            fishList: this.props.collections.fishCollection
         }
-        console.log(this.state.fishList);
     }
 
     async componentDidMount() {
@@ -44,17 +34,14 @@ class FishScreen extends Component<FishScreenProps, FishScreenState> {
     }
 
     SetItemCaught = (caught: boolean, index: number) => {
-        console.log('caught');
         this.props.updateFishCaught({caught, index});
     }
 
     SetItemDonated = (donated: boolean, index: number) => {
-        console.log('donated');
         this.props.updateFishDonated({donated, index});
     }
 
     filterFishByText(text:string): Array<NewFishModel>  {
-        console.log('???');
         var allFish = this.props.collections.fishCollection
         //read text until key word -- if no key words involved assume name
         let fishArray: Array<NewFishModel> = [];
@@ -69,8 +56,6 @@ class FishScreen extends Component<FishScreenProps, FishScreenState> {
                 }
             }
             catch(err){
-                console.warn(err);
-                console.warn('an error occured parsing your filter text. Check your parenthesis.');
                 fishArray = [];
             }
             
@@ -83,7 +68,6 @@ class FishScreen extends Component<FishScreenProps, FishScreenState> {
             var textB = b.name.toUpperCase();
             return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
         });
-        // return fishArray;
         this.setState({fishList: fishArray});
     }    
 
@@ -106,13 +90,13 @@ class FishScreen extends Component<FishScreenProps, FishScreenState> {
                         </Button>
                     </Header>
                         <FlatList
-                            data={this.state.fishList}
+                            data={this.props.collections.fishCollection}
                             renderItem={({ item, index }: {item: NewFishModel, index: number}) => <FishGridItem model={item} index={index} nav={this.props.navigation} 
                                             updateFishCaught={this.SetItemCaught} updateFishDonated={this.SetItemDonated} />}                            
                             numColumns={4}
                             keyExtractor={(item, index) => index.toString()}
-                            contentContainerStyle={{justifyContent: "center",  alignItems: 'center', alignContent: 'center' }}
-                            style={{flex: 1}}
+                            contentContainerStyle={styles.flatListContainerContent}
+                            style={styles.flatListStyle}
                             >
                         </FlatList>
                 </Container>

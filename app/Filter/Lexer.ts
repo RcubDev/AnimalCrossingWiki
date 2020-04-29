@@ -1,6 +1,15 @@
 const VALUE = "value";
 const NAME = "name";
-export const KEYWORDS = [VALUE, NAME];
+const MONTH = "month";
+const MONTHS = "months";
+const RARITY = "rarity";
+const CAUGHT = "caught";
+const DONATED = "donated";
+const TIME = "time";
+const WEATHER = "weather";
+const SHADOWSIZE = "shadowsize";
+const LOCATION = "location";
+export const KEYWORDS = [VALUE, NAME, MONTH, MONTHS, RARITY, CAUGHT, SHADOWSIZE, LOCATION, TIME, WEATHER, DONATED];
 const AND = "&";
 const OR = "|";
 export const CONJUNCTION = [AND, OR];
@@ -20,13 +29,16 @@ export function GetNextToken(text:string): Token | undefined {
     let index = 0;
     //Can eventually rewirte with regexes
     while(index < text.length){
-        lexeme = lexeme.concat(text[index]);
+        //ignore whitespace
+        if(text[index] !== ""){
+            lexeme = lexeme.concat(text[index]);
+        }
         if(OPERATION.includes(lexeme)){
             return token = {
                 type: "operation",
                 value: lexeme,
                 startPos: 0,
-                endPos: index - 1                            
+                endPos: index + 1                            
             }
         }
         else if(CONJUNCTION.includes(lexeme)){
@@ -34,7 +46,7 @@ export function GetNextToken(text:string): Token | undefined {
                 type: "conjunction",
                 value: lexeme,
                 startPos: 0,
-                endPos: index - 1
+                endPos: index + 1
             }
         }
         else if(KEYWORDS.includes(lexeme)){
@@ -42,29 +54,25 @@ export function GetNextToken(text:string): Token | undefined {
                 type: "keyword",
                 value: lexeme,
                 startPos: 0,
-                endPos: index - 1
+                endPos: index + 1
             }
         }
-        else if(EndOfValue(lexeme, index, text.length)){
+        else if(EndOfValue(text, index, text.length)){
             //peek
             return {
                 type: "value",
                 value: lexeme,
                 startPos: 0,
-                endPos: index - 1
+                endPos: index + 1
             }
-        }
-        else {
-            return undefined;
-        }
+        }        
         index++;
-    }
+    }    
     return token;
 }
 
-function EndOfValue(nextChar: string, currentIndex: number, textLength: number): boolean{
-    return currentIndex + 1 > textLength || OPERATION.includes(nextChar[currentIndex + 1]);
-
+function EndOfValue(currentString: string, currentIndex: number, textLength: number): boolean{
+    return currentIndex + 1 >= textLength || CONJUNCTION.includes(currentString[currentIndex + 1]);
 }
 
 export interface Token {

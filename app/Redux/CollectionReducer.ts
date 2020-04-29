@@ -19,12 +19,19 @@ const collectionReducer = (state = INITIAL_STATE2, action: FishActionTypes): Col
 
 function updateFishCaughtAction(state: CollectionStateModel, action: UpdateFishCaught): CollectionStateModel {
     const currentCollection = state;
-    const updatedFish = currentCollection.fishCollection[action.payload.index];
-    updatedFish.caught = action.payload.caught;    
-    console.log('start assign');
-    let updatedCollection = Object.assign({}, currentCollection)
-    console.log('end here');
-    return updatedCollection;
+    // const updatedFish = currentCollection.fishCollection[action.payload.index];
+    // updatedFish.caught = action.payload.caught;    
+    // let updatedCollection = Object.assign({}, currentCollection)
+    return Object.assign({}, state, {
+      fishCollection: state.fishCollection.map((fish, index) => {
+        if(index === action.payload.index){
+          return Object.assign({}, fish, {
+            caught: action.payload.caught
+          });
+        }
+        return fish;
+      })
+    });
 }
 
 function updateFishDonatedAction(state: CollectionStateModel, action: UpdateFishDonated): CollectionStateModel {

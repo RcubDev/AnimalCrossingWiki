@@ -34,14 +34,12 @@ class FishDetails extends Component<FishDetailsProps, FishDetailsState> {
     index = this.props.route.params.index;
     fish = this.props.collections.fishCollection[this.index];
     SetItemCaught = (caught: boolean, index: number) => {
-        console.log('caught');
         this.props.updateFishCaught({caught, index});
         this.setState({model: this.props.collections.fishCollection[index]});
     }
 
 
     SetItemDonated = (donated: boolean, index: number) => {
-        console.log('donated');
         this.props.updateFishDonated({donated, index});
         this.setState({model: this.props.collections.fishCollection[index]});
     }

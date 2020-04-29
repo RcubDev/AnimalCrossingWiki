@@ -16,9 +16,7 @@ export function FishGridItem({model, index, nav, updateFishCaught, updateFishDon
     nav.navigate("FishDetails", {fish: model, index});
   };
   const caughtOnPress = () => {
-    console.log('caught');
     updateFishCaught(!model.caught, index);
-    console.log('updated caught');
   };
 
   const donatedOnPress = () => {    
@@ -26,19 +24,19 @@ export function FishGridItem({model, index, nav, updateFishCaught, updateFishDon
   }
 
   return(
-      <Card style={{width: "23%"}}>
-        <CardItem style={{flexDirection: "column", backgroundColor:'#c2b280'}}>
+      <Card style={styles.card}>
+        <CardItem style={styles.cardItem}>
           <View>
             <TouchableOpacity onPress={onPress} style={styles.fishGridItemCard}>
               <Text key={`${index}FishGridItemName`} numberOfLines={1}>{ model.name}</Text>
               <Image source={FishImages[model.name]} style={styles.fishGridItem} key={`${index}FishGridItemImage`}></Image>            
             </TouchableOpacity>   
           </View>
-          <View style={{flexDirection: "row", width:'100%', alignItems: 'stretch'}}>
-              <View style={{marginLeft: -10}}>
+          <View style={styles.cardCheckBoxContainer}>
+              <View style={styles.cardCaughtCheckBox}>
                 <CheckBox checked={model.caught} onPress={caughtOnPress}></CheckBox>
               </View>
-              <View style={{position:"absolute", right:0, marginRight:10}}>
+              <View style={styles.cardDonatedCheckBox}>
                 <CheckBox checked={model.donated} onPress={donatedOnPress}></CheckBox>                
               </View>
             </View>

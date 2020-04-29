@@ -17,7 +17,7 @@ export function filterCollectionByTextSpecial(text: string, collection: Array<Co
     let currentConjunction: string = "";
     let currentType: string = "";
     let currentOperation: string = "";
-    let leftSide: Array<CollectionFilterTypes> = collection;     
+    let leftSide: Array<CollectionFilterTypes> = collection; 
     while(currentToken !== undefined){
         if(currentToken.type === "operation"){
             currentOperation = currentToken.value;
@@ -27,9 +27,15 @@ export function filterCollectionByTextSpecial(text: string, collection: Array<Co
         }
         else if(currentToken.type === "value"){
             //Filter
-            let filteredValues = FilterCollection(currentType, currentToken.value, currentOperation, leftSide);
+            let filteredValues = FilterCollection(currentType, currentToken.value, currentOperation, collection);
             //JOIN IF CONJUNCTION IS WAITING
             leftSide = ApplyConjunction(currentConjunction, leftSide, filteredValues);
+            if(currentConjunction !== ""){
+                currentConjunction = "";
+            }
+
+            currentOperation = "";
+            currentType = "";            
         }
         else if(currentToken.type === "keyword"){
             //SAVE TYPE
@@ -40,20 +46,18 @@ export function filterCollectionByTextSpecial(text: string, collection: Array<Co
         currentToken = GetNextToken(text);
     }
 
-    console.log('returning scopped results');
     return leftSide;
 }
 
 function ApplyConjunction(conjunction: string, leftSide: Array<CollectionFilterTypes>, rightSide: Array<CollectionFilterTypes>) {
-    if(conjunction === "|"){
-        return leftSide.concat(rightSide);
+    if(conjunction && conjunction === "|"){
+
+        return _.union(leftSide, rightSide);
     }
-    else if(conjunction === "&"){
+    else if(conjunction && conjunction === "&"){
         return leftSide.filter(x => rightSide.indexOf(x) > -1);
     }
-    else{
-        console.warn('How did you enter here?');
-    }
+    
     return rightSide;
 }
 
@@ -76,8 +80,7 @@ function FindMatchingParen(textAfterOpenParen: string): number{
     return index;
 }
 
-function FilterCollection(type:string, restOfString: string, operation: string, valuesEnteredWith: Array<CollectionFilterTypes>): Array<CollectionFilterTypes>{
-    let value = restOfString.substr(operation.length);
+function FilterCollection(type:string, value: string, operation: string, valuesEnteredWith: Array<CollectionFilterTypes>): Array<CollectionFilterTypes>{
 
     if(isListOfFish(valuesEnteredWith)){
         return FilterCollectionFish(type, value, operation, valuesEnteredWith);

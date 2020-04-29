@@ -1,7 +1,7 @@
 import { CritterModel } from "../../models/CollectionModels/CritterModel";
 import { FilterCollectionMuseum } from "./MuseumFilter";
 
-export function FilterCollectionCritter(type: string, value: string, operation: string, list: Array<CritterModel>): Array<CritterModel> {
+export function FilterCollectionCritter(type: string, value: string, operation: string, list: Array<CritterModel>): Array<CritterModel> {    
     switch (type) {
         case "caught":
             return FilterCritterByCaught(operation, value, list);
@@ -93,8 +93,6 @@ function FilterCritterByCaught(operation: string, value: string, list: Array<Cri
 }
 
 function FilterCritterByMonths(operation: string, value: string, list: Array<CritterModel>) {
-    //Operation should be ":"
-    //value = operation.substr(1);
     let values: Array<number> = [];
     let typeOfFilter = "";
     if (value.startsWith("[")) {
@@ -106,10 +104,22 @@ function FilterCritterByMonths(operation: string, value: string, list: Array<Cri
     }
     else if (value.includes("-")) {
         //range split by dash
-        values = value.split("-").map(x => isNaN(+x) ? GetMonthValueFromText(x) : +x);
-        if (values.includes(-1)) {
-            console.log("err")
+        debugger;
+        let rangeValues = value.split("-").map(x => isNaN(+x) ? GetMonthValueFromText(x) : +x);
+        if (rangeValues.includes(-1)) {
             throw "Invalid text in month list";
+        }
+        let endVal = rangeValues[0] >= rangeValues[1] ? rangeValues[0] : rangeValues[1];
+        let startVal = rangeValues[0] >= rangeValues[1] ? rangeValues[1] : rangeValues[0];
+        if((startVal > 12 || startVal < 1) || (endVal < 1 || endVal > 12)){
+            throw "Invalid range input";
+        }
+        while(startVal !== endVal){
+            values.push(startVal);
+            if(startVal === 12){
+                startVal = 1;
+            }
+            startVal++;
         }
     }
     else {
