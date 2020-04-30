@@ -21,11 +21,11 @@ import { isListOfFish } from '../Filter/FilterTypes';
 
 class FishScreen extends Component<FishScreenProps, FishScreenState> {
     focusListener: any;
-    constructor(props: FishScreenProps){
-        super(props);        
+    constructor(props: FishScreenProps) {
+        super(props);
         this.state = {
             isReady: false,
-            fishList: this.props.collections.fishCollection
+            filterText: ""
         }
     }
 
@@ -34,67 +34,81 @@ class FishScreen extends Component<FishScreenProps, FishScreenState> {
     }
 
     SetItemCaught = (caught: boolean, index: number) => {
-        this.props.updateFishCaught({caught, index});
+        this.props.updateFishCaught({ caught, index });
     }
 
     SetItemDonated = (donated: boolean, index: number) => {
-        this.props.updateFishDonated({donated, index});
+        this.props.updateFishDonated({ donated, index });
     }
 
-    filterFishByText(text:string): Array<NewFishModel>  {
+    filterFishByText(text: string): Array<NewFishModel> {
         var allFish = this.props.collections.fishCollection
         //read text until key word -- if no key words involved assume name
         let fishArray: Array<NewFishModel> = [];
         let filterSpecial = text.includes("filter:");
         text = text.toLowerCase();
-        if(filterSpecial){
-            try{
+        if (filterSpecial) {
+            try {
                 //Check matching parens before doing this. If they're not matching return no fish.
                 let value = filterCollectionByTextSpecial(text.substr(7), this.props.collections.fishCollection);
-                if(isListOfFish(value)){
+                if (isListOfFish(value)) {
                     fishArray = value;
                 }
             }
-            catch(err){
+            catch (err) {
                 fishArray = [];
             }
-            
+
         }
-        else{
-            fishArray = allFish.filter(x => x.name.toLowerCase().startsWith(text));                          
+        else {
+            fishArray = allFish.filter(x => x.name.toLowerCase().startsWith(text));
         }
-        fishArray.sort(function(a, b) {
+        fishArray = fishArray.sort(function (a, b) {
             var textA = a.name.toUpperCase();
             var textB = b.name.toUpperCase();
             return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
         });
-        this.setState({fishList: fishArray});
-    }    
+        return fishArray
+    }
 
-    
+
     //End Region
 
-    render(){
+    render() {
         if (!this.state.isReady) {
             return <AppLoading />;
         }
+
+        let fish = this.props.collections.fishCollection;
+        fish = this.filterFishByText(this.state.filterText);
+
         return (
-                        <FlatList
-                            data={this.props.collections.fishCollection}
-                            renderItem={({ item, index }: {item: NewFishModel, index: number}) => <FishGridItem {...{model: {...item}, nav: this.props.navigation, updateFishCaught: this.props.updateFishCaught, updateFishDonated: this.props.updateFishDonated}} />}                            
-                            numColumns={4}
-                            keyExtractor={(item, index) => index.toString()}
-                            contentContainerStyle={styles.flatListContainerContent}
-                            style={styles.flatListStyle}
-                            >
-                        </FlatList>
-            )
-        };        
+            <Container>
+                <Header>
+                    <Item style={{flex:1}}>
+                        <Input placeholder="Search" onChangeText={(text: string) => {this.setState({filterText: text})}}></Input>
+                        <Button transparent>
+                            <Text> Advanced </Text>
+                        </Button>
+                    </Item>
+                </Header>
+                <FlatList
+                    data={fish}
+                    renderItem={({ item, index }: { item: NewFishModel, index: number }) => <FishGridItem {...{ model: { ...item }, nav: this.props.navigation, updateFishCaught: this.props.updateFishCaught, updateFishDonated: this.props.updateFishDonated }} />}
+                    numColumns={3}
+                    keyExtractor={(item, index) => index.toString()}
+                    contentContainerStyle={styles.flatListContainerContent}
+                    columnWrapperStyle={{ justifyContent: 'space-evenly', flexDirection: 'row' }}
+                >
+                </FlatList>
+            </Container>
+        )
+    };
 }
 
 const mapStateToProps = (state: any) => {
     const { collections } = state;
     return { collections }
-  };
-  
-export default connect(mapStateToProps, {updateFishCaught, updateFishDonated})(FishScreen);
+};
+
+export default connect(mapStateToProps, { updateFishCaught, updateFishDonated })(FishScreen);
