@@ -79,27 +79,15 @@ class FishScreen extends Component<FishScreenProps, FishScreenState> {
             return <AppLoading />;
         }
         return (
-                <Container style={{backgroundColor: "#c2b280"}}>
-                    <Header searchBar rounded>
-                        <Item>
-                           <Icon name="ios-search"></Icon> 
-                           <Input placeholder="Search" onChangeText={text => this.filterFishByText(text)}></Input>                           
-                        </Item>
-                        <Button transparent>
-                            <Text>Advanced</Text>
-                        </Button>
-                    </Header>
                         <FlatList
                             data={this.props.collections.fishCollection}
-                            renderItem={({ item, index }: {item: NewFishModel, index: number}) => <FishGridItem model={item} index={index} nav={this.props.navigation} 
-                                            updateFishCaught={this.SetItemCaught} updateFishDonated={this.SetItemDonated} />}                            
+                            renderItem={({ item, index }: {item: NewFishModel, index: number}) => <FishGridItem {...{model: {...item}, nav: this.props.navigation, updateFishCaught: this.props.updateFishCaught, updateFishDonated: this.props.updateFishDonated}} />}                            
                             numColumns={4}
                             keyExtractor={(item, index) => index.toString()}
                             contentContainerStyle={styles.flatListContainerContent}
                             style={styles.flatListStyle}
                             >
                         </FlatList>
-                </Container>
             )
         };        
 }
