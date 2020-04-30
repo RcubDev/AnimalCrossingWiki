@@ -104,7 +104,6 @@ function FilterCritterByMonths(operation: string, value: string, list: Array<Cri
     }
     else if (value.includes("-")) {
         //range split by dash
-        debugger;
         let rangeValues = value.split("-").map(x => isNaN(+x) ? GetMonthValueFromText(x) : +x);
         if (rangeValues.includes(-1)) {
             throw "Invalid text in month list";
