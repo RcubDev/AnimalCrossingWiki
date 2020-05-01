@@ -5,13 +5,13 @@ import FishImages from '../Images/FishImages';
 import { connect } from 'react-redux';
 import { updateFishCaught, updateFishDonated } from '../Redux/CollectionActions';
 import { NavigationScreenProp } from 'react-navigation';
-import { CollectionStateModel } from '../../models/CollectionStateModel';
 import { NewFishModel } from '../../models/CollectionModels/NewFishModel';
+import { ApplicationState } from '../../models/ApplicationState';
 
 
 interface FishDetailsProps {
     navigation: NavigationScreenProp<any>,
-    collections: CollectionStateModel
+    collections: ApplicationState
     updateFishCaught: typeof updateFishCaught
     updateFishDonated: typeof updateFishDonated
     route: {
@@ -32,16 +32,16 @@ interface FishDetailsState {
 
 class FishDetails extends Component<FishDetailsProps, FishDetailsState> {
     index = this.props.route.params.index;
-    fish = this.props.collections.fishCollection[this.index];
+    fish = this.props.collections.fish.fishCollection[this.index];
     SetItemCaught = (caught: boolean, index: number) => {
         this.props.updateFishCaught({caught, index});
-        this.setState({model: this.props.collections.fishCollection[index]});
+        this.setState({model: this.props.collections.fish.fishCollection[index]});
     }
 
 
     SetItemDonated = (donated: boolean, index: number) => {
         this.props.updateFishDonated({donated, index});
-        this.setState({model: this.props.collections.fishCollection[index]});
+        this.setState({model: this.props.collections.fish.fishCollection[index]});
     }
 
     constructor(props: FishDetailsProps){

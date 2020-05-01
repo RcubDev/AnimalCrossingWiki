@@ -42,7 +42,7 @@ class FishScreen extends Component<FishScreenProps, FishScreenState> {
     }
 
     filterFishByText(text: string): Array<NewFishModel> {
-        var allFish = this.props.collections.fishCollection
+        var allFish = this.props.collections.fish.fishCollection;
         //read text until key word -- if no key words involved assume name
         let fishArray: Array<NewFishModel> = [];
         let filterSpecial = text.includes("filter:");
@@ -50,7 +50,7 @@ class FishScreen extends Component<FishScreenProps, FishScreenState> {
         if (filterSpecial) {
             try {
                 //Check matching parens before doing this. If they're not matching return no fish.
-                let value = filterCollectionByTextSpecial(text.substr(7), this.props.collections.fishCollection);
+                let value = filterCollectionByTextSpecial(text.substr(7), this.props.collections.fish.fishCollection);
                 if (isListOfFish(value)) {
                     fishArray = value;
                 }
@@ -70,24 +70,23 @@ class FishScreen extends Component<FishScreenProps, FishScreenState> {
         });
         return fishArray
     }
-
-
     //End Region
 
     render() {
         if (!this.state.isReady) {
             return <AppLoading />;
         }
+        console.log(this.props);
 
-        let fish = this.props.collections.fishCollection;
+        let fish = this.props.collections.fish.fishCollection;
         fish = this.filterFishByText(this.state.filterText);
-
-        return (
+        
+        return (            
             <Container>
                 <Header>
                     <Item style={{flex:1}}>
-                        <Input placeholder="Search" onChangeText={(text: string) => {this.setState({filterText: text})}}></Input>
-                        <Button transparent>
+                        <Input placeholder="Filter" onChangeText={(text: string) => {this.setState({filterText: text.toLowerCase()})}} returnKeyType={'done'}></Input>
+                        <Button transparent onPress={() => {this.props.navigation.navigate("FilterAndSortScreen")}}>
                             <Text> Advanced </Text>
                         </Button>
                     </Item>
