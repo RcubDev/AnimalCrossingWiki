@@ -11,12 +11,12 @@ import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
 import { Container, Button, Text, Content, Footer } from 'native-base';
 import { Header } from 'react-native/Libraries/NewAppScreen';
-import { CritterCollectionModel } from '../models/models';
 import FishDetails from './FishScreen/FishDetailScreen';
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 import friendReducer from './Redux/CollectionReducer'
 import collectionReducer from './Redux/CollectionReducer'
+import AdvancedFilterSortOptions from './AdvancedFilter/AdvancedFilterSortOptions';
 const store = createStore(friendReducer);
 const store2 = createStore(collectionReducer);
 export default class App extends Component<any, { isReady: boolean }> {
@@ -52,6 +52,7 @@ export default class App extends Component<any, { isReady: boolean }> {
                 <Stack.Screen name="Fossils" component={FossilScreen} />
                 <Stack.Screen name="Bugs" component={BugScreen} />
                 <Stack.Screen name="FishDetails" component={FishDetails}/>
+                <Stack.Screen name="FilterAndSortScreen" component={AdvancedFilterSortOptions}/>
               </Stack.Navigator>
           </NavigationContainer>
         </Container>

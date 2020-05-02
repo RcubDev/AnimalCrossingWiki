@@ -33,8 +33,8 @@ export class FishGridItem extends Component<FishGridItemProps>{
   }
 
   shouldComponentUpdate(nextProps: FishGridItemProps): boolean{
-    if(nextProps.model.caught !== this.props.model.caught || nextProps.model.donated !== this.props.model.donated){
-      console.log('not equal!')
+    if(nextProps.model.caught !== this.props.model.caught || nextProps.model.donated !== this.props.model.donated
+       || nextProps.model.id !== this.props.model.id){
       return true;
     }
     else{

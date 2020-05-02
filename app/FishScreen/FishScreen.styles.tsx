@@ -1,4 +1,4 @@
-import { StyleSheet, Platform } from 'react-native';
+import { StyleSheet, Platform, Dimensions } from 'react-native';
 
 var fishGridItemContainerStyle = {};
 var fishGridItemCardStyle = {}
@@ -12,6 +12,9 @@ else{
     fishGridItemCardStyle = {alignContent: 'center', alignItems: 'center', flexDirection: "column", backgroundColor:'#c2b280'}
 }
 
+const {height, width} = Dimensions.get('window');
+const itemWidth = (width - 20) / 3;
+
 const styles = StyleSheet.create({    
     fishGridItem: {
         width: 50,
@@ -21,12 +24,11 @@ const styles = StyleSheet.create({
     fishGridItemCard: fishGridItemCardStyle,
     flatListContainerContent: {justifyContent: "center",  alignItems: 'center', alignContent: 'center' },
     fishScreenContainer: {backgroundColor: "#c2b280"},
-    card: {width: "23%"},
+    card: {width:itemWidth},
     cardItem: {flexDirection: "column", backgroundColor:'#c2b280'},
     cardCheckBoxContainer: {flexDirection: "row", width:'100%', alignItems: 'stretch'},
     cardDonatedCheckBox: {position:"absolute", right:0, marginRight:10},
     cardCaughtCheckBox: {marginLeft: -10},
-    flatListStyle: {flex: 1}
 });
 
 export default styles;

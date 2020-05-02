@@ -1,8 +1,6 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 import styles from './HomeScreen.styles';
-import icons from '../../data/icons.json';
-import Icon from '../Icon/Icon';
 import { Button, Container } from 'native-base';
 
 const HomeScreen = ({ navigation }: any) =>

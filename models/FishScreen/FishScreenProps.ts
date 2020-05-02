@@ -1,10 +1,11 @@
 import { NavigationScreenProp } from "react-navigation";
-import { updateFishCaught, updateFishDonated } from "../../app/Redux/CollectionActions";
-import { CollectionStateModel } from "../CollectionStateModel";
+import { updateFishCaught, updateFishDonated, updateFishFilter } from "../../app/Redux/CollectionActions";
+import { ApplicationState } from "../ApplicationState";
 
 export interface FishScreenProps{
     navigation: NavigationScreenProp<any>,
-    collections: CollectionStateModel
-    updateFishCaught: typeof updateFishCaught
-    updateFishDonated: typeof updateFishDonated
+    collections: ApplicationState,
+    updateFishCaught: typeof updateFishCaught,
+    updateFishDonated: typeof updateFishDonated,
+    updateFishFilter: typeof updateFishFilter
 }
