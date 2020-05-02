@@ -17,13 +17,22 @@ import { createStore } from 'redux'
 import friendReducer from './Redux/CollectionReducer'
 import collectionReducer from './Redux/CollectionReducer'
 import AdvancedFilterSortOptions from './AdvancedFilter/AdvancedFilterSortOptions';
-const store = createStore(friendReducer);
+
 const store2 = createStore(collectionReducer);
-export default class App extends Component<any, { isReady: boolean }> {
+
+const fetchFonts = () => {
+  return Font.loadAsync({
+  'comfortaa-regular': require('./assets/fonts/Comfortaa-Regular.ttf'),
+  });
+  };
+  
+  
+
+export default class App extends Component<any, { isReady: boolean}> {
   constructor(props: any) {
     super(props);
     this.state = {
-      isReady: false
+      isReady: false,
     };    
   }
 
@@ -31,6 +40,7 @@ export default class App extends Component<any, { isReady: boolean }> {
     await Font.loadAsync({
       Roboto: require('native-base/Fonts/Roboto.ttf'),
       Roboto_medium: require('native-base/Fonts/Roboto_medium.ttf'),
+      Confortaa: require('./assets/fonts/Comfortaa-Regular.ttf'),
       ...Ionicons.font,
     });
     this.setState({ isReady: true });
