@@ -1,5 +1,6 @@
 import { NewFishModel } from "../../models/CollectionModels/NewFishModel";
 import { BugModel } from "../../models/CollectionModels/BugModel";
+import { AdvancedSortFilterFishModel } from "../../models/FishScreen/AdvancedSortFilterFishModel";
 
 export interface FishCaughtPayload {
     index:number,
@@ -13,6 +14,7 @@ export interface FishDonatedPayload {
 
 export const UPDATE_FISH_CAUGHT = 'UPDATE_FISH_CAUGHT';
 export const UPDATE_FISH_DONATED = 'UPDATE_FISH_DONATED';
+export const UPDATE_FISH_FILTER = "UPDATE_FISH_FILTER";
 
 interface UpdateFishCaught {
     type: typeof UPDATE_FISH_CAUGHT,
@@ -24,6 +26,11 @@ interface UpdateFishDonated {
     payload: FishDonatedPayload
 }
 
-export type {UpdateFishDonated, UpdateFishCaught};
+interface UpdateFishFilter {
+    type: typeof UPDATE_FISH_FILTER,
+    payload: AdvancedSortFilterFishModel
+}
 
-export type FishActionTypes = UpdateFishCaught | UpdateFishDonated;
+export type {UpdateFishDonated, UpdateFishCaught, UpdateFishFilter};
+
+export type FishActionTypes = UpdateFishCaught | UpdateFishDonated | UpdateFishFilter;

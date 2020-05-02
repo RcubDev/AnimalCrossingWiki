@@ -16,7 +16,7 @@ import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 import friendReducer from './Redux/CollectionReducer'
 import collectionReducer from './Redux/CollectionReducer'
-import AdvancedFilterSortOptions from './AdvancedFilterSortOptions';
+import AdvancedFilterSortOptions from './AdvancedFilter/AdvancedFilterSortOptions';
 const store = createStore(friendReducer);
 const store2 = createStore(collectionReducer);
 export default class App extends Component<any, { isReady: boolean }> {

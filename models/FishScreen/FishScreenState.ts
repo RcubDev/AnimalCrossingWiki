@@ -1,5 +1,6 @@
 
 export interface FishScreenState {
     isReady: boolean,
-    filterText: string
+    filterText: string,
+    showFilterModal: boolean
 }
