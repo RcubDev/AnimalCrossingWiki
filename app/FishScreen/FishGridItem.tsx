@@ -48,7 +48,7 @@ export class FishGridItem extends Component<FishGridItemProps>{
         <CardItem style={styles.cardItem}>
           <View>
             <TouchableOpacity onPress={this.onPress} style={styles.fishGridItemCard}>
-              <Text key={`${this.props.model.id}FishGridItemName`} numberOfLines={1}>{this.props.model.name}</Text>
+              <Text style={{fontFamily: 'Confortaa'}} key={`${this.props.model.id}FishGridItemName`} numberOfLines={1}>{this.props.model.name}</Text>
               <Image source={FishImages[this.props.model.name]} style={styles.fishGridItem} key={`${this.props.model.id}FishGridItemImage`}></Image>
             </TouchableOpacity>
           </View>
