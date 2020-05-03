@@ -123,29 +123,16 @@ class FishScreen extends Component<FishScreenProps, FishScreenState> {
         </Header>
         <FlatList
           data={fish}
-          renderItem={({
-            item,
-            index,
-          }: {
-            item: NewFishModel;
-            index: number;
-          }) => (
-            <FishGridItem
-              {...{
-                model: { ...item },
-                nav: this.props.navigation,
-                updateFishCaught: this.props.updateFishCaught,
-                updateFishDonated: this.props.updateFishDonated,
-              }}
-            />
-          )}
-          numColumns={3}
-          keyExtractor={(item, index) => index.toString()}
-          contentContainerStyle={styles.flatListContainerContent}
-          columnWrapperStyle={{
-            justifyContent: "space-evenly",
-            flexDirection: "row",
-          }}
+          renderItem={({item,index, }: { item: NewFishModel;index: number;}) => (
+              <FishGridItem {...{ model: { ...item },nav: this.props.navigation,updateFishCaught: this.props.updateFishCaught,updateFishDonated: this.props.updateFishDonated,}}/>
+            )}
+            numColumns={3}
+            keyExtractor={(item, index) => index.toString()}
+            contentContainerStyle={styles.flatListContainerContent}
+            columnWrapperStyle={{
+              justifyContent: "space-evenly",
+              flexDirection: "row",
+            }}
         ></FlatList>
 
         <Modal visible={this.state.showFilterModal} transparent={true} animationType="slide">

@@ -53,23 +53,23 @@ class FishDetails extends Component<FishDetailsProps, FishDetailsState> {
 
     render() {
         return (
-            <ScrollView style={{flex: 1, backgroundColor: '#9cf0c6'}} contentContainerStyle={{justifyContent: 'center'}}>
-                <View style={{flex: 1, flexDirection:'column', alignItems: 'center', paddingBottom: 200}}>
-                    <View style={{width: '90%', padding: 20, justifyContent:'center', backgroundColor: '#cae9f6', alignItems: 'center', marginTop: 25, borderRadius: 20, borderColor:'grey', borderWidth:5}}>
+            <ScrollView style={styles.detailViewScrollView} contentContainerStyle={{justifyContent: 'center'}}>
+                <View style={styles.detailViewContainer}>
+                    <View style={styles.imageAndNameContainer}>
                         <Image source={FishImages[this.fish.name]}></Image>
-                        <View style={{backgroundColor:"#ffecd9", padding: 20, borderRadius: 10, borderWidth: 1, borderColor: 'black'}}>
-                            <Text style={{fontFamily: 'Confortaa', fontSize: 26}}>{this.fish.name}</Text>
+                        <View style={styles.fishNameViewStyling}>
+                            <Text style={styles.fishNameTextStyling}>{this.fish.name}</Text>
                         </View>
                     </View>
-                    <View style={{flex: 1, flexDirection: 'row', justifyContent:'space-between', width: '80%', marginTop: 25}}>
-                        <CheckBox style={{width:50, height: 50, borderRadius: 50, marginTop: 8}} checked={this.fish.caught}></CheckBox>
-                        <CheckBox style={{width:50, height: 50, borderRadius: 50, marginTop: 8}} checked={this.fish.donated}></CheckBox>
-                        <View style={{flexDirection: 'row', backgroundColor: '#f4fdf4', alignContent: 'center', justifyContent: 'space-between', alignItems: 'center', width: '40%', borderColor:'grey', borderWidth: 5, borderRadius: 20, padding:5}}>
+                    <View style={styles.caughtDonatedValueContainer}>
+                        <CheckBox style={styles.checkBoxTemp} checked={this.fish.caught}></CheckBox>
+                        <CheckBox style={styles.checkBoxTemp} checked={this.fish.donated}></CheckBox>
+                        <View style={styles.valueContainer}>
                             <Image source={require('../Images/Other/BellBag.png')} style={{width: 30, height: 30, marginLeft: 5}}></Image>                            
-                            <Text style={{fontFamily: 'Confortaa', fontSize: 32, marginTop: 15}}>{this.fish.value}</Text>
+                            <Text style={styles.valueText}>{this.fish.value}</Text>
                         </View>
                     </View>
-                    <View style={{width: '90%', flexWrap:'wrap', flexDirection:'row', justifyContent:'center', backgroundColor: '#f4fdf4', alignItems: 'center', marginTop: 25, borderRadius: 20, borderColor:'grey', borderWidth:5, padding:5}}>
+                    <View style={styles.monthContainer}>
                         <View style={this.fish.monthsAvailable.jan ? styles.monthItemSelected : styles.monthItem}>
                             <Text>{"Jan"}</Text>
                         </View>
@@ -107,27 +107,27 @@ class FishDetails extends Component<FishDetailsProps, FishDetailsState> {
                             <Text>{"Dec"}</Text>
                         </View>
                     </View>
-                    <View style={{width: '90%', padding: 10, marginTop: 25, flexDirection:'row', justifyContent:'space-between'}}>
-                        <View style={{backgroundColor: '#f4fdf4', width: '45%', justifyContent: "space-evenly", alignItems:'center', borderRadius: 20, height: 150, borderWidth: 5, borderColor:'grey'}}>
+                    <View style={styles.locationAndTimeContainer}>
+                        <View style={styles.imageAndTextContainer}>
                             {/* TODO: Image Here (remove height from container) */}
                             <Text>{"Location Image"}</Text>
                             <Text style={{fontFamily:'Confortaa'}}>{this.fish.locationName}</Text>
                         </View>
-                        <View style={{backgroundColor: '#f4fdf4', width: '45%', justifyContent:'space-evenly', alignItems: 'center', borderRadius: 20, borderWidth: 5, borderColor:'grey', height: 150}}>
+                        <View style={styles.imageAndTextContainer}>
                             {/* TODO: Image Here (remove height from container) */}
                             <Text>{"Clock Image"}</Text>
                             <Text style={{fontFamily:'Confortaa'}}>{this.fish.time}</Text>
                         </View>
                     </View>
-                    <View style={{width: '90%', padding: 10, justifyContent:'center', alignItems: 'center'}}>
-                        <View style={{backgroundColor: '#f4fdf4', width: '45%', justifyContent:'space-evenly', alignItems: 'center', borderRadius: 20, borderWidth: 5, borderColor:'grey', height: 150}}>
+                    <View style={styles.shadowSizeContainer}>
+                        <View style={styles.imageAndTextContainer}>
                             {/* TODO: Image Here (remove height from container) */}
                             <Text>{"Shadow Image"}</Text>
                             <Text style={{fontFamily:'Confortaa'}}>{this.fish.shadowSizeName}</Text>
                         </View>
                     </View>
-                    <View style={{width: '90%', alignItems: 'center'}}>
-                        <View style={{width: '100%', backgroundColor:'#f4fdf4', alignItems: 'center', flexDirection: 'row', height: 50, borderColor:'grey', borderRadius: 20, borderWidth: 5, justifyContent: 'space-evenly'}}>
+                    <View style={styles.rarityContainer}>
+                        <View style={styles.stylesRarityTextContainer}>
                             {/* TODO: Replace * with images of stars. */}
                             <Text>{"Rarity"}</Text>
                             <Text>{"*"}</Text>
@@ -137,8 +137,8 @@ class FishDetails extends Component<FishDetailsProps, FishDetailsState> {
                             <Text>{"*"}</Text>
                          </View>
                     </View>
-                    <View style={{width: '90%', justifyContent: "center", alignItems: 'center', borderRadius: 20, borderColor: 'grey', borderWidth: 5, backgroundColor: '#f4fdf4', padding: 5, marginTop: 20}}>
-                        <Text style={{justifyContent: 'center', alignItems:'center', fontFamily: 'Confortaa'}}>{"Blathers Says: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed interdum ligula quis imperdiet pharetra. Nunc tincidunt lorem eget nibh vulputate gravida. Aenean a posuere neque. In finibus nunc non turpis fermentum, malesuada sodales odio porta. Praesent et tellus felis. Aenean eget urna ante. Morbi interdum dui dictum, iaculis ante pretium, laoreet diam. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec sollicitudin eleifend nibh sed molestie. Sed malesuada porttitor ultrices. Vivamus lobortis, eros non interdum maximus, lorem mauris feugiat ligula, blandit interdum neque erat vitae leo. Nullam erat leo, feugiat quis metus nec, lacinia laoreet lacus. Fusce eros lorem, egestas sit amet tincidunt id, lacinia eget nulla. Praesent commodo pharetra dui sed ornare."}</Text>
+                    <View style={styles.blathersSaysContinaer}>
+                        <Text style={styles.blathersSaysText}>{"Blathers Says: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed interdum ligula quis imperdiet pharetra. Nunc tincidunt lorem eget nibh vulputate gravida. Aenean a posuere neque. In finibus nunc non turpis fermentum, malesuada sodales odio porta. Praesent et tellus felis. Aenean eget urna ante. Morbi interdum dui dictum, iaculis ante pretium, laoreet diam. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec sollicitudin eleifend nibh sed molestie. Sed malesuada porttitor ultrices. Vivamus lobortis, eros non interdum maximus, lorem mauris feugiat ligula, blandit interdum neque erat vitae leo. Nullam erat leo, feugiat quis metus nec, lacinia laoreet lacus. Fusce eros lorem, egestas sit amet tincidunt id, lacinia eget nulla. Praesent commodo pharetra dui sed ornare."}</Text>
                     </View>              
                 </View>
             </ScrollView>
