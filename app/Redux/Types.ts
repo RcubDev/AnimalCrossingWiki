@@ -15,7 +15,7 @@ export interface FishDonatedPayload {
 export const UPDATE_FISH_CAUGHT = 'UPDATE_FISH_CAUGHT';
 export const UPDATE_FISH_DONATED = 'UPDATE_FISH_DONATED';
 export const UPDATE_FISH_FILTER = "UPDATE_FISH_FILTER";
-
+export const UPDATE_FISH_COLLECTION = "UPDATE_FISH_COLLECTION"
 interface UpdateFishCaught {
     type: typeof UPDATE_FISH_CAUGHT,
     payload: FishCaughtPayload
@@ -31,6 +31,11 @@ interface UpdateFishFilter {
     payload: AdvancedSortFilterFishModel
 }
 
-export type {UpdateFishDonated, UpdateFishCaught, UpdateFishFilter};
+interface UpdateFishCollection {
+    type: typeof UPDATE_FISH_COLLECTION,
+    payload: Array<NewFishModel>
+}
 
-export type FishActionTypes = UpdateFishCaught | UpdateFishDonated | UpdateFishFilter;
+export type {UpdateFishDonated, UpdateFishCaught, UpdateFishFilter, UpdateFishCollection};
+
+export type FishActionTypes = UpdateFishCaught | UpdateFishDonated | UpdateFishFilter | UpdateFishCollection;

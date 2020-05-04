@@ -7,7 +7,7 @@ export interface CritterModel extends MuseumModel {
     catchEndTime: Array<number>
     monthsAvailable: MonthsAvaliable
     rarity: number,
-    rarityName: number,
+    rarityName: string,
     weather: string,
     caught: boolean
 }

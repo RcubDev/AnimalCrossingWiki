@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Text, View, Image, Platform, Modal } from "react-native";
+import { Text, View, Image, Platform, Modal, AsyncStorage } from "react-native";
 import fish from "../../data/fish.json";
 // import { Grid } from 'native-base';
 import { Col, Row, Grid } from "react-native-easy-grid";
@@ -26,7 +26,8 @@ import { connect } from "react-redux";
 import {
   updateFishCaught,
   updateFishDonated,
-  updateFishFilter
+  updateFishFilter,
+  updateFishCollectionFromStorage
 } from "../Redux/CollectionActions";
 import { Fish } from "../../models/fish";
 import { NewFishModel } from "../../models/CollectionModels/NewFishModel";
@@ -36,6 +37,9 @@ import { isListOfFish } from "../Filter/FilterTypes";
 import { AdvancedSortFilterFishModel } from "../../models/FishScreen/AdvancedSortFilterFishModel";
 import AdvancedFilterSortOptions from "../AdvancedFilter/AdvancedFilterSortOptions";
 import { FilterAdvancedFish } from "../AdvancedFilter/FilterAdvanced";
+
+const defaultFishCollection: Array<NewFishModel> = fish.fish;
+
 
 class FishScreen extends Component<FishScreenProps, FishScreenState> {
   focusListener: any;
@@ -49,6 +53,14 @@ class FishScreen extends Component<FishScreenProps, FishScreenState> {
   }
 
   async componentDidMount() {
+    const storedFish = await AsyncStorage.getItem('fishStore');
+    if(storedFish){
+      this.props.updateFishCollectionFromStorage(JSON.parse(storedFish));
+    }
+    else{
+      this.props.updateFishCollectionFromStorage(defaultFishCollection);
+      await AsyncStorage.setItem('fishStore', JSON.stringify(defaultFishCollection));
+    }
     this.setState({ isReady: true });
   }
 
@@ -104,6 +116,7 @@ class FishScreen extends Component<FishScreenProps, FishScreenState> {
         <Header>
           <Item style={{ flex: 1 }}>
             <Input
+              autoCorrect={false}
               placeholder="Filter"
               onChangeText={(text: string) => {
                 this.setState({ filterText: text.toLowerCase() });
@@ -153,4 +166,5 @@ const mapStateToProps = (state: any) => {
 export default connect(mapStateToProps, {
   updateFishCaught,
   updateFishDonated,
+  updateFishCollectionFromStorage
 })(FishScreen);
