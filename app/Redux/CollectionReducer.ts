@@ -52,7 +52,6 @@ const collectionReducer = (state = INITIAL_STATE2, action: FishActionTypes): App
     case UPDATE_FISH_COLLECTION:
       return updateFishCollectionFromStorage(state, action);
     default:
-      console.log('default');
       return state;
   }
 };

@@ -53,7 +53,6 @@ class FishScreen extends Component<FishScreenProps, FishScreenState> {
   }
 
   async componentDidMount() {
-    console.log('componentDidMount');
     const storedFish = await AsyncStorage.getItem('fishStore');
     if(storedFish){
       this.props.updateFishCollectionFromStorage(JSON.parse(storedFish));
@@ -149,12 +148,12 @@ class FishScreen extends Component<FishScreenProps, FishScreenState> {
             }}
         ></FlatList>
 
-        {/* <Modal visible={this.state.showFilterModal} transparent={true} animationType="slide">
+        <Modal visible={this.state.showFilterModal} transparent={true} animationType="slide">
           <View style={{ height: "50%" }}>
               <TouchableWithoutFeedback onPress={() => {this.setState({showFilterModal:false})}} style={{width:'100%', height:'100%'}}></TouchableWithoutFeedback>
           </View>
           <AdvancedFilterSortOptions></AdvancedFilterSortOptions>
-        </Modal> */}
+        </Modal>
       </Container>
     );
   }
