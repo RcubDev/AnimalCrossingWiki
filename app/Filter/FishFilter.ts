@@ -2,7 +2,7 @@ import { NewFishModel } from "../../models/CollectionModels/NewFishModel"
 import { BugModel } from "../../models/CollectionModels/BugModel";
 import { FilterCollectionCritter } from "./CritterFilter";
 
-export function FilterCollectionFish(type:string, value: string, operation: string, list: Array<NewFishModel>): Array<NewFishModel>{
+export function FilterCollectionFish(type:string, value: string, operation: string, list: Array<NewFishModel>, timeOffSet: number | null = null): Array<NewFishModel>{
     switch(type){
         case "size":
         case "shadowSize":
@@ -11,7 +11,7 @@ export function FilterCollectionFish(type:string, value: string, operation: stri
         case "locationName":
             FilterFishByLocation(operation, value, list);
         default:
-            let critterFilter = FilterCollectionCritter(type, value, operation, list);
+            let critterFilter = FilterCollectionCritter(type, value, operation, list, timeOffSet);
             return list.filter(x => critterFilter.map(y => y.id).includes(x.id));
     }    
 }

@@ -72,7 +72,6 @@ class SettingsScreen extends Component<SettingsScreenProps, SettingsScreenState>
 
     tick(){
         //Set state
-        console.log('tick');
         let currentDate = new Date(this.state.currentTime.year, this.state.currentTime.month, this.state.currentTime.day, this.state.currentTime.hour, this.state.currentTime.minute);
         let dateAfterAdd = moment(currentDate).add(this.state.currentTime.seconds + 1, "seconds").toDate();        
         this.setState({currentTime: {      
@@ -101,7 +100,6 @@ class SettingsScreen extends Component<SettingsScreenProps, SettingsScreenState>
         }        
         this.props.updateInGameTime(dateOffset);
         //Update Current Time here
-        debugger;
         let myObj =  {
             minute: this.state.pendingTime.minute,
             hour: this.state.pendingTime.hour,
@@ -121,7 +119,7 @@ class SettingsScreen extends Component<SettingsScreenProps, SettingsScreenState>
                 newState.day = time;
                 break;
             case 'month':
-                newState.month = time;
+                newState.month = time - 1;
                 break;
             case 'year':
                 newState.year = time;
@@ -144,7 +142,7 @@ class SettingsScreen extends Component<SettingsScreenProps, SettingsScreenState>
             return (
                 <View style={{justifyContent: "center", alignItems: 'center'}}>                    
                     <View>
-                        <Text>{`Current In Game Time: ${this.state.currentTimeAsDate.toISOString().replace('T', ' ').substring(0, 19)}`}</Text>
+                        <Text>{`Current In Game Time: ${moment(this.state.currentTimeAsDate).format('MMMM Do YYYY, h:mm:ss a')}`}</Text>
                     </View>
                     {/* TODO: Add validation to these inputs or change to picker/dropdown OR get a date time picker to work on web and ios*/}
                     <View style={{flexDirection: 'row', justifyContent: 'center', alignItems: 'center', padding: 20}}>

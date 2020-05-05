@@ -83,7 +83,8 @@ class FishScreen extends Component<FishScreenProps, FishScreenState> {
         //Check matching parens before doing this. If they're not matching return no fish.
         let value = filterCollectionByTextSpecial(
           text.substr(7),
-          fishes
+          fishes,
+          this.props.appState.userSettings.inGameTime.minutes
         );
         if (isListOfFish(value)) {
           fishArray = value;
@@ -148,12 +149,12 @@ class FishScreen extends Component<FishScreenProps, FishScreenState> {
             }}
         ></FlatList>
 
-        <Modal visible={this.state.showFilterModal} transparent={true} animationType="slide">
+        {/* <Modal visible={this.state.showFilterModal} transparent={true} animationType="slide">
           <View style={{ height: "50%" }}>
               <TouchableWithoutFeedback onPress={() => {this.setState({showFilterModal:false})}} style={{width:'100%', height:'100%'}}></TouchableWithoutFeedback>
           </View>
           <AdvancedFilterSortOptions></AdvancedFilterSortOptions>
-        </Modal>
+        </Modal> */}
       </Container>
     );
   }
