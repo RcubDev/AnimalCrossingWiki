@@ -15,6 +15,20 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     width: "23%",
   },
+  catchableNowSelectedStyle: {
+    backgroundColor: "green",
+    justifyContent: "center",
+    margin: 5,
+    borderRadius: 10,
+    width: "50%",
+  },
+  catchableNowUnSelectedStyle: {
+    backgroundColor: "grey",
+    justifyContent: "center",
+    margin: 5,
+    borderRadius: 10,
+    width: "50%",
+  },
   shadowSizeButtonUnSelectedStyle: {
     backgroundColor: "grey",
     justifyContent: "center",

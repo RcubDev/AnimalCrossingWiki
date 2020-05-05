@@ -11,4 +11,5 @@ export interface AdvancedSortFilterFishModel extends MonthsAvaliable {
     location: number;
     rarity: number;
     value: number;
+    catchableNow: boolean;
   }

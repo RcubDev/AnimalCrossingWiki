@@ -10,7 +10,7 @@ const endScope: Array<string> = [")"];
 const startValues: Array<string> = ["=", ">", "<", ">=", "<=", "!", "%", ":", "+"];
 const endValues:Array<string> = [")", "]", "&", "|"];
 
-export function filterCollectionByTextSpecial(text: string, collection: Array<CollectionFilterTypes>): Array<CollectionFilterTypes> {
+export function filterCollectionByTextSpecial(text: string, collection: Array<CollectionFilterTypes>, timeOffSet: number): Array<CollectionFilterTypes> {
     //Read text until key word is found            
     let startToken: Token |undefined = GetNextToken(text);
     let currentToken: Token | undefined = startToken;
@@ -27,7 +27,7 @@ export function filterCollectionByTextSpecial(text: string, collection: Array<Co
         }
         else if(currentToken.type === "value"){
             //Filter
-            let filteredValues = FilterCollection(currentType, currentToken.value, currentOperation, collection);
+            let filteredValues = FilterCollection(currentType, currentToken.value, currentOperation, collection, timeOffSet);
             //JOIN IF CONJUNCTION IS WAITING
             leftSide = ApplyConjunction(currentConjunction, leftSide, filteredValues);
             if(currentConjunction !== ""){
@@ -80,10 +80,10 @@ function FindMatchingParen(textAfterOpenParen: string): number{
     return index;
 }
 
-function FilterCollection(type:string, value: string, operation: string, valuesEnteredWith: Array<CollectionFilterTypes>): Array<CollectionFilterTypes>{
+function FilterCollection(type:string, value: string, operation: string, valuesEnteredWith: Array<CollectionFilterTypes>, timeOffSet: number): Array<CollectionFilterTypes>{
 
     if(isListOfFish(valuesEnteredWith)){
-        return FilterCollectionFish(type, value, operation, valuesEnteredWith);
+        return FilterCollectionFish(type, value, operation, valuesEnteredWith, timeOffSet);
     }
     else if(isListOfBug(valuesEnteredWith)){
         //Return filter collection bugs

@@ -1,7 +1,8 @@
 import { CritterModel } from "../../models/CollectionModels/CritterModel";
 import { FilterCollectionMuseum } from "./MuseumFilter";
+import moment from "moment";
 
-export function FilterCollectionCritter(type: string, value: string, operation: string, list: Array<CritterModel>): Array<CritterModel> {    
+export function FilterCollectionCritter(type: string, value: string, operation: string, list: Array<CritterModel>, timeOffSet: number | null = null): Array<CritterModel> {    
     switch (type) {
         case "caught":
             return FilterCritterByCaught(operation, value, list);
@@ -14,12 +15,99 @@ export function FilterCollectionCritter(type: string, value: string, operation: 
         case "weather":
             return FilterCritterByWeather(operation, value, list);
         case "time":
-            return [];
+            return FilterCritterByTime(operation, value, list, timeOffSet);
         default:
             let museumFilter = FilterCollectionMuseum(type, value, operation, list);
             return list.filter(x => museumFilter.map(y => y.id).includes(x.id));
 
     }
+}
+
+function FilterCritterByTime(operation: string, value: string, list:Array<CritterModel>, timeOffSet: number | null): Array<CritterModel>{
+    switch(operation){
+        case "=":
+        case ":":
+            return FilterCritterByTimeEquals(value, list, timeOffSet);
+        default:
+            return [];
+    }
+}
+
+//Only allows for miltary time
+function FilterCritterByTimeEquals(value: string, list:Array<CritterModel>, timeOffSet: number | null){
+    let values: Array<number> = [];
+    debugger;
+    if(value.toLowerCase() === "now"){
+        if(timeOffSet === null){
+            throw "Current hour cannot be null";
+        }
+        else{
+            let date = moment(new Date()).add(timeOffSet, 'minutes').toDate();
+            list = FilterCritterByMonths("=", `${date.getMonth() + 1}`, list);           
+            values.push(date.getHours());
+        }
+    }
+    else {
+        if(value.startsWith('[')){
+            value = value.substring(1, value.length - 1); //remove the []
+            values = value.split(",").map(x => isNaN(+x) ? GetMonthValueFromText(x) : +x);
+            //Remove value if we get a -1 or just throw err?
+            values = values.filter(x => x !== -1);
+        }
+        else if(value.includes('-')){
+            values = value.split("-").map(x => +x);
+            let rangeValues = value.split("-").map(x => isNaN(+x) ? GetMonthValueFromText(x) : +x);
+            //0 = 12AM
+            //24 = NOTHING
+            let endVal = rangeValues[0] >= rangeValues[1] ? rangeValues[0] : rangeValues[1];
+            let startVal = rangeValues[0] >= rangeValues[1] ? rangeValues[1] : rangeValues[0];
+            if((startVal > 23 || startVal < 1) || (endVal < 1 || endVal > 23)){
+                throw "Invalid range input";
+            }
+            while(startVal !== endVal){
+                values.push(startVal);
+                if(startVal === 23){
+                    startVal = 0;
+                }
+                startVal++;
+            }
+        }
+        else{
+            //should be a single value
+            values = [+value];
+        }
+    }
+    return list.filter(x => CritterIsAvailableDuringTime(values, x));
+}
+
+
+function CritterIsAvailableDuringTime(hoursToCheck: Array<number>, critter: CritterModel){    
+    let isInside: boolean = false;
+    hoursToCheck.forEach(element => {
+        if(CritterIsAvailableDuringHour(element, critter)){
+            isInside = true;
+        }
+    });
+    return isInside;
+}
+
+function CritterIsAvailableDuringHour(hour: number, critter: CritterModel): boolean {
+    for(let i = 0; i < critter.catchStartTime.length; i++){
+        let possibleHours = [];        
+        let endVal = critter.catchEndTime[i];
+        let startVal = critter.catchStartTime[i];
+        while(startVal !== endVal){
+            possibleHours.push(startVal);
+            if(startVal === 24){
+                startVal = 0;
+            }
+            startVal++;
+        }
+        if(possibleHours.includes(hour)){
+            return true;
+        }
+    }
+    return false;
 }
 
 function FilterCritterByWeather(operation: string, value: string, list: Array<CritterModel>): Array<CritterModel> {

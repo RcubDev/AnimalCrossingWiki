@@ -2,5 +2,6 @@
 export interface FishScreenState {
     isReady: boolean,
     filterText: string,
-    showFilterModal: boolean
+    showFilterModal: boolean,
+    showSortModal: boolean
 }
