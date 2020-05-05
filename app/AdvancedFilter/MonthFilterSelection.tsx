@@ -5,7 +5,19 @@ import { FilterProps } from "../../models/Filter/FilterProps";
 
 export default function MonthFilterSelection(props: FilterProps) {
   let filterObj = props.currentFilterSettings;
+
+  let setCatchableNow = (catchableNow: boolean) => {
+    filterObj.catchableNow = catchableNow;
+    if (catchableNow) {
+      setMonths(0, false);
+    }
+    props.updateFunction(filterObj);
+  }
+
   let setMonths = (month: number, selected: boolean) => {
+    if(selected && filterObj.catchableNow){
+      filterObj.catchableNow = false;
+    }
     switch (month) {
       case 0:
         filterObj.jan = selected;
@@ -223,6 +235,15 @@ export default function MonthFilterSelection(props: FilterProps) {
           }}
         >
           <Text>Dec</Text>
+        </Button>
+        <Button
+          style={
+            filterObj.catchableNow
+              ? styles.catchableNowSelectedStyle
+              : styles.catchableNowUnSelectedStyle
+          }
+          onPress={() => { setCatchableNow(!filterObj.catchableNow) }}>
+          <Text>{"Catchable Now"}</Text>
         </Button>
       </CardItem>
     </Card>

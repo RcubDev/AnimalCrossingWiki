@@ -1,10 +1,11 @@
 import { combineReducers } from 'redux';
 import fish from '../../data/fish.json';
-import { UPDATE_FISH_CAUGHT, UPDATE_FISH_DONATED, FishActionTypes, UpdateFishDonated, UpdateFishCaught, UpdateFishFilter, UPDATE_FISH_FILTER, UPDATE_FISH_COLLECTION, UpdateFishCollection, UPDATE_IN_GAME_DATE, UPDATE_HEMISPHERE, UpdateInGameTime, UpdateHemisphere } from './Types'
+import { UPDATE_FISH_CAUGHT, UPDATE_FISH_DONATED, FishActionTypes, UpdateFishDonated, UpdateFishCaught, UpdateFishFilter, UPDATE_FISH_FILTER, UPDATE_FISH_COLLECTION, UpdateFishCollection, UPDATE_IN_GAME_DATE, UPDATE_HEMISPHERE, UpdateInGameTime, UpdateHemisphere, UPDATE_FISH_SORT, UpdateFishSort } from './Types'
 import { ApplicationState } from '../../models/ApplicationState/ApplicationState';
 import {AsyncStorage} from 'react-native';
 import { AdvancedSortFilterFishModel } from '../../models/FishScreen/AdvancedSortFilterFishModel';
 import { NewFishModel } from '../../models/CollectionModels/NewFishModel';
+import { AdvancedSortFishModel } from '../../models/FishScreen/AdvancedSortFishModel';
 
 const defaultAdvancedSortFilter: AdvancedSortFilterFishModel = {
   caught: false,
@@ -29,13 +30,25 @@ const defaultAdvancedSortFilter: AdvancedSortFilterFishModel = {
   oct: false,
   nov: false,
   dec: false,
+  catchableNow: false
 };
+
+const defaultSortOptions: AdvancedSortFishModel = {
+  shadowSize: false,
+  ascending: false,
+  descending: false,
+  value: false,
+  name: false,
+  rarity: false,
+  critterpediaHorizontal: false,
+  critterpediaVertical: false
+}
 
 const defaultFishCollection: Array<NewFishModel> = fish.fish;
 
-const INITIAL_STATE2: ApplicationState = { fish: { fishCollection: [], fishAdvancedSortFilter: defaultAdvancedSortFilter }, userSettings: {isNorthernHemisphere: true, inGameTime: {minutes: 0}} };
+const INITIAL_STATE2: ApplicationState = { fish: { fishCollection: [], fishAdvancedSortFilter: defaultAdvancedSortFilter, fishAdvancedSort: defaultSortOptions }, userSettings: {isNorthernHemisphere: true, inGameTime: {minutes: 0}} };
 
-const firstTimeUserState: ApplicationState = { fish: { fishCollection: fish.fish, fishAdvancedSortFilter: defaultAdvancedSortFilter }, userSettings: {isNorthernHemisphere: true, inGameTime: {minutes: 0}} };
+const firstTimeUserState: ApplicationState = { fish: { fishCollection: fish.fish, fishAdvancedSortFilter: defaultAdvancedSortFilter, fishAdvancedSort: defaultSortOptions }, userSettings: {isNorthernHemisphere: true, inGameTime: {minutes: 0}} };
 
 
 
@@ -54,6 +67,8 @@ const collectionReducer = (state = INITIAL_STATE2, action: FishActionTypes): App
       return  updateInGameTime(state, action);
     case UPDATE_HEMISPHERE:
       return updateHemisphere(state, action);
+    case UPDATE_FISH_SORT:
+      return updateFishSort(state, action);
     default:
       return state;
   }
@@ -63,6 +78,12 @@ function updateInGameTime(state: ApplicationState, action: UpdateInGameTime): Ap
   let newState = state;
   newState.userSettings.inGameTime = action.payload;
   AsyncStorage.setItem('InGameTimeOffSet', JSON.stringify(action.payload));
+  return Object.assign({}, state, newState);
+}
+
+function updateFishSort(state: ApplicationState, action: UpdateFishSort): ApplicationState {
+  let newState = state;
+  newState.fish.fishAdvancedSort = action.payload;
   return Object.assign({}, state, newState);
 }
 

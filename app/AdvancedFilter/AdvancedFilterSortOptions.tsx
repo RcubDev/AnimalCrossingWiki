@@ -1,19 +1,7 @@
 import React, { Component, PureComponent } from "react";
 import { FishScreenProps } from "../../models/FishScreen/FishScreenProps";
 import { connect } from "react-redux";
-import {
-  Container,
-  Button,
-  Card,
-  CardItem,
-  Grid,
-  Row,
-  Col,
-  View,
-  Header,
-} from "native-base";
 import { Text, ScrollView, Modal } from "react-native";
-import styles from "./AdvancedFilterSortOptionsStyles";
 import MonthFilterSelection from "./MonthFilterSelection";
 import ShadowSizeFilterSelection from "./ShadowSizeFilterSelection";
 import RarityFilterSelection from "./RarityFilterSelection";
@@ -33,8 +21,7 @@ class AdvancedFilterSortOptions extends PureComponent<FishScreenProps> {
   
   render() {
     let currentFilterSettings = {
-      currentFilterSettings: this.props.appState.fish
-        .fishAdvancedSortFilter,
+      currentFilterSettings: this.props.appState.fish.fishAdvancedSortFilter,
       updateFunction: this.SetFishFilter,
     }
     return (

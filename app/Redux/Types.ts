@@ -1,6 +1,7 @@
 import { NewFishModel } from "../../models/CollectionModels/NewFishModel";
 import { BugModel } from "../../models/CollectionModels/BugModel";
 import { AdvancedSortFilterFishModel } from "../../models/FishScreen/AdvancedSortFilterFishModel";
+import { AdvancedSortFishModel } from "../../models/FishScreen/AdvancedSortFishModel";
 
 export interface FishCaughtPayload {
     index:number,
@@ -20,6 +21,7 @@ export const UPDATE_FISH_CAUGHT = 'UPDATE_FISH_CAUGHT';
 export const UPDATE_FISH_DONATED = 'UPDATE_FISH_DONATED';
 export const UPDATE_FISH_FILTER = "UPDATE_FISH_FILTER";
 export const UPDATE_FISH_COLLECTION = "UPDATE_FISH_COLLECTION";
+export const UPDATE_FISH_SORT = "UPDATE_FISH_SORT";
 export const UPDATE_IN_GAME_DATE = "UPDATE_IN_GAME_DATE";
 export const UPDATE_HEMISPHERE = "UPDATE_HEMISPHERE";
 
@@ -43,6 +45,11 @@ interface UpdateFishCollection {
     payload: Array<NewFishModel>
 }
 
+interface UpdateFishSort {
+    type: typeof UPDATE_FISH_SORT,
+    payload: AdvancedSortFishModel
+}
+
 interface UpdateInGameTime {
     type: typeof UPDATE_IN_GAME_DATE,
     payload: InGameTimeOffSetPayload
@@ -53,6 +60,6 @@ interface UpdateHemisphere {
     payload: boolean
 }
 
-export type {UpdateFishDonated, UpdateFishCaught, UpdateFishFilter, UpdateFishCollection, UpdateInGameTime, UpdateHemisphere};
+export type {UpdateFishDonated, UpdateFishCaught, UpdateFishFilter, UpdateFishCollection, UpdateInGameTime, UpdateHemisphere, UpdateFishSort};
 
-export type FishActionTypes = UpdateFishCaught | UpdateFishDonated | UpdateFishFilter | UpdateFishCollection | UpdateInGameTime | UpdateHemisphere;
+export type FishActionTypes = UpdateFishCaught | UpdateFishDonated | UpdateFishFilter | UpdateFishCollection | UpdateInGameTime | UpdateHemisphere | UpdateFishSort;
