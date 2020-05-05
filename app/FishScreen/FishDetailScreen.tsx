@@ -6,13 +6,13 @@ import { connect } from 'react-redux';
 import { updateFishCaught, updateFishDonated } from '../Redux/CollectionActions';
 import { NavigationScreenProp } from 'react-navigation';
 import { NewFishModel } from '../../models/CollectionModels/NewFishModel';
-import { ApplicationState } from '../../models/ApplicationState';
+import { ApplicationState } from '../../models/ApplicationState/ApplicationState';
 import { ScrollView } from 'react-native-gesture-handler';
 import styles from './FishDetailScreenStyles';
 
 interface FishDetailsProps {
     navigation: NavigationScreenProp<any>,
-    collections: ApplicationState
+    appState: ApplicationState
     updateFishCaught: typeof updateFishCaught
     updateFishDonated: typeof updateFishDonated
     route: {
@@ -33,16 +33,16 @@ interface FishDetailsState {
 
 class FishDetails extends Component<FishDetailsProps, FishDetailsState> {
     index = this.props.route.params.index;
-    fish = this.props.collections.fish.fishCollection[this.index];
+    fish = this.props.appState.fish.fishCollection[this.index];
     SetItemCaught = (caught: boolean, index: number) => {
         this.props.updateFishCaught({caught, index});
-        this.setState({model: this.props.collections.fish.fishCollection[index]});
+        this.setState({model: this.props.appState.fish.fishCollection[index]});
     }
 
 
     SetItemDonated = (donated: boolean, index: number) => {
         this.props.updateFishDonated({donated, index});
-        this.setState({model: this.props.collections.fish.fishCollection[index]});
+        this.setState({model: this.props.appState.fish.fishCollection[index]});
     }
 
     constructor(props: FishDetailsProps){
@@ -147,7 +147,7 @@ class FishDetails extends Component<FishDetailsProps, FishDetailsState> {
 }
 
 const mapStateToProps = (state: any) => {
-    const { collections } = state;
-    return { collections }
+    const { appState } = state;
+    return { appState }
   };
 export default connect(mapStateToProps, {updateFishCaught, updateFishDonated})(FishDetails);

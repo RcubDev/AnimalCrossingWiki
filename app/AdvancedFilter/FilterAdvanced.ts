@@ -17,7 +17,6 @@ export function FilterAdvancedFish(filterOptions: AdvancedSortFilterFishModel, a
 }
 
 function ApplyShadowSize(shadowSize: number, allFish: Array<NewFishModel>): Array<NewFishModel> {
-    // fish = this.props.collections.fish.fishAdvancedSortFilter.shadowSize !== -1 ? this.props.collections.fish.fishCollection.filter(x => x.shadowSize === this.props.collections.fish.fishAdvancedSortFilter.shadowSize) : fish;
     if (shadowSize !== -1) {
         allFish = allFish.filter(x => x.shadowSize === shadowSize);
     }

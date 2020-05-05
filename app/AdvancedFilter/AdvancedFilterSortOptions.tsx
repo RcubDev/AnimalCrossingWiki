@@ -33,7 +33,7 @@ class AdvancedFilterSortOptions extends PureComponent<FishScreenProps> {
   
   render() {
     let currentFilterSettings = {
-      currentFilterSettings: this.props.collections.fish
+      currentFilterSettings: this.props.appState.fish
         .fishAdvancedSortFilter,
       updateFunction: this.SetFishFilter,
     }
@@ -60,8 +60,8 @@ class AdvancedFilterSortOptions extends PureComponent<FishScreenProps> {
 }
 
 const mapStateToProps = (state: any) => {
-  const { collections } = state;
-  return { collections };
+  const { appState } = state;
+  return { appState };
 };
 
 export default connect(mapStateToProps, { updateFishFilter })(

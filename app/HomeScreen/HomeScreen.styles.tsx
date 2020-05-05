@@ -33,6 +33,14 @@ const styles = StyleSheet.create({
        justifyContent: "center",
     },
 
+    settingsButtonStyle:{
+        height: 50,
+        width: 50,
+        margin: 20,
+       backgroundColor: 'grey',
+       justifyContent: "center",
+    },
+
     fishButtonTextStyle: {
         color: 'white'
     }

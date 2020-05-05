@@ -1,8 +1,7 @@
 import { combineReducers } from 'redux';
 import fish from '../../data/fish.json';
-import { UPDATE_FISH_CAUGHT, UPDATE_FISH_DONATED, FishActionTypes, FishCaughtPayload, FishDonatedPayload, UpdateFishDonated, UpdateFishCaught, UpdateFishFilter, UPDATE_FISH_FILTER, UPDATE_FISH_COLLECTION, UpdateFishCollection } from './Types'
-import { CollectionStateModel } from '../../models/CollectionStateModel';
-import { ApplicationState } from '../../models/ApplicationState';
+import { UPDATE_FISH_CAUGHT, UPDATE_FISH_DONATED, FishActionTypes, UpdateFishDonated, UpdateFishCaught, UpdateFishFilter, UPDATE_FISH_FILTER, UPDATE_FISH_COLLECTION, UpdateFishCollection, UPDATE_IN_GAME_DATE, UPDATE_HEMISPHERE, UpdateInGameTime, UpdateHemisphere } from './Types'
+import { ApplicationState } from '../../models/ApplicationState/ApplicationState';
 import {AsyncStorage} from 'react-native';
 import { AdvancedSortFilterFishModel } from '../../models/FishScreen/AdvancedSortFilterFishModel';
 import { NewFishModel } from '../../models/CollectionModels/NewFishModel';
@@ -34,9 +33,9 @@ const defaultAdvancedSortFilter: AdvancedSortFilterFishModel = {
 
 const defaultFishCollection: Array<NewFishModel> = fish.fish;
 
-const INITIAL_STATE2: ApplicationState = { fish: { fishCollection: [], fishAdvancedSortFilter: defaultAdvancedSortFilter } };
+const INITIAL_STATE2: ApplicationState = { fish: { fishCollection: [], fishAdvancedSortFilter: defaultAdvancedSortFilter }, userSettings: {isNorthernHemisphere: true, inGameTime: {minutes: 0}} };
 
-const firstTimeUserState: ApplicationState = { fish: { fishCollection: fish.fish, fishAdvancedSortFilter: defaultAdvancedSortFilter } };
+const firstTimeUserState: ApplicationState = { fish: { fishCollection: fish.fish, fishAdvancedSortFilter: defaultAdvancedSortFilter }, userSettings: {isNorthernHemisphere: true, inGameTime: {minutes: 0}} };
 
 
 
@@ -51,16 +50,34 @@ const collectionReducer = (state = INITIAL_STATE2, action: FishActionTypes): App
       return updateAdvancedSortFilterFish(state, action);
     case UPDATE_FISH_COLLECTION:
       return updateFishCollectionFromStorage(state, action);
+    case UPDATE_IN_GAME_DATE:
+      return  updateInGameTime(state, action);
+    case UPDATE_HEMISPHERE:
+      return updateHemisphere(state, action);
     default:
       return state;
   }
 };
 
-function updateAdvancedSortFilterFish(state: ApplicationState, action: UpdateFishFilter) {  
+function updateInGameTime(state: ApplicationState, action: UpdateInGameTime): ApplicationState {
+  let newState = state;
+  newState.userSettings.inGameTime = action.payload;
+  AsyncStorage.setItem('InGameTimeOffSet', JSON.stringify(action.payload));
+  return Object.assign({}, state, newState);
+}
+
+function updateHemisphere(state: ApplicationState, action: UpdateHemisphere): ApplicationState {
+  let newState = state;
+  newState.userSettings.isNorthernHemisphere = action.payload;
+  AsyncStorage.setItem('IsNorthernHemisphere', action.payload.toString());
+  return Object.assign({}, state, newState);
+}
+
+function updateAdvancedSortFilterFish(state: ApplicationState, action: UpdateFishFilter): ApplicationState {  
   return Object.assign({}, state, { ...action.payload });
 }
 
-function updateFishCollectionFromStorage(state: ApplicationState, action: UpdateFishCollection){
+function updateFishCollectionFromStorage(state: ApplicationState, action: UpdateFishCollection): ApplicationState{
   let newState = state;
   newState.fish.fishCollection = action.payload;
   return Object.assign({}, state, newState);
@@ -92,5 +109,5 @@ function updateFishDonatedAction(state: ApplicationState, action: UpdateFishDona
 }
 
 export default combineReducers({
-  collections: collectionReducer,
+  appState: collectionReducer,
 });

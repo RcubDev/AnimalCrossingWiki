@@ -6,6 +6,7 @@ import FishScreen from './FishScreen/FishScreen';
 import FossilScreen from './FossilScreen/FossilScreen';
 import BugScreen from './BugScreen/BugScreen';
 import HomeScreen from './HomeScreen/HomeScreen';
+import SettingsScreen from './SettingsScreen/SettingsScreen';
 import { AppLoading } from 'expo';
 import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
@@ -63,6 +64,7 @@ export default class App extends Component<any, { isReady: boolean}> {
                 <Stack.Screen name="Bugs" component={BugScreen} />
                 <Stack.Screen name="FishDetails" component={FishDetails}/>
                 <Stack.Screen name="FilterAndSortScreen" component={AdvancedFilterSortOptions}/>
+                <Stack.Screen name="Settings" component={SettingsScreen}/>
               </Stack.Navigator>
           </NavigationContainer>
         </Container>

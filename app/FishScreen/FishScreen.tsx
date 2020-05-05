@@ -107,8 +107,8 @@ class FishScreen extends Component<FishScreenProps, FishScreenState> {
     if (!this.state.isReady) {
       return <AppLoading />;
     }
-    let fish = this.props.collections.fish.fishCollection;
-    fish = FilterAdvancedFish(this.props.collections.fish.fishAdvancedSortFilter, fish);
+    let fish = this.props.appState.fish.fishCollection;
+    fish = FilterAdvancedFish(this.props.appState.fish.fishAdvancedSortFilter, fish);
     fish = this.filterFishByText(this.state.filterText, fish);
     
     return (
@@ -159,8 +159,8 @@ class FishScreen extends Component<FishScreenProps, FishScreenState> {
   }
 }
 const mapStateToProps = (state: any) => {
-  const { collections } = state;
-  return { collections };
+  const { appState } = state;
+  return { appState };
 };
 
 export default connect(mapStateToProps, {
