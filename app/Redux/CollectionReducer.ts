@@ -50,9 +50,6 @@ const INITIAL_STATE2: ApplicationState = { fish: { fishCollection: [], fishAdvan
 
 const firstTimeUserState: ApplicationState = { fish: { fishCollection: fish.fish, fishAdvancedSortFilter: defaultAdvancedSortFilter, fishAdvancedSort: defaultSortOptions }, userSettings: { isNorthernHemisphere: true, inGameTime: { minutes: 0 } } };
 
-
-
-
 const collectionReducer = (state = INITIAL_STATE2, action: FishActionTypes): ApplicationState => {
   switch (action.type) {
     case UPDATE_FISH_CAUGHT:
@@ -75,37 +72,38 @@ const collectionReducer = (state = INITIAL_STATE2, action: FishActionTypes): App
 };
 
 function updateInGameTime(state: ApplicationState, action: UpdateInGameTime): ApplicationState {
-  let newState = state;
-  newState.userSettings.inGameTime = action.payload;
   AsyncStorage.setItem('InGameTimeOffSet', JSON.stringify(action.payload));
-  return Object.assign({}, state, newState);
+  return {
+    ...state, userSettings: { ...state.userSettings, inGameTime: action.payload }
+  }
 }
 
 function updateFishSort(state: ApplicationState, action: UpdateFishSort): ApplicationState {
-  let newState = state;
-  newState.fish.fishAdvancedSort = action.payload;
-  return Object.assign({}, state, newState);
+  return {
+    ...state, fish: { ...state.fish, fishAdvancedSort: action.payload }
+  }
 }
 
 function updateHemisphere(state: ApplicationState, action: UpdateHemisphere): ApplicationState {
-  let newState = state;
-  newState.userSettings.isNorthernHemisphere = action.payload;
   AsyncStorage.setItem('IsNorthernHemisphere', action.payload.toString());
-  return Object.assign({}, state, newState);
+  return {
+    ...state, userSettings: { ...state.userSettings, isNorthernHemisphere: action.payload }
+  }
 }
 
 function updateAdvancedSortFilterFish(state: ApplicationState, action: UpdateFishFilter): ApplicationState {
-  return Object.assign({}, state, { ...action.payload });
+  return {
+    ...state, ...action.payload
+  }
 }
 
 function updateFishCollectionFromStorage(state: ApplicationState, action: UpdateFishCollection): ApplicationState {
-  let newState = state;
-  newState.fish.fishCollection = action.payload;
-  return Object.assign({}, state, newState);
+  return {
+    ...state, fish: { ...state.fish, fishCollection: action.payload }
+  }
 }
 
 function updateFishCaughtAction(state: ApplicationState, action: UpdateFishCaught): ApplicationState {
-  console.log('update fish caught reducer');
   const updatedCollection = state.fish.fishCollection.map(fish => fish.id === action.payload.index ? { ...fish, caught: action.payload.caught } : fish);
   AsyncStorage.setItem('fishStore', JSON.stringify(updatedCollection));
   return {

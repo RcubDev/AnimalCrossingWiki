@@ -5,14 +5,7 @@ import {
     Button,
 } from "native-base";
 import { Text } from "react-native";
-import React, { Component, useRef } from "react";
-
-
-export interface ListHeaderProps {
-    enableSortModal: any,
-    enableFilterModal: any,
-    setFilterText: any
-}
+import React from "react";
 
 export const ListHeader = ({ enableSortModal, setFilterText, enableFilterModal }: ListHeaderProps) => <Header>
     <Item style={{ flex: 1 }}>
@@ -34,5 +27,11 @@ export const ListHeader = ({ enableSortModal, setFilterText, enableFilterModal }
         </Button>
     </Item>
 </Header>;
+
+export interface ListHeaderProps {
+    enableSortModal: any,
+    enableFilterModal: any,
+    setFilterText: any
+}
 
 export default ListHeader;

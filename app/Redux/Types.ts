@@ -25,41 +25,41 @@ export const UPDATE_FISH_SORT = "UPDATE_FISH_SORT";
 export const UPDATE_IN_GAME_DATE = "UPDATE_IN_GAME_DATE";
 export const UPDATE_HEMISPHERE = "UPDATE_HEMISPHERE";
 
-interface UpdateFishCaught {
+export interface UpdateFishCaught {
     type: typeof UPDATE_FISH_CAUGHT,
     payload: FishCaughtPayload
 }
 
-interface UpdateFishDonated {
+export interface UpdateFishDonated {
     type: typeof UPDATE_FISH_DONATED,
     payload: FishDonatedPayload
 }
 
-interface UpdateFishFilter {
+export interface UpdateFishFilter {
     type: typeof UPDATE_FISH_FILTER,
     payload: AdvancedSortFilterFishModel
 }
 
-interface UpdateFishCollection {
+export interface UpdateFishCollection {
     type: typeof UPDATE_FISH_COLLECTION,
     payload: Array<NewFishModel>
 }
 
-interface UpdateFishSort {
+export interface UpdateFishSort {
     type: typeof UPDATE_FISH_SORT,
     payload: AdvancedSortFishModel
 }
 
-interface UpdateInGameTime {
+export interface UpdateInGameTime {
     type: typeof UPDATE_IN_GAME_DATE,
     payload: InGameTimeOffSetPayload
 }
 
-interface UpdateHemisphere {
+export interface UpdateHemisphere {
     type: typeof UPDATE_HEMISPHERE,
     payload: boolean
 }
 
-export type {UpdateFishDonated, UpdateFishCaught, UpdateFishFilter, UpdateFishCollection, UpdateInGameTime, UpdateHemisphere, UpdateFishSort};
+// export type {UpdateFishDonated, UpdateFishCaught, UpdateFishFilter, UpdateFishCollection, UpdateInGameTime, UpdateHemisphere, UpdateFishSort};
 
 export type FishActionTypes = UpdateFishCaught | UpdateFishDonated | UpdateFishFilter | UpdateFishCollection | UpdateInGameTime | UpdateHemisphere | UpdateFishSort;

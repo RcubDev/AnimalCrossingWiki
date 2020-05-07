@@ -1,10 +1,9 @@
-import { UPDATE_FISH_CAUGHT, UPDATE_FISH_DONATED, FishActionTypes, FishCaughtPayload, FishDonatedPayload, UpdateFishFilter, UPDATE_FISH_FILTER, UPDATE_FISH_COLLECTION, UPDATE_IN_GAME_DATE, UPDATE_HEMISPHERE, InGameTimeOffSetPayload, UPDATE_FISH_SORT } from './Types'
+import { UPDATE_FISH_CAUGHT, UPDATE_FISH_DONATED, FishActionTypes, FishCaughtPayload, FishDonatedPayload, UPDATE_FISH_FILTER, UPDATE_FISH_COLLECTION, UPDATE_IN_GAME_DATE, UPDATE_HEMISPHERE, InGameTimeOffSetPayload, UPDATE_FISH_SORT } from './Types'
 import { AdvancedSortFilterFishModel } from '../../models/FishScreen/AdvancedSortFilterFishModel'
 import { NewFishModel } from '../../models/CollectionModels/NewFishModel'
 import { AdvancedSortFishModel } from '../../models/FishScreen/AdvancedSortFishModel'
 
 export function updateFishCaught(payload: FishCaughtPayload): FishActionTypes {
-    console.log('update fish caught action');
     return {
         type: UPDATE_FISH_CAUGHT,
         payload: payload
@@ -12,11 +11,10 @@ export function updateFishCaught(payload: FishCaughtPayload): FishActionTypes {
 }
 
 export function updateFishDonated(payload: FishDonatedPayload): FishActionTypes {
-    console.log('update fish donated action');
-    return Object.assign({
+    return {
         type: UPDATE_FISH_DONATED,
         payload: payload
-    });
+    };
 }
 
 export function updateFishFilter(payload: AdvancedSortFilterFishModel): FishActionTypes {
