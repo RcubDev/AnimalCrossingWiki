@@ -56,7 +56,7 @@ class HomeScreen extends Component<HomeScreenProps, {isReady: boolean}>{
                     <Button onPress={() => this.props.navigation.navigate("Fish")} style={styles.fishButtonStyle}>
                         <Text style={styles.fishButtonTextStyle}>{"Fish"}</Text>
                     </Button>
-                    <Button style={styles.bugButtonStyle}>
+                    <Button onPress={() => this.props.navigation.navigate("Bugs")} style={styles.bugButtonStyle}>
                         <Text style={styles.fishButtonTextStyle}>{"Bugs"}</Text>
                     </Button>
                     <Button style={styles.settingsButtonStyle}>

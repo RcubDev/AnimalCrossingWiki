@@ -1,3 +1,2728 @@
-[{
-    "name": "bug"
-}]
+{
+   "bugs": [
+      {
+         "id": 1,
+         "name": "Common Butterfly",
+         "value": 160,
+         "location": 0,
+         "locationName": "Flying",
+         "time": "4 AM - 7 PM",
+         "catchStartTime": [
+            4
+         ],
+         "catchEndTime": [
+            19
+         ],
+         "monthsAvailable": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
+            "sep": true,
+            "oct": true,
+            "nov": true,
+            "dec": true
+         },
+         "rarity": 1,
+         "rarityName": "Common",
+         "weather": "Any",
+         "caught": false,
+         "donated": false,
+         "isBug": true
+      },
+      {
+         "id": 2,
+         "name": "Yellow Butterfly",
+         "value": 160,
+         "location": 0,
+         "locationName": "Flying",
+         "time": "4 AM - 7 PM",
+         "catchStartTime": [
+            4
+         ],
+         "catchEndTime": [
+            19
+         ],
+         "monthsAvailable": {
+            "jan": false,
+            "feb": false,
+            "mar": true,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": false,
+            "aug": false,
+            "sep": true,
+            "oct": true,
+            "nov": false,
+            "dec": false
+         },
+         "rarity": 1,
+         "rarityName": "Common",
+         "weather": "Any",
+         "caught": false,
+         "donated": false,
+         "isBug": true
+      },
+      {
+         "id": 3,
+         "name": "Tiger Butterfly",
+         "value": 240,
+         "location": 0,
+         "locationName": "Flying",
+         "time": "4 AM - 7 PM",
+         "catchStartTime": [
+            4
+         ],
+         "catchEndTime": [
+            19
+         ],
+         "monthsAvailable": {
+            "jan": false,
+            "feb": false,
+            "mar": true,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
+            "sep": true,
+            "oct": false,
+            "nov": false,
+            "dec": false
+         },
+         "rarity": 1,
+         "rarityName": "Common",
+         "weather": "Any",
+         "caught": false,
+         "donated": false,
+         "isBug": true
+      },
+      {
+         "id": 4,
+         "name": "Peacock Butterfly",
+         "value": 2500,
+         "location": 1,
+         "locationName": "Flying by Hybrid Flowers",
+         "time": "4 AM - 7 PM",
+         "catchStartTime": [
+            4
+         ],
+         "catchEndTime": [
+            19
+         ],
+         "monthsAvailable": {
+            "jan": false,
+            "feb": false,
+            "mar": true,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+         },
+         "rarity": 1,
+         "rarityName": "Common",
+         "weather": "Any",
+         "caught": false,
+         "donated": false,
+         "isBug": true
+      },
+      {
+         "id": 5,
+         "name": "Common Bluebottle",
+         "value": 300,
+         "location": 0,
+         "locationName": "Flying",
+         "time": "4 AM - 7 PM",
+         "catchStartTime": [
+            4
+         ],
+         "catchEndTime": [
+            19
+         ],
+         "monthsAvailable": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+         },
+         "rarity": 1,
+         "rarityName": "Common",
+         "weather": "Any",
+         "caught": false,
+         "donated": false,
+         "isBug": true
+      },
+      {
+         "id": 6,
+         "name": "Paper Kite Butterfly",
+         "value": 1000,
+         "location": 0,
+         "locationName": "Flying",
+         "time": "8 AM - 7 PM",
+         "catchStartTime": [
+            8
+         ],
+         "catchEndTime": [
+            19
+         ],
+         "monthsAvailable": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
+            "sep": true,
+            "oct": true,
+            "nov": true,
+            "dec": true
+         },
+         "rarity": 1,
+         "rarityName": "Common",
+         "weather": "Any",
+         "caught": false,
+         "donated": false,
+         "isBug": true
+      },
+      {
+         "id": 7,
+         "name": "Great Purple Emperor",
+         "value": 3000,
+         "location": 0,
+         "locationName": "Flying",
+         "time": "4 AM - 7 PM",
+         "catchStartTime": [
+            4
+         ],
+         "catchEndTime": [
+            19
+         ],
+         "monthsAvailable": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+         },
+         "rarity": 1,
+         "rarityName": "Common",
+         "weather": "Any",
+         "caught": false,
+         "donated": false,
+         "isBug": true
+      },
+      {
+         "id": 8,
+         "name": "Monarch Butterfly",
+         "value": 140,
+         "location": 0,
+         "locationName": "Flying",
+         "time": "4 AM - 5 PM",
+         "catchStartTime": [
+            4
+         ],
+         "catchEndTime": [
+            17
+         ],
+         "monthsAvailable": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": true,
+            "oct": true,
+            "nov": true,
+            "dec": false
+         },
+         "rarity": 1,
+         "rarityName": "Common",
+         "weather": "Any",
+         "caught": false,
+         "donated": false,
+         "isBug": true
+      },
+      {
+         "id": 9,
+         "name": "Emperor Butterfly",
+         "value": 4000,
+         "location": 0,
+         "locationName": "Flying",
+         "time": "5 PM - 8 AM",
+         "catchStartTime": [
+            17
+         ],
+         "catchEndTime": [
+            8
+         ],
+         "monthsAvailable": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": false,
+            "may": false,
+            "jun": true,
+            "jul": true,
+            "aug": true,
+            "sep": true,
+            "oct": false,
+            "nov": false,
+            "dec": true
+         },
+         "rarity": 1,
+         "rarityName": "Common",
+         "weather": "Any",
+         "caught": false,
+         "donated": false,
+         "isBug": true
+      },
+      {
+         "id": 10,
+         "name": "Agrias Butterfly",
+         "value": 3000,
+         "location": 0,
+         "locationName": "Flying",
+         "time": "8 AM - 5 PM",
+         "catchStartTime": [
+            8
+         ],
+         "catchEndTime": [
+            17
+         ],
+         "monthsAvailable": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
+            "sep": true,
+            "oct": false,
+            "nov": false,
+            "dec": false
+         },
+         "rarity": 1,
+         "rarityName": "Common",
+         "weather": "Any",
+         "caught": false,
+         "donated": false,
+         "isBug": true
+      },
+      {
+         "id": 11,
+         "name": "Rajah Brooke'S Birdwing",
+         "value": 2500,
+         "location": 0,
+         "locationName": "Flying",
+         "time": "8 AM - 5 PM",
+         "catchStartTime": [
+            8
+         ],
+         "catchEndTime": [
+            17
+         ],
+         "monthsAvailable": {
+            "jan": true,
+            "feb": true,
+            "mar": false,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
+            "sep": true,
+            "oct": false,
+            "nov": false,
+            "dec": true
+         },
+         "rarity": 1,
+         "rarityName": "Common",
+         "weather": "Any",
+         "caught": false,
+         "donated": false,
+         "isBug": true
+      },
+      {
+         "id": 12,
+         "name": "Queen Alexandra'S Birdwing",
+         "value": 4000,
+         "location": 0,
+         "locationName": "Flying",
+         "time": "8 AM - 4 PM",
+         "catchStartTime": [
+            8
+         ],
+         "catchEndTime": [
+            16
+         ],
+         "monthsAvailable": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
+            "sep": true,
+            "oct": false,
+            "nov": false,
+            "dec": false
+         },
+         "rarity": 1,
+         "rarityName": "Common",
+         "weather": "Any",
+         "caught": false,
+         "donated": false,
+         "isBug": true
+      },
+      {
+         "id": 13,
+         "name": "Moth",
+         "value": 130,
+         "location": 2,
+         "locationName": "Flying by Light",
+         "time": "7 PM - 4 AM",
+         "catchStartTime": [
+            19
+         ],
+         "catchEndTime": [
+            4
+         ],
+         "monthsAvailable": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
+            "sep": true,
+            "oct": true,
+            "nov": true,
+            "dec": true
+         },
+         "rarity": 1,
+         "rarityName": "Common",
+         "weather": "Any",
+         "caught": false,
+         "donated": false,
+         "isBug": true
+      },
+      {
+         "id": 14,
+         "name": "Atlas Moth",
+         "value": 3000,
+         "location": 3,
+         "locationName": "On Trees",
+         "time": "7 PM - 4 AM",
+         "catchStartTime": [
+            19
+         ],
+         "catchEndTime": [
+            4
+         ],
+         "monthsAvailable": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
+            "sep": true,
+            "oct": false,
+            "nov": false,
+            "dec": false
+         },
+         "rarity": 1,
+         "rarityName": "Common",
+         "weather": "Any",
+         "caught": false,
+         "donated": false,
+         "isBug": true
+      },
+      {
+         "id": 15,
+         "name": "Madagascan Sunset Moth",
+         "value": 2500,
+         "location": 0,
+         "locationName": "Flying",
+         "time": "8 AM - 4 PM",
+         "catchStartTime": [
+            8
+         ],
+         "catchEndTime": [
+            16
+         ],
+         "monthsAvailable": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
+            "sep": true,
+            "oct": false,
+            "nov": false,
+            "dec": false
+         },
+         "rarity": 1,
+         "rarityName": "Common",
+         "weather": "Any",
+         "caught": false,
+         "donated": false,
+         "isBug": true
+      },
+      {
+         "id": 16,
+         "name": "Long Locust",
+         "value": 200,
+         "location": 4,
+         "locationName": "On the Ground",
+         "time": "8 AM - 7 PM",
+         "catchStartTime": [
+            8
+         ],
+         "catchEndTime": [
+            19
+         ],
+         "monthsAvailable": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
+            "sep": true,
+            "oct": true,
+            "nov": true,
+            "dec": false
+         },
+         "rarity": 1,
+         "rarityName": "Common",
+         "weather": "Any",
+         "caught": false,
+         "donated": false,
+         "isBug": true
+      },
+      {
+         "id": 17,
+         "name": "Migratory Locust",
+         "value": 600,
+         "location": 4,
+         "locationName": "On the Ground",
+         "time": "8 AM - 7 PM",
+         "catchStartTime": [
+            8
+         ],
+         "catchEndTime": [
+            19
+         ],
+         "monthsAvailable": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": true,
+            "sep": true,
+            "oct": true,
+            "nov": true,
+            "dec": false
+         },
+         "rarity": 1,
+         "rarityName": "Common",
+         "weather": "Any",
+         "caught": false,
+         "donated": false,
+         "isBug": true
+      },
+      {
+         "id": 18,
+         "name": "Rice Grasshopper",
+         "value": 160,
+         "location": 4,
+         "locationName": "On the Ground",
+         "time": "8 AM - 7 PM",
+         "catchStartTime": [
+            8
+         ],
+         "catchEndTime": [
+            19
+         ],
+         "monthsAvailable": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": true,
+            "sep": true,
+            "oct": true,
+            "nov": true,
+            "dec": false
+         },
+         "rarity": 1,
+         "rarityName": "Common",
+         "weather": "Any",
+         "caught": false,
+         "donated": false,
+         "isBug": true
+      },
+      {
+         "id": 19,
+         "name": "Grasshopper",
+         "value": 160,
+         "location": 4,
+         "locationName": "On the Ground",
+         "time": "8 AM - 5 PM",
+         "catchStartTime": [
+            8
+         ],
+         "catchEndTime": [
+            17
+         ],
+         "monthsAvailable": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": true,
+            "aug": true,
+            "sep": true,
+            "oct": false,
+            "nov": false,
+            "dec": false
+         },
+         "rarity": 1,
+         "rarityName": "Common",
+         "weather": "Any",
+         "caught": false,
+         "donated": false,
+         "isBug": true
+      },
+      {
+         "id": 20,
+         "name": "Cricket",
+         "value": 130,
+         "location": 4,
+         "locationName": "On the Ground",
+         "time": "5 PM - 8 AM",
+         "catchStartTime": [
+            17
+         ],
+         "catchEndTime": [
+            8
+         ],
+         "monthsAvailable": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": true,
+            "oct": true,
+            "nov": true,
+            "dec": false
+         },
+         "rarity": 1,
+         "rarityName": "Common",
+         "weather": "Any",
+         "caught": false,
+         "donated": false,
+         "isBug": true
+      },
+      {
+         "id": 21,
+         "name": "Bell Cricket",
+         "value": 430,
+         "location": 4,
+         "locationName": "On the Ground",
+         "time": "5 PM - 8 AM",
+         "catchStartTime": [
+            17
+         ],
+         "catchEndTime": [
+            8
+         ],
+         "monthsAvailable": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": true,
+            "oct": true,
+            "nov": false,
+            "dec": false
+         },
+         "rarity": 1,
+         "rarityName": "Common",
+         "weather": "Any",
+         "caught": false,
+         "donated": false,
+         "isBug": true
+      },
+      {
+         "id": 22,
+         "name": "Mantis",
+         "value": 430,
+         "location": 5,
+         "locationName": "On Flowers",
+         "time": "8 AM - 5 PM",
+         "catchStartTime": [
+            8
+         ],
+         "catchEndTime": [
+            17
+         ],
+         "monthsAvailable": {
+            "jan": false,
+            "feb": false,
+            "mar": true,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
+            "sep": true,
+            "oct": true,
+            "nov": true,
+            "dec": false
+         },
+         "rarity": 1,
+         "rarityName": "Common",
+         "weather": "Any",
+         "caught": false,
+         "donated": false,
+         "isBug": true
+      },
+      {
+         "id": 23,
+         "name": "Orchid Mantis",
+         "value": 2400,
+         "location": 6,
+         "locationName": "On Flowers (White)",
+         "time": "8 AM - 5 PM",
+         "catchStartTime": [
+            8
+         ],
+         "catchEndTime": [
+            17
+         ],
+         "monthsAvailable": {
+            "jan": false,
+            "feb": false,
+            "mar": true,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
+            "sep": true,
+            "oct": true,
+            "nov": true,
+            "dec": false
+         },
+         "rarity": 1,
+         "rarityName": "Common",
+         "weather": "Any",
+         "caught": false,
+         "donated": false,
+         "isBug": true
+      },
+      {
+         "id": 24,
+         "name": "Honeybee",
+         "value": 200,
+         "location": 0,
+         "locationName": "Flying",
+         "time": "8 AM - 5 PM",
+         "catchStartTime": [
+            8
+         ],
+         "catchEndTime": [
+            17
+         ],
+         "monthsAvailable": {
+            "jan": false,
+            "feb": false,
+            "mar": true,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+         },
+         "rarity": 1,
+         "rarityName": "Common",
+         "weather": "Any",
+         "caught": false,
+         "donated": false,
+         "isBug": true
+      },
+      {
+         "id": 25,
+         "name": "Wasp",
+         "value": 2500,
+         "location": 7,
+         "locationName": "Shaking Trees",
+         "time": "All day",
+         "catchStartTime": [
+            0
+         ],
+         "catchEndTime": [
+            0
+         ],
+         "monthsAvailable": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
+            "sep": true,
+            "oct": true,
+            "nov": true,
+            "dec": true
+         },
+         "rarity": 1,
+         "rarityName": "Common",
+         "weather": "Any",
+         "caught": false,
+         "donated": false,
+         "isBug": true
+      },
+      {
+         "id": 26,
+         "name": "Brown Cicada",
+         "value": 250,
+         "location": 3,
+         "locationName": "On Trees",
+         "time": "8 AM - 5 PM",
+         "catchStartTime": [
+            8
+         ],
+         "catchEndTime": [
+            17
+         ],
+         "monthsAvailable": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": true,
+            "aug": true,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+         },
+         "rarity": 1,
+         "rarityName": "Common",
+         "weather": "Any",
+         "caught": false,
+         "donated": false,
+         "isBug": true
+      },
+      {
+         "id": 27,
+         "name": "Robust Cicada",
+         "value": 300,
+         "location": 3,
+         "locationName": "On Trees",
+         "time": "8 AM - 5 PM",
+         "catchStartTime": [
+            8
+         ],
+         "catchEndTime": [
+            17
+         ],
+         "monthsAvailable": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": true,
+            "aug": true,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+         },
+         "rarity": 1,
+         "rarityName": "Common",
+         "weather": "Any",
+         "caught": false,
+         "donated": false,
+         "isBug": true
+      },
+      {
+         "id": 28,
+         "name": "Giant Cicada",
+         "value": 500,
+         "location": 3,
+         "locationName": "On Trees",
+         "time": "8 AM - 5 PM",
+         "catchStartTime": [
+            8
+         ],
+         "catchEndTime": [
+            17
+         ],
+         "monthsAvailable": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": true,
+            "aug": true,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+         },
+         "rarity": 1,
+         "rarityName": "Common",
+         "weather": "Any",
+         "caught": false,
+         "donated": false,
+         "isBug": true
+      },
+      {
+         "id": 29,
+         "name": "Walker Cicada",
+         "value": 400,
+         "location": 3,
+         "locationName": "On Trees",
+         "time": "8 AM - 5 PM",
+         "catchStartTime": [
+            8
+         ],
+         "catchEndTime": [
+            17
+         ],
+         "monthsAvailable": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": true,
+            "sep": true,
+            "oct": false,
+            "nov": false,
+            "dec": false
+         },
+         "rarity": 1,
+         "rarityName": "Common",
+         "weather": "Any",
+         "caught": false,
+         "donated": false,
+         "isBug": true
+      },
+      {
+         "id": 30,
+         "name": "Evening Cicada",
+         "value": 550,
+         "location": 3,
+         "locationName": "On Trees",
+         "time": "4 AM - 8 AM & 4 PM - 7 PM",
+         "catchStartTime": [
+            4,
+            16
+         ],
+         "catchEndTime": [
+            8,
+            19
+         ],
+         "monthsAvailable": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": true,
+            "aug": true,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+         },
+         "rarity": 1,
+         "rarityName": "Common",
+         "weather": "Any",
+         "caught": false,
+         "donated": false,
+         "isBug": true
+      },
+      {
+         "id": 31,
+         "name": "Cicada Shell",
+         "value": 10,
+         "location": 3,
+         "locationName": "On Trees",
+         "time": "All day",
+         "catchStartTime": [
+            0
+         ],
+         "catchEndTime": [
+            0
+         ],
+         "monthsAvailable": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": true,
+            "aug": true,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+         },
+         "rarity": 1,
+         "rarityName": "Common",
+         "weather": "Any",
+         "caught": false,
+         "donated": false,
+         "isBug": true
+      },
+      {
+         "id": 32,
+         "name": "Red Dragonfly",
+         "value": 180,
+         "location": 0,
+         "locationName": "Flying",
+         "time": "8 AM - 7 PM",
+         "catchStartTime": [
+            8
+         ],
+         "catchEndTime": [
+            19
+         ],
+         "monthsAvailable": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": true,
+            "oct": true,
+            "nov": false,
+            "dec": false
+         },
+         "rarity": 1,
+         "rarityName": "Common",
+         "weather": "Any",
+         "caught": false,
+         "donated": false,
+         "isBug": true
+      },
+      {
+         "id": 33,
+         "name": "Darner Dragonfly",
+         "value": 230,
+         "location": 0,
+         "locationName": "Flying",
+         "time": "8 AM - 5 PM",
+         "catchStartTime": [
+            8
+         ],
+         "catchEndTime": [
+            17
+         ],
+         "monthsAvailable": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
+            "sep": true,
+            "oct": true,
+            "nov": false,
+            "dec": false
+         },
+         "rarity": 1,
+         "rarityName": "Common",
+         "weather": "Any",
+         "caught": false,
+         "donated": false,
+         "isBug": true
+      },
+      {
+         "id": 34,
+         "name": "Banded Dragonfly",
+         "value": 4500,
+         "location": 0,
+         "locationName": "Flying",
+         "time": "8 AM - 5 PM",
+         "catchStartTime": [
+            8
+         ],
+         "catchEndTime": [
+            17
+         ],
+         "monthsAvailable": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
+            "sep": true,
+            "oct": true,
+            "nov": false,
+            "dec": false
+         },
+         "rarity": 1,
+         "rarityName": "Common",
+         "weather": "Any",
+         "caught": false,
+         "donated": false,
+         "isBug": true
+      },
+      {
+         "id": 35,
+         "name": "Damselfly",
+         "value": 500,
+         "location": 0,
+         "locationName": "Flying",
+         "time": "All day",
+         "catchStartTime": [
+            0
+         ],
+         "catchEndTime": [
+            0
+         ],
+         "monthsAvailable": {
+            "jan": true,
+            "feb": true,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": true,
+            "dec": true
+         },
+         "rarity": 1,
+         "rarityName": "Common",
+         "weather": "Any",
+         "caught": false,
+         "donated": false,
+         "isBug": true
+      },
+      {
+         "id": 36,
+         "name": "Firefly",
+         "value": 300,
+         "location": 0,
+         "locationName": "Flying",
+         "time": "7 PM - 4 AM",
+         "catchStartTime": [
+            19
+         ],
+         "catchEndTime": [
+            4
+         ],
+         "monthsAvailable": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": true,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+         },
+         "rarity": 1,
+         "rarityName": "Common",
+         "weather": "Any",
+         "caught": false,
+         "donated": false,
+         "isBug": true
+      },
+      {
+         "id": 37,
+         "name": "Mole Cricket",
+         "value": 500,
+         "location": 8,
+         "locationName": "Underground",
+         "time": "All day",
+         "catchStartTime": [
+            0
+         ],
+         "catchEndTime": [
+            0
+         ],
+         "monthsAvailable": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": true,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": true,
+            "dec": true
+         },
+         "rarity": 1,
+         "rarityName": "Common",
+         "weather": "Any",
+         "caught": false,
+         "donated": false,
+         "isBug": true
+      },
+      {
+         "id": 38,
+         "name": "Pondskater",
+         "value": 130,
+         "location": 9,
+         "locationName": "On Ponds and Rivers",
+         "time": "8 AM - 7 PM",
+         "catchStartTime": [
+            8
+         ],
+         "catchEndTime": [
+            19
+         ],
+         "monthsAvailable": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
+            "sep": true,
+            "oct": false,
+            "nov": false,
+            "dec": false
+         },
+         "rarity": 1,
+         "rarityName": "Common",
+         "weather": "Any",
+         "caught": false,
+         "donated": false,
+         "isBug": true
+      },
+      {
+         "id": 39,
+         "name": "Diving Beetle",
+         "value": 800,
+         "location": 9,
+         "locationName": "On Ponds and Rivers",
+         "time": "8 AM - 7 PM",
+         "catchStartTime": [
+            8
+         ],
+         "catchEndTime": [
+            19
+         ],
+         "monthsAvailable": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
+            "sep": true,
+            "oct": false,
+            "nov": false,
+            "dec": false
+         },
+         "rarity": 1,
+         "rarityName": "Common",
+         "weather": "Any",
+         "caught": false,
+         "donated": false,
+         "isBug": true
+      },
+      {
+         "id": 40,
+         "name": "Giant Water Bug",
+         "value": 2000,
+         "location": 9,
+         "locationName": "On Ponds and Rivers",
+         "time": "7 PM - 8 AM",
+         "catchStartTime": [
+            19
+         ],
+         "catchEndTime": [
+            8
+         ],
+         "monthsAvailable": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
+            "sep": true,
+            "oct": false,
+            "nov": false,
+            "dec": false
+         },
+         "rarity": 1,
+         "rarityName": "Common",
+         "weather": "Any",
+         "caught": false,
+         "donated": false,
+         "isBug": true
+      },
+      {
+         "id": 41,
+         "name": "Stinkbug",
+         "value": 120,
+         "location": 5,
+         "locationName": "On Flowers",
+         "time": "All day",
+         "catchStartTime": [
+            0
+         ],
+         "catchEndTime": [
+            0
+         ],
+         "monthsAvailable": {
+            "jan": false,
+            "feb": false,
+            "mar": true,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
+            "sep": true,
+            "oct": true,
+            "nov": false,
+            "dec": false
+         },
+         "rarity": 1,
+         "rarityName": "Common",
+         "weather": "Any",
+         "caught": false,
+         "donated": false,
+         "isBug": true
+      },
+      {
+         "id": 42,
+         "name": "Man-Faced Stink Bug",
+         "value": 1000,
+         "location": 5,
+         "locationName": "On Flowers",
+         "time": "7 PM - 8 AM",
+         "catchStartTime": [
+            19
+         ],
+         "catchEndTime": [
+            8
+         ],
+         "monthsAvailable": {
+            "jan": false,
+            "feb": false,
+            "mar": true,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
+            "sep": true,
+            "oct": true,
+            "nov": false,
+            "dec": false
+         },
+         "rarity": 1,
+         "rarityName": "Common",
+         "weather": "Any",
+         "caught": false,
+         "donated": false,
+         "isBug": true
+      },
+      {
+         "id": 43,
+         "name": "Ladybug",
+         "value": 200,
+         "location": 5,
+         "locationName": "On Flowers",
+         "time": "8 AM - 5 PM",
+         "catchStartTime": [
+            8
+         ],
+         "catchEndTime": [
+            17
+         ],
+         "monthsAvailable": {
+            "jan": false,
+            "feb": false,
+            "mar": true,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": true,
+            "nov": false,
+            "dec": false
+         },
+         "rarity": 1,
+         "rarityName": "Common",
+         "weather": "Any",
+         "caught": false,
+         "donated": false,
+         "isBug": true
+      },
+      {
+         "id": 44,
+         "name": "Tiger Beetle",
+         "value": 1500,
+         "location": 4,
+         "locationName": "On the Ground",
+         "time": "All day",
+         "catchStartTime": [
+            0
+         ],
+         "catchEndTime": [
+            0
+         ],
+         "monthsAvailable": {
+            "jan": false,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
+            "sep": true,
+            "oct": true,
+            "nov": false,
+            "dec": false
+         },
+         "rarity": 1,
+         "rarityName": "Common",
+         "weather": "Any",
+         "caught": false,
+         "donated": false,
+         "isBug": true
+      },
+      {
+         "id": 45,
+         "name": "Jewel Beetle",
+         "value": 2400,
+         "location": 10,
+         "locationName": "On Tree Stumps",
+         "time": "All day",
+         "catchStartTime": [
+            0
+         ],
+         "catchEndTime": [
+            0
+         ],
+         "monthsAvailable": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+         },
+         "rarity": 1,
+         "rarityName": "Common",
+         "weather": "Any",
+         "caught": false,
+         "donated": false,
+         "isBug": true
+      },
+      {
+         "id": 46,
+         "name": "Violin Beetle",
+         "value": 450,
+         "location": 10,
+         "locationName": "On Tree Stumps",
+         "time": "All day",
+         "catchStartTime": [
+            0
+         ],
+         "catchEndTime": [
+            0
+         ],
+         "monthsAvailable": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": true,
+            "jun": true,
+            "jul": false,
+            "aug": false,
+            "sep": true,
+            "oct": true,
+            "nov": true,
+            "dec": false
+         },
+         "rarity": 1,
+         "rarityName": "Common",
+         "weather": "Any",
+         "caught": false,
+         "donated": false,
+         "isBug": true
+      },
+      {
+         "id": 47,
+         "name": "Citrus Long-Horned Beetle",
+         "value": 350,
+         "location": 10,
+         "locationName": "On Tree Stumps",
+         "time": "All day",
+         "catchStartTime": [
+            0
+         ],
+         "catchEndTime": [
+            0
+         ],
+         "monthsAvailable": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
+            "sep": true,
+            "oct": true,
+            "nov": true,
+            "dec": true
+         },
+         "rarity": 1,
+         "rarityName": "Common",
+         "weather": "Any",
+         "caught": false,
+         "donated": false,
+         "isBug": true
+      },
+      {
+         "id": 48,
+         "name": "Rosalia Batesi Beetle",
+         "value": 3000,
+         "location": 10,
+         "locationName": "On Tree Stumps",
+         "time": "All day",
+         "catchStartTime": [
+            0
+         ],
+         "catchEndTime": [
+            0
+         ],
+         "monthsAvailable": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
+            "sep": true,
+            "oct": false,
+            "nov": false,
+            "dec": false
+         },
+         "rarity": 1,
+         "rarityName": "Common",
+         "weather": "Any",
+         "caught": false,
+         "donated": false,
+         "isBug": true
+      },
+      {
+         "id": 49,
+         "name": "Blue Weevil Beetle",
+         "value": 800,
+         "location": 11,
+         "locationName": "On Trees (Coconut?)",
+         "time": "All day",
+         "catchStartTime": [
+            0
+         ],
+         "catchEndTime": [
+            0
+         ],
+         "monthsAvailable": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": true,
+            "aug": true,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+         },
+         "rarity": 1,
+         "rarityName": "Common",
+         "weather": "Any",
+         "caught": false,
+         "donated": false,
+         "isBug": true
+      },
+      {
+         "id": 50,
+         "name": "Dung Beetle",
+         "value": 3000,
+         "location": 12,
+         "locationName": "On the Ground (rolling snowballs)",
+         "time": "All day",
+         "catchStartTime": [
+            0
+         ],
+         "catchEndTime": [
+            0
+         ],
+         "monthsAvailable": {
+            "jan": true,
+            "feb": true,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": true
+         },
+         "rarity": 1,
+         "rarityName": "Common",
+         "weather": "Any",
+         "caught": false,
+         "donated": false,
+         "isBug": true
+      },
+      {
+         "id": 51,
+         "name": "Earth-Boring Dung Beetle",
+         "value": 300,
+         "location": 4,
+         "locationName": "On the Ground",
+         "time": "All day",
+         "catchStartTime": [
+            0
+         ],
+         "catchEndTime": [
+            0
+         ],
+         "monthsAvailable": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": true,
+            "aug": true,
+            "sep": true,
+            "oct": false,
+            "nov": false,
+            "dec": false
+         },
+         "rarity": 1,
+         "rarityName": "Common",
+         "weather": "Any",
+         "caught": false,
+         "donated": false,
+         "isBug": true
+      },
+      {
+         "id": 52,
+         "name": "Scarab Beetle",
+         "value": 10000,
+         "location": 3,
+         "locationName": "On Trees",
+         "time": "11 PM - 8 AM",
+         "catchStartTime": [
+            23
+         ],
+         "catchEndTime": [
+            8
+         ],
+         "monthsAvailable": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": true,
+            "aug": true,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+         },
+         "rarity": 1,
+         "rarityName": "Common",
+         "weather": "Any",
+         "caught": false,
+         "donated": false,
+         "isBug": true
+      },
+      {
+         "id": 53,
+         "name": "Drone Beetle",
+         "value": 200,
+         "location": 3,
+         "locationName": "On Trees",
+         "time": "All day",
+         "catchStartTime": [
+            0
+         ],
+         "catchEndTime": [
+            0
+         ],
+         "monthsAvailable": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": true,
+            "jul": true,
+            "aug": true,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+         },
+         "rarity": 1,
+         "rarityName": "Common",
+         "weather": "Any",
+         "caught": false,
+         "donated": false,
+         "isBug": true
+      },
+      {
+         "id": 54,
+         "name": "Goliath Beetle",
+         "value": 8000,
+         "location": 13,
+         "locationName": "On Trees (Coconut)",
+         "time": "5 PM - 8 AM",
+         "catchStartTime": [
+            17
+         ],
+         "catchEndTime": [
+            8
+         ],
+         "monthsAvailable": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": true,
+            "jul": true,
+            "aug": true,
+            "sep": true,
+            "oct": false,
+            "nov": false,
+            "dec": false
+         },
+         "rarity": 1,
+         "rarityName": "Common",
+         "weather": "Any",
+         "caught": false,
+         "donated": false,
+         "isBug": true
+      },
+      {
+         "id": 55,
+         "name": "Saw Stag",
+         "value": 2000,
+         "location": 3,
+         "locationName": "On Trees",
+         "time": "All day",
+         "catchStartTime": [
+            0
+         ],
+         "catchEndTime": [
+            0
+         ],
+         "monthsAvailable": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": true,
+            "aug": true,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+         },
+         "rarity": 1,
+         "rarityName": "Common",
+         "weather": "Any",
+         "caught": false,
+         "donated": false,
+         "isBug": true
+      },
+      {
+         "id": 56,
+         "name": "Miyama Stag",
+         "value": 1000,
+         "location": 3,
+         "locationName": "On Trees",
+         "time": "All day",
+         "catchStartTime": [
+            0
+         ],
+         "catchEndTime": [
+            0
+         ],
+         "monthsAvailable": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": true,
+            "aug": true,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+         },
+         "rarity": 1,
+         "rarityName": "Common",
+         "weather": "Any",
+         "caught": false,
+         "donated": false,
+         "isBug": true
+      },
+      {
+         "id": 57,
+         "name": "Giant Stag",
+         "value": 10000,
+         "location": 3,
+         "locationName": "On Trees",
+         "time": "11 PM - 8 AM",
+         "catchStartTime": [
+            23
+         ],
+         "catchEndTime": [
+            8
+         ],
+         "monthsAvailable": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": true,
+            "aug": true,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+         },
+         "rarity": 1,
+         "rarityName": "Common",
+         "weather": "Any",
+         "caught": false,
+         "donated": false,
+         "isBug": true
+      },
+      {
+         "id": 58,
+         "name": "Rainbow Stag",
+         "value": 6000,
+         "location": 3,
+         "locationName": "On Trees",
+         "time": "7 PM - 8 AM",
+         "catchStartTime": [
+            19
+         ],
+         "catchEndTime": [
+            8
+         ],
+         "monthsAvailable": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": true,
+            "jul": true,
+            "aug": true,
+            "sep": true,
+            "oct": false,
+            "nov": false,
+            "dec": false
+         },
+         "rarity": 1,
+         "rarityName": "Common",
+         "weather": "Any",
+         "caught": false,
+         "donated": false,
+         "isBug": true
+      },
+      {
+         "id": 59,
+         "name": "Cyclommatus Stag",
+         "value": 8000,
+         "location": 13,
+         "locationName": "On Trees (Coconut)",
+         "time": "5 PM - 8 AM",
+         "catchStartTime": [
+            17
+         ],
+         "catchEndTime": [
+            8
+         ],
+         "monthsAvailable": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": true,
+            "aug": true,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+         },
+         "rarity": 1,
+         "rarityName": "Common",
+         "weather": "Any",
+         "caught": false,
+         "donated": false,
+         "isBug": true
+      },
+      {
+         "id": 60,
+         "name": "Golden Stag",
+         "value": 12000,
+         "location": 13,
+         "locationName": "On Trees (Coconut)",
+         "time": "5 PM - 8 AM",
+         "catchStartTime": [
+            17
+         ],
+         "catchEndTime": [
+            8
+         ],
+         "monthsAvailable": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": true,
+            "aug": true,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+         },
+         "rarity": 1,
+         "rarityName": "Common",
+         "weather": "Any",
+         "caught": false,
+         "donated": false,
+         "isBug": true
+      },
+      {
+         "id": 61,
+         "name": "Giraffe Stag",
+         "value": 12000,
+         "location": 11,
+         "locationName": "On Trees (Coconut?)",
+         "time": "5 PM - 8 AM",
+         "catchStartTime": [
+            17
+         ],
+         "catchEndTime": [
+            8
+         ],
+         "monthsAvailable": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": true,
+            "aug": true,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+         },
+         "rarity": 1,
+         "rarityName": "Common",
+         "weather": "Any",
+         "caught": false,
+         "donated": false,
+         "isBug": true
+      },
+      {
+         "id": 62,
+         "name": "Horned Dynastid",
+         "value": 1350,
+         "location": 3,
+         "locationName": "On Trees",
+         "time": "5 PM - 8 AM",
+         "catchStartTime": [
+            17
+         ],
+         "catchEndTime": [
+            8
+         ],
+         "monthsAvailable": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": true,
+            "aug": true,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+         },
+         "rarity": 1,
+         "rarityName": "Common",
+         "weather": "Any",
+         "caught": false,
+         "donated": false,
+         "isBug": true
+      },
+      {
+         "id": 63,
+         "name": "Horned Atlas",
+         "value": 8000,
+         "location": 13,
+         "locationName": "On Trees (Coconut)",
+         "time": "5 PM - 8 AM",
+         "catchStartTime": [
+            17
+         ],
+         "catchEndTime": [
+            8
+         ],
+         "monthsAvailable": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": true,
+            "aug": true,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+         },
+         "rarity": 1,
+         "rarityName": "Common",
+         "weather": "Any",
+         "caught": false,
+         "donated": false,
+         "isBug": true
+      },
+      {
+         "id": 64,
+         "name": "Horned Elephant",
+         "value": 8000,
+         "location": 13,
+         "locationName": "On Trees (Coconut)",
+         "time": "5 PM - 8 AM",
+         "catchStartTime": [
+            17
+         ],
+         "catchEndTime": [
+            8
+         ],
+         "monthsAvailable": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": true,
+            "aug": true,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+         },
+         "rarity": 1,
+         "rarityName": "Common",
+         "weather": "Any",
+         "caught": false,
+         "donated": false,
+         "isBug": true
+      },
+      {
+         "id": 65,
+         "name": "Horned Hercules",
+         "value": 12000,
+         "location": 13,
+         "locationName": "On Trees (Coconut)",
+         "time": "5 PM - 8 AM",
+         "catchStartTime": [
+            17
+         ],
+         "catchEndTime": [
+            8
+         ],
+         "monthsAvailable": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": true,
+            "aug": true,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+         },
+         "rarity": 1,
+         "rarityName": "Common",
+         "weather": "Any",
+         "caught": false,
+         "donated": false,
+         "isBug": true
+      },
+      {
+         "id": 66,
+         "name": "Walking Stick",
+         "value": 600,
+         "location": 3,
+         "locationName": "On Trees",
+         "time": "4 AM - 8 AM & 5 PM - 7 PM",
+         "catchStartTime": [
+            4,
+            17
+         ],
+         "catchEndTime": [
+            8,
+            19
+         ],
+         "monthsAvailable": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": true,
+            "aug": true,
+            "sep": true,
+            "oct": true,
+            "nov": true,
+            "dec": false
+         },
+         "rarity": 1,
+         "rarityName": "Common",
+         "weather": "Any",
+         "caught": false,
+         "donated": false,
+         "isBug": true
+      },
+      {
+         "id": 67,
+         "name": "Walking Leaf",
+         "value": 600,
+         "location": 14,
+         "locationName": "Under Trees Disguised as Leafs",
+         "time": "All day",
+         "catchStartTime": [
+            0
+         ],
+         "catchEndTime": [
+            0
+         ],
+         "monthsAvailable": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": true,
+            "aug": true,
+            "sep": true,
+            "oct": false,
+            "nov": false,
+            "dec": false
+         },
+         "rarity": 1,
+         "rarityName": "Common",
+         "weather": "Any",
+         "caught": false,
+         "donated": false,
+         "isBug": true
+      },
+      {
+         "id": 68,
+         "name": "Bagworm",
+         "value": 600,
+         "location": 7,
+         "locationName": "Shaking Trees",
+         "time": "All day",
+         "catchStartTime": [
+            0
+         ],
+         "catchEndTime": [
+            0
+         ],
+         "monthsAvailable": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
+            "sep": true,
+            "oct": true,
+            "nov": true,
+            "dec": true
+         },
+         "rarity": 1,
+         "rarityName": "Common",
+         "weather": "Any",
+         "caught": false,
+         "donated": false,
+         "isBug": true
+      },
+      {
+         "id": 69,
+         "name": "Ant",
+         "value": 80,
+         "location": 15,
+         "locationName": "On rotten food",
+         "time": "All day",
+         "catchStartTime": [
+            0
+         ],
+         "catchEndTime": [
+            0
+         ],
+         "monthsAvailable": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
+            "sep": true,
+            "oct": true,
+            "nov": true,
+            "dec": true
+         },
+         "rarity": 1,
+         "rarityName": "Common",
+         "weather": "Any",
+         "caught": false,
+         "donated": false,
+         "isBug": true
+      },
+      {
+         "id": 70,
+         "name": "Hermit Crab",
+         "value": 1000,
+         "location": 16,
+         "locationName": "Beach disguised as Shells",
+         "time": "7 PM - 8 AM",
+         "catchStartTime": [
+            19
+         ],
+         "catchEndTime": [
+            8
+         ],
+         "monthsAvailable": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
+            "sep": true,
+            "oct": true,
+            "nov": true,
+            "dec": true
+         },
+         "rarity": 1,
+         "rarityName": "Common",
+         "weather": "Any",
+         "caught": false,
+         "donated": false,
+         "isBug": true
+      },
+      {
+         "id": 71,
+         "name": "Wharf Roach",
+         "value": 200,
+         "location": 17,
+         "locationName": "On Beach Rocks",
+         "time": "All day",
+         "catchStartTime": [
+            0
+         ],
+         "catchEndTime": [
+            0
+         ],
+         "monthsAvailable": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
+            "sep": true,
+            "oct": true,
+            "nov": true,
+            "dec": true
+         },
+         "rarity": 1,
+         "rarityName": "Common",
+         "weather": "Any",
+         "caught": false,
+         "donated": false,
+         "isBug": true
+      },
+      {
+         "id": 72,
+         "name": "Fly",
+         "value": 60,
+         "location": 18,
+         "locationName": "On Trash Items",
+         "time": "All day",
+         "catchStartTime": [
+            0
+         ],
+         "catchEndTime": [
+            0
+         ],
+         "monthsAvailable": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
+            "sep": true,
+            "oct": true,
+            "nov": true,
+            "dec": true
+         },
+         "rarity": 1,
+         "rarityName": "Common",
+         "weather": "Any",
+         "caught": false,
+         "donated": false,
+         "isBug": true
+      },
+      {
+         "id": 73,
+         "name": "Mosquito",
+         "value": 130,
+         "location": 0,
+         "locationName": "Flying",
+         "time": "5 PM - 4 AM",
+         "catchStartTime": [
+            17
+         ],
+         "catchEndTime": [
+            4
+         ],
+         "monthsAvailable": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": true,
+            "jul": true,
+            "aug": true,
+            "sep": true,
+            "oct": false,
+            "nov": false,
+            "dec": false
+         },
+         "rarity": 1,
+         "rarityName": "Common",
+         "weather": "Any",
+         "caught": false,
+         "donated": false,
+         "isBug": true
+      },
+      {
+         "id": 74,
+         "name": "Flea",
+         "value": 70,
+         "location": 19,
+         "locationName": "Villager's Heads",
+         "time": "All day",
+         "catchStartTime": [
+            0
+         ],
+         "catchEndTime": [
+            0
+         ],
+         "monthsAvailable": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
+            "sep": true,
+            "oct": true,
+            "nov": true,
+            "dec": false
+         },
+         "rarity": 1,
+         "rarityName": "Common",
+         "weather": "Any",
+         "caught": false,
+         "donated": false,
+         "isBug": true
+      },
+      {
+         "id": 75,
+         "name": "Snail",
+         "value": 250,
+         "location": 20,
+         "locationName": "On Rocks and Bushes (Rain)",
+         "time": "All day",
+         "catchStartTime": [
+            0
+         ],
+         "catchEndTime": [
+            0
+         ],
+         "monthsAvailable": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
+            "sep": true,
+            "oct": true,
+            "nov": true,
+            "dec": true
+         },
+         "rarity": 1,
+         "rarityName": "Common",
+         "weather": "Any",
+         "caught": false,
+         "donated": false,
+         "isBug": true
+      },
+      {
+         "id": 76,
+         "name": "Pill Bug",
+         "value": 250,
+         "location": 21,
+         "locationName": "Hitting Rocks",
+         "time": "11 PM - 4 PM",
+         "catchStartTime": [
+            23
+         ],
+         "catchEndTime": [
+            16
+         ],
+         "monthsAvailable": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": false,
+            "aug": false,
+            "sep": true,
+            "oct": true,
+            "nov": true,
+            "dec": true
+         },
+         "rarity": 1,
+         "rarityName": "Common",
+         "weather": "Any",
+         "caught": false,
+         "donated": false,
+         "isBug": true
+      },
+      {
+         "id": 77,
+         "name": "Centipede",
+         "value": 300,
+         "location": 21,
+         "locationName": "Hitting Rocks",
+         "time": "4 PM - 11 PM",
+         "catchStartTime": [
+            16
+         ],
+         "catchEndTime": [
+            23
+         ],
+         "monthsAvailable": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": false,
+            "aug": false,
+            "sep": true,
+            "oct": true,
+            "nov": true,
+            "dec": true
+         },
+         "rarity": 1,
+         "rarityName": "Common",
+         "weather": "Any",
+         "caught": false,
+         "donated": false,
+         "isBug": true
+      },
+      {
+         "id": 78,
+         "name": "Spider",
+         "value": 600,
+         "location": 7,
+         "locationName": "Shaking Trees",
+         "time": "7 PM - 8 AM",
+         "catchStartTime": [
+            19
+         ],
+         "catchEndTime": [
+            8
+         ],
+         "monthsAvailable": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
+            "sep": true,
+            "oct": true,
+            "nov": true,
+            "dec": true
+         },
+         "rarity": 1,
+         "rarityName": "Common",
+         "weather": "Any",
+         "caught": false,
+         "donated": false,
+         "isBug": true
+      },
+      {
+         "id": 79,
+         "name": "Tarantula",
+         "value": 8000,
+         "location": 4,
+         "locationName": "On the Ground",
+         "time": "7 PM - 4 AM",
+         "catchStartTime": [
+            19
+         ],
+         "catchEndTime": [
+            4
+         ],
+         "monthsAvailable": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": true,
+            "dec": true
+         },
+         "rarity": 1,
+         "rarityName": "Common",
+         "weather": "Any",
+         "caught": false,
+         "donated": false,
+         "isBug": true
+      },
+      {
+         "id": 80,
+         "name": "Scorpion",
+         "value": 8000,
+         "location": 4,
+         "locationName": "On the Ground",
+         "time": "7 PM - 4 AM",
+         "catchStartTime": [
+            19
+         ],
+         "catchEndTime": [
+            4
+         ],
+         "monthsAvailable": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
+            "sep": true,
+            "oct": true,
+            "nov": false,
+            "dec": false
+         },
+         "rarity": 1,
+         "rarityName": "Common",
+         "weather": "Any",
+         "caught": false,
+         "donated": false,
+         "isBug": true
+      }
+   ]
+}
