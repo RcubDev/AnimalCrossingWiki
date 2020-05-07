@@ -11,7 +11,7 @@ import {
   Button,
 } from "native-base";
 import { FlatList, TouchableWithoutFeedback } from "react-native-gesture-handler";
-import { FishGridItem } from "./FishGridItem";
+import { FishGridItem } from "./FishGridItem/FishGridItem";
 import { AppLoading } from "expo";
 import styles from "./FishScreen.styles";
 import { FishScreenProps } from "../../models/FishScreen/FishScreenProps";
@@ -26,10 +26,12 @@ import {
 import { NewFishModel } from "../../models/CollectionModels/NewFishModel";
 import { filterCollectionByTextSpecial } from "../Filter/Filter";
 import { isListOfFish } from "../Filter/FilterTypes";
-import AdvancedFilterSortOptions from "../AdvancedFilter/AdvancedFilterSortOptions";
-import { FilterAdvancedFish } from "../AdvancedFilter/FilterAdvanced";
-import AdvancedSortOptions from "../AdvancedSort/AdvancedSortOptions";
-import { SortAdvancedFish } from "../AdvancedSort/SortAdvanced";
+import AdvancedFilterSortOptions from "./FishFilter/FishFilterOptions";
+import { FilterCritters } from "../AdvancedFilterLogic/CritterFilterAdvanced";
+import AdvancedSortOptions from "./FishSort/FishSortOptions";
+import { SortCritters } from "../AdvancedSortLogic/SortAdvanced";
+import { FilterFish } from "../AdvancedFilterLogic/FishFilterAdvanced";
+import { SortFish } from "../AdvancedSortLogic/FishSortAdvanced";
 
 const defaultFishCollection: Array<NewFishModel> = fish.fish;
 
@@ -99,9 +101,9 @@ class FishScreen extends Component<FishScreenProps, FishScreenState> {
       return <AppLoading />;
     }
     let fish = this.props.appState.fish.fishCollection;
-    fish = FilterAdvancedFish(this.props.appState.fish.fishAdvancedSortFilter, fish);
+    fish = FilterFish(this.props.appState.fish.fishAdvancedSortFilter, fish);
     fish = this.filterFishByText(this.state.filterText, fish);
-    fish = SortAdvancedFish(fish, this.props.appState.fish.fishAdvancedSort);
+    fish = SortFish(fish, this.props.appState.fish.fishAdvancedSort);
     return (
       <Container>
         <Header>

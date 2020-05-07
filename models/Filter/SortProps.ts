@@ -1,4 +1,4 @@
-import { AdvancedSortFishModel } from "../FishScreen/AdvancedSortFishModel";
+import { AdvancedSortFishModel } from "../Sort/AdvancedSortFishModel";
 
 export interface FilterProps {
     updateFunction: (filter: AdvancedSortFishModel) => void,

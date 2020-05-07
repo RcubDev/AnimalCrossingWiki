@@ -17,7 +17,8 @@ import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 import friendReducer from './Redux/CollectionReducer'
 import collectionReducer from './Redux/CollectionReducer'
-import AdvancedFilterSortOptions from './AdvancedFilter/AdvancedFilterSortOptions';
+import AdvancedFilterSortOptions from './FishScreen/FishFilter/FishFilterOptions';
+import BugDetailScreen from './BugScreen/BugDetail/BugDetailScreen';
 
 const store2 = createStore(collectionReducer);
 
@@ -62,6 +63,7 @@ export default class App extends Component<any, { isReady: boolean}> {
                 <Stack.Screen name="Fish" component={FishScreen} />
                 <Stack.Screen name="Fossils" component={FossilScreen} />
                 <Stack.Screen name="Bugs" component={BugScreen} />
+                <Stack.Screen name="BugDetails" component={BugDetailScreen}/>
                 <Stack.Screen name="FishDetails" component={FishDetails}/>
                 <Stack.Screen name="FilterAndSortScreen" component={AdvancedFilterSortOptions}/>
                 <Stack.Screen name="Settings" component={SettingsScreen}/>

@@ -17,7 +17,7 @@ export function isListOfFish(type: Array<CollectionFilterTypes>): type is Array<
     }
 }
 
-export function isListOfBug(type: Array<CollectionFilterTypes>): type is Array<NewFishModel>{
+export function isListOfBug(type: Array<CollectionFilterTypes>): type is Array<BugModel>{
     if(type.length > 0){
         return (type as Array<BugModel>)[0].isBug !== undefined;
     }

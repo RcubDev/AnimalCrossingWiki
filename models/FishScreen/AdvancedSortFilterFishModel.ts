@@ -1,15 +1,7 @@
 import { MonthsAvaliable } from "../fishModel";
+import { AdvancedFilterCritterModel } from "../Filter/AdvancedFilterCritterModel";
 
-export interface AdvancedSortFilterFishModel extends MonthsAvaliable {
-    caught: boolean;
-    donated: boolean;
-    notCaught: boolean;
-    notDonated: boolean;
-    availableNow: boolean;
-    availableThisMonth: boolean;
-    shadowSize: number;
-    location: number;
-    rarity: number;
-    value: number;
-    catchableNow: boolean;
-  }
+export interface AdvancedSortFilterFishModel extends AdvancedFilterCritterModel {
+  shadowSize: number;
+}
+

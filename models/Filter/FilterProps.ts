@@ -1,6 +1,9 @@
 import { AdvancedSortFilterFishModel } from "../FishScreen/AdvancedSortFilterFishModel";
+import { AdvancedFilterBugModel } from "./AdvancedFilterBugModel";
+import { AdvancedFilterCritterModel } from "./AdvancedFilterCritterModel";
 
 export interface FilterProps {
-    updateFunction: (filter: AdvancedSortFilterFishModel) => void,
-    currentFilterSettings: AdvancedSortFilterFishModel
+    //TODO fix this being type any
+    updateFunction: (filter: any) => void,
+    currentFilterSettings: AdvancedSortFilterFishModel | AdvancedFilterBugModel
 }

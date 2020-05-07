@@ -1,6 +1,6 @@
 import { NewFishModel } from "./CollectionModels/NewFishModel";
 import { AdvancedSortFilterFishModel } from "./FishScreen/AdvancedSortFilterFishModel";
-import { AdvancedSortFishModel } from "./FishScreen/AdvancedSortFishModel";
+import { AdvancedSortFishModel } from "./Sort/AdvancedSortFishModel";
 
 export interface FishApplicationState {
     fishCollection: Array<NewFishModel>,
