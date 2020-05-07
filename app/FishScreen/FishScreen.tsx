@@ -4,11 +4,11 @@ import fish from "../../data/fish.json";
 // import { Grid } from 'native-base';
 import { Col, Row, Grid } from "react-native-easy-grid";
 import {
-  Container,
-  Header,
-  Item,
-  Input,
-  Button,
+    Container,
+    Header,
+    Item,
+    Input,
+    Button,
 } from "native-base";
 import { FlatList, TouchableWithoutFeedback } from "react-native-gesture-handler";
 import { FishGridItem } from "./FishGridItem";
@@ -18,10 +18,10 @@ import { FishScreenProps } from "../../models/FishScreen/FishScreenProps";
 import { FishScreenState } from "../../models/FishScreen/FishScreenState";
 import { connect } from "react-redux";
 import {
-  updateFishCaught,
-  updateFishDonated,
-  updateFishFilter,
-  updateFishCollectionFromStorage
+    updateFishCaught,
+    updateFishDonated,
+    updateFishFilter,
+    updateFishCollectionFromStorage
 } from "../Redux/CollectionActions";
 import { NewFishModel } from "../../models/CollectionModels/NewFishModel";
 import { filterCollectionByTextSpecial } from "../Filter/Filter";
@@ -30,122 +30,97 @@ import AdvancedFilterSortOptions from "../AdvancedFilter/AdvancedFilterSortOptio
 import { FilterAdvancedFish } from "../AdvancedFilter/FilterAdvanced";
 import AdvancedSortOptions from "../AdvancedSort/AdvancedSortOptions";
 import { SortAdvancedFish } from "../AdvancedSort/SortAdvanced";
+import { ListHeader } from "../Shared/ListHeader";
 
 const defaultFishCollection: Array<NewFishModel> = fish.fish;
 
-
 class FishScreen extends Component<FishScreenProps, FishScreenState> {
-  focusListener: any;
-  constructor(props: FishScreenProps) {
-    super(props);
-    this.state = {
-      isReady: false,
-      filterText: "",
-      showFilterModal: false,
-      showSortModal: false
-    };
-  }
-
-  async componentDidMount() {
-    const storedFish = await AsyncStorage.getItem('fishStore');
-    if (storedFish) {
-      this.props.updateFishCollectionFromStorage(JSON.parse(storedFish));
+    focusListener: any;
+    constructor(props: FishScreenProps) {
+        super(props);
+        this.state = {
+            isReady: false,
+            filterText: "",
+            showFilterModal: false,
+            showSortModal: false
+        };
     }
-    else {
-      this.props.updateFishCollectionFromStorage(defaultFishCollection);
-      await AsyncStorage.setItem('fishStore', JSON.stringify(defaultFishCollection));
-    }
-    this.setState({ isReady: true });
-  }
 
-  SetItemCaught = (caught: boolean, index: number) => {
-    this.props.updateFishCaught({ caught, index });
-  };
-
-  SetItemDonated = (donated: boolean, index: number) => {
-    this.props.updateFishDonated({ donated, index });
-  };
-
-  filterFishByText(text: string, fishes: Array<NewFishModel>): Array<NewFishModel> {
-    var allFish = fishes;
-    //read text until key word -- if no key words involved assume name
-    let fishArray: Array<NewFishModel> = [];
-    let filterSpecial = text.includes("filter:");
-    text = text.toLowerCase();
-    if (filterSpecial) {
-      try {
-        //Check matching parens before doing this. If they're not matching return no fish.
-        let value = filterCollectionByTextSpecial(
-          text.substr(7),
-          fishes,
-          this.props.appState.userSettings.inGameTime.minutes
-        );
-        if (isListOfFish(value)) {
-          fishArray = value;
+    async componentDidMount() {
+        const storedFish = await AsyncStorage.getItem('fishStore');
+        if (storedFish) {
+            this.props.updateFishCollectionFromStorage(JSON.parse(storedFish));
         }
-      } catch (err) {
-        fishArray = [];
-      }
-    } else {
-      fishArray = allFish.filter((x) => x.name.toLowerCase().startsWith(text));
+        else {
+            this.props.updateFishCollectionFromStorage(defaultFishCollection);
+            await AsyncStorage.setItem('fishStore', JSON.stringify(defaultFishCollection));
+        }
+        this.setState({ isReady: true });
     }
-    return fishArray;
-  }
 
-  //End Region
-
-  render() {
-    if (!this.state.isReady) {
-      return <AppLoading />;
+    filterFishByText(text: string, fishes: Array<NewFishModel>): Array<NewFishModel> {
+        var allFish = fishes;
+        //read text until key word -- if no key words involved assume name
+        let fishArray: Array<NewFishModel> = [];
+        let filterSpecial = text.includes("filter:");
+        text = text.toLowerCase();
+        if (filterSpecial) {
+            try {
+                //Check matching parens before doing this. If they're not matching return no fish.
+                let value = filterCollectionByTextSpecial(
+                    text.substr(7),
+                    fishes,
+                    this.props.userSettings.inGameTime.minutes
+                );
+                if (isListOfFish(value)) {
+                    fishArray = value;
+                }
+            } catch (err) {
+                fishArray = [];
+            }
+        } else {
+            fishArray = allFish.filter((x) => x.name.toLowerCase().startsWith(text));
+        }
+        return fishArray;
     }
-    let fish = this.props.appState.fish.fishCollection;
-    fish = FilterAdvancedFish(this.props.appState.fish.fishAdvancedSortFilter, fish);
-    fish = this.filterFishByText(this.state.filterText, fish);
-    fish = SortAdvancedFish(fish, this.props.appState.fish.fishAdvancedSort);
-    return (
-      <Container>
-        <Header>
-          <Item style={{ flex: 1 }}>
-            <Button
-              transparent
-              onPress={() => {
-                this.setState({ showSortModal: true });
-              }}
-            >
-              <Text> Sort </Text>
-            </Button>
-            <Input
-              autoCorrect={false}
-              placeholder="Filter"
-              onChangeText={(text: string) => {
-                this.setState({ filterText: text.toLowerCase() });
-              }}
-              returnKeyType={"done"}
-            ></Input>
-            <Button
-              transparent
-              onPress={() => {
-                this.setState({ showFilterModal: true });
-              }}
-            >
-              <Text> Filters </Text>
-            </Button>
-          </Item>
-        </Header>
-        <FlatList
-          data={fish}
-          renderItem={({ item, index, }: { item: NewFishModel; index: number; }) => (
-            <FishGridItem {...{ model: { ...item }, nav: this.props.navigation, updateFishCaught: this.props.updateFishCaught, updateFishDonated: this.props.updateFishDonated, }} />
-          )}
-          numColumns={3}
-          keyExtractor={(item, index) => index.toString()}
-          contentContainerStyle={styles.flatListContainerContent}
-          columnWrapperStyle={{
-            justifyContent: "space-evenly",
-            flexDirection: "row",
-          }}
-        ></FlatList>
-        <Modal visible={this.state.showFilterModal} transparent={true} animationType="slide">
+
+    enableSortModal = () => this.setState({ showSortModal: true });
+
+    enableFilterModal = () => this.setState({ showFilterModal: true });
+
+    setFilterText = (text: string) => this.setState({ filterText: text.toLowerCase() });
+
+    render() {
+        if (!this.state.isReady) {
+            return <AppLoading />;
+        }
+
+        let fish = this.props.fish.fishCollection;
+        fish = FilterAdvancedFish(this.props.fish.fishAdvancedSortFilter, fish);
+        fish = this.filterFishByText(this.state.filterText, fish);
+        fish = SortAdvancedFish(fish, this.props.fish.fishAdvancedSort);
+
+        return (
+            <Container>
+                <ListHeader
+                    enableFilterModal={this.enableFilterModal}
+                    enableSortModal={this.enableSortModal}
+                    setFilterText={this.setFilterText}
+                />
+                <FlatList
+                    data={fish}
+                    renderItem={({ item, index, }: { item: NewFishModel; index: number; }) => (
+                        <FishGridItem {...{ model: { ...item }, nav: this.props.navigation, updateFishCaught: this.props.updateFishCaught, updateFishDonated: this.props.updateFishDonated, }} />
+                    )}
+                    numColumns={3}
+                    keyExtractor={(item, index) => index.toString()}
+                    contentContainerStyle={styles.flatListContainerContent}
+                    columnWrapperStyle={{
+                        justifyContent: "space-evenly",
+                        flexDirection: "row",
+                    }}
+                ></FlatList>
+                {/* <Modal visible={this.state.showFilterModal} transparent={true} animationType="slide">
           <View style={{ height: "50%" }}>
             <TouchableWithoutFeedback onPress={() => { this.setState({ showFilterModal: false }) }} style={{ width: '100%', height: '100%' }}></TouchableWithoutFeedback>
           </View>
@@ -156,18 +131,19 @@ class FishScreen extends Component<FishScreenProps, FishScreenState> {
             <TouchableWithoutFeedback onPress={() => { this.setState({ showSortModal: false }) }} style={{ width: '100%', height: '100%' }}></TouchableWithoutFeedback>
           </View>
           <AdvancedSortOptions></AdvancedSortOptions>
-        </Modal>
-      </Container>
-    );
-  }
+        </Modal> */}
+            </Container>
+        );
+    }
 }
 const mapStateToProps = (state: any) => {
-  const { appState } = state;
-  return { appState };
+    const { appState } = state;
+    const { fish, userSettings } = appState;
+    return { fish, userSettings };
 };
 
 export default connect(mapStateToProps, {
-  updateFishCaught,
-  updateFishDonated,
-  updateFishCollectionFromStorage
+    updateFishCaught,
+    updateFishDonated,
+    updateFishCollectionFromStorage
 })(FishScreen);

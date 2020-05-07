@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 import fish from '../../data/fish.json';
 import { UPDATE_FISH_CAUGHT, UPDATE_FISH_DONATED, FishActionTypes, UpdateFishDonated, UpdateFishCaught, UpdateFishFilter, UPDATE_FISH_FILTER, UPDATE_FISH_COLLECTION, UpdateFishCollection, UPDATE_IN_GAME_DATE, UPDATE_HEMISPHERE, UpdateInGameTime, UpdateHemisphere, UPDATE_FISH_SORT, UpdateFishSort } from './Types'
 import { ApplicationState } from '../../models/ApplicationState/ApplicationState';
-import {AsyncStorage} from 'react-native';
+import { AsyncStorage } from 'react-native';
 import { AdvancedSortFilterFishModel } from '../../models/FishScreen/AdvancedSortFilterFishModel';
 import { NewFishModel } from '../../models/CollectionModels/NewFishModel';
 import { AdvancedSortFishModel } from '../../models/FishScreen/AdvancedSortFishModel';
@@ -46,9 +46,9 @@ const defaultSortOptions: AdvancedSortFishModel = {
 
 const defaultFishCollection: Array<NewFishModel> = fish.fish;
 
-const INITIAL_STATE2: ApplicationState = { fish: { fishCollection: [], fishAdvancedSortFilter: defaultAdvancedSortFilter, fishAdvancedSort: defaultSortOptions }, userSettings: {isNorthernHemisphere: true, inGameTime: {minutes: 0}} };
+const INITIAL_STATE2: ApplicationState = { fish: { fishCollection: [], fishAdvancedSortFilter: defaultAdvancedSortFilter, fishAdvancedSort: defaultSortOptions }, userSettings: { isNorthernHemisphere: true, inGameTime: { minutes: 0 } } };
 
-const firstTimeUserState: ApplicationState = { fish: { fishCollection: fish.fish, fishAdvancedSortFilter: defaultAdvancedSortFilter, fishAdvancedSort: defaultSortOptions }, userSettings: {isNorthernHemisphere: true, inGameTime: {minutes: 0}} };
+const firstTimeUserState: ApplicationState = { fish: { fishCollection: fish.fish, fishAdvancedSortFilter: defaultAdvancedSortFilter, fishAdvancedSort: defaultSortOptions }, userSettings: { isNorthernHemisphere: true, inGameTime: { minutes: 0 } } };
 
 
 
@@ -64,7 +64,7 @@ const collectionReducer = (state = INITIAL_STATE2, action: FishActionTypes): App
     case UPDATE_FISH_COLLECTION:
       return updateFishCollectionFromStorage(state, action);
     case UPDATE_IN_GAME_DATE:
-      return  updateInGameTime(state, action);
+      return updateInGameTime(state, action);
     case UPDATE_HEMISPHERE:
       return updateHemisphere(state, action);
     case UPDATE_FISH_SORT:
@@ -94,39 +94,31 @@ function updateHemisphere(state: ApplicationState, action: UpdateHemisphere): Ap
   return Object.assign({}, state, newState);
 }
 
-function updateAdvancedSortFilterFish(state: ApplicationState, action: UpdateFishFilter): ApplicationState {  
+function updateAdvancedSortFilterFish(state: ApplicationState, action: UpdateFishFilter): ApplicationState {
   return Object.assign({}, state, { ...action.payload });
 }
 
-function updateFishCollectionFromStorage(state: ApplicationState, action: UpdateFishCollection): ApplicationState{
+function updateFishCollectionFromStorage(state: ApplicationState, action: UpdateFishCollection): ApplicationState {
   let newState = state;
   newState.fish.fishCollection = action.payload;
   return Object.assign({}, state, newState);
 }
 
 function updateFishCaughtAction(state: ApplicationState, action: UpdateFishCaught): ApplicationState {
-  const appState = state;
-  let updatedFish = appState.fish.fishCollection.find(item => item.id === action.payload.index);
-  if (updatedFish) {
-    updatedFish.caught = action.payload.caught;
-  }
-  let updatedCollection = Object.assign({}, state, appState)
-  AsyncStorage.setItem('fishStore', JSON.stringify(updatedCollection.fish.fishCollection));
-  return updatedCollection;
+  console.log('update fish caught reducer');
+  const updatedCollection = state.fish.fishCollection.map(fish => fish.id === action.payload.index ? { ...fish, caught: action.payload.caught } : fish);
+  AsyncStorage.setItem('fishStore', JSON.stringify(updatedCollection));
+  return {
+    ...state, fish: { ...state.fish, fishCollection: updatedCollection }
+  };
 }
 
 function updateFishDonatedAction(state: ApplicationState, action: UpdateFishDonated): ApplicationState {
-  const appState = state;
-  let updatedFish = appState.fish.fishCollection.find(item => item.id === action.payload.index);
-  if (updatedFish) {
-    if (action.payload.donated) {
-      updatedFish.caught = true;
-    }
-    updatedFish.donated = action.payload.donated;
-  }
-  let updatedCollection = Object.assign({}, state, appState)
-  AsyncStorage.setItem('fishStore', JSON.stringify(updatedCollection.fish.fishCollection));
-  return updatedCollection;
+  const updatedCollection = state.fish.fishCollection.map(fish => fish.id === action.payload.index ? { ...fish, caught: action.payload.donated ? true : fish.caught, donated: action.payload.donated } : fish);
+  AsyncStorage.setItem('fishStore', JSON.stringify(updatedCollection));
+  return {
+    ...state, fish: { ...state.fish, fishCollection: updatedCollection }
+  };
 }
 
 export default combineReducers({
