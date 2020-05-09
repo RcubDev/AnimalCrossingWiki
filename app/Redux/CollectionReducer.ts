@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
 import fish from '../../data/fish.json';
-import { UPDATE_FISH_CAUGHT, UPDATE_FISH_DONATED, FishActionTypes, UpdateFishDonated, UpdateFishCaught, UpdateFishFilter, UPDATE_FISH_FILTER, UPDATE_FISH_COLLECTION, UpdateFishCollection, UPDATE_IN_GAME_DATE, UPDATE_HEMISPHERE, UpdateInGameTime, UpdateHemisphere, UPDATE_FISH_SORT, UpdateFishSort, UPDATE_BUG_COLLECTION, UpdateBugCollection, UpdateBugCaught, UpdateBugDonated, UpdateBugSort, UpdateBugFilter, UPDATE_BUG_CAUGHT, UPDATE_BUG_DONATED, UPDATE_BUG_FILTER, UPDATE_BUG_SORT } from './Types'
+import { UPDATE_FISH_CAUGHT, UPDATE_FISH_DONATED, FishActionTypes, UpdateFishDonated, UpdateFishCaught, UpdateFishFilter, UPDATE_FISH_FILTER, UPDATE_FISH_COLLECTION, UpdateFishCollection, UPDATE_IN_GAME_DATE, UPDATE_HEMISPHERE, UpdateInGameTime, UpdateHemisphere, UPDATE_FISH_SORT, UpdateFishSort, UPDATE_BUG_COLLECTION, UpdateBugCollection, UpdateBugCaught, UpdateBugDonated, UpdateBugSort, UpdateBugFilter, UPDATE_BUG_CAUGHT, UPDATE_BUG_DONATED, UPDATE_BUG_FILTER, UPDATE_BUG_SORT, UPDATE_FOSSIL_COLLECTION, UpdateFossilCollection, UPDATE_FOSSIL_DONATED, UpdateFossilDonated } from './Types'
 import { ApplicationState } from '../../models/ApplicationState/ApplicationState';
 import { AsyncStorage } from 'react-native';
-import { AdvancedSortFilterFishModel } from '../../models/FishScreen/AdvancedSortFilterFishModel';
+import { AdvancedSortFilterFishModel } from '../../models/MainScreenModels/FishScreen/AdvancedSortFilterFishModel';
 import { NewFishModel } from '../../models/CollectionModels/NewFishModel';
 import { AdvancedSortFishModel } from '../../models/Sort/AdvancedSortFishModel';
 
@@ -55,6 +55,9 @@ const INITIAL_STATE2: ApplicationState = {
     bugAdvancedFilter: defaultAdvancedSortFilter,
     bugAdvancedSort: defaultSortOptions
   },
+  fossil: {
+    fossilCollection: []
+  },
   userSettings: {
     isNorthernHemisphere: true,
     inGameTime: { minutes: 0 }
@@ -91,6 +94,10 @@ const collectionReducer = (state = INITIAL_STATE2, action: FishActionTypes): App
       return updateBugSort(state, action);
     case UPDATE_BUG_COLLECTION:
       return updateBugCollectionFromStorage(state, action);
+    case UPDATE_FOSSIL_COLLECTION:
+      return updateFossilCollectionFromStorage(state, action);
+    case UPDATE_FOSSIL_DONATED:
+      return updateFossilDonated(state, action);
     default:
       return state;
   }
@@ -145,6 +152,12 @@ function updateBugCollectionFromStorage(state: ApplicationState, action: UpdateB
   return Object.assign({}, state, newState);
 }
 
+function updateFossilCollectionFromStorage(state: ApplicationState, action: UpdateFossilCollection): ApplicationState {
+  let newState = state;
+  newState.fossil.fossilCollection = action.payload;
+  return Object.assign({}, state, newState);
+}
+
 function updateFishCaughtAction(state: ApplicationState, action: UpdateFishCaught): ApplicationState {
   const appState = state;
   let updatedFish = appState.fish.fishCollection.find(item => item.id === action.payload.index);
@@ -192,6 +205,17 @@ function updateBugDonatedAction(state: ApplicationState, action: UpdateBugDonate
   }
   let updatedCollection = Object.assign({}, state, appState)
   AsyncStorage.setItem('bugStore', JSON.stringify(updatedCollection.bug.bugCollection));
+  return updatedCollection;
+}
+
+function updateFossilDonated(state: ApplicationState, action: UpdateFossilDonated): ApplicationState {
+  const appState = state;
+  let updatedFossil = appState.fossil.fossilCollection.find(item => item.id === action.payload.index);
+  if (updatedFossil) {
+    updatedFossil.donated = action.payload.donated;
+  }
+  let updatedCollection = Object.assign({}, state, appState)
+  AsyncStorage.setItem('fossilStore', JSON.stringify(updatedCollection.fossil.fossilCollection));
   return updatedCollection;
 }
 

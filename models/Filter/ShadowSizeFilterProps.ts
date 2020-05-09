@@ -1,4 +1,4 @@
-import { AdvancedSortFilterFishModel } from "../FishScreen/AdvancedSortFilterFishModel";
+import { AdvancedSortFilterFishModel } from "../MainScreenModels/FishScreen/AdvancedSortFilterFishModel";
 
 export interface ShadowSizeFilterProps{
     updateFunction: (filter: any) => void,

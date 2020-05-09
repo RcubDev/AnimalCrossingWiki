@@ -1,6 +1,6 @@
-import { AdvancedSortFilterFishModel } from "../../models/FishScreen/AdvancedSortFilterFishModel";
+import { AdvancedSortFilterFishModel } from "../../models/MainScreenModels/FishScreen/AdvancedSortFilterFishModel";
 import { CritterModel } from "../../models/CollectionModels/CritterModel";
-import { MonthsAvaliable } from "../../models/fishModel";
+import { MonthsAvaliable } from "../../models/CollectionModels/CritterCollectionModel";
 import _ from "lodash";
 import { List } from "native-base";
 import moment from "moment";

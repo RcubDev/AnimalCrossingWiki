@@ -1,5 +1,6 @@
 import { CommonCollectionModel } from "./CommonCollectionModel";
 
 export interface MuseumModel extends CommonCollectionModel {
-    donated: boolean
+    donated: boolean,
+    blathersSays: string
 }

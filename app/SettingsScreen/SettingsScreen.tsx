@@ -5,9 +5,9 @@ import {
   } from "../Redux/CollectionActions";
 import { Component } from "react";
 import { connect } from "react-redux";
-import {Text, Platform } from "react-native";
+import {Text, Platform, AsyncStorage } from "react-native";
 import { Container, Switch, Button, Input, View } from 'native-base';
-import { SettingsScreenProps } from '../../models/SetingsScreen/SettingsScreenProps';
+import { SettingsScreenProps } from '../../models/MainScreenModels/SetingsScreen/SettingsScreenProps';
 import moment from 'moment';
 import { InGameTimeOffSetPayload } from '../Redux/Types';
 
@@ -160,6 +160,9 @@ class SettingsScreen extends Component<SettingsScreenProps, SettingsScreenState>
                     <View style={{justifyContent: 'center', flexDirection: 'row'}}>
                         <Button style={this.props.appState.userSettings.isNorthernHemisphere ? {backgroundColor: 'green', margin: 10, padding: 10} : {backgroundColor: 'grey', margin: 10, padding: 10}} onPress={() => this.SetIsNorthernHemisphere(true)}><Text>{"Northern Hemisphere"}</Text></Button>
                         <Button style={this.props.appState.userSettings.isNorthernHemisphere ? {backgroundColor: 'grey', margin: 10, padding: 10} : {backgroundColor: 'green', margin: 10, padding: 10}} onPress={() => this.SetIsNorthernHemisphere(false)}><Text>{"Southern Hemisphere"}</Text></Button>
+                    </View>
+                    <View>
+                        <Button onPress={() => {AsyncStorage.clear()}}><Text>CLEAR STORAGE</Text></Button>    
                     </View>                    
                 </View>
             );        

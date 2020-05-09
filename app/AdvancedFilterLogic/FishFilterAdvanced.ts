@@ -1,6 +1,6 @@
 import { NewFishModel } from "../../models/CollectionModels/NewFishModel";
 import { AdvancedSortFishModel } from "../../models/Sort/AdvancedSortFishModel";
-import { AdvancedSortFilterFishModel } from "../../models/FishScreen/AdvancedSortFilterFishModel";
+import { AdvancedSortFilterFishModel } from "../../models/MainScreenModels/FishScreen/AdvancedSortFilterFishModel";
 import { FilterCritters } from "./CritterFilterAdvanced";
 
 function ApplyShadowSize(shadowSize: number, allFish: Array<NewFishModel>): Array<NewFishModel> {

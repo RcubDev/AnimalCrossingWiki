@@ -7,3 +7,4 @@ export interface BugApplicationState {
     bugAdvancedFilter: AdvancedFilterBugModel
     bugAdvancedSort: AdvancedSortBugModel
 }
+

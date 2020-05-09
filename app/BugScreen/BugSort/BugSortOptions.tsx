@@ -5,7 +5,7 @@ import { updateBugSort } from "../../Redux/CollectionActions";
 import { View, Card, CardItem, Button, Text } from "native-base";
 import styles from './BugSortOptionsStyles';
 import { AdvancedSortBugModel } from "../../../models/Sort/AdvancedSortBugModel";
-import { BugScreenProps } from "../../../models/BugScreen/BugScreenProps";
+import { BugScreenProps } from "../../../models/MainScreenModels/BugScreen/BugScreenProps";
 class BugSortOptions extends PureComponent<BugScreenProps> {
   constructor(props: BugScreenProps) {
     super(props);

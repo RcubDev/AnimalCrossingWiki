@@ -41,6 +41,14 @@ const styles = StyleSheet.create({
        justifyContent: "center",
     },
 
+    fossilsButtonStyle:{
+        height: 50,
+        width: 50,
+        margin: 20,
+       backgroundColor: 'brown',
+       justifyContent: "center",
+    },
+
     fishButtonTextStyle: {
         color: 'white'
     }

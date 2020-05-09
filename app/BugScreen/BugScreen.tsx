@@ -12,8 +12,8 @@ import {
 import { FlatList, TouchableWithoutFeedback } from "react-native-gesture-handler";
 import { AppLoading } from "expo";
 import styles from "./BugScreen.styles";
-import { BugScreenProps } from "../../models/BugScreen/BugScreenProps";
-import { BugScreenState } from "../../models/BugScreen/BugScreenState";
+import { BugScreenProps } from "../../models/MainScreenModels/BugScreen/BugScreenProps";
+import { BugScreenState } from "../../models/MainScreenModels/BugScreen/BugScreenState";
 import { connect } from "react-redux";
 import {
   updateBugCaught,

@@ -14,8 +14,8 @@ import { FlatList, TouchableWithoutFeedback } from "react-native-gesture-handler
 import { FishGridItem } from "./FishGridItem/FishGridItem";
 import { AppLoading } from "expo";
 import styles from "./FishScreen.styles";
-import { FishScreenProps } from "../../models/FishScreen/FishScreenProps";
-import { FishScreenState } from "../../models/FishScreen/FishScreenState";
+import { FishScreenProps } from "../../models/MainScreenModels/FishScreen/FishScreenProps";
+import { FishScreenState } from "../../models/MainScreenModels/FishScreen/FishScreenState";
 import { connect } from "react-redux";
 import {
   updateFishCaught,
@@ -37,7 +37,6 @@ const defaultFishCollection: Array<NewFishModel> = fish.fish;
 
 
 class FishScreen extends Component<FishScreenProps, FishScreenState> {
-  focusListener: any;
   constructor(props: FishScreenProps) {
     super(props);
     this.state = {

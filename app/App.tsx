@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import FishScreen from './FishScreen/FishScreen';
-import FossilScreen from './FossilScreen/FossilScreen';
 import BugScreen from './BugScreen/BugScreen';
 import HomeScreen from './HomeScreen/HomeScreen';
 import SettingsScreen from './SettingsScreen/SettingsScreen';
@@ -19,7 +18,8 @@ import friendReducer from './Redux/CollectionReducer'
 import collectionReducer from './Redux/CollectionReducer'
 import AdvancedFilterSortOptions from './FishScreen/FishFilter/FishFilterOptions';
 import BugDetailScreen from './BugScreen/BugDetail/BugDetailScreen';
-
+import FossilScreen from './FossilScreen/FossilScreen'
+import FossilDetailScreen from './FossilScreen/FossilDetail/FossilDetailScreen';
 const store2 = createStore(collectionReducer);
 
 const fetchFonts = () => {
@@ -61,12 +61,13 @@ export default class App extends Component<any, { isReady: boolean}> {
               <Stack.Navigator screenOptions={{headerShown: true}}>
                 <Stack.Screen name="Home" component={HomeScreen} />
                 <Stack.Screen name="Fish" component={FishScreen} />
-                <Stack.Screen name="Fossils" component={FossilScreen} />
                 <Stack.Screen name="Bugs" component={BugScreen} />
                 <Stack.Screen name="BugDetails" component={BugDetailScreen}/>
                 <Stack.Screen name="FishDetails" component={FishDetails}/>
                 <Stack.Screen name="FilterAndSortScreen" component={AdvancedFilterSortOptions}/>
                 <Stack.Screen name="Settings" component={SettingsScreen}/>
+                <Stack.Screen name="Fossils" component={FossilScreen}/>
+                <Stack.Screen name="FossilDetails" component={FossilDetailScreen}/>
               </Stack.Navigator>
           </NavigationContainer>
         </Container>

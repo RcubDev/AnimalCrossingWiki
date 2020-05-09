@@ -1,9 +1,10 @@
 import { NewFishModel } from "../../models/CollectionModels/NewFishModel";
 import { BugModel } from "../../models/CollectionModels/BugModel";
-import { AdvancedSortFilterFishModel } from "../../models/FishScreen/AdvancedSortFilterFishModel";
+import { AdvancedSortFilterFishModel } from "../../models/MainScreenModels/FishScreen/AdvancedSortFilterFishModel";
 import { AdvancedSortFishModel } from "../../models/Sort/AdvancedSortFishModel";
 import { AdvancedFilterBugModel } from "../../models/Filter/AdvancedFilterBugModel";
 import { AdvancedSortBugModel } from "../../models/Sort/AdvancedSortBugModel";
+import { FossilModel } from "../../models/CollectionModels/FossilModel";
 
 export interface CaughtPayload {
     index: number,
@@ -33,9 +34,24 @@ export const UPDATE_BUG_FILTER = "UPDATE_BUG_FILTER";
 export const UPDATE_BUG_COLLECTION = "UPDATE_BUG_COLLECTION";
 export const UPDATE_BUG_SORT = "UPDATE_BUG_SORT";
 
+//Fossil const
+export const UPDATE_FOSSIL_COLLECTION = "UPDATE_FOSSIL_COLLECTION";
+export const UPDATE_FOSSIL_DONATED = 'UPDATE_FOSSIL_DONATED';
+
 //Ohter const
 export const UPDATE_IN_GAME_DATE = "UPDATE_IN_GAME_DATE";
 export const UPDATE_HEMISPHERE = "UPDATE_HEMISPHERE";
+
+//Fossil Action Interfaces
+interface UpdateFossilCollection {
+    type: typeof UPDATE_FOSSIL_COLLECTION,
+    payload: Array<FossilModel>
+}
+
+interface UpdateFossilDonated {
+    type: typeof UPDATE_FOSSIL_DONATED,
+    payload: DonatedPayload
+}
 
 //Fish Action Interfaces
 interface UpdateFishCaught {
@@ -114,6 +130,8 @@ export type {
     UpdateBugFilter,
     UpdateBugCollection,
     UpdateBugSort,
+    UpdateFossilCollection,
+    UpdateFossilDonated
 };
 
 export type FishActionTypes =
@@ -128,4 +146,6 @@ export type FishActionTypes =
     UpdateBugCaught |
     UpdateBugDonated |
     UpdateBugFilter |
-    UpdateBugCollection ;
+    UpdateBugCollection |
+    UpdateFossilCollection |
+    UpdateFossilDonated;

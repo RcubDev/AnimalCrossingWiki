@@ -1,4 +1,4 @@
-import { MonthsAvaliable } from "../fishModel";
+import { MonthsAvaliable } from "../CollectionModels/CritterCollectionModel";
 
 export interface AdvancedFilterCritterModel extends MonthsAvaliable {
     caught: boolean;
