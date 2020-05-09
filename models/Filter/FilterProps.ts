@@ -1,4 +1,4 @@
-import { AdvancedSortFilterFishModel } from "../FishScreen/AdvancedSortFilterFishModel";
+import { AdvancedSortFilterFishModel } from "../MainScreenModels/FishScreen/AdvancedSortFilterFishModel";
 import { AdvancedFilterBugModel } from "./AdvancedFilterBugModel";
 import { AdvancedFilterCritterModel } from "./AdvancedFilterCritterModel";
 

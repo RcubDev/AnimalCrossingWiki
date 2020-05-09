@@ -1,5 +1,5 @@
 import { MuseumModel } from "./MuseumModel";
-import { MonthsAvaliable } from "../fishModel";
+import { MonthsAvaliable } from "./CritterCollectionModel";
 
 export interface CritterModel extends MuseumModel {
     time: string,

@@ -1,5 +1,5 @@
 import React, { PureComponent } from "react";
-import { FishScreenProps } from "../../../models/FishScreen/FishScreenProps";
+import { FishScreenProps } from "../../../models/MainScreenModels/FishScreen/FishScreenProps";
 import { ScrollView } from "react-native-gesture-handler";
 import { connect } from "react-redux";
 import { updateFishSort } from "../../Redux/CollectionActions";

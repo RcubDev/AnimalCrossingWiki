@@ -6,7 +6,7 @@ import RarityFilterSelection from "../../CritterFilterComponents/RarityFilterSel
 import LocationFilterSelection from "../../CritterFilterComponents/LocationFilterSelection";
 import CaughtFilterSelection from "../../CritterFilterComponents/CaughtFilter";
 import { updateBugFilter } from "../../Redux/CollectionActions";
-import { BugScreenProps } from "../../../models/BugScreen/BugScreenProps";
+import { BugScreenProps } from "../../../models/MainScreenModels/BugScreen/BugScreenProps";
 import { AdvancedFilterBugModel } from "../../../models/Filter/AdvancedFilterBugModel";
 
 class BugFilterOptions extends PureComponent<BugScreenProps> {

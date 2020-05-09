@@ -1,5 +1,5 @@
 import React, { Component, PureComponent } from "react";
-import { FishScreenProps } from "../../../models/FishScreen/FishScreenProps";
+import { FishScreenProps } from "../../../models/MainScreenModels/FishScreen/FishScreenProps";
 import { connect } from "react-redux";
 import { Text, ScrollView, Modal } from "react-native";
 import MonthFilterSelection from "../../CritterFilterComponents/MonthFilterSelection";
@@ -8,7 +8,7 @@ import RarityFilterSelection from "../../CritterFilterComponents/RarityFilterSel
 import LocationFilterSelection from "../../CritterFilterComponents/LocationFilterSelection";
 import CaughtFilterSelection from "../../CritterFilterComponents/CaughtFilter";
 import { updateFishFilter } from "../../Redux/CollectionActions";
-import { AdvancedSortFilterFishModel } from "../../../models/FishScreen/AdvancedSortFilterFishModel";
+import { AdvancedSortFilterFishModel } from "../../../models/MainScreenModels/FishScreen/AdvancedSortFilterFishModel";
 
 class AdvancedFilterSortOptions extends PureComponent<FishScreenProps> {
   constructor(props: FishScreenProps) {
