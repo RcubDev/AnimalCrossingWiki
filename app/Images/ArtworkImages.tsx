@@ -1,3 +1,10 @@
+import { ImageSourcePropType } from "react-native";
+
+export interface IDictionary {
+    [name: string]: ImageSourcePropType;
+}
+
+const ArtworkImages: IDictionary = {};
 ArtworkImages["Fake Academic Painting"] = require('./Artwork/FakeAcademicPainting.png');
 ArtworkImages["Academic Painting"] = require('./Artwork/RealAcademicPainting.png');
 ArtworkImages["Fake Amazing Painting"] = require('./Artwork/FakeAmazingPainting.png');
@@ -68,3 +75,5 @@ ArtworkImages["Fake Valiant Statue"] = require('./Artwork/FakeValiantStatue.png'
 ArtworkImages["Valiant Statue"] = require('./Artwork/RealValiantStatue.png');
 ArtworkImages["Fake Warrior Statue"] = require('./Artwork/FakeWarriorStatue.png');
 ArtworkImages["Warrior Statue"] = require('./Artwork/RealWarriorStatue.png');
+
+export default ArtworkImages;

@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import fish from '../../data/fish.json';
-import { UPDATE_FISH_CAUGHT, UPDATE_FISH_DONATED, FishActionTypes, UpdateFishDonated, UpdateFishCaught, UpdateFishFilter, UPDATE_FISH_FILTER, UPDATE_FISH_COLLECTION, UpdateFishCollection, UPDATE_IN_GAME_DATE, UPDATE_HEMISPHERE, UpdateInGameTime, UpdateHemisphere, UPDATE_FISH_SORT, UpdateFishSort, UPDATE_BUG_COLLECTION, UpdateBugCollection, UpdateBugCaught, UpdateBugDonated, UpdateBugSort, UpdateBugFilter, UPDATE_BUG_CAUGHT, UPDATE_BUG_DONATED, UPDATE_BUG_FILTER, UPDATE_BUG_SORT, UPDATE_FOSSIL_COLLECTION, UpdateFossilCollection, UPDATE_FOSSIL_DONATED, UpdateFossilDonated } from './Types'
+import { UPDATE_FISH_CAUGHT, UPDATE_FISH_DONATED, FishActionTypes, UpdateFishDonated, UpdateFishCaught, UpdateFishFilter, UPDATE_FISH_FILTER, UPDATE_FISH_COLLECTION, UpdateFishCollection, UPDATE_IN_GAME_DATE, UPDATE_HEMISPHERE, UpdateInGameTime, UpdateHemisphere, UPDATE_FISH_SORT, UpdateFishSort, UPDATE_BUG_COLLECTION, UpdateBugCollection, UpdateBugCaught, UpdateBugDonated, UpdateBugSort, UpdateBugFilter, UPDATE_BUG_CAUGHT, UPDATE_BUG_DONATED, UPDATE_BUG_FILTER, UPDATE_BUG_SORT, UPDATE_FOSSIL_COLLECTION, UpdateFossilCollection, UPDATE_FOSSIL_DONATED, UpdateFossilDonated, UpdateArtworkDonated, UpdateArtworkCollection, UPDATE_ARTWORK_COLLECTION, UPDATE_ARTWORK_DONATED } from './Types'
 import { ApplicationState } from '../../models/ApplicationState/ApplicationState';
 import { AsyncStorage } from 'react-native';
 import { AdvancedSortFilterFishModel } from '../../models/MainScreenModels/FishScreen/AdvancedSortFilterFishModel';
@@ -58,6 +58,9 @@ const INITIAL_STATE2: ApplicationState = {
   fossil: {
     fossilCollection: []
   },
+  art: {
+    artworkCollection: []
+  },
   userSettings: {
     isNorthernHemisphere: true,
     inGameTime: { minutes: 0 }
@@ -98,6 +101,10 @@ const collectionReducer = (state = INITIAL_STATE2, action: FishActionTypes): App
       return updateFossilCollectionFromStorage(state, action);
     case UPDATE_FOSSIL_DONATED:
       return updateFossilDonated(state, action);
+    case UPDATE_ARTWORK_COLLECTION:
+      return updateArtworkCollectionFromStorage(state, action);
+    case UPDATE_ARTWORK_DONATED:
+      return updateArtworkDonated(state, action);
     default:
       return state;
   }
@@ -155,6 +162,12 @@ function updateBugCollectionFromStorage(state: ApplicationState, action: UpdateB
 function updateFossilCollectionFromStorage(state: ApplicationState, action: UpdateFossilCollection): ApplicationState {
   let newState = state;
   newState.fossil.fossilCollection = action.payload;
+  return Object.assign({}, state, newState);
+}
+
+function updateArtworkCollectionFromStorage(state: ApplicationState, action: UpdateArtworkCollection): ApplicationState {
+  let newState = state;
+  newState.art.artworkCollection = action.payload;
   return Object.assign({}, state, newState);
 }
 
@@ -216,6 +229,17 @@ function updateFossilDonated(state: ApplicationState, action: UpdateFossilDonate
   }
   let updatedCollection = Object.assign({}, state, appState)
   AsyncStorage.setItem('fossilStore', JSON.stringify(updatedCollection.fossil.fossilCollection));
+  return updatedCollection;
+}
+
+function updateArtworkDonated(state: ApplicationState, action: UpdateArtworkDonated): ApplicationState {
+  const appState = state;
+  let updatedArtwork = appState.art.artworkCollection.find(item => item.id === action.payload.index);
+  if (updatedArtwork) {
+    updatedArtwork.donated = action.payload.donated;
+  }
+  let updatedCollection = Object.assign({}, state, appState)
+  AsyncStorage.setItem('artworkStore', JSON.stringify(updatedCollection.art.artworkCollection));
   return updatedCollection;
 }
 

@@ -1,27 +1,26 @@
 
-import fossils from "../../data/fossils.json";
-import { SortCritters } from "../AdvancedSortLogic/SortAdvanced";
-import { FossilScreenProps } from "../../models/MainScreenModels/FossilScreen/FossilScreenProps";
-import { FossilModel } from "../../models/CollectionModels/FossilModel";
+import artworks from "../../data/artwork.json";
+import { ArtworkScreenProps } from "../../models/MainScreenModels/ArtworkScreen/ArtworkScreenProps";
+import { ArtworkModel } from "../../models/CollectionModels/ArtworkModel";
 import React, { Component } from "react";
-import { FossilScreenState } from "../../models/MainScreenModels/FossilScreen/FossilScreenState";
+import { ArtworkScreenState } from "../../models/MainScreenModels/ArtworkScreen/ArtworkScreenState";
 import { AsyncStorage, FlatList } from "react-native";
 import { Item, Input, Button, Text, Container, Header } from "native-base";
-import { FossilGridItem } from "./FossilGridItem/FossilGridItem";
 import { AppLoading } from "expo";
-import styles from './FossilScreen.styles'
+import styles from './ArtworkScreenStyles'
 import { connect } from "react-redux";
 import {
-    updateFossilDonated,
-    updateFossilCollectionFromStorage
+    updateArtworkDonated,
+    updateArtworkCollectionFromStorage
   } from "../Redux/CollectionActions";
+import { ArtworkGridItem } from "./ArtGridItem/ArtworkGridItem";
 
 
-const defaultFossilCollection: Array<FossilModel> = fossils.fossils;
+const defaultArtworkCollection: Array<ArtworkModel> = artworks.artwork;
 
 
-class FossilScreen extends Component<FossilScreenProps, FossilScreenState> {
-    constructor(props: FossilScreenProps) {
+class ArtworkScreen extends Component<ArtworkScreenProps, ArtworkScreenState> {
+    constructor(props: ArtworkScreenProps) {
         super(props);
         this.state = {
             isReady: false,
@@ -30,41 +29,41 @@ class FossilScreen extends Component<FossilScreenProps, FossilScreenState> {
     }
 
     async componentDidMount() {
-        const storedFossils = await AsyncStorage.getItem('fossilStore');
-        if (storedFossils) {
-            this.props.updateFossilCollectionFromStorage(JSON.parse(storedFossils));
+        const storedArtworks = await AsyncStorage.getItem('artworkStore');
+        if (storedArtworks) {
+            this.props.updateArtworkCollectionFromStorage(JSON.parse(storedArtworks));
         }
         else {
-            this.props.updateFossilCollectionFromStorage(defaultFossilCollection);
-            await AsyncStorage.setItem('fossilStore', JSON.stringify(defaultFossilCollection));
+            this.props.updateArtworkCollectionFromStorage(defaultArtworkCollection);
+            await AsyncStorage.setItem('artworkStore', JSON.stringify(defaultArtworkCollection));
         }
         this.setState({ isReady: true });
     }
 
     SetItemDonated = (donated: boolean, id: number) => {
-        this.props.updateFossilDonated({ donated, index: id });
+        this.props.updateArtworkDonated({ donated, index: id });
     }
 
-    FilterFossilByText(text: string, fossils: Array<FossilModel>): Array<FossilModel> {
-        let allFossils = fossils;
-        let fossilArray: Array<FossilModel> = [];
+    FilterArtworkByText(text: string, artworks: Array<ArtworkModel>): Array<ArtworkModel> {
+        let allArtworks = artworks;
+        let artworkArray: Array<ArtworkModel> = [];
         let filterSpecial = text.includes('filter:');
         text = text.toLowerCase();
         if (filterSpecial) {
             console.log('Implement');
         }
         else {
-            fossilArray = allFossils.filter(x => x.name.toLowerCase().startsWith(text));
+            artworkArray = allArtworks.filter(x => x.name.toLowerCase().startsWith(text));
         }
-        return fossilArray;
+        return artworkArray;
     }
 
     render() {
         if (!this.state.isReady) {
             return <AppLoading />;
         }
-        let fossils = this.props.appState.fossil.fossilCollection;
-        fossils = this.FilterFossilByText(this.state.filterText, fossils);
+        let artworks = this.props.appState.art.artworkCollection;
+        artworks = this.FilterArtworkByText(this.state.filterText, artworks);
         return (
             <Container>
                 <Header>
@@ -96,11 +95,11 @@ class FossilScreen extends Component<FossilScreenProps, FossilScreenState> {
                     </Item>
                 </Header>
                 <FlatList
-                    data={fossils}
-                    renderItem={({ item, index, }: { item: FossilModel; index: number; }) => (
-                        <FossilGridItem {...{ model: { ...item }, nav: this.props.navigation, updateFossilDonated: this.props.updateFossilDonated }} />
+                    data={artworks}
+                    renderItem={({ item, index, }: { item: ArtworkModel; index: number; }) => (
+                        <ArtworkGridItem {...{ model: { ...item }, nav: this.props.navigation, updateArtworkDonated: this.props.updateArtworkDonated }} />
                     )}
-                    numColumns={3}
+                    numColumns={2}
                     keyExtractor={(item, index) => index.toString()}
                     contentContainerStyle={styles.flatListContainerContent}
                     columnWrapperStyle={{
@@ -118,7 +117,7 @@ const mapStateToProps = (state: any) => {
   };
   
   export default connect(mapStateToProps, {
-    updateFossilCollectionFromStorage,
-    updateFossilDonated
-  })(FossilScreen);
+    updateArtworkCollectionFromStorage,
+    updateArtworkDonated
+  })(ArtworkScreen);
   

@@ -1,0 +1,434 @@
+{
+   "artwork":[
+      {
+         "id":1,
+         "value":0,
+         "name":"Academic Painting",
+         "description":"The forged painting has a coffee stain on the top right whereas the genuine does not.",
+         "languages":null,
+         "blathersSays":"",
+         "donated":false,
+         "hasFake":true
+      },
+      {
+         "id":2,
+         "value":0,
+         "name":"Amazing Painting",
+         "description":"In the forged painting, the man with the red sash is not wearing a hat; whereas in the genuine painting, he is.",
+         "languages":null,
+         "blathersSays":"",
+         "donated":false,
+         "hasFake":true
+      },
+      {
+         "id":3,
+         "value":0,
+         "name":"Basic Painting",
+         "description":"In the forged painting, the boy has bangs covering his entire forehead; whereas in the genuine one, there is less hair covering his forehead.",
+         "languages":null,
+         "blathersSays":"",
+         "donated":false,
+         "hasFake":true
+      },
+      {
+         "id":4,
+         "value":0,
+         "name":"Calm Painting",
+         "description":"This painting is always authentic.",
+         "languages":null,
+         "blathersSays":"",
+         "donated":false,
+         "hasFake":false
+      },
+      {
+         "id":5,
+         "value":0,
+         "name":"Common Painting",
+         "description":"This painting is always authentic.",
+         "languages":null,
+         "blathersSays":"",
+         "donated":false,
+         "hasFake":false
+      },
+      {
+         "id":6,
+         "value":0,
+         "name":"Dynamic Painting",
+         "description":"This painting is always authentic.",
+         "languages":null,
+         "blathersSays":"",
+         "donated":false,
+         "hasFake":false
+      },
+      {
+         "id":7,
+         "value":0,
+         "name":"Detailed Painting",
+         "description":"The forged painting has purple flowers, whereas the genuine one has blue flowers.",
+         "languages":null,
+         "blathersSays":"",
+         "donated":false,
+         "hasFake":true
+      },
+      {
+         "id":8,
+         "value":0,
+         "name":"Famous Painting",
+         "description":"In the forged painting, the woman has eyebrows which makes her look angry; whereas in the genuine one, she has no (or very faint) eyebrows which makes her look calm.",
+         "languages":null,
+         "blathersSays":"",
+         "donated":false,
+         "hasFake":true
+      },
+      {
+         "id":9,
+         "value":0,
+         "name":"Glowing Painting",
+         "description":"This painting is always authentic.",
+         "languages":null,
+         "blathersSays":"",
+         "donated":false,
+         "hasFake":false
+      },
+      {
+         "id":10,
+         "value":0,
+         "name":"Flowery Painting",
+         "description":"This painting is always authentic.",
+         "languages":null,
+         "blathersSays":"",
+         "donated":false,
+         "hasFake":false
+      },
+      {
+         "id":11,
+         "value":0,
+         "name":"Graceful Painting",
+         "description":"In the forged painting, the woman takes up most of the space and covers the stain on the painting; whereas in the genuine painting, she only takes up around two-thirds of the painting.",
+         "languages":null,
+         "blathersSays":"",
+         "donated":false,
+         "hasFake":true
+      },
+      {
+         "id":12,
+         "value":0,
+         "name":"Jolly Painting",
+         "description":"The forged painting is missing the artichoke bud sticking out of the chest, whereas the genuine one does.",
+         "languages":null,
+         "blathersSays":"",
+         "donated":false,
+         "hasFake":true
+      },
+      {
+         "id":13,
+         "value":0,
+         "name":"Mysterious Painting",
+         "description":"This painting is always authentic.",
+         "languages":null,
+         "blathersSays":"",
+         "donated":false,
+         "hasFake":false
+      },
+      {
+         "id":14,
+         "value":0,
+         "name":"Moody Painting",
+         "description":"This painting is always authentic.",
+         "languages":null,
+         "blathersSays":"",
+         "donated":false,
+         "hasFake":false
+      },
+      {
+         "id":15,
+         "value":0,
+         "name":"Moving Painting",
+         "description":"There are no trees in the forged painting, whereas the genuine one does.",
+         "languages":null,
+         "blathersSays":"",
+         "donated":false,
+         "hasFake":true
+      },
+      {
+         "id":16,
+         "value":0,
+         "name":"Nice Painting",
+         "description":"This painting is always authentic.",
+         "languages":null,
+         "blathersSays":"",
+         "donated":false,
+         "hasFake":false
+      },
+      {
+         "id":17,
+         "value":0,
+         "name":"Perfect Painting",
+         "description":"This painting is always authentic.",
+         "languages":null,
+         "blathersSays":"",
+         "donated":false,
+         "hasFake":false
+      },
+      {
+         "id":18,
+         "value":0,
+         "name":"Proper Painting",
+         "description":"This painting is always authentic.",
+         "languages":null,
+         "blathersSays":"",
+         "donated":false,
+         "hasFake":false
+      },
+      {
+         "id":19,
+         "value":0,
+         "name":"Quaint Painting",
+         "description":"In the forged painting, there is lots of milk pouring out of the container; whereas in the genuine one, there is only a small amount.",
+         "languages":null,
+         "blathersSays":"",
+         "donated":false,
+         "hasFake":true
+      },
+      {
+         "id":20,
+         "value":0,
+         "name":"Scary Painting",
+         "description":"In the forged painting, the man looks scared; whereas in the genuine one, he looks angry.",
+         "languages":null,
+         "blathersSays":"",
+         "donated":false,
+         "hasFake":true
+      },
+      {
+         "id":21,
+         "value":0,
+         "name":"Scenic Painting",
+         "description":"The forged painting has one person on the hill, whereas the genuine painting has three people and more dogs.",
+         "languages":null,
+         "blathersSays":"",
+         "donated":false,
+         "hasFake":true
+      },
+      {
+         "id":22,
+         "value":0,
+         "name":"Serene Painting",
+         "description":"In the forged painting, the stoat has a grey coloration; whereas in the genuine one, it is a white ermine.",
+         "languages":null,
+         "blathersSays":"",
+         "donated":false,
+         "hasFake":true
+      },
+      {
+         "id":23,
+         "value":0,
+         "name":"Sinking Painting",
+         "description":"This painting is always authentic.",
+         "languages":null,
+         "blathersSays":"",
+         "donated":false,
+         "hasFake":false
+      },
+      {
+         "id":24,
+         "value":0,
+         "name":"Solemn Painting",
+         "description":"In the forged painting, the man in the far back is pointing upwards; whereas in the genuine one, he is touching the wall.",
+         "languages":null,
+         "blathersSays":"",
+         "donated":false,
+         "hasFake":true
+      },
+      {
+         "id":25,
+         "value":0,
+         "name":"Twinkling Painting",
+         "description":"This painting is always authentic.",
+         "languages":null,
+         "blathersSays":"",
+         "donated":false,
+         "hasFake":false
+      },
+      {
+         "id":26,
+         "value":0,
+         "name":"Warm Painting",
+         "description":"This painting is always authentic.",
+         "languages":null,
+         "blathersSays":"",
+         "donated":false,
+         "hasFake":false
+      },
+      {
+         "id":27,
+         "value":0,
+         "name":"Wild Painting",
+         "description":"The forged painting has a dark figure, whereas the genuine one has a light figure.",
+         "languages":null,
+         "blathersSays":"",
+         "donated":false,
+         "hasFake":true
+      },
+      {
+         "id":28,
+         "value":0,
+         "name":"Wild Painting",
+         "description":"The forged painting has a light figure, whereas the genuine one has a dark figure.",
+         "languages":null,
+         "blathersSays":"",
+         "donated":false,
+         "hasFake":true
+      },
+      {
+         "id":29,
+         "value":0,
+         "name":"Wistful Painting",
+         "description":"In the forged painting, the woman is wearing a star-shaped earring; whereas in the genuine one, the earring is sphere-shaped.",
+         "languages":null,
+         "blathersSays":"",
+         "donated":false,
+         "hasFake":true
+      },
+      {
+         "id":30,
+         "value":0,
+         "name":"Worthy Painting",
+         "description":"This painting is always authentic.",
+         "languages":null,
+         "blathersSays":"",
+         "donated":false,
+         "hasFake":false
+      },
+      {
+         "id":31,
+         "value":0,
+         "name":"Ancient Statue",
+         "description":"The forged statue has antennae, whereas the genuine statue does not.",
+         "languages":null,
+         "blathersSays":"",
+         "donated":false,
+         "hasFake":true
+      },
+      {
+         "id":32,
+         "value":0,
+         "name":"Beautiful Statue",
+         "description":"The forged statue has a set of necklaces, whereas the genuine statue does not.",
+         "languages":null,
+         "blathersSays":"",
+         "donated":false,
+         "hasFake":true
+      },
+      {
+         "id":33,
+         "value":0,
+         "name":"Familiar Statue",
+         "description":"This statue is always authentic.",
+         "languages":null,
+         "blathersSays":"",
+         "donated":false,
+         "hasFake":false
+      },
+      {
+         "id":34,
+         "value":0,
+         "name":"Gallant Statue",
+         "description":"The forged statue holds a book in its right hand, whereas the genuine statue does not.",
+         "languages":null,
+         "blathersSays":"",
+         "donated":false,
+         "hasFake":true
+      },
+      {
+         "id":35,
+         "value":0,
+         "name":"Great Statue",
+         "description":"This statue is always authentic.",
+         "languages":null,
+         "blathersSays":"",
+         "donated":false,
+         "hasFake":false
+      },
+      {
+         "id":36,
+         "value":0,
+         "name":"Informative Statue",
+         "description":"The forged statue is blue, whereas the genuine one is grey.",
+         "languages":null,
+         "blathersSays":"",
+         "donated":false,
+         "hasFake":true
+      },
+      {
+         "id":37,
+         "value":0,
+         "name":"Motherly Statue",
+         "description":"The forged statue has its tongue sticking out, whereas the genuine one does not.",
+         "languages":null,
+         "blathersSays":"",
+         "donated":false,
+         "hasFake":true
+      },
+      {
+         "id":38,
+         "value":0,
+         "name":"Mystic Statue",
+         "description":"The forged statue has an earring, whereas the genuine statue does not.",
+         "languages":null,
+         "blathersSays":"",
+         "donated":false,
+         "hasFake":true
+      },
+      {
+         "id":39,
+         "value":0,
+         "name":"Robust Statue",
+         "description":"The forged statue is wearing a watch on its right arm, whereas the genuine statue is not.",
+         "languages":null,
+         "blathersSays":"",
+         "donated":false,
+         "hasFake":true
+      },
+      {
+         "id":40,
+         "value":0,
+         "name":"Rock-Head Statue",
+         "description":"The forged statue is smiling, whereas the genuine one is not.",
+         "languages":null,
+         "blathersSays":"",
+         "donated":false,
+         "hasFake":true
+      },
+      {
+         "id":41,
+         "value":0,
+         "name":"Tremendous Statue",
+         "description":"The forged statue has a lid with a handle in the middle, whereas the genuine only has the handles on the side.",
+         "languages":null,
+         "blathersSays":"",
+         "donated":false,
+         "hasFake":true
+      },
+      {
+         "id":42,
+         "value":0,
+         "name":"Valiant Statue",
+         "description":"The forged statue is mirrored, with the left leg in front, whereas the genuine statue has the right leg in front.",
+         "languages":null,
+         "blathersSays":"",
+         "donated":false,
+         "hasFake":true
+      },
+      {
+         "id":43,
+         "value":0,
+         "name":"Warrior Statue",
+         "description":"The forged statue is holding a shovel, whereas the genuine one is not.",
+         "languages":null,
+         "blathersSays":"",
+         "donated":false,
+         "hasFake":true
+      }
+   ]
+}

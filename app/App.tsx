@@ -20,6 +20,8 @@ import AdvancedFilterSortOptions from './FishScreen/FishFilter/FishFilterOptions
 import BugDetailScreen from './BugScreen/BugDetail/BugDetailScreen';
 import FossilScreen from './FossilScreen/FossilScreen'
 import FossilDetailScreen from './FossilScreen/FossilDetail/FossilDetailScreen';
+import ArtworkScreen from './ArtScreen/ArtworkScreen';
+import ArtworkDetailScreen from './ArtScreen/ArtDetails/ArtworkDetailScreen';
 const store2 = createStore(collectionReducer);
 
 const fetchFonts = () => {
@@ -68,6 +70,8 @@ export default class App extends Component<any, { isReady: boolean}> {
                 <Stack.Screen name="Settings" component={SettingsScreen}/>
                 <Stack.Screen name="Fossils" component={FossilScreen}/>
                 <Stack.Screen name="FossilDetails" component={FossilDetailScreen}/>
+                <Stack.Screen name="Artwork" component={ArtworkScreen} />
+                <Stack.Screen name="ArtworkDetails" component={ArtworkDetailScreen}/>                
               </Stack.Navigator>
           </NavigationContainer>
         </Container>

@@ -23,7 +23,7 @@ class BugFilterOptions extends PureComponent<BugScreenProps> {
       currentFilterSettings: this.props.appState.bug.bugAdvancedFilter,
       updateFunction: this.SetBugFilter,
     }
-    console.log(currentFilterSettings);
+    
     return (
       <ScrollView
         style={{
