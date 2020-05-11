@@ -14,7 +14,8 @@ import { connect } from "react-redux";
 import {
     updateFossilDonated,
     updateFossilCollectionFromStorage
-  } from "../Redux/CollectionActions";
+} from "../Redux/CollectionActions";
+import { ListHeader } from "../Shared/ListHeader";
 
 
 const defaultFossilCollection: Array<FossilModel> = fossils.fossils;
@@ -59,6 +60,10 @@ class FossilScreen extends Component<FossilScreenProps, FossilScreenState> {
         return fossilArray;
     }
 
+    setSearchText = (text: string) => {
+        this.setState({ filterText: text.toLowerCase() });
+    };
+
     render() {
         if (!this.state.isReady) {
             return <AppLoading />;
@@ -67,34 +72,9 @@ class FossilScreen extends Component<FossilScreenProps, FossilScreenState> {
         fossils = this.FilterFossilByText(this.state.filterText, fossils);
         return (
             <Container>
-                <Header>
-                    <Item style={{ flex: 1 }}>
-                        <Button
-                            transparent
-                            onPress={() => {
-
-                            }}
-                        >
-                            <Text> Sort </Text>
-                        </Button>
-                        <Input
-                            autoCorrect={false}
-                            placeholder="Filter"
-                            onChangeText={(text: string) => {
-                                this.setState({ filterText: text.toLowerCase() });
-                            }}
-                            returnKeyType={"done"}
-                        ></Input>
-                        <Button
-                            transparent
-                            onPress={() => {
-
-                            }}
-                        >
-                            <Text> Filters </Text>
-                        </Button>
-                    </Item>
-                </Header>
+                <ListHeader
+                    setSearchText={this.setSearchText}
+                />
                 <FlatList
                     data={fossils}
                     renderItem={({ item, index, }: { item: FossilModel; index: number; }) => (
@@ -115,10 +95,9 @@ class FossilScreen extends Component<FossilScreenProps, FossilScreenState> {
 const mapStateToProps = (state: any) => {
     const { appState } = state;
     return { appState };
-  };
-  
-  export default connect(mapStateToProps, {
+};
+
+export default connect(mapStateToProps, {
     updateFossilCollectionFromStorage,
     updateFossilDonated
-  })(FossilScreen);
-  
+})(FossilScreen);

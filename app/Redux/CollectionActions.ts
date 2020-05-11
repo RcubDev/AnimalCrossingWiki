@@ -1,4 +1,4 @@
-import {UPDATE_FISH_CAUGHT, UPDATE_FISH_DONATED, FishActionTypes, CaughtPayload, DonatedPayload, UpdateFishFilter, UPDATE_FISH_FILTER, UPDATE_FISH_COLLECTION, UPDATE_IN_GAME_DATE, UPDATE_HEMISPHERE, InGameTimeOffSetPayload, UPDATE_FISH_SORT, UPDATE_BUG_CAUGHT, UPDATE_BUG_DONATED, UPDATE_BUG_FILTER, UPDATE_BUG_COLLECTION, UPDATE_BUG_SORT, UPDATE_FOSSIL_COLLECTION, UPDATE_FOSSIL_DONATED, UPDATE_ARTWORK_COLLECTION, UPDATE_ARTWORK_DONATED} from './Types'
+import { UPDATE_FISH_CAUGHT, UPDATE_FISH_DONATED, FishActionTypes, CaughtPayload, DonatedPayload, UPDATE_FISH_FILTER, UPDATE_FISH_COLLECTION, UPDATE_IN_GAME_DATE, UPDATE_HEMISPHERE, InGameTimeOffSetPayload, UPDATE_FISH_SORT, UPDATE_BUG_CAUGHT, UPDATE_BUG_DONATED, UPDATE_BUG_FILTER, UPDATE_BUG_COLLECTION, UPDATE_BUG_SORT, UPDATE_FOSSIL_COLLECTION, UPDATE_FOSSIL_DONATED, UPDATE_ARTWORK_COLLECTION, UPDATE_ARTWORK_DONATED } from './Types'
 import { AdvancedSortFilterFishModel } from '../../models/MainScreenModels/FishScreen/AdvancedSortFilterFishModel'
 import { NewFishModel } from '../../models/CollectionModels/NewFishModel'
 import { AdvancedSortFishModel } from '../../models/Sort/AdvancedSortFishModel'
@@ -9,7 +9,7 @@ import { FossilModel } from '../../models/CollectionModels/FossilModel'
 import { ArtworkModel } from '../../models/CollectionModels/ArtworkModel'
 
 export function updateFishCaught(payload: CaughtPayload): FishActionTypes {
-    return {        
+    return {
         type: UPDATE_FISH_CAUGHT,
         payload: payload
     }
@@ -36,7 +36,7 @@ export function updateFishSort(payload: AdvancedSortFishModel): FishActionTypes 
     }
 }
 
-export function updateFishCollectionFromStorage(payload: Array<NewFishModel>): FishActionTypes{
+export function updateFishCollectionFromStorage(payload: Array<NewFishModel>): FishActionTypes {
     return {
         type: UPDATE_FISH_COLLECTION,
         payload: payload
@@ -85,7 +85,7 @@ export function updateBugDonated(payload: DonatedPayload): FishActionTypes {
     }
 }
 
-export function updateBugFilter(payload: AdvancedFilterBugModel): FishActionTypes{
+export function updateBugFilter(payload: AdvancedFilterBugModel): FishActionTypes {
     return {
         type: UPDATE_BUG_FILTER,
         payload: payload

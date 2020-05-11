@@ -1,10 +1,8 @@
 import { combineReducers } from 'redux';
-import fish from '../../data/fish.json';
 import { UPDATE_FISH_CAUGHT, UPDATE_FISH_DONATED, FishActionTypes, UpdateFishDonated, UpdateFishCaught, UpdateFishFilter, UPDATE_FISH_FILTER, UPDATE_FISH_COLLECTION, UpdateFishCollection, UPDATE_IN_GAME_DATE, UPDATE_HEMISPHERE, UpdateInGameTime, UpdateHemisphere, UPDATE_FISH_SORT, UpdateFishSort, UPDATE_BUG_COLLECTION, UpdateBugCollection, UpdateBugCaught, UpdateBugDonated, UpdateBugSort, UpdateBugFilter, UPDATE_BUG_CAUGHT, UPDATE_BUG_DONATED, UPDATE_BUG_FILTER, UPDATE_BUG_SORT, UPDATE_FOSSIL_COLLECTION, UpdateFossilCollection, UPDATE_FOSSIL_DONATED, UpdateFossilDonated, UpdateArtworkDonated, UpdateArtworkCollection, UPDATE_ARTWORK_COLLECTION, UPDATE_ARTWORK_DONATED } from './Types'
 import { ApplicationState } from '../../models/ApplicationState/ApplicationState';
 import { AsyncStorage } from 'react-native';
 import { AdvancedSortFilterFishModel } from '../../models/MainScreenModels/FishScreen/AdvancedSortFilterFishModel';
-import { NewFishModel } from '../../models/CollectionModels/NewFishModel';
 import { AdvancedSortFishModel } from '../../models/Sort/AdvancedSortFishModel';
 
 const defaultAdvancedSortFilter: AdvancedSortFilterFishModel = {
@@ -172,14 +170,11 @@ function updateArtworkCollectionFromStorage(state: ApplicationState, action: Upd
 }
 
 function updateFishCaughtAction(state: ApplicationState, action: UpdateFishCaught): ApplicationState {
-  const appState = state;
-  let updatedFish = appState.fish.fishCollection.find(item => item.id === action.payload.index);
-  if (updatedFish) {
-    updatedFish.caught = action.payload.caught;
-  }
-  let updatedCollection = Object.assign({}, state, appState)
-  AsyncStorage.setItem('fishStore', JSON.stringify(updatedCollection.fish.fishCollection));
-  return updatedCollection;
+  const updatedCollection = state.fish.fishCollection.map(fish => fish.id === action.payload.index ? { ...fish, caught: action.payload.caught } : fish);
+  AsyncStorage.setItem('fishStore', JSON.stringify(updatedCollection));
+  return {
+    ...state, fish: { ...state.fish, fishCollection: updatedCollection }
+  };
 }
 
 function updateBugCaughtAction(state: ApplicationState, action: UpdateBugCaught): ApplicationState {
@@ -194,17 +189,11 @@ function updateBugCaughtAction(state: ApplicationState, action: UpdateBugCaught)
 }
 
 function updateFishDonatedAction(state: ApplicationState, action: UpdateFishDonated): ApplicationState {
-  const appState = state;
-  let updatedFish = appState.fish.fishCollection.find(item => item.id === action.payload.index);
-  if (updatedFish) {
-    if (action.payload.donated) {
-      updatedFish.caught = true;
-    }
-    updatedFish.donated = action.payload.donated;
-  }
-  let updatedCollection = Object.assign({}, state, appState)
-  AsyncStorage.setItem('fishStore', JSON.stringify(updatedCollection.fish.fishCollection));
-  return updatedCollection;
+  const updatedCollection = state.fish.fishCollection.map(fish => fish.id === action.payload.index ? { ...fish, caught: action.payload.donated ? true : fish.caught, donated: action.payload.donated } : fish);
+  AsyncStorage.setItem('fishStore', JSON.stringify(updatedCollection));
+  return {
+    ...state, fish: { ...state.fish, fishCollection: updatedCollection }
+  };
 }
 
 function updateBugDonatedAction(state: ApplicationState, action: UpdateBugDonated): ApplicationState {

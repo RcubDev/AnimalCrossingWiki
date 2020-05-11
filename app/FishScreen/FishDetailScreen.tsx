@@ -20,8 +20,9 @@ interface FishDetailsProps {
         name: string,
         params: {
             index: number,
-            fish: NewFishModel
-        }   
+            fish: NewFishModel,
+            model: NewFishModel
+        }
     }
 }
 
@@ -35,25 +36,25 @@ class FishDetails extends Component<FishDetailsProps, FishDetailsState> {
     index = this.props.route.params.index;
     fish = this.props.appState.fish.fishCollection[this.index];
     SetItemCaught = (caught: boolean, index: number) => {
-        this.props.updateFishCaught({caught, index});
-        this.setState({model: this.props.appState.fish.fishCollection[index]});
+        this.props.updateFishCaught({ caught, index });
+        this.setState({ model: this.props.appState.fish.fishCollection[index] });
     }
 
 
     SetItemDonated = (donated: boolean, index: number) => {
-        this.props.updateFishDonated({donated, index});
-        this.setState({model: this.props.appState.fish.fishCollection[index]});
+        this.props.updateFishDonated({ donated, index });
+        this.setState({ model: this.props.appState.fish.fishCollection[index] });
     }
 
-    constructor(props: FishDetailsProps){
+    constructor(props: FishDetailsProps) {
         super(props);
-        this.index = props.route.params.index;        
-        this.fish = props.route.params.fish;
+        this.index = props.route.params.index;
+        this.fish = props.route.params.model;
     }
 
     render() {
         return (
-            <ScrollView style={styles.detailViewScrollView} contentContainerStyle={{justifyContent: 'center'}}>
+            <ScrollView style={styles.detailViewScrollView} contentContainerStyle={{ justifyContent: 'center' }}>
                 <View style={styles.detailViewContainer}>
                     <View style={styles.imageAndNameContainer}>
                         <Image source={FishImages[this.fish.name]}></Image>
@@ -65,7 +66,7 @@ class FishDetails extends Component<FishDetailsProps, FishDetailsState> {
                         <CheckBox style={styles.checkBoxTemp} checked={this.fish.caught}></CheckBox>
                         <CheckBox style={styles.checkBoxTemp} checked={this.fish.donated}></CheckBox>
                         <View style={styles.valueContainer}>
-                            <Image source={require('../Images/Other/BellBag.png')} style={{width: 30, height: 30, marginLeft: 5}}></Image>                            
+                            <Image source={require('../Images/Other/BellBag.png')} style={{ width: 30, height: 30, marginLeft: 5 }}></Image>
                             <Text style={styles.valueText}>{this.fish.value}</Text>
                         </View>
                     </View>
@@ -111,19 +112,19 @@ class FishDetails extends Component<FishDetailsProps, FishDetailsState> {
                         <View style={styles.imageAndTextContainer}>
                             {/* TODO: Image Here (remove height from container) */}
                             <Text>{"Location Image"}</Text>
-                            <Text style={{fontFamily:'Confortaa'}}>{this.fish.locationName}</Text>
+                            <Text style={{ fontFamily: 'Confortaa' }}>{this.fish.locationName}</Text>
                         </View>
                         <View style={styles.imageAndTextContainer}>
                             {/* TODO: Image Here (remove height from container) */}
                             <Text>{"Clock Image"}</Text>
-                            <Text style={{fontFamily:'Confortaa'}}>{this.fish.time}</Text>
+                            <Text style={{ fontFamily: 'Confortaa' }}>{this.fish.time}</Text>
                         </View>
                     </View>
                     <View style={styles.shadowSizeContainer}>
                         <View style={styles.imageAndTextContainer}>
                             {/* TODO: Image Here (remove height from container) */}
                             <Text>{"Shadow Image"}</Text>
-                            <Text style={{fontFamily:'Confortaa'}}>{this.fish.shadowSizeName}</Text>
+                            <Text style={{ fontFamily: 'Confortaa' }}>{this.fish.shadowSizeName}</Text>
                         </View>
                     </View>
                     <View style={styles.rarityContainer}>
@@ -135,19 +136,19 @@ class FishDetails extends Component<FishDetailsProps, FishDetailsState> {
                             <Text>{"*"}</Text>
                             <Text>{"*"}</Text>
                             <Text>{"*"}</Text>
-                         </View>
+                        </View>
                     </View>
                     <View style={styles.blathersSaysContinaer}>
                         <Text style={styles.blathersSaysText}>{"Blathers Says: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed interdum ligula quis imperdiet pharetra. Nunc tincidunt lorem eget nibh vulputate gravida. Aenean a posuere neque. In finibus nunc non turpis fermentum, malesuada sodales odio porta. Praesent et tellus felis. Aenean eget urna ante. Morbi interdum dui dictum, iaculis ante pretium, laoreet diam. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec sollicitudin eleifend nibh sed molestie. Sed malesuada porttitor ultrices. Vivamus lobortis, eros non interdum maximus, lorem mauris feugiat ligula, blandit interdum neque erat vitae leo. Nullam erat leo, feugiat quis metus nec, lacinia laoreet lacus. Fusce eros lorem, egestas sit amet tincidunt id, lacinia eget nulla. Praesent commodo pharetra dui sed ornare."}</Text>
-                    </View>              
+                    </View>
                 </View>
             </ScrollView>
-        ) 
+        )
     }
 }
 
 const mapStateToProps = (state: any) => {
     const { appState } = state;
     return { appState }
-  };
-export default connect(mapStateToProps, {updateFishCaught, updateFishDonated})(FishDetails);
+};
+export default connect(mapStateToProps, { updateFishCaught, updateFishDonated })(FishDetails);

@@ -21,6 +21,7 @@ import {
   updateBugFilter,
   updateBugCollectionFromStorage
 } from "../Redux/CollectionActions";
+import BugImages from '../Images/BugImages';
 import { BugModel } from "../../models/CollectionModels/BugModel";
 import { filterCollectionByTextSpecial } from "../Filter/Filter";
 import { isListOfBug } from "../Filter/FilterTypes";
@@ -33,6 +34,8 @@ import { BugGridItem } from "./BugGridItem/BugGridItem";
 import FishFilterOptions from "../FishScreen/FishFilter/FishFilterOptions";
 import BugFilterOptions from "./BugFilter/BugFilterOptions";
 import BugSortOptions from "./BugSort/BugSortOptions";
+import { ListHeader } from "../Shared/ListHeader";
+import { GridItem } from "../Shared/GridItem";
 
 const defaultBugCollection: Array<BugModel> = bugs.bugs;
 
@@ -95,12 +98,20 @@ class BugScreen extends Component<BugScreenProps, BugScreenState> {
     return bugArray;
   }
 
+  showSortModal = () => this.setState({ showSortModal: true });
+  showFilterModal = () => this.setState({ showFilterModal: true });
+  setSearchText = (text: string) => {
+    this.setState({ filterText: text.toLowerCase() });
+  };
+
   //End Region
 
   render() {
     if (!this.state.isReady) {
       return <AppLoading />;
     }
+    const { navigation, updateBugCaught, updateBugDonated } = this.props;
+
     let visibleBugList = this.props.appState.bug.bugCollection;
     //Use common critter filter    
     visibleBugList = FilterBugs(this.props.appState.bug.bugAdvancedFilter, visibleBugList);
@@ -108,38 +119,15 @@ class BugScreen extends Component<BugScreenProps, BugScreenState> {
     visibleBugList = SortBugs(visibleBugList, this.props.appState.bug.bugAdvancedSort);
     return (
       <Container>
-        <Header>
-          <Item style={{ flex: 1 }}>
-            <Button
-              transparent
-              onPress={() => {
-                this.setState({ showSortModal: true });
-              }}
-            >
-              <Text> Sort </Text>
-            </Button>
-            <Input
-              autoCorrect={false}
-              placeholder="Filter"
-              onChangeText={(text: string) => {
-                this.setState({ filterText: text.toLowerCase() });
-              }}
-              returnKeyType={"done"}
-            ></Input>
-            <Button
-              transparent
-              onPress={() => {
-                this.setState({ showFilterModal: true });
-              }}
-            >
-              <Text> Filters </Text>
-            </Button>
-          </Item>
-        </Header>
+        <ListHeader
+          showSortModal={this.showSortModal}
+          showfilterModal={this.showFilterModal}
+          setSearchText={this.setSearchText}
+        />
         <FlatList
           data={visibleBugList}
-          renderItem={({ item, index, }: { item: BugModel; index: number; }) => (
-            <BugGridItem {...{ model: { ...item }, nav: this.props.navigation, updateBugCaught: this.props.updateBugCaught, updateBugDonated: this.props.updateBugDonated, }} />
+          renderItem={({ item }: { item: BugModel; index: number; }) => (
+            <GridItem model={item} navigation={navigation} updateCaught={updateBugCaught} updateDonated={updateBugDonated} navigateTo={'BugDetails'} images={BugImages} />
           )}
           numColumns={3}
           keyExtractor={(item, index) => index.toString()}
@@ -149,7 +137,7 @@ class BugScreen extends Component<BugScreenProps, BugScreenState> {
             flexDirection: "row",
           }}
         ></FlatList>
-        <Modal visible={this.state.showFilterModal} transparent={true} animationType="slide">
+        {/* <Modal visible={this.state.showFilterModal} transparent={true} animationType="slide">
           <View style={{ height: "50%" }}>
             <TouchableWithoutFeedback onPress={() => { this.setState({ showFilterModal: false }) }} style={{ width: '100%', height: '100%' }}></TouchableWithoutFeedback>
           </View>
@@ -160,7 +148,7 @@ class BugScreen extends Component<BugScreenProps, BugScreenState> {
             <TouchableWithoutFeedback onPress={() => { this.setState({ showSortModal: false }) }} style={{ width: '100%', height: '100%' }}></TouchableWithoutFeedback>
           </View>
           <BugSortOptions></BugSortOptions>
-        </Modal>
+        </Modal> */}
       </Container>
     );
   }

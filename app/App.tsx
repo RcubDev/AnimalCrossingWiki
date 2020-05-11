@@ -9,12 +9,10 @@ import SettingsScreen from './SettingsScreen/SettingsScreen';
 import { AppLoading } from 'expo';
 import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
-import { Container, Button, Text, Content, Footer } from 'native-base';
-import { Header } from 'react-native/Libraries/NewAppScreen';
+import { Container } from 'native-base';
 import FishDetails from './FishScreen/FishDetailScreen';
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
-import friendReducer from './Redux/CollectionReducer'
 import collectionReducer from './Redux/CollectionReducer'
 import AdvancedFilterSortOptions from './FishScreen/FishFilter/FishFilterOptions';
 import BugDetailScreen from './BugScreen/BugDetail/BugDetailScreen';
@@ -26,18 +24,18 @@ const store2 = createStore(collectionReducer);
 
 const fetchFonts = () => {
   return Font.loadAsync({
-  'comfortaa-regular': require('./assets/fonts/Comfortaa-Regular.ttf'),
+    'comfortaa-regular': require('./assets/fonts/Comfortaa-Regular.ttf'),
   });
-  };
-  
-  
+};
 
-export default class App extends Component<any, { isReady: boolean}> {
+
+
+export default class App extends Component<any, { isReady: boolean }> {
   constructor(props: any) {
     super(props);
     this.state = {
       isReady: false,
-    };    
+    };
   }
 
   async componentDidMount() {
@@ -59,20 +57,20 @@ export default class App extends Component<any, { isReady: boolean}> {
     return (
       <Provider store={store2}>
         <Container>
-            <NavigationContainer>
-              <Stack.Navigator screenOptions={{headerShown: true}}>
-                <Stack.Screen name="Home" component={HomeScreen} />
-                <Stack.Screen name="Fish" component={FishScreen} />
-                <Stack.Screen name="Bugs" component={BugScreen} />
-                <Stack.Screen name="BugDetails" component={BugDetailScreen}/>
-                <Stack.Screen name="FishDetails" component={FishDetails}/>
-                <Stack.Screen name="FilterAndSortScreen" component={AdvancedFilterSortOptions}/>
-                <Stack.Screen name="Settings" component={SettingsScreen}/>
-                <Stack.Screen name="Fossils" component={FossilScreen}/>
-                <Stack.Screen name="FossilDetails" component={FossilDetailScreen}/>
-                <Stack.Screen name="Artwork" component={ArtworkScreen} />
-                <Stack.Screen name="ArtworkDetails" component={ArtworkDetailScreen}/>                
-              </Stack.Navigator>
+          <NavigationContainer>
+            <Stack.Navigator screenOptions={{ headerShown: true }}>
+              <Stack.Screen name="Home" component={HomeScreen} />
+              <Stack.Screen name="Fish" component={FishScreen} />
+              <Stack.Screen name="Bugs" component={BugScreen} />
+              <Stack.Screen name="BugDetails" component={BugDetailScreen} />
+              <Stack.Screen name="FishDetails" component={FishDetails} />
+              <Stack.Screen name="FilterAndSortScreen" component={AdvancedFilterSortOptions} />
+              <Stack.Screen name="Settings" component={SettingsScreen} />
+              <Stack.Screen name="Fossils" component={FossilScreen} />
+              <Stack.Screen name="FossilDetails" component={FossilDetailScreen} />
+              <Stack.Screen name="Artwork" component={ArtworkScreen} />
+              <Stack.Screen name="ArtworkDetails" component={ArtworkDetailScreen} />
+            </Stack.Navigator>
           </NavigationContainer>
         </Container>
       </Provider>
