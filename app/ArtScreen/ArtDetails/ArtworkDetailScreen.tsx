@@ -19,7 +19,8 @@ interface ArtworkDetailsProps {
         name: string,
         params: {
             index: number,
-            artwork: ArtworkModel
+            artwork: ArtworkModel,
+            model: ArtworkModel
         }
     }
 }
@@ -40,27 +41,27 @@ class ArtworkDetailScreen extends Component<ArtworkDetailsProps, ArtworkDetailsS
     constructor(props: ArtworkDetailsProps) {
         super(props);
         this.index = props.route.params.index;
-        this.artwork = props.route.params.artwork;
+        this.artwork = props.route.params.model;
         this.state = {
             showingReal: true,
             currentImage: ArtworkImages[this.artwork.name]
         }
     }
 
-    SwapFakeReal(){
-        if(this.artwork.hasFake){
-            if(this.state.showingReal){
-                this.setState({currentImage: ArtworkImages["Fake " + this.artwork.name], showingReal: false})            
+    SwapFakeReal() {
+        if (this.artwork.hasFake) {
+            if (this.state.showingReal) {
+                this.setState({ currentImage: ArtworkImages["Fake " + this.artwork.name], showingReal: false })
             }
-            else{
-                this.setState({currentImage: ArtworkImages[this.artwork.name], showingReal: true})            
+            else {
+                this.setState({ currentImage: ArtworkImages[this.artwork.name], showingReal: true })
             }
         }
     }
 
     render() {
-        let item = this.props.appState.art.artworkCollection.find(x => x.id === this.props.route.params.artwork.id);
-        this.artwork = item ? item : this.props.route.params.artwork
+        let item = this.props.appState.art.artworkCollection.find(x => x.id === this.props.route.params.model.id);
+        this.artwork = item ? item : this.props.route.params.model
         return (
             <ScrollView style={styles.detailViewScrollView} contentContainerStyle={{ justifyContent: 'center' }}>
                 <View style={styles.detailViewContainer}>
@@ -71,8 +72,8 @@ class ArtworkDetailScreen extends Component<ArtworkDetailsProps, ArtworkDetailsS
                         </View>
                     </View>
                     <View style={styles.caughtDonatedValueContainer}>
-                        <CheckBox onPress={() => {this.SetItemDonated(!this.artwork.donated, this.artwork.id)}} style={styles.checkBoxTemp} checked={this.artwork.donated}></CheckBox>
-                        <TouchableOpacity onPress={() => this.SwapFakeReal()} style={{borderColor: "black", borderRadius: 20, borderWidth: 5, padding: 30}}>
+                        <CheckBox onPress={() => { this.SetItemDonated(!this.artwork.donated, this.artwork.id) }} style={styles.checkBoxTemp} checked={this.artwork.donated}></CheckBox>
+                        <TouchableOpacity onPress={() => this.SwapFakeReal()} style={{ borderColor: "black", borderRadius: 20, borderWidth: 5, padding: 30 }}>
                             <Text style={styles.valueText}>{this.artwork.hasFake ? this.state.showingReal ? "Show Fake" : "Show Real" : "Always Real"}</Text>
                         </TouchableOpacity>
                     </View>

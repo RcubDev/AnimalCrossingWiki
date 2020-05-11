@@ -19,7 +19,8 @@ interface FossilDetailsProps {
         name: string,
         params: {
             index: number,
-            fossil: FossilModel
+            fossil: FossilModel,
+            model: FossilModel
         }
     }
 }
@@ -40,12 +41,12 @@ class FossilDetails extends Component<FossilDetailsProps, FossilDetailsState> {
     constructor(props: FossilDetailsProps) {
         super(props);
         this.index = props.route.params.index;
-        this.fossil = props.route.params.fossil;
+        this.fossil = props.route.params.model;
     }
 
     render() {
-        let item = this.props.appState.fossil.fossilCollection.find(x => x.id === this.props.route.params.fossil.id);
-        this.fossil = item ? item : this.props.route.params.fossil
+        let item = this.props.appState.fossil.fossilCollection.find(x => x.id === this.props.route.params.model.id);
+        this.fossil = item ? item : this.props.route.params.model
         return (
             <ScrollView style={styles.detailViewScrollView} contentContainerStyle={{ justifyContent: 'center' }}>
                 <View style={styles.detailViewContainer}>
@@ -59,7 +60,7 @@ class FossilDetails extends Component<FossilDetailsProps, FossilDetailsState> {
                         </View>
                     </View>
                     <View style={styles.caughtDonatedValueContainer}>
-                        <CheckBox onPress={() => {this.SetItemDonated(!this.fossil.donated, this.fossil.id)}} style={styles.checkBoxTemp} checked={this.fossil.donated}></CheckBox>
+                        <CheckBox onPress={() => { this.SetItemDonated(!this.fossil.donated, this.fossil.id) }} style={styles.checkBoxTemp} checked={this.fossil.donated}></CheckBox>
                         <View style={styles.valueContainer}>
                             <Image source={require('../../Images/Other/BellBag.png')} style={{ width: 30, height: 30, marginLeft: 5 }}></Image>
                             <Text style={styles.valueText}>{this.fossil.value}</Text>

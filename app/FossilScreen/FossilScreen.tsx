@@ -2,7 +2,7 @@
 import fossils from "../../data/fossils.json";
 import { SortCritters } from "../AdvancedSortLogic/SortAdvanced";
 import { FossilScreenProps } from "../../models/MainScreenModels/FossilScreen/FossilScreenProps";
-import { FossilModel } from "../../models/CollectionModels/FossilModel";
+import { FossilModel } from '../../models/CollectionModels/FossilModel';
 import React, { Component } from "react";
 import { FossilScreenState } from "../../models/MainScreenModels/FossilScreen/FossilScreenState";
 import { AsyncStorage, FlatList } from "react-native";
@@ -16,6 +16,8 @@ import {
     updateFossilCollectionFromStorage
 } from "../Redux/CollectionActions";
 import { ListHeader } from "../Shared/ListHeader";
+import { GridItem } from '../Shared/GridItem';
+import FossilImages from "../Images/FossilImages";
 
 
 const defaultFossilCollection: Array<FossilModel> = fossils.fossils;
@@ -64,7 +66,11 @@ class FossilScreen extends Component<FossilScreenProps, FossilScreenState> {
         this.setState({ filterText: text.toLowerCase() });
     };
 
+
     render() {
+
+        const { navigation, updateFossilDonated } = this.props;
+
         if (!this.state.isReady) {
             return <AppLoading />;
         }
@@ -77,8 +83,8 @@ class FossilScreen extends Component<FossilScreenProps, FossilScreenState> {
                 />
                 <FlatList
                     data={fossils}
-                    renderItem={({ item, index, }: { item: FossilModel; index: number; }) => (
-                        <FossilGridItem {...{ model: { ...item }, nav: this.props.navigation, updateFossilDonated: this.props.updateFossilDonated }} />
+                    renderItem={({ item }: { item: FossilModel; index: number; }) => (
+                        <GridItem model={item} navigation={navigation} updateDonated={updateFossilDonated} navigateTo={'FossilDetails'} images={FossilImages} />
                     )}
                     numColumns={3}
                     keyExtractor={(item, index) => index.toString()}
@@ -88,7 +94,7 @@ class FossilScreen extends Component<FossilScreenProps, FossilScreenState> {
                         flexDirection: "row",
                     }}
                 ></FlatList>
-            </Container>
+            </Container >
         )
     }
 }

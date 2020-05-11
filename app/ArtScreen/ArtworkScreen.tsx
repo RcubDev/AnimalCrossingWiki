@@ -12,8 +12,11 @@ import { connect } from "react-redux";
 import {
     updateArtworkDonated,
     updateArtworkCollectionFromStorage
-  } from "../Redux/CollectionActions";
+} from "../Redux/CollectionActions";
 import { ArtworkGridItem } from "./ArtGridItem/ArtworkGridItem";
+import { ListHeader } from "../Shared/ListHeader";
+import ArtworkImages from '../Images/ArtworkImages';
+import { GridItem } from "../Shared/GridItem";
 
 
 const defaultArtworkCollection: Array<ArtworkModel> = artworks.artwork;
@@ -58,46 +61,31 @@ class ArtworkScreen extends Component<ArtworkScreenProps, ArtworkScreenState> {
         return artworkArray;
     }
 
+    setSearchText = (text: string) => {
+        this.setState({ filterText: text.toLowerCase() });
+    };
+
+
     render() {
         if (!this.state.isReady) {
             return <AppLoading />;
         }
+        const { navigation, updateArtworkDonated } = this.props;
+
         let artworks = this.props.appState.art.artworkCollection;
         artworks = this.FilterArtworkByText(this.state.filterText, artworks);
         return (
             <Container>
-                <Header>
-                    <Item style={{ flex: 1 }}>
-                        <Button
-                            transparent
-                            onPress={() => {
-
-                            }}
-                        >
-                            <Text> Sort </Text>
-                        </Button>
-                        <Input
-                            autoCorrect={false}
-                            placeholder="Filter"
-                            onChangeText={(text: string) => {
-                                this.setState({ filterText: text.toLowerCase() });
-                            }}
-                            returnKeyType={"done"}
-                        ></Input>
-                        <Button
-                            transparent
-                            onPress={() => {
-
-                            }}
-                        >
-                            <Text> Filters </Text>
-                        </Button>
-                    </Item>
-                </Header>
+                <ListHeader
+                    setSearchText={this.setSearchText}
+                />
                 <FlatList
                     data={artworks}
+                    // renderItem={({ item, index, }: { item: ArtworkModel; index: number; }) => (
+                    //     <ArtworkGridItem {...{ model: { ...item }, nav: this.props.navigation, updateArtworkDonated: this.props.updateArtworkDonated }} />
+                    // )}
                     renderItem={({ item, index, }: { item: ArtworkModel; index: number; }) => (
-                        <ArtworkGridItem {...{ model: { ...item }, nav: this.props.navigation, updateArtworkDonated: this.props.updateArtworkDonated }} />
+                        <GridItem model={item} navigation={navigation} updateDonated={updateArtworkDonated} navigateTo={'ArtworkDetails'} images={ArtworkImages} />
                     )}
                     numColumns={2}
                     keyExtractor={(item, index) => index.toString()}
@@ -114,10 +102,9 @@ class ArtworkScreen extends Component<ArtworkScreenProps, ArtworkScreenState> {
 const mapStateToProps = (state: any) => {
     const { appState } = state;
     return { appState };
-  };
-  
-  export default connect(mapStateToProps, {
+};
+
+export default connect(mapStateToProps, {
     updateArtworkCollectionFromStorage,
     updateArtworkDonated
-  })(ArtworkScreen);
-  
+})(ArtworkScreen);
