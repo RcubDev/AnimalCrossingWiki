@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { UPDATE_FISH_CAUGHT, UPDATE_FISH_DONATED, FishActionTypes, UpdateFishDonated, UpdateFishCaught, UpdateFishFilter, UPDATE_FISH_FILTER, UPDATE_FISH_COLLECTION, UpdateFishCollection, UPDATE_IN_GAME_DATE, UPDATE_HEMISPHERE, UpdateInGameTime, UpdateHemisphere, UPDATE_FISH_SORT, UpdateFishSort, UPDATE_BUG_COLLECTION, UpdateBugCollection, UpdateBugCaught, UpdateBugDonated, UpdateBugSort, UpdateBugFilter, UPDATE_BUG_CAUGHT, UPDATE_BUG_DONATED, UPDATE_BUG_FILTER, UPDATE_BUG_SORT, UPDATE_FOSSIL_COLLECTION, UpdateFossilCollection, UPDATE_FOSSIL_DONATED, UpdateFossilDonated, UpdateArtworkDonated, UpdateArtworkCollection, UPDATE_ARTWORK_COLLECTION, UPDATE_ARTWORK_DONATED } from './Types'
+import { UPDATE_FISH_CAUGHT, UPDATE_FISH_DONATED, ActionTypes, UpdateFishDonated, UpdateFishCaught, UpdateFishFilter, UPDATE_FISH_FILTER, UPDATE_FISH_COLLECTION, UpdateFishCollection, UPDATE_IN_GAME_DATE, UPDATE_HEMISPHERE, UpdateInGameTime, UpdateHemisphere, UPDATE_FISH_SORT, UpdateFishSort, UPDATE_BUG_COLLECTION, UpdateBugCollection, UpdateBugCaught, UpdateBugDonated, UpdateBugSort, UpdateBugFilter, UPDATE_BUG_CAUGHT, UPDATE_BUG_DONATED, UPDATE_BUG_FILTER, UPDATE_BUG_SORT, UPDATE_FOSSIL_COLLECTION, UpdateFossilCollection, UPDATE_FOSSIL_DONATED, UpdateFossilDonated, UpdateArtworkDonated, UpdateArtworkCollection, UPDATE_ARTWORK_COLLECTION, UPDATE_ARTWORK_DONATED } from './Types'
 import { ApplicationState } from '../../models/ApplicationState/ApplicationState';
 import { AsyncStorage } from 'react-native';
 import { AdvancedSortFilterFishModel } from '../../models/MainScreenModels/FishScreen/AdvancedSortFilterFishModel';
@@ -67,7 +67,7 @@ const INITIAL_STATE2: ApplicationState = {
 
 
 
-const collectionReducer = (state = INITIAL_STATE2, action: FishActionTypes): ApplicationState => {
+const collectionReducer = (state = INITIAL_STATE2, action: ActionTypes): ApplicationState => {
   switch (action.type) {
     case UPDATE_FISH_CAUGHT:
       return updateFishCaughtAction(state, action);

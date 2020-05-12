@@ -5,7 +5,6 @@ import {
   Container,
 } from "native-base";
 import { FlatList } from "react-native-gesture-handler";
-import { FishGridItem } from "./FishGridItem/FishGridItem";
 import { AppLoading } from "expo";
 import styles from "./FishScreen.styles";
 import { FishScreenProps } from "../../models/MainScreenModels/FishScreen/FishScreenProps";

@@ -13,7 +13,6 @@ import {
     updateArtworkDonated,
     updateArtworkCollectionFromStorage
 } from "../Redux/CollectionActions";
-import { ArtworkGridItem } from "./ArtGridItem/ArtworkGridItem";
 import { ListHeader } from "../Shared/ListHeader";
 import ArtworkImages from '../Images/ArtworkImages';
 import { GridItem } from "../Shared/GridItem";
@@ -81,9 +80,6 @@ class ArtworkScreen extends Component<ArtworkScreenProps, ArtworkScreenState> {
                 />
                 <FlatList
                     data={artworks}
-                    // renderItem={({ item, index, }: { item: ArtworkModel; index: number; }) => (
-                    //     <ArtworkGridItem {...{ model: { ...item }, nav: this.props.navigation, updateArtworkDonated: this.props.updateArtworkDonated }} />
-                    // )}
                     renderItem={({ item, index, }: { item: ArtworkModel; index: number; }) => (
                         <GridItem model={item} navigation={navigation} updateDonated={updateArtworkDonated} navigateTo={'ArtworkDetails'} images={ArtworkImages} />
                     )}

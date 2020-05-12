@@ -136,24 +136,24 @@ interface UpdateHemisphere {
 
 export type {
     UpdateFishDonated,
-    UpdateFishCaught,
-    UpdateFishFilter,
-    UpdateFishCollection,
-    UpdateFishSort,
-    UpdateInGameTime,
-    UpdateHemisphere,
-    UpdateBugDonated,
-    UpdateBugCaught,
-    UpdateBugFilter,
-    UpdateBugCollection,
-    UpdateBugSort,
-    UpdateFossilCollection,
-    UpdateFossilDonated,
-    UpdateArtworkCollection,
-    UpdateArtworkDonated
+        UpdateFishCaught,
+        UpdateFishFilter,
+        UpdateFishCollection,
+        UpdateFishSort,
+        UpdateInGameTime,
+        UpdateHemisphere,
+        UpdateBugDonated,
+        UpdateBugCaught,
+        UpdateBugFilter,
+        UpdateBugCollection,
+        UpdateBugSort,
+        UpdateFossilCollection,
+        UpdateFossilDonated,
+        UpdateArtworkCollection,
+        UpdateArtworkDonated
 };
 
-export type FishActionTypes =
+export type ActionTypes =
     UpdateFishCaught |
     UpdateFishDonated |
     UpdateFishFilter |

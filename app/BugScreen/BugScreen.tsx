@@ -1,13 +1,8 @@
 import React, { Component } from "react";
 import { Text, View, Image, Platform, Modal, AsyncStorage } from "react-native";
 import bugs from "../../data/bugs.json";
-// import { Grid } from 'native-base';
 import {
   Container,
-  Header,
-  Item,
-  Input,
-  Button,
 } from "native-base";
 import { FlatList, TouchableWithoutFeedback } from "react-native-gesture-handler";
 import { AppLoading } from "expo";

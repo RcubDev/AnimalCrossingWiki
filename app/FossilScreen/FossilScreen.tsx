@@ -1,13 +1,11 @@
 
 import fossils from "../../data/fossils.json";
-import { SortCritters } from "../AdvancedSortLogic/SortAdvanced";
 import { FossilScreenProps } from "../../models/MainScreenModels/FossilScreen/FossilScreenProps";
 import { FossilModel } from '../../models/CollectionModels/FossilModel';
 import React, { Component } from "react";
 import { FossilScreenState } from "../../models/MainScreenModels/FossilScreen/FossilScreenState";
 import { AsyncStorage, FlatList } from "react-native";
-import { Item, Input, Button, Text, Container, Header } from "native-base";
-import { FossilGridItem } from "./FossilGridItem/FossilGridItem";
+import { Container } from "native-base";
 import { AppLoading } from "expo";
 import styles from './FossilScreen.styles'
 import { connect } from "react-redux";
@@ -19,9 +17,7 @@ import { ListHeader } from "../Shared/ListHeader";
 import { GridItem } from '../Shared/GridItem';
 import FossilImages from "../Images/FossilImages";
 
-
 const defaultFossilCollection: Array<FossilModel> = fossils.fossils;
-
 
 class FossilScreen extends Component<FossilScreenProps, FossilScreenState> {
     constructor(props: FossilScreenProps) {
