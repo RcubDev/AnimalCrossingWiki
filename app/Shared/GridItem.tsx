@@ -1,15 +1,13 @@
 import React, { PureComponent } from 'react';
 import { View, Card, CardItem, CheckBox } from 'native-base';
-import styles from './GridItemStyles';
 import { Image, Text } from 'react-native';
 import { IDictionary } from '../Images/FishImages';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { NavigationScreenProp } from 'react-navigation';
-import { updateFishCaught, updateFishDonated, CollectionActions } from '../Redux/CollectionActions';
+import { updateFishCaught, updateFishDonated } from '../Redux/CollectionActions';
 import { CritterModel } from '../../models/CollectionModels/CritterModel';
 import { FossilModel } from '../../models/CollectionModels/FossilModel';
 import { ArtworkModel } from '../../models/CollectionModels/ArtworkModel';
-import { ActionTypes } from '../Redux/Types';
 
 export class GridItem extends PureComponent<GridItemProps> {
 
@@ -20,7 +18,7 @@ export class GridItem extends PureComponent<GridItemProps> {
   setItemDonated = () => this.props.updateDonated({ donated: !this.props.model.donated, index: this.props.model.id });
 
   render() {
-    const { model, images } = this.props;
+    const { model, images, styles } = this.props;
     const { donated, name, id, caught } = (model as CritterModel);
 
     return (
@@ -51,8 +49,8 @@ export interface GridItemProps {
   model: CritterModel | FossilModel | ArtworkModel,
   navigation: NavigationScreenProp<any>,
   navigateTo: string,
-  updateCaught?: typeof CollectionActions.updateFishCaught,
+  updateCaught?: typeof updateFishCaught,
   updateDonated: typeof updateFishDonated,
   images: IDictionary,
-  styles: any,
+  styles: any, // TDO add styles interface
 }

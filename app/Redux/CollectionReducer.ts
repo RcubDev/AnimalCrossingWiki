@@ -109,30 +109,21 @@ const collectionReducer = (state = INITIAL_STATE2, action: ActionTypes): Applica
 };
 
 function updateInGameTime(state: ApplicationState, action: UpdateInGameTime): ApplicationState {
-  let newState = state;
-  newState.userSettings.inGameTime = action.payload;
   AsyncStorage.setItem('InGameTimeOffSet', JSON.stringify(action.payload));
-  return Object.assign({}, state, newState);
+  return {...state, userSettings: {...state.userSettings, inGameTime: action.payload}};  
 }
 
 function updateFishSort(state: ApplicationState, action: UpdateFishSort): ApplicationState {
-  let newState = state;
-  newState.fish.fishAdvancedSort = action.payload;
-  return Object.assign({}, state, newState);
+  return {...state, fish: {...state.fish, fishAdvancedSort: action.payload}};  
 }
 
 function updateBugSort(state: ApplicationState, action: UpdateBugSort): ApplicationState {
-  let newState = state;
-  newState.bug.bugAdvancedSort = action.payload;
-  return Object.assign({}, state, newState);
+  return {...state, bug: {...state.bug, bugAdvancedSort: action.payload}};  
 }
 
-
 function updateHemisphere(state: ApplicationState, action: UpdateHemisphere): ApplicationState {
-  let newState = state;
-  newState.userSettings.isNorthernHemisphere = action.payload;
   AsyncStorage.setItem('IsNorthernHemisphere', action.payload.toString());
-  return Object.assign({}, state, newState);
+  return {...state, userSettings: {...state.userSettings, isNorthernHemisphere: action.payload}};  
 }
 
 function updateAdvancedSortFilterFish(state: ApplicationState, action: UpdateFishFilter): ApplicationState {
@@ -140,33 +131,23 @@ function updateAdvancedSortFilterFish(state: ApplicationState, action: UpdateFis
 }
 
 function updateAdvancedSortFilterBug(state: ApplicationState, action: UpdateBugFilter): ApplicationState {
-  let newState = state;
-  newState.bug.bugAdvancedFilter = action.payload;
-  return Object.assign({}, state, newState);
+  return {...state, bug: {...state.bug, bugAdvancedFilter: action.payload}};  
 }
 
 function updateFishCollectionFromStorage(state: ApplicationState, action: UpdateFishCollection): ApplicationState {
-  let newState = state;
-  newState.fish.fishCollection = action.payload;
-  return Object.assign({}, state, newState);
+  return {...state, fish: {...state.fish, fishCollection: action.payload}};
 }
 
 function updateBugCollectionFromStorage(state: ApplicationState, action: UpdateBugCollection): ApplicationState {
-  let newState = state;
-  newState.bug.bugCollection = action.payload;
-  return Object.assign({}, state, newState);
+  return {...state, bug: {...state.bug, bugCollection: action.payload}};
 }
 
 function updateFossilCollectionFromStorage(state: ApplicationState, action: UpdateFossilCollection): ApplicationState {
-  let newState = state;
-  newState.fossil.fossilCollection = action.payload;
-  return Object.assign({}, state, newState);
+  return {...state, fossil: {...state.fossil, fossilCollection: action.payload}};
 }
 
 function updateArtworkCollectionFromStorage(state: ApplicationState, action: UpdateArtworkCollection): ApplicationState {
-  let newState = state;
-  newState.art.artworkCollection = action.payload;
-  return Object.assign({}, state, newState);
+  return {...state, art: {...state.art, artworkCollection: action.payload}};
 }
 
 function updateFishCaughtAction(state: ApplicationState, action: UpdateFishCaught): ApplicationState {
@@ -178,14 +159,11 @@ function updateFishCaughtAction(state: ApplicationState, action: UpdateFishCaugh
 }
 
 function updateBugCaughtAction(state: ApplicationState, action: UpdateBugCaught): ApplicationState {
-  const appState = state;
-  let updatedBug = appState.bug.bugCollection.find(item => item.id === action.payload.index);
-  if (updatedBug) {
-    updatedBug.caught = action.payload.caught;
-  }
-  let updatedCollection = Object.assign({}, state, appState)
-  AsyncStorage.setItem('bugStore', JSON.stringify(updatedCollection.bug.bugCollection));
-  return updatedCollection;
+  const updatedCollection = state.bug.bugCollection.map(bug => bug.id === action.payload.index ? { ...bug, caught: action.payload.caught } : bug);
+  AsyncStorage.setItem('bugStore', JSON.stringify(updatedCollection));
+  return {
+    ...state, bug: { ...state.bug, bugCollection: updatedCollection }
+  };
 }
 
 function updateFishDonatedAction(state: ApplicationState, action: UpdateFishDonated): ApplicationState {
@@ -197,39 +175,27 @@ function updateFishDonatedAction(state: ApplicationState, action: UpdateFishDona
 }
 
 function updateBugDonatedAction(state: ApplicationState, action: UpdateBugDonated): ApplicationState {
-  const appState = state;
-  let updatedBug = appState.bug.bugCollection.find(item => item.id === action.payload.index);
-  if (updatedBug) {
-    if (action.payload.donated) {
-      updatedBug.caught = true;
-    }
-    updatedBug.donated = action.payload.donated;
-  }
-  let updatedCollection = Object.assign({}, state, appState)
-  AsyncStorage.setItem('bugStore', JSON.stringify(updatedCollection.bug.bugCollection));
-  return updatedCollection;
+  const updatedCollection = state.bug.bugCollection.map(bug => bug.id === action.payload.index ? { ...bug, caught: action.payload.donated ? true : bug.caught, donated: action.payload.donated } : bug);
+  AsyncStorage.setItem('bugStore', JSON.stringify(updatedCollection));
+  return {
+    ...state, bug: { ...state.bug, bugCollection: updatedCollection }
+  };
 }
 
 function updateFossilDonated(state: ApplicationState, action: UpdateFossilDonated): ApplicationState {
-  const appState = state;
-  let updatedFossil = appState.fossil.fossilCollection.find(item => item.id === action.payload.index);
-  if (updatedFossil) {
-    updatedFossil.donated = action.payload.donated;
-  }
-  let updatedCollection = Object.assign({}, state, appState)
-  AsyncStorage.setItem('fossilStore', JSON.stringify(updatedCollection.fossil.fossilCollection));
-  return updatedCollection;
+  const updatedCollection = state.fossil.fossilCollection.map(fossil => fossil.id === action.payload.index ? { ...fossil, donated: action.payload.donated } : fossil);
+  AsyncStorage.setItem('fossilStore', JSON.stringify(updatedCollection));
+  return {
+    ...state, fossil: { ...state.fossil, fossilCollection: updatedCollection }
+  };
 }
 
 function updateArtworkDonated(state: ApplicationState, action: UpdateArtworkDonated): ApplicationState {
-  const appState = state;
-  let updatedArtwork = appState.art.artworkCollection.find(item => item.id === action.payload.index);
-  if (updatedArtwork) {
-    updatedArtwork.donated = action.payload.donated;
-  }
-  let updatedCollection = Object.assign({}, state, appState)
-  AsyncStorage.setItem('artworkStore', JSON.stringify(updatedCollection.art.artworkCollection));
-  return updatedCollection;
+  const updatedCollection = state.art.artworkCollection.map(art => art.id === action.payload.index ? { ...art, donated: action.payload.donated } : art);
+  AsyncStorage.setItem('artStore', JSON.stringify(updatedCollection));
+  return {
+    ...state, art: { ...state.art, artworkCollection: updatedCollection }
+  };
 }
 
 export default combineReducers({

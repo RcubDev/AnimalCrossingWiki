@@ -1,39 +1,37 @@
-import React, { Component } from "react";
-import { Text, View, Image, Platform, Modal, AsyncStorage } from "react-native";
-import bugs from "../../data/bugs.json";
+import React, { Component } from 'react';
+import { AsyncStorage } from 'react-native';
+import { FlatList } from 'react-native-gesture-handler';
+import bugs from '../../data/bugs.json';
 import {
   Container,
-} from "native-base";
-import { FlatList, TouchableWithoutFeedback } from "react-native-gesture-handler";
-import { AppLoading } from "expo";
-import styles from "./BugScreen.styles";
-import { BugScreenProps } from "../../models/MainScreenModels/BugScreen/BugScreenProps";
-import { BugScreenState } from "../../models/MainScreenModels/BugScreen/BugScreenState";
-import { connect } from "react-redux";
+} from 'native-base';
+import { AppLoading } from 'expo';
+import styles from '../Shared/Screen.styles';
+import { BugScreenProps } from '../../models/MainScreenModels/BugScreen/BugScreenProps';
+import { BugScreenState } from '../../models/MainScreenModels/BugScreen/BugScreenState';
+import { connect } from 'react-redux';
 import {
   updateBugCaught,
   updateBugDonated,
   updateBugFilter,
   updateBugCollectionFromStorage
-} from "../Redux/CollectionActions";
+} from '../Redux/CollectionActions';
 import BugImages from '../Images/BugImages';
-import { BugModel } from "../../models/CollectionModels/BugModel";
-import { filterCollectionByTextSpecial } from "../Filter/Filter";
-import { isListOfBug } from "../Filter/FilterTypes";
-import AdvancedFilterSortOptions from "../FishScreen/FishFilter/FishFilterOptions";
-import AdvancedSortOptions from "../FishScreen/FishSort/FishSortOptions";
-import { FilterCritters } from "../AdvancedFilterLogic/CritterFilterAdvanced";
-import { FilterBugs } from "../AdvancedFilterLogic/BugFilterAdvanced";
-import { SortBugs } from "../AdvancedSortLogic/BugSortAdvanced";
-import { BugGridItem } from "./BugGridItem/BugGridItem";
-import FishFilterOptions from "../FishScreen/FishFilter/FishFilterOptions";
-import BugFilterOptions from "./BugFilter/BugFilterOptions";
-import BugSortOptions from "./BugSort/BugSortOptions";
-import { ListHeader } from "../Shared/ListHeader";
-import { GridItem } from "../Shared/GridItem";
+import { BugModel } from '../../models/CollectionModels/BugModel';
+import { filterCollectionByTextSpecial } from '../Filter/Filter';
+import { isListOfBug } from '../Filter/FilterTypes';
+import AdvancedFilterSortOptions from '../FishScreen/FishFilter/FishFilterOptions';
+import AdvancedSortOptions from '../FishScreen/FishSort/FishSortOptions';
+import { FilterCritters } from '../AdvancedFilterLogic/CritterFilterAdvanced';
+import { FilterBugs } from '../AdvancedFilterLogic/BugFilterAdvanced';
+import { SortBugs } from '../AdvancedSortLogic/BugSortAdvanced';
+import FishFilterOptions from '../FishScreen/FishFilter/FishFilterOptions';
+import BugFilterOptions from './BugFilter/BugFilterOptions';
+import BugSortOptions from './BugSort/BugSortOptions';
+import { ListHeader } from '../Shared/ListHeader';
+import { GridItem } from '../Shared/GridItem';
 
 const defaultBugCollection: Array<BugModel> = bugs.bugs;
-
 
 class BugScreen extends Component<BugScreenProps, BugScreenState> {
   focusListener: any;
@@ -41,7 +39,7 @@ class BugScreen extends Component<BugScreenProps, BugScreenState> {
     super(props);
     this.state = {
       isReady: false,
-      filterText: "",
+      filterText: '',
       showFilterModal: false,
       showSortModal: false
     };
@@ -59,19 +57,11 @@ class BugScreen extends Component<BugScreenProps, BugScreenState> {
     this.setState({ isReady: true });
   }
 
-  SetItemCaught = (caught: boolean, index: number) => {
-    this.props.updateBugCaught({ caught, index });
-  };
-
-  SetItemDonated = (donated: boolean, index: number) => {
-    this.props.updateBugDonated({ donated, index });
-  };
-
   filterBugByText(text: string, bugs: Array<BugModel>): Array<BugModel> {
     var allBug = bugs;
     //read text until key word -- if no key words involved assume name
     let bugArray: Array<BugModel> = [];
-    let filterSpecial = text.includes("filter:");
+    let filterSpecial = text.includes('filter:');
     text = text.toLowerCase();
     if (filterSpecial) {
       try {
@@ -94,12 +84,12 @@ class BugScreen extends Component<BugScreenProps, BugScreenState> {
   }
 
   showSortModal = () => this.setState({ showSortModal: true });
+
   showFilterModal = () => this.setState({ showFilterModal: true });
+
   setSearchText = (text: string) => {
     this.setState({ filterText: text.toLowerCase() });
   };
-
-  //End Region
 
   render() {
     if (!this.state.isReady) {
@@ -121,25 +111,25 @@ class BugScreen extends Component<BugScreenProps, BugScreenState> {
         />
         <FlatList
           data={visibleBugList}
-          renderItem={({ item }: { item: BugModel; index: number; }) => (
-            <GridItem model={item} navigation={navigation} updateCaught={updateBugCaught} updateDonated={updateBugDonated} navigateTo={'BugDetails'} images={BugImages} />
+          renderItem={({ item }: { item: BugModel }) => (
+            <GridItem model={item} navigation={navigation} updateCaught={updateBugCaught} updateDonated={updateBugDonated} navigateTo={'BugDetails'} images={BugImages} styles={styles}/>
           )}
           numColumns={3}
-          keyExtractor={(item, index) => index.toString()}
+          keyExtractor={(item: BugModel, index: number) => index.toString()}
           contentContainerStyle={styles.flatListContainerContent}
           columnWrapperStyle={{
-            justifyContent: "space-evenly",
-            flexDirection: "row",
+            justifyContent: 'space-evenly',
+            flexDirection: 'row',
           }}
         ></FlatList>
-        {/* <Modal visible={this.state.showFilterModal} transparent={true} animationType="slide">
-          <View style={{ height: "50%" }}>
+        {/* <Modal visible={this.state.showFilterModal} transparent={true} animationType='slide'>
+          <View style={{ height: '50%' }}>
             <TouchableWithoutFeedback onPress={() => { this.setState({ showFilterModal: false }) }} style={{ width: '100%', height: '100%' }}></TouchableWithoutFeedback>
           </View>
           <BugFilterOptions></BugFilterOptions>
         </Modal>
-        <Modal visible={this.state.showSortModal} transparent={true} animationType="slide">
-          <View style={{ height: "50%" }}>
+        <Modal visible={this.state.showSortModal} transparent={true} animationType='slide'>
+          <View style={{ height: '50%' }}>
             <TouchableWithoutFeedback onPress={() => { this.setState({ showSortModal: false }) }} style={{ width: '100%', height: '100%' }}></TouchableWithoutFeedback>
           </View>
           <BugSortOptions></BugSortOptions>
