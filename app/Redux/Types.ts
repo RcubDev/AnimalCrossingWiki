@@ -6,16 +6,7 @@ import { AdvancedFilterBugModel } from "../../models/Filter/AdvancedFilterBugMod
 import { AdvancedSortBugModel } from "../../models/Sort/AdvancedSortBugModel";
 import { FossilModel } from "../../models/CollectionModels/FossilModel";
 import { ArtworkModel } from "../../models/CollectionModels/ArtworkModel";
-
-export interface CaughtPayload {
-    index: number,
-    caught: boolean
-}
-//I realized these can be reused
-export interface DonatedPayload {
-    index: number,
-    donated: boolean
-}
+import { ItemDonatedPayload, CaughtPayload } from "../ReduxV2/Types";
 
 export interface InGameTimeOffSetPayload {
     minutes: number
@@ -56,7 +47,7 @@ interface UpdateArtworkCollection {
 
 interface UpdateArtworkDonated {
     type: typeof UPDATE_ARTWORK_DONATED,
-    payload: DonatedPayload
+    payload: ItemDonatedPayload
 }
 
 //Fossil Action Interfaces
@@ -67,7 +58,7 @@ interface UpdateFossilCollection {
 
 interface UpdateFossilDonated {
     type: typeof UPDATE_FOSSIL_DONATED,
-    payload: DonatedPayload
+    payload: ItemDonatedPayload
 }
 
 //Fish Action Interfaces
@@ -78,7 +69,7 @@ interface UpdateFishCaught {
 
 interface UpdateFishDonated {
     type: typeof UPDATE_FISH_DONATED,
-    payload: DonatedPayload
+    payload: ItemDonatedPayload
 }
 
 interface UpdateFishFilter {
@@ -99,7 +90,7 @@ interface UpdateFishSort {
 //Bug Action Interfaces
 interface UpdateBugDonated {
     type: typeof UPDATE_BUG_DONATED,
-    payload: DonatedPayload
+    payload: ItemDonatedPayload
 }
 
 interface UpdateBugCaught {

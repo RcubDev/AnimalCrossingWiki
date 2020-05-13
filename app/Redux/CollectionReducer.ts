@@ -170,7 +170,7 @@ function updateArtworkCollectionFromStorage(state: ApplicationState, action: Upd
 }
 
 function updateFishCaughtAction(state: ApplicationState, action: UpdateFishCaught): ApplicationState {
-  const updatedCollection = state.fish.fishCollection.map(fish => fish.id === action.payload.index ? { ...fish, caught: action.payload.caught } : fish);
+  const updatedCollection = state.fish.fishCollection.map(fish => fish.id === action.payload.id ? { ...fish, caught: action.payload.caught } : fish);
   AsyncStorage.setItem('fishStore', JSON.stringify(updatedCollection));
   return {
     ...state, fish: { ...state.fish, fishCollection: updatedCollection }
@@ -179,7 +179,7 @@ function updateFishCaughtAction(state: ApplicationState, action: UpdateFishCaugh
 
 function updateBugCaughtAction(state: ApplicationState, action: UpdateBugCaught): ApplicationState {
   const appState = state;
-  let updatedBug = appState.bug.bugCollection.find(item => item.id === action.payload.index);
+  let updatedBug = appState.bug.bugCollection.find(item => item.id === action.payload.id);
   if (updatedBug) {
     updatedBug.caught = action.payload.caught;
   }
@@ -189,7 +189,7 @@ function updateBugCaughtAction(state: ApplicationState, action: UpdateBugCaught)
 }
 
 function updateFishDonatedAction(state: ApplicationState, action: UpdateFishDonated): ApplicationState {
-  const updatedCollection = state.fish.fishCollection.map(fish => fish.id === action.payload.index ? { ...fish, caught: action.payload.donated ? true : fish.caught, donated: action.payload.donated } : fish);
+  const updatedCollection = state.fish.fishCollection.map(fish => fish.id === action.payload.id ? { ...fish, caught: action.payload.donated ? true : fish.caught, donated: action.payload.donated } : fish);
   AsyncStorage.setItem('fishStore', JSON.stringify(updatedCollection));
   return {
     ...state, fish: { ...state.fish, fishCollection: updatedCollection }
@@ -198,7 +198,7 @@ function updateFishDonatedAction(state: ApplicationState, action: UpdateFishDona
 
 function updateBugDonatedAction(state: ApplicationState, action: UpdateBugDonated): ApplicationState {
   const appState = state;
-  let updatedBug = appState.bug.bugCollection.find(item => item.id === action.payload.index);
+  let updatedBug = appState.bug.bugCollection.find(item => item.id === action.payload.id);
   if (updatedBug) {
     if (action.payload.donated) {
       updatedBug.caught = true;
@@ -212,7 +212,7 @@ function updateBugDonatedAction(state: ApplicationState, action: UpdateBugDonate
 
 function updateFossilDonated(state: ApplicationState, action: UpdateFossilDonated): ApplicationState {
   const appState = state;
-  let updatedFossil = appState.fossil.fossilCollection.find(item => item.id === action.payload.index);
+  let updatedFossil = appState.fossil.fossilCollection.find(item => item.id === action.payload.id);
   if (updatedFossil) {
     updatedFossil.donated = action.payload.donated;
   }
@@ -223,7 +223,7 @@ function updateFossilDonated(state: ApplicationState, action: UpdateFossilDonate
 
 function updateArtworkDonated(state: ApplicationState, action: UpdateArtworkDonated): ApplicationState {
   const appState = state;
-  let updatedArtwork = appState.art.artworkCollection.find(item => item.id === action.payload.index);
+  let updatedArtwork = appState.art.artworkCollection.find(item => item.id === action.payload.id);
   if (updatedArtwork) {
     updatedArtwork.donated = action.payload.donated;
   }
