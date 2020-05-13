@@ -110,20 +110,20 @@ const collectionReducer = (state = INITIAL_STATE2, action: ActionTypes): Applica
 
 function updateInGameTime(state: ApplicationState, action: UpdateInGameTime): ApplicationState {
   AsyncStorage.setItem('InGameTimeOffSet', JSON.stringify(action.payload));
-  return {...state, userSettings: {...state.userSettings, inGameTime: action.payload}};  
+  return { ...state, userSettings: { ...state.userSettings, inGameTime: action.payload } };
 }
 
 function updateFishSort(state: ApplicationState, action: UpdateFishSort): ApplicationState {
-  return {...state, fish: {...state.fish, fishAdvancedSort: action.payload}};  
+  return { ...state, fish: { ...state.fish, fishAdvancedSort: action.payload } };
 }
 
 function updateBugSort(state: ApplicationState, action: UpdateBugSort): ApplicationState {
-  return {...state, bug: {...state.bug, bugAdvancedSort: action.payload}};  
+  return { ...state, bug: { ...state.bug, bugAdvancedSort: action.payload } };
 }
 
 function updateHemisphere(state: ApplicationState, action: UpdateHemisphere): ApplicationState {
   AsyncStorage.setItem('IsNorthernHemisphere', action.payload.toString());
-  return {...state, userSettings: {...state.userSettings, isNorthernHemisphere: action.payload}};  
+  return { ...state, userSettings: { ...state.userSettings, isNorthernHemisphere: action.payload } };
 }
 
 function updateAdvancedSortFilterFish(state: ApplicationState, action: UpdateFishFilter): ApplicationState {
@@ -131,23 +131,23 @@ function updateAdvancedSortFilterFish(state: ApplicationState, action: UpdateFis
 }
 
 function updateAdvancedSortFilterBug(state: ApplicationState, action: UpdateBugFilter): ApplicationState {
-  return {...state, bug: {...state.bug, bugAdvancedFilter: action.payload}};  
+  return { ...state, bug: { ...state.bug, bugAdvancedFilter: action.payload } };
 }
 
 function updateFishCollectionFromStorage(state: ApplicationState, action: UpdateFishCollection): ApplicationState {
-  return {...state, fish: {...state.fish, fishCollection: action.payload}};
+  return { ...state, fish: { ...state.fish, fishCollection: action.payload } };
 }
 
 function updateBugCollectionFromStorage(state: ApplicationState, action: UpdateBugCollection): ApplicationState {
-  return {...state, bug: {...state.bug, bugCollection: action.payload}};
+  return { ...state, bug: { ...state.bug, bugCollection: action.payload } };
 }
 
 function updateFossilCollectionFromStorage(state: ApplicationState, action: UpdateFossilCollection): ApplicationState {
-  return {...state, fossil: {...state.fossil, fossilCollection: action.payload}};
+  return { ...state, fossil: { ...state.fossil, fossilCollection: action.payload } };
 }
 
 function updateArtworkCollectionFromStorage(state: ApplicationState, action: UpdateArtworkCollection): ApplicationState {
-  return {...state, art: {...state.art, artworkCollection: action.payload}};
+  return { ...state, art: { ...state.art, artworkCollection: action.payload } };
 }
 
 function updateFishCaughtAction(state: ApplicationState, action: UpdateFishCaught): ApplicationState {
