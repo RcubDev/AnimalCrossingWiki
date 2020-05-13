@@ -13,9 +13,9 @@ export class GridItem extends PureComponent<GridItemProps> {
 
   onPress = () => this.props.navigation.navigate(this.props.navigateTo, { model: this.props.model });
 
-  setItemCaught = () => this.props.updateCaught && this.props.updateCaught({ caught: !(this.props.model as CritterModel).caught, index: this.props.model.id });
+  setItemCaught = () => this.props.updateCaught && this.props.updateCaught({ caught: !(this.props.model as CritterModel).caught, id: this.props.model.id });
 
-  setItemDonated = () => this.props.updateDonated({ donated: !this.props.model.donated, index: this.props.model.id });
+  setItemDonated = () => {console.log('donated'); this.props.updateDonated({ donated: !this.props.model.donated, id: this.props.model.id })};
 
   render() {
     const { model, images, styles } = this.props;

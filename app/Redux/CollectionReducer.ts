@@ -70,6 +70,7 @@ const INITIAL_STATE2: ApplicationState = {
 const collectionReducer = (state = INITIAL_STATE2, action: ActionTypes): ApplicationState => {
   switch (action.type) {
     case UPDATE_FISH_CAUGHT:
+      console.log('here');
       return updateFishCaughtAction(state, action);
     case UPDATE_FISH_DONATED:
       return updateFishDonatedAction(state, action);
@@ -151,7 +152,11 @@ function updateArtworkCollectionFromStorage(state: ApplicationState, action: Upd
 }
 
 function updateFishCaughtAction(state: ApplicationState, action: UpdateFishCaught): ApplicationState {
+  console.log(`caught: ${action.payload.caught}`);
+  
   const updatedCollection = state.fish.fishCollection.map(fish => fish.id === action.payload.id ? { ...fish, caught: action.payload.caught } : fish);
+  console.log(action.payload.id);
+  console.log(updatedCollection.find(x => x.id === action.payload.id));
   AsyncStorage.setItem('fishStore', JSON.stringify(updatedCollection));
   return {
     ...state, fish: { ...state.fish, fishCollection: updatedCollection }
@@ -159,7 +164,7 @@ function updateFishCaughtAction(state: ApplicationState, action: UpdateFishCaugh
 }
 
 function updateBugCaughtAction(state: ApplicationState, action: UpdateBugCaught): ApplicationState {
-  const updatedCollection = state.bug.bugCollection.map(bug => bug.id === action.payload.index ? { ...bug, caught: action.payload.caught } : bug);
+  const updatedCollection = state.bug.bugCollection.map(bug => bug.id === action.payload.id ? { ...bug, caught: action.payload.caught } : bug);
   AsyncStorage.setItem('bugStore', JSON.stringify(updatedCollection));
   return {
     ...state, bug: { ...state.bug, bugCollection: updatedCollection }

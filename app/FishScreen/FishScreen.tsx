@@ -75,9 +75,9 @@ class FishScreen extends Component<FishScreenProps, FishScreenState> {
     return fishArray;
   }
 
-  showSortModal = () => this.setState({ showSortModal: true });
+  showSortModal = () => this.setState({ showSortModal: !this.state.showSortModal });
 
-  showFilterModal = () => this.setState({ showFilterModal: true });
+  showFilterModal = () => this.setState({ showFilterModal: !this.state.showFilterModal });
 
   setSearchText = (text: string) => {
     this.setState({ filterText: text.toLowerCase() });
@@ -88,7 +88,7 @@ class FishScreen extends Component<FishScreenProps, FishScreenState> {
       return <AppLoading />;
     }
     const { navigation, updateFishCaught, updateFishDonated } = this.props;
-
+    
     let fish = this.props.appState.fish.fishCollection;
     fish = FilterFish(this.props.appState.fish.fishAdvancedSortFilter, fish);
     fish = this.filterFishByText(this.state.filterText, fish);
