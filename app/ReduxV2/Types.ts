@@ -1,4 +1,5 @@
 import { ItemCategory } from "../../models/CollectionModelsV2/items"
+import { CreatureModel } from "../../models/CollectionModelsV2/creatures"
 
 export interface CaughtPayload {
     id: number,
@@ -30,6 +31,7 @@ export const UPDATE_CREATURE_CAUGHT = "UPDATE_CREATURE_CAUGHT"
 export const UPDATE_CREATURE_DONATED = "UPDATE_CREATURE_DONATED"
 export const UPDATE_ITEM_DONATED = "UPDATE_ITEM_DONATED"
 export const UPDATE_ITEM_CATALOGGED = "UPDATE_ITEM_CATALOGGED"
+export const UPDATE_FISH_COLLECTION = "UPDATE_FISH_COLLECTION"
 
 interface UpdateCreatureCaughtAction {
     type: typeof UPDATE_CREATURE_CAUGHT,
@@ -51,13 +53,19 @@ interface UpdateItemCataloggedAction {
     payload: CataloggedPayload
 }
 
+interface UpdateFishCollectionAction {
+    type: typeof UPDATE_FISH_COLLECTION,
+    payload: Array<CreatureModel>
+}
+
 export type {
     UpdateItemDonatedAction,
     UpdateCreatureDonatedAction,
     UpdateCreatureCaughtAction,
-    UpdateItemCataloggedAction
+    UpdateItemCataloggedAction,
+    UpdateFishCollectionAction
 }
 
 export type ReduxActions = 
     UpdateItemDonatedAction | UpdateCreatureCaughtAction | UpdateCreatureDonatedAction |
-    UpdateItemCataloggedAction;
+    UpdateItemCataloggedAction | UpdateFishCollectionAction;

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { AsyncStorage } from 'react-native';
 import fish from '../../data/fish.json';
+import creatures from '../../dataV2/creatures.json'
 import {
   Container,
 } from 'native-base';
@@ -10,11 +11,6 @@ import styles from '../Shared/Screen.styles';
 import { FishScreenProps } from '../../models/MainScreenModels/FishScreen/FishScreenProps';
 import { FishScreenState } from '../../models/MainScreenModels/FishScreen/FishScreenState';
 import { connect } from 'react-redux';
-import {
-  updateFishCaught,
-  updateFishDonated,
-  updateFishCollectionFromStorage
-} from '../Redux/CollectionActions';
 import { NewFishModel } from '../../models/CollectionModels/NewFishModel';
 import { filterCollectionByTextSpecial } from '../Filter/Filter';
 import { isListOfFish } from '../Filter/FilterTypes';
@@ -23,8 +19,37 @@ import { SortFish } from '../AdvancedSortLogic/FishSortAdvanced';
 import { ListHeader } from '../Shared/ListHeader';
 import { GridItem } from '../Shared/GridItem';
 import FishImages from '../Images/FishImages';
+import {updateItemCatalogged, updateCreatureCaught, updateCreatureDonated, updateItemDonated, updateFishCollectionFromStorage } from '../ReduxV2/CollectionActions'
+import { CreatureModel, SourceSheet, CreatureSize, CreatureColor, LightingType, Season, ActiveMonths, Thern, CreatureWeather } from '../../models/CollectionModelsV2/creatures';
 
-const defaultFishCollection: Array<NewFishModel> = fish.fish;
+function titleCase(str: string) {
+  console.log('title case');
+  let returnStr = str.toLowerCase().split(' ').map(function(word) {
+    return word.replace(word[0], word[0].toUpperCase());
+  }).join(' ');
+  console.log(returnStr);
+  return returnStr;
+}
+
+const defaultFishCollection: Array<CreatureModel> = creatures.filter(x => x.sourceSheet === "Fish").map(x => {
+  return {    
+    ...x,
+    name: titleCase(x.name), 
+    sourceSheet: x.sourceSheet as SourceSheet,
+    size: x.size as CreatureSize,
+    colors: x.colors as CreatureColor[],
+    lightingType: x.lightingType as LightingType,
+    activeMonths: {
+      northern: x.activeMonths.northern.map(y => {return {...y, season: y.season as Season}}) as Thern[],
+      southern: x.activeMonths.southern.map(y => {return {...y, season: y.season as Season}}) as Thern[]
+    },
+    weather: x.weather as CreatureWeather,
+    caught: false,
+    donated: false,
+    value: 0,
+    id: 0,
+  }
+});
 
 class FishScreen extends Component<FishScreenProps, FishScreenState> {
   constructor(props: FishScreenProps) {
@@ -87,13 +112,13 @@ class FishScreen extends Component<FishScreenProps, FishScreenState> {
     if (!this.state.isReady) {
       return <AppLoading />;
     }
-    const { navigation, updateFishCaught, updateFishDonated } = this.props;
+    const { navigation, updateCreatureCaught, updateCreatureDonated } = this.props;
     
     let fish = this.props.appState.fish.fishCollection;
-    fish = FilterFish(this.props.appState.fish.fishAdvancedSortFilter, fish);
-    fish = this.filterFishByText(this.state.filterText, fish);
-    fish = SortFish(fish, this.props.appState.fish.fishAdvancedSort);
-
+    // fish = FilterFish(this.props.appState.fish.fishAdvancedSortFilter, fish);
+    // fish = this.filterFishByText(this.state.filterText, fish);
+    // fish = SortFish(fish, this.props.appState.fish.fishAdvancedSort);
+    console.log(fish);
     return (
       <Container>
         <ListHeader
@@ -103,12 +128,12 @@ class FishScreen extends Component<FishScreenProps, FishScreenState> {
         />
         <FlatList
           data={fish}
-          renderItem={({ item }: { item: NewFishModel }) => (
+          renderItem={({ item }: { item: CreatureModel }) => (
             <GridItem
               model={item}
               navigation={navigation}
-              updateCaught={updateFishCaught}
-              updateDonated={updateFishDonated}
+              updateCaught={updateCreatureCaught}
+              updateDonated={updateCreatureDonated}
               navigateTo={'FishDetails'}
               images={FishImages} 
               styles = { styles } />
@@ -143,7 +168,7 @@ const mapStateToProps = (state: any) => {
 };
 
 export default connect(mapStateToProps, {
-  updateFishCaught,
-  updateFishDonated,
+  updateCreatureCaught,
+  updateCreatureDonated,
   updateFishCollectionFromStorage
 })(FishScreen);

@@ -155,8 +155,6 @@ function updateFishCaughtAction(state: ApplicationState, action: UpdateFishCaugh
   console.log(`caught: ${action.payload.caught}`);
   
   const updatedCollection = state.fish.fishCollection.map(fish => fish.id === action.payload.id ? { ...fish, caught: action.payload.caught } : fish);
-  console.log(action.payload.id);
-  console.log(updatedCollection.find(x => x.id === action.payload.id));
   AsyncStorage.setItem('fishStore', JSON.stringify(updatedCollection));
   return {
     ...state, fish: { ...state.fish, fishCollection: updatedCollection }
@@ -180,7 +178,7 @@ function updateFishDonatedAction(state: ApplicationState, action: UpdateFishDona
 }
 
 function updateBugDonatedAction(state: ApplicationState, action: UpdateBugDonated): ApplicationState {
-  const updatedCollection = state.bug.bugCollection.map(bug => bug.id === action.payload.index ? { ...bug, caught: action.payload.donated ? true : bug.caught, donated: action.payload.donated } : bug);
+  const updatedCollection = state.bug.bugCollection.map(bug => bug.id === action.payload.id ? { ...bug, caught: action.payload.donated ? true : bug.caught, donated: action.payload.donated } : bug);
   AsyncStorage.setItem('bugStore', JSON.stringify(updatedCollection));
   return {
     ...state, bug: { ...state.bug, bugCollection: updatedCollection }
@@ -188,7 +186,7 @@ function updateBugDonatedAction(state: ApplicationState, action: UpdateBugDonate
 }
 
 function updateFossilDonated(state: ApplicationState, action: UpdateFossilDonated): ApplicationState {
-  const updatedCollection = state.fossil.fossilCollection.map(fossil => fossil.id === action.payload.index ? { ...fossil, donated: action.payload.donated } : fossil);
+  const updatedCollection = state.fossil.fossilCollection.map(fossil => fossil.id === action.payload.id ? { ...fossil, donated: action.payload.donated } : fossil);
   AsyncStorage.setItem('fossilStore', JSON.stringify(updatedCollection));
   return {
     ...state, fossil: { ...state.fossil, fossilCollection: updatedCollection }
@@ -196,7 +194,7 @@ function updateFossilDonated(state: ApplicationState, action: UpdateFossilDonate
 }
 
 function updateArtworkDonated(state: ApplicationState, action: UpdateArtworkDonated): ApplicationState {
-  const updatedCollection = state.art.artworkCollection.map(art => art.id === action.payload.index ? { ...art, donated: action.payload.donated } : art);
+  const updatedCollection = state.art.artworkCollection.map(art => art.id === action.payload.id ? { ...art, donated: action.payload.donated } : art);
   AsyncStorage.setItem('artStore', JSON.stringify(updatedCollection));
   return {
     ...state, art: { ...state.art, artworkCollection: updatedCollection }

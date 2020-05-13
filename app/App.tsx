@@ -20,8 +20,9 @@ import FossilScreen from './FossilScreen/FossilScreen'
 import FossilDetailScreen from './FossilScreen/FossilDetail/FossilDetailScreen';
 import ArtworkScreen from './ArtScreen/ArtworkScreen';
 import ArtworkDetailScreen from './ArtScreen/ArtDetails/ArtworkDetailScreen';
+import CollectionReducer from './ReduxV2/CollectionReducer';
 const store2 = createStore(collectionReducer);
-
+const storeV2 = createStore(CollectionReducer)
 const fetchFonts = () => {
   return Font.loadAsync({
     'comfortaa-regular': require('./assets/fonts/Comfortaa-Regular.ttf'),
@@ -55,7 +56,7 @@ export default class App extends Component<any, { isReady: boolean }> {
     const Stack = createStackNavigator();
 
     return (
-      <Provider store={store2}>
+      <Provider store={storeV2}>
         <Container>
           <NavigationContainer>
             <Stack.Navigator screenOptions={{ headerShown: true }}>
