@@ -1,47 +1,37 @@
-import React, { Component } from "react";
-import { Text, View, Image, Platform, Modal, AsyncStorage } from "react-native";
-import fish from "../../data/fish.json";
-// import { Grid } from 'native-base';
-import { Col, Row, Grid } from "react-native-easy-grid";
+import React, { Component } from 'react';
+import { AsyncStorage } from 'react-native';
+import fish from '../../data/fish.json';
 import {
   Container,
-  Header,
-  Item,
-  Input,
-  Button,
-} from "native-base";
-import { FlatList, TouchableWithoutFeedback } from "react-native-gesture-handler";
-import { FishGridItem } from "./FishGridItem/FishGridItem";
-import { AppLoading } from "expo";
-import styles from "./FishScreen.styles";
-import { FishScreenProps } from "../../models/MainScreenModels/FishScreen/FishScreenProps";
-import { FishScreenState } from "../../models/MainScreenModels/FishScreen/FishScreenState";
-import { connect } from "react-redux";
+} from 'native-base';
+import { FlatList } from 'react-native-gesture-handler';
+import { AppLoading } from 'expo';
+import styles from '../Shared/Screen.styles';
+import { FishScreenProps } from '../../models/MainScreenModels/FishScreen/FishScreenProps';
+import { FishScreenState } from '../../models/MainScreenModels/FishScreen/FishScreenState';
+import { connect } from 'react-redux';
 import {
   updateFishCaught,
   updateFishDonated,
-  updateFishFilter,
   updateFishCollectionFromStorage
-} from "../Redux/CollectionActions";
-import { NewFishModel } from "../../models/CollectionModels/NewFishModel";
-import { filterCollectionByTextSpecial } from "../Filter/Filter";
-import { isListOfFish } from "../Filter/FilterTypes";
-import AdvancedFilterSortOptions from "./FishFilter/FishFilterOptions";
-import { FilterCritters } from "../AdvancedFilterLogic/CritterFilterAdvanced";
-import AdvancedSortOptions from "./FishSort/FishSortOptions";
-import { SortCritters } from "../AdvancedSortLogic/SortAdvanced";
-import { FilterFish } from "../AdvancedFilterLogic/FishFilterAdvanced";
-import { SortFish } from "../AdvancedSortLogic/FishSortAdvanced";
+} from '../Redux/CollectionActions';
+import { NewFishModel } from '../../models/CollectionModels/NewFishModel';
+import { filterCollectionByTextSpecial } from '../Filter/Filter';
+import { isListOfFish } from '../Filter/FilterTypes';
+import { FilterFish } from '../AdvancedFilterLogic/FishFilterAdvanced';
+import { SortFish } from '../AdvancedSortLogic/FishSortAdvanced';
+import { ListHeader } from '../Shared/ListHeader';
+import { GridItem } from '../Shared/GridItem';
+import FishImages from '../Images/FishImages';
 
 const defaultFishCollection: Array<NewFishModel> = fish.fish;
-
 
 class FishScreen extends Component<FishScreenProps, FishScreenState> {
   constructor(props: FishScreenProps) {
     super(props);
     this.state = {
       isReady: false,
-      filterText: "",
+      filterText: '',
       showFilterModal: false,
       showSortModal: false
     };
@@ -59,19 +49,11 @@ class FishScreen extends Component<FishScreenProps, FishScreenState> {
     this.setState({ isReady: true });
   }
 
-  SetItemCaught = (caught: boolean, index: number) => {
-    this.props.updateFishCaught({ caught, index });
-  };
-
-  SetItemDonated = (donated: boolean, index: number) => {
-    this.props.updateFishDonated({ donated, index });
-  };
-
   filterFishByText(text: string, fishes: Array<NewFishModel>): Array<NewFishModel> {
     var allFish = fishes;
     //read text until key word -- if no key words involved assume name
     let fishArray: Array<NewFishModel> = [];
-    let filterSpecial = text.includes("filter:");
+    let filterSpecial = text.includes('filter:');
     text = text.toLowerCase();
     if (filterSpecial) {
       try {
@@ -93,71 +75,64 @@ class FishScreen extends Component<FishScreenProps, FishScreenState> {
     return fishArray;
   }
 
-  //End Region
+  showSortModal = () => this.setState({ showSortModal: true });
+
+  showFilterModal = () => this.setState({ showFilterModal: true });
+
+  setSearchText = (text: string) => {
+    this.setState({ filterText: text.toLowerCase() });
+  };
 
   render() {
     if (!this.state.isReady) {
       return <AppLoading />;
     }
+    const { navigation, updateFishCaught, updateFishDonated } = this.props;
+
     let fish = this.props.appState.fish.fishCollection;
     fish = FilterFish(this.props.appState.fish.fishAdvancedSortFilter, fish);
     fish = this.filterFishByText(this.state.filterText, fish);
     fish = SortFish(fish, this.props.appState.fish.fishAdvancedSort);
+
     return (
       <Container>
-        <Header>
-          <Item style={{ flex: 1 }}>
-            <Button
-              transparent
-              onPress={() => {
-                this.setState({ showSortModal: true });
-              }}
-            >
-              <Text> Sort </Text>
-            </Button>
-            <Input
-              autoCorrect={false}
-              placeholder="Filter"
-              onChangeText={(text: string) => {
-                this.setState({ filterText: text.toLowerCase() });
-              }}
-              returnKeyType={"done"}
-            ></Input>
-            <Button
-              transparent
-              onPress={() => {
-                this.setState({ showFilterModal: true });
-              }}
-            >
-              <Text> Filters </Text>
-            </Button>
-          </Item>
-        </Header>
+        <ListHeader
+          showSortModal={this.showSortModal}
+          showfilterModal={this.showFilterModal}
+          setSearchText={this.setSearchText}
+        />
         <FlatList
           data={fish}
-          renderItem={({ item, index, }: { item: NewFishModel; index: number; }) => (
-            <FishGridItem {...{ model: { ...item }, nav: this.props.navigation, updateFishCaught: this.props.updateFishCaught, updateFishDonated: this.props.updateFishDonated, }} />
+          renderItem={({ item }: { item: NewFishModel }) => (
+            <GridItem
+              model={item}
+              navigation={navigation}
+              updateCaught={updateFishCaught}
+              updateDonated={updateFishDonated}
+              navigateTo={'FishDetails'}
+              images={FishImages} 
+              styles = { styles } />
           )}
           numColumns={3}
           keyExtractor={(item, index) => index.toString()}
           contentContainerStyle={styles.flatListContainerContent}
           columnWrapperStyle={{
-            justifyContent: "space-evenly",
-            flexDirection: "row",
+            justifyContent: 'space-evenly',
+            flexDirection: 'row',
           }}
         ></FlatList>
-        <Modal visible={this.state.showFilterModal} transparent={true} animationType="slide">
-          <View style={{ height: "50%" }}>
+        {/* <Modal visible={this.state.showFilterModal} transparent={true} animationType='slide'>
+          <View style={{ height: '50%' }}>
             <TouchableWithoutFeedback onPress={() => { this.setState({ showFilterModal: false }) }} style={{ width: '100%', height: '100%' }}></TouchableWithoutFeedback>
           </View>
           <AdvancedFilterSortOptions></AdvancedFilterSortOptions>
         </Modal>
-        <Modal visible={this.state.showSortModal} transparent={true} animationType="slide">
-          <View style={{ height: "50%" }}>
+        <Modal visible={this.state.showSortModal} transparent={true} animationType='slide'>
+          <View style={{ height: '50%' }}>
             <TouchableWithoutFeedback onPress={() => { this.setState({ showSortModal: false }) }} style={{ width: '100%', height: '100%' }}></TouchableWithoutFeedback>
           </View>
           <AdvancedSortOptions></AdvancedSortOptions>
-        </Modal>
+        </Modal> */}
       </Container>
     );
   }

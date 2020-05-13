@@ -20,8 +20,9 @@ interface BugDetailsProps {
         name: string,
         params: {
             index: number,
-            bug: BugModel
-        }   
+            bug: BugModel,
+            model: BugModel,
+        }
     }
 }
 
@@ -35,25 +36,25 @@ class BugDetails extends Component<BugDetailsProps, BugDetailsState> {
     index = this.props.route.params.index;
     bug = this.props.appState.bug.bugCollection[this.index];
     SetItemCaught = (caught: boolean, index: number) => {
-        this.props.updateBugCaught({caught, index});
-        this.setState({model: this.props.appState.bug.bugCollection[index]});
+        this.props.updateBugCaught({ caught, index });
+        this.setState({ model: this.props.appState.bug.bugCollection[index] });
     }
 
 
     SetItemDonated = (donated: boolean, index: number) => {
-        this.props.updateBugDonated({donated, index});
-        this.setState({model: this.props.appState.bug.bugCollection[index]});
+        this.props.updateBugDonated({ donated, index });
+        this.setState({ model: this.props.appState.bug.bugCollection[index] });
     }
 
-    constructor(props: BugDetailsProps){
+    constructor(props: BugDetailsProps) {
         super(props);
-        this.index = props.route.params.index;        
-        this.bug = props.route.params.bug;
+        this.index = props.route.params.index;
+        this.bug = props.route.params.model;
     }
 
     render() {
         return (
-            <ScrollView style={styles.detailViewScrollView} contentContainerStyle={{justifyContent: 'center'}}>
+            <ScrollView style={styles.detailViewScrollView} contentContainerStyle={{ justifyContent: 'center' }}>
                 <View style={styles.detailViewContainer}>
                     <View style={styles.imageAndNameContainer}>
                         <Image source={BugImages[this.bug.name]}></Image>
@@ -65,7 +66,7 @@ class BugDetails extends Component<BugDetailsProps, BugDetailsState> {
                         <CheckBox style={styles.checkBoxTemp} checked={this.bug.caught}></CheckBox>
                         <CheckBox style={styles.checkBoxTemp} checked={this.bug.donated}></CheckBox>
                         <View style={styles.valueContainer}>
-                            <Image source={require('../../Images/Other/BellBag.png')} style={{width: 30, height: 30, marginLeft: 5}}></Image>                            
+                            <Image source={require('../../Images/Other/BellBag.png')} style={{ width: 30, height: 30, marginLeft: 5 }}></Image>
                             <Text style={styles.valueText}>{this.bug.value}</Text>
                         </View>
                     </View>
@@ -111,12 +112,12 @@ class BugDetails extends Component<BugDetailsProps, BugDetailsState> {
                         <View style={styles.imageAndTextContainer}>
                             {/* TODO: Image Here (remove height from container) */}
                             <Text>{"Location Image"}</Text>
-                            <Text style={{fontFamily:'Confortaa'}}>{this.bug.locationName}</Text>
+                            <Text style={{ fontFamily: 'Confortaa' }}>{this.bug.locationName}</Text>
                         </View>
                         <View style={styles.imageAndTextContainer}>
                             {/* TODO: Image Here (remove height from container) */}
                             <Text>{"Clock Image"}</Text>
-                            <Text style={{fontFamily:'Confortaa'}}>{this.bug.time}</Text>
+                            <Text style={{ fontFamily: 'Confortaa' }}>{this.bug.time}</Text>
                         </View>
                     </View>
                     <View style={styles.rarityContainer}>
@@ -128,19 +129,19 @@ class BugDetails extends Component<BugDetailsProps, BugDetailsState> {
                             <Text>{"*"}</Text>
                             <Text>{"*"}</Text>
                             <Text>{"*"}</Text>
-                         </View>
+                        </View>
                     </View>
                     <View style={styles.blathersSaysContinaer}>
                         <Text style={styles.blathersSaysText}>{"Blathers Says: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed interdum ligula quis imperdiet pharetra. Nunc tincidunt lorem eget nibh vulputate gravida. Aenean a posuere neque. In finibus nunc non turpis fermentum, malesuada sodales odio porta. Praesent et tellus felis. Aenean eget urna ante. Morbi interdum dui dictum, iaculis ante pretium, laoreet diam. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec sollicitudin eleifend nibh sed molestie. Sed malesuada porttitor ultrices. Vivamus lobortis, eros non interdum maximus, lorem mauris feugiat ligula, blandit interdum neque erat vitae leo. Nullam erat leo, feugiat quis metus nec, lacinia laoreet lacus. Fusce eros lorem, egestas sit amet tincidunt id, lacinia eget nulla. Praesent commodo pharetra dui sed ornare."}</Text>
-                    </View>              
+                    </View>
                 </View>
             </ScrollView>
-        ) 
+        )
     }
 }
 
 const mapStateToProps = (state: any) => {
     const { appState } = state;
     return { appState }
-  };
-export default connect(mapStateToProps, {updateBugCaught, updateBugDonated})(BugDetails);
+};
+export default connect(mapStateToProps, { updateBugCaught, updateBugDonated })(BugDetails);

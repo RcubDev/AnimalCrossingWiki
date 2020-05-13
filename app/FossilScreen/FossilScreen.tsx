@@ -1,31 +1,30 @@
 
-import fossils from "../../data/fossils.json";
-import { SortCritters } from "../AdvancedSortLogic/SortAdvanced";
-import { FossilScreenProps } from "../../models/MainScreenModels/FossilScreen/FossilScreenProps";
-import { FossilModel } from "../../models/CollectionModels/FossilModel";
-import React, { Component } from "react";
-import { FossilScreenState } from "../../models/MainScreenModels/FossilScreen/FossilScreenState";
-import { AsyncStorage, FlatList } from "react-native";
-import { Item, Input, Button, Text, Container, Header } from "native-base";
-import { FossilGridItem } from "./FossilGridItem/FossilGridItem";
-import { AppLoading } from "expo";
+import fossils from '../../data/fossils.json';
+import { FossilScreenProps } from '../../models/MainScreenModels/FossilScreen/FossilScreenProps';
+import { FossilModel } from '../../models/CollectionModels/FossilModel';
+import React, { Component } from 'react';
+import { FossilScreenState } from '../../models/MainScreenModels/FossilScreen/FossilScreenState';
+import { AsyncStorage, FlatList } from 'react-native';
+import { Container } from 'native-base';
+import { AppLoading } from 'expo';
 import styles from './FossilScreen.styles'
-import { connect } from "react-redux";
+import { connect } from 'react-redux';
 import {
     updateFossilDonated,
     updateFossilCollectionFromStorage
-  } from "../Redux/CollectionActions";
-
+} from '../Redux/CollectionActions';
+import { ListHeader } from '../Shared/ListHeader';
+import { GridItem } from '../Shared/GridItem';
+import FossilImages from '../Images/FossilImages';
 
 const defaultFossilCollection: Array<FossilModel> = fossils.fossils;
-
 
 class FossilScreen extends Component<FossilScreenProps, FossilScreenState> {
     constructor(props: FossilScreenProps) {
         super(props);
         this.state = {
             isReady: false,
-            filterText: ""
+            filterText: ''
         };
     }
 
@@ -59,7 +58,15 @@ class FossilScreen extends Component<FossilScreenProps, FossilScreenState> {
         return fossilArray;
     }
 
+    setSearchText = (text: string) => {
+        this.setState({ filterText: text.toLowerCase() });
+    };
+
+
     render() {
+
+        const { navigation, updateFossilDonated } = this.props;
+
         if (!this.state.isReady) {
             return <AppLoading />;
         }
@@ -67,58 +74,32 @@ class FossilScreen extends Component<FossilScreenProps, FossilScreenState> {
         fossils = this.FilterFossilByText(this.state.filterText, fossils);
         return (
             <Container>
-                <Header>
-                    <Item style={{ flex: 1 }}>
-                        <Button
-                            transparent
-                            onPress={() => {
-
-                            }}
-                        >
-                            <Text> Sort </Text>
-                        </Button>
-                        <Input
-                            autoCorrect={false}
-                            placeholder="Filter"
-                            onChangeText={(text: string) => {
-                                this.setState({ filterText: text.toLowerCase() });
-                            }}
-                            returnKeyType={"done"}
-                        ></Input>
-                        <Button
-                            transparent
-                            onPress={() => {
-
-                            }}
-                        >
-                            <Text> Filters </Text>
-                        </Button>
-                    </Item>
-                </Header>
+                <ListHeader
+                    setSearchText={this.setSearchText}
+                />
                 <FlatList
                     data={fossils}
-                    renderItem={({ item, index, }: { item: FossilModel; index: number; }) => (
-                        <FossilGridItem {...{ model: { ...item }, nav: this.props.navigation, updateFossilDonated: this.props.updateFossilDonated }} />
+                    renderItem={({ item }: { item: FossilModel }) => (
+                        <GridItem model={item} navigation={navigation} updateDonated={updateFossilDonated} navigateTo={'FossilDetails'} images={FossilImages} styles={styles}/>
                     )}
                     numColumns={3}
                     keyExtractor={(item, index) => index.toString()}
                     contentContainerStyle={styles.flatListContainerContent}
                     columnWrapperStyle={{
-                        justifyContent: "space-evenly",
-                        flexDirection: "row",
+                        justifyContent: 'space-evenly',
+                        flexDirection: 'row',
                     }}
                 ></FlatList>
-            </Container>
+            </Container >
         )
     }
 }
 const mapStateToProps = (state: any) => {
     const { appState } = state;
     return { appState };
-  };
-  
-  export default connect(mapStateToProps, {
+};
+
+export default connect(mapStateToProps, {
     updateFossilCollectionFromStorage,
     updateFossilDonated
-  })(FossilScreen);
-  
+})(FossilScreen);

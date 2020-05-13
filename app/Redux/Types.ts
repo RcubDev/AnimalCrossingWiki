@@ -49,111 +49,92 @@ export const UPDATE_IN_GAME_DATE = "UPDATE_IN_GAME_DATE";
 export const UPDATE_HEMISPHERE = "UPDATE_HEMISPHERE";
 
 //Artwork Action Interface
-interface UpdateArtworkCollection {
+export interface UpdateArtworkCollection {
     type: typeof UPDATE_ARTWORK_COLLECTION,
     payload: Array<ArtworkModel>
 }
 
-interface UpdateArtworkDonated {
+export interface UpdateArtworkDonated {
     type: typeof UPDATE_ARTWORK_DONATED,
     payload: DonatedPayload
 }
 
 //Fossil Action Interfaces
-interface UpdateFossilCollection {
+export interface UpdateFossilCollection {
     type: typeof UPDATE_FOSSIL_COLLECTION,
     payload: Array<FossilModel>
 }
 
-interface UpdateFossilDonated {
+export interface UpdateFossilDonated {
     type: typeof UPDATE_FOSSIL_DONATED,
     payload: DonatedPayload
 }
 
 //Fish Action Interfaces
-interface UpdateFishCaught {
+export interface UpdateFishCaught {
     type: typeof UPDATE_FISH_CAUGHT,
     payload: CaughtPayload
 }
 
-interface UpdateFishDonated {
+export interface UpdateFishDonated {
     type: typeof UPDATE_FISH_DONATED,
     payload: DonatedPayload
 }
 
-interface UpdateFishFilter {
+export interface UpdateFishFilter {
     type: typeof UPDATE_FISH_FILTER,
     payload: AdvancedSortFilterFishModel
 }
 
-interface UpdateFishCollection {
+export interface UpdateFishCollection {
     type: typeof UPDATE_FISH_COLLECTION,
     payload: Array<NewFishModel>
 }
 
-interface UpdateFishSort {
+export interface UpdateFishSort {
     type: typeof UPDATE_FISH_SORT,
     payload: AdvancedSortFishModel
 }
 
 //Bug Action Interfaces
-interface UpdateBugDonated {
+export interface UpdateBugDonated {
     type: typeof UPDATE_BUG_DONATED,
     payload: DonatedPayload
 }
 
-interface UpdateBugCaught {
+export interface UpdateBugCaught {
     type: typeof UPDATE_BUG_CAUGHT,
     payload: CaughtPayload
 }
 
-interface UpdateBugFilter {
+export interface UpdateBugFilter {
     type: typeof UPDATE_BUG_FILTER,
     payload: AdvancedFilterBugModel
 }
 
-interface UpdateBugCollection {
+export interface UpdateBugCollection {
     type: typeof UPDATE_BUG_COLLECTION,
     payload: Array<BugModel>
 }
 
-interface UpdateBugSort {
+export interface UpdateBugSort {
     type: typeof UPDATE_BUG_SORT,
     payload: AdvancedSortBugModel
 }
 
 //Other Interfaces
 
-interface UpdateInGameTime {
+export interface UpdateInGameTime {
     type: typeof UPDATE_IN_GAME_DATE,
     payload: InGameTimeOffSetPayload
 }
 
-interface UpdateHemisphere {
+export interface UpdateHemisphere {
     type: typeof UPDATE_HEMISPHERE,
     payload: boolean
 }
 
-export type {
-    UpdateFishDonated,
-    UpdateFishCaught,
-    UpdateFishFilter,
-    UpdateFishCollection,
-    UpdateFishSort,
-    UpdateInGameTime,
-    UpdateHemisphere,
-    UpdateBugDonated,
-    UpdateBugCaught,
-    UpdateBugFilter,
-    UpdateBugCollection,
-    UpdateBugSort,
-    UpdateFossilCollection,
-    UpdateFossilDonated,
-    UpdateArtworkCollection,
-    UpdateArtworkDonated
-};
-
-export type FishActionTypes =
+export type ActionTypes =
     UpdateFishCaught |
     UpdateFishDonated |
     UpdateFishFilter |
