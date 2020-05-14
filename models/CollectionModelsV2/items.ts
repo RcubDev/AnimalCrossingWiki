@@ -2,7 +2,7 @@ import { CataloggedItemModel } from "./CataloggedItemModel";
 import { MuseumModel } from "../CollectionModels/MuseumModel";
 
 export interface ItemModel extends CataloggedItemModel, MuseumModel {
-  sourceSheet: ItemCategory;
+  sourceSheet: ItemSourceSheet;
   name: string;
   patternTitle?: null | string;
   diy?: boolean;
@@ -37,7 +37,7 @@ export interface ItemModel extends CataloggedItemModel, MuseumModel {
   secondaryShape?: ItemSecondaryShape | null;
   type?: string;
   museum?: ItemMuseumRoom;
-  category?: ItemCategory;
+  category?: ItemSourceSheet;
   realArtworkTitle?: string;
   artist?: string;
   museumDescription?: string;
@@ -49,7 +49,7 @@ export enum ItemCatalog {
   NotInCatalog = 'Not in catalog',
 }
 
-export enum ItemCategory {
+export enum ItemSourceSheet {
   Accessories = 'Accessories',
   Art = 'Art',
   Bags = 'Bags',

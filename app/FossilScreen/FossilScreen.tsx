@@ -1,7 +1,5 @@
 
-import fossils from '../../data/fossils.json';
 import { FossilScreenProps } from '../../models/MainScreenModels/FossilScreen/FossilScreenProps';
-import { FossilModel } from '../../models/CollectionModels/FossilModel';
 import React, { Component } from 'react';
 import { FossilScreenState } from '../../models/MainScreenModels/FossilScreen/FossilScreenState';
 import { AsyncStorage, FlatList } from 'react-native';
@@ -9,15 +7,27 @@ import { Container } from 'native-base';
 import { AppLoading } from 'expo';
 import styles from './FossilScreen.styles'
 import { connect } from 'react-redux';
-import {
-    updateFossilDonated,
-    updateFossilCollectionFromStorage
-} from '../Redux/CollectionActions';
 import { ListHeader } from '../Shared/ListHeader';
 import { GridItem } from '../Shared/GridItem';
 import FossilImages from '../Images/FossilImages';
+import { ItemModel, ItemSourceSheet } from '../../models/CollectionModelsV2/items';
+import { updateItemDonated, updateFossilCollectionFromStorage } from "../../app/ReduxV2/CollectionActions";
 
-const defaultFossilCollection: Array<FossilModel> = fossils.fossils;
+
+function titleCase(str: string) {
+    console.log('title case');
+    let returnStr = str.toLowerCase().split(' ').map(function(word) {
+      return word.replace(word[0], word[0].toUpperCase());
+    }).join(' ');
+    console.log(returnStr);
+    return returnStr;
+  }
+
+const items = (require('../../dataV2/items.json') as ItemModel[]).filter(x => x.sourceSheet === ItemSourceSheet.Fossils)
+    .map(x => { return {...x, donated: false, catalogged: false, name: titleCase(x.name)} });
+
+const defaultFossilCollection: Array<ItemModel> = items;
+
 
 class FossilScreen extends Component<FossilScreenProps, FossilScreenState> {
     constructor(props: FossilScreenProps) {
@@ -40,13 +50,13 @@ class FossilScreen extends Component<FossilScreenProps, FossilScreenState> {
         this.setState({ isReady: true });
     }
 
-    SetItemDonated = (donated: boolean, id: number) => {
-        this.props.updateFossilDonated({ donated, index: id });
+    SetItemDonated = (donated: boolean, name: string, type: "Fossil" | "Artwork") => {
+        this.props.updateItemDonated({ donated, name, type});
     }
 
-    FilterFossilByText(text: string, fossils: Array<FossilModel>): Array<FossilModel> {
+    FilterFossilByText(text: string, fossils: Array<ItemModel>): Array<ItemModel> {
         let allFossils = fossils;
-        let fossilArray: Array<FossilModel> = [];
+        let fossilArray: Array<ItemModel> = [];
         let filterSpecial = text.includes('filter:');
         text = text.toLowerCase();
         if (filterSpecial) {
@@ -65,12 +75,12 @@ class FossilScreen extends Component<FossilScreenProps, FossilScreenState> {
 
     render() {
 
-        const { navigation, updateFossilDonated } = this.props;
+        const { navigation, updateItemDonated } = this.props;
 
         if (!this.state.isReady) {
             return <AppLoading />;
         }
-        let fossils = this.props.appState.fossil.fossilCollection;
+        let fossils = this.props.appState.fossils.fossilCollection;
         fossils = this.FilterFossilByText(this.state.filterText, fossils);
         return (
             <Container>
@@ -79,8 +89,8 @@ class FossilScreen extends Component<FossilScreenProps, FossilScreenState> {
                 />
                 <FlatList
                     data={fossils}
-                    renderItem={({ item }: { item: FossilModel }) => (
-                        <GridItem model={item} navigation={navigation} updateDonated={updateFossilDonated} navigateTo={'FossilDetails'} images={FossilImages} styles={styles}/>
+                    renderItem={({ item }: { item: ItemModel }) => (
+                        <GridItem model={item} navigation={navigation} updateItemDonated={updateItemDonated} navigateTo={'FossilDetails'} images={FossilImages} styles={styles}/>
                     )}
                     numColumns={3}
                     keyExtractor={(item, index) => index.toString()}
@@ -101,5 +111,5 @@ const mapStateToProps = (state: any) => {
 
 export default connect(mapStateToProps, {
     updateFossilCollectionFromStorage,
-    updateFossilDonated
+    updateItemDonated
 })(FossilScreen);

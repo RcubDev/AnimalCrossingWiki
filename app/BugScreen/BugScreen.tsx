@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { AsyncStorage } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
-import bugs from '../../data/bugs.json';
+import creatures from '../../dataV2/creatures.json'
 import {
   Container,
 } from 'native-base';
@@ -10,29 +10,40 @@ import styles from '../Shared/Screen.styles';
 import { BugScreenProps } from '../../models/MainScreenModels/BugScreen/BugScreenProps';
 import { BugScreenState } from '../../models/MainScreenModels/BugScreen/BugScreenState';
 import { connect } from 'react-redux';
-import {
-  updateBugCaught,
-  updateBugDonated,
-  updateBugFilter,
-  updateBugCollectionFromStorage
-} from '../Redux/CollectionActions';
 import BugImages from '../Images/BugImages';
-import { BugModel } from '../../models/CollectionModels/BugModel';
-import { filterCollectionByTextSpecial } from '../Filter/Filter';
-import { isListOfBug } from '../Filter/FilterTypes';
-import AdvancedFilterSortOptions from '../FishScreen/FishFilter/FishFilterOptions';
-import AdvancedSortOptions from '../FishScreen/FishSort/FishSortOptions';
-import { FilterCritters } from '../AdvancedFilterLogic/CritterFilterAdvanced';
-import { FilterBugs } from '../AdvancedFilterLogic/BugFilterAdvanced';
-import { SortBugs } from '../AdvancedSortLogic/BugSortAdvanced';
-import FishFilterOptions from '../FishScreen/FishFilter/FishFilterOptions';
-import BugFilterOptions from './BugFilter/BugFilterOptions';
-import BugSortOptions from './BugSort/BugSortOptions';
+import { updateCreatureCaught, updateCreatureDonated, updateBugCollectionFromStorage } from "../../app/ReduxV2/CollectionActions";
 import { ListHeader } from '../Shared/ListHeader';
 import { GridItem } from '../Shared/GridItem';
+import { CreatureModel, SourceSheet, CreatureSize, CreatureColor, LightingType, Season, Thern, CreatureWeather } from '../../models/CollectionModelsV2/creatures';
 
-const defaultBugCollection: Array<BugModel> = bugs.bugs;
+function titleCase(str: string) {
+  console.log('title case');
+  let returnStr = str.toLowerCase().split(' ').map(function(word) {
+    return word.replace(word[0], word[0].toUpperCase());
+  }).join(' ');
+  console.log(returnStr);
+  return returnStr;
+}
 
+const defaultBugCollection: Array<CreatureModel> = creatures.filter(x => x.sourceSheet === "Bugs").map(x => {
+  return {    
+    ...x,
+    name: titleCase(x.name), 
+    sourceSheet: x.sourceSheet as SourceSheet,
+    size: x.size as CreatureSize,
+    colors: x.colors as CreatureColor[],
+    lightingType: x.lightingType as LightingType,
+    activeMonths: {
+      northern: x.activeMonths.northern.map(y => {return {...y, season: y.season as Season}}) as Thern[],
+      southern: x.activeMonths.southern.map(y => {return {...y, season: y.season as Season}}) as Thern[]
+    },
+    weather: x.weather as CreatureWeather,
+    caught: false,
+    donated: false,
+    value: 0,
+    id: 0,
+  }
+});
 class BugScreen extends Component<BugScreenProps, BugScreenState> {
   focusListener: any;
   constructor(props: BugScreenProps) {
@@ -57,26 +68,26 @@ class BugScreen extends Component<BugScreenProps, BugScreenState> {
     this.setState({ isReady: true });
   }
 
-  filterBugByText(text: string, bugs: Array<BugModel>): Array<BugModel> {
+  filterBugByText(text: string, bugs: Array<CreatureModel>): Array<CreatureModel> {
     var allBug = bugs;
     //read text until key word -- if no key words involved assume name
-    let bugArray: Array<BugModel> = [];
+    let bugArray: Array<CreatureModel> = [];
     let filterSpecial = text.includes('filter:');
     text = text.toLowerCase();
     if (filterSpecial) {
-      try {
-        //Check matching parens before doing this. If they're not matching return no bug.
-        let value = filterCollectionByTextSpecial(
-          text.substr(7),
-          bugs,
-          this.props.appState.userSettings.inGameTime.minutes
-        );
-        if (isListOfBug(value)) {
-          bugArray = value;
-        }
-      } catch (err) {
-        bugArray = [];
-      }
+      // try {
+      //   //Check matching parens before doing this. If they're not matching return no bug.
+      //   let value = filterCollectionByTextSpecial(
+      //     text.substr(7),
+      //     bugs,
+      //     this.props.appState.userSettings.inGameTime.minutes
+      //   );
+      //   if (isListOfBug(value)) {
+      //     bugArray = value;
+      //   }
+      // } catch (err) {
+      //   bugArray = [];
+      // }
     } else {
       bugArray = allBug.filter((x) => x.name.toLowerCase().startsWith(text));
     }
@@ -95,13 +106,13 @@ class BugScreen extends Component<BugScreenProps, BugScreenState> {
     if (!this.state.isReady) {
       return <AppLoading />;
     }
-    const { navigation, updateBugCaught, updateBugDonated } = this.props;
+    const { navigation, updateCreatureCaught, updateCreatureDonated } = this.props;
 
-    let visibleBugList = this.props.appState.bug.bugCollection;
+    let visibleBugList: Array<CreatureModel> = this.props.appState.bugs.bugCollection;
     //Use common critter filter    
-    visibleBugList = FilterBugs(this.props.appState.bug.bugAdvancedFilter, visibleBugList);
+    //visibleBugList = FilterBugs(this.props.appState.bugs.bugAdvancedFilter, visibleBugList);
     visibleBugList = this.filterBugByText(this.state.filterText, visibleBugList);
-    visibleBugList = SortBugs(visibleBugList, this.props.appState.bug.bugAdvancedSort);
+    //visibleBugList = SortBugs(visibleBugList, this.props.appState.bug.bugAdvancedSort);
     return (
       <Container>
         <ListHeader
@@ -111,11 +122,11 @@ class BugScreen extends Component<BugScreenProps, BugScreenState> {
         />
         <FlatList
           data={visibleBugList}
-          renderItem={({ item }: { item: BugModel }) => (
-            <GridItem model={item} navigation={navigation} updateCaught={updateBugCaught} updateDonated={updateBugDonated} navigateTo={'BugDetails'} images={BugImages} styles={styles}/>
+          renderItem={({ item }: { item: CreatureModel }) => (
+            <GridItem model={item} navigation={navigation} updateCaught={updateCreatureCaught} updateDonated={updateCreatureDonated} navigateTo={'BugDetails'} images={BugImages} styles={styles}/>
           )}
           numColumns={3}
-          keyExtractor={(item: BugModel, index: number) => index.toString()}
+          keyExtractor={(item: CreatureModel, index: number) => index.toString()}
           contentContainerStyle={styles.flatListContainerContent}
           columnWrapperStyle={{
             justifyContent: 'space-evenly',
@@ -144,7 +155,7 @@ const mapStateToProps = (state: any) => {
 };
 
 export default connect(mapStateToProps, {
-  updateBugCaught,
-  updateBugDonated,
+  updateCreatureCaught,
+  updateCreatureDonated,
   updateBugCollectionFromStorage
 })(BugScreen);

@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import { ReduxActions, UPDATE_CREATURE_CAUGHT, UPDATE_CREATURE_DONATED, UPDATE_ITEM_DONATED, UpdateCreatureCaughtAction, UpdateCreatureDonatedAction, UpdateItemDonatedAction, UpdateItemCataloggedAction, UPDATE_ITEM_CATALOGGED, UpdateFishCollectionAction, UPDATE_FISH_COLLECTION } from "./Types";
+import { ReduxActions, UPDATE_CREATURE_CAUGHT, UPDATE_CREATURE_DONATED, UPDATE_ITEM_DONATED, UpdateCreatureCaughtAction, UpdateCreatureDonatedAction, UpdateItemDonatedAction, UpdateItemCataloggedAction, UPDATE_ITEM_CATALOGGED, UpdateFishCollectionAction, UPDATE_FISH_COLLECTION, UpdateBugCollectionAction, UPDATE_BUG_COLLECTION, UpdateFossilCollectionAction, UPDATE_FOSSIL_COLLECTION, UpdateArtworkCollectionAction, UPDATE_ARTWORK_COLLECTION } from "./Types";
 import { ApplicationStateV2 } from "../../models/ApplicationState/ApplicationStateV2";
 import { Item } from "native-base";
 import { CataloggedItemModel } from "../../models/CollectionModelsV2/CataloggedItemModel";
@@ -11,8 +11,8 @@ const INITIAL_STATE: ApplicationStateV2 = {
     clothingItems: [],
     fish: {fishCollection: []},
     bugs: {bugCollection: []},
-    artwork: [],
-    fossils: [],
+    artwork: {artworkCollection: []},
+    fossils: {fossilCollection: []},
     reactions: [],
     villagers: [],
     kkSongs: [],
@@ -34,6 +34,12 @@ const collectionReducer = (state = INITIAL_STATE, action: ReduxActions): Applica
             return updateItemCatalogged(state, action);
         case UPDATE_FISH_COLLECTION:
             return updateFishCollectionFromStorage(state, action);
+        case UPDATE_BUG_COLLECTION:
+            return updateBugCollectionFromStorage(state, action);
+        case UPDATE_FOSSIL_COLLECTION:
+            return updateFossilCollectionFromStorage(state, action);
+        case UPDATE_ARTWORK_COLLECTION:
+            return updateArtworkCollectionFromStorage(state, action);
         default:
             return state;
     }
@@ -42,6 +48,18 @@ const collectionReducer = (state = INITIAL_STATE, action: ReduxActions): Applica
 function updateFishCollectionFromStorage(state: ApplicationStateV2, action: UpdateFishCollectionAction): ApplicationStateV2 {
     return { ...state, fish: { ...state.fish, fishCollection: action.payload } };
   }
+
+function updateBugCollectionFromStorage(state: ApplicationStateV2, action: UpdateBugCollectionAction): ApplicationStateV2 {
+    return { ...state, bugs: { ...state.bugs, bugCollection: action.payload } };
+}
+
+function updateFossilCollectionFromStorage(state: ApplicationStateV2, action: UpdateFossilCollectionAction): ApplicationStateV2 {
+    return { ...state, fossils: { ...state.bugs, fossilCollection: action.payload } };
+}
+
+function updateArtworkCollectionFromStorage(state: ApplicationStateV2, action: UpdateArtworkCollectionAction): ApplicationStateV2 {
+    return { ...state, artwork: { ...state.artwork, artworkCollection: action.payload } };
+}
 
 //Fish and Bugs
 function updateCreatureCaught(state: ApplicationStateV2, action: UpdateCreatureCaughtAction): ApplicationStateV2 {
@@ -66,7 +84,6 @@ function updateCreatureCaught(state: ApplicationStateV2, action: UpdateCreatureC
 }
 
 function updateCreatureDonated(state: ApplicationStateV2, action: UpdateCreatureDonatedAction): ApplicationStateV2 {
-    let existingState = state;
     switch (action.payload.type) {
         case "Fish":
             console.log('fish2');
@@ -90,25 +107,23 @@ function updateCreatureDonated(state: ApplicationStateV2, action: UpdateCreature
 
 //Art and Fossils
 function updateItemDonated(state: ApplicationStateV2, action: UpdateItemDonatedAction): ApplicationStateV2 {
-    let existingState = state;
     switch (action.payload.type) {
         case "Fossil":
-            let existingFossil = existingState.fossils.find(x => x.name === action.payload.name);
-            if (existingFossil) {
-                existingFossil.donated = action.payload.donated;
-            }
-            break;
+            const updatedFossilCollection = state.fossils.fossilCollection.map(fossil => fossil.name === action.payload.name ? { ...fossil, donated: action.payload.donated } : fossil);
+            AsyncStorage.setItem('fossilStore', JSON.stringify(updatedFossilCollection));
+            return {
+              ...state, fossils: { ...state.fossils, fossilCollection: updatedFossilCollection }
+            };
         case "Artwork":
-            let existingArtwork = existingState.artwork.find(x => x.name === action.payload.name);
-            if (existingArtwork) {
-                existingArtwork.donated = action.payload.donated;
-            }
-            break;
+            const updatedArtworkCollection = state.artwork.artworkCollection.map(artwork => artwork.name === action.payload.name ? { ...artwork, donated: action.payload.donated } : artwork);
+            AsyncStorage.setItem('artworkStore', JSON.stringify(updatedArtworkCollection));
+            return {
+              ...state, artwork: { ...state.artwork, artworkCollection: updatedArtworkCollection }
+            };
         default:
             console.warn('did you use the right redux function?');
             return state;
     }
-    return Object.assign({}, state, existingState);
 }
 
 function updateItemCatalogged(state: ApplicationStateV2, action: UpdateItemCataloggedAction): ApplicationStateV2 {

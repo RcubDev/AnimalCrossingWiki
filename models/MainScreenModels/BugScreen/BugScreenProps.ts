@@ -1,13 +1,11 @@
 import { NavigationScreenProp } from "react-navigation";
-import { ApplicationState } from "../../ApplicationState/ApplicationState";
-import { updateBugCollectionFromStorage, updateBugSort, updateBugFilter, updateBugDonated, updateBugCaught } from "../../../app/Redux/CollectionActions";
+import { updateCreatureCaught, updateCreatureDonated, updateBugCollectionFromStorage } from "../../../app/ReduxV2/CollectionActions";
+import { ApplicationStateV2 } from "../../ApplicationState/ApplicationStateV2";
 
 export interface BugScreenProps{
     navigation: NavigationScreenProp<any>,
-    appState: ApplicationState,
-    updateBugCaught: typeof updateBugCaught,
-    updateBugDonated: typeof updateBugDonated,
-    updateBugFilter: typeof updateBugFilter,
-    updateBugSort: typeof updateBugSort,
+    appState: ApplicationStateV2,
+    updateCreatureCaught: typeof updateCreatureCaught,
+    updateCreatureDonated: typeof updateCreatureDonated,
     updateBugCollectionFromStorage: typeof updateBugCollectionFromStorage
 }

@@ -1,5 +1,4 @@
 import { NavigationScreenProp } from "react-navigation";
-import { ApplicationState } from "../../ApplicationState/ApplicationState";
 import { updateCreatureCaught, updateCreatureDonated, updateFishCollectionFromStorage } from "../../../app/ReduxV2/CollectionActions";
 import { ApplicationStateV2 } from "../../ApplicationState/ApplicationStateV2";
 
