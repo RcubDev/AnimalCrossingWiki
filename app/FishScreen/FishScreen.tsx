@@ -120,7 +120,7 @@ class FishScreen extends Component<FishScreenProps, FishScreenState> {
       <Container>
         <ListHeader
           showSortModal={this.showSortModal}
-          showfilterModal={this.showFilterModal}
+          showFilterModal={this.showFilterModal}
           setSearchText={this.setSearchText}
         />
         <FlatList

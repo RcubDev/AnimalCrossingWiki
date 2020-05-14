@@ -115,7 +115,7 @@ class BugScreen extends Component<BugScreenProps, BugScreenState> {
       <Container>
         <ListHeader
           showSortModal={this.showSortModal}
-          showfilterModal={this.showFilterModal}
+          showFilterModal={this.showFilterModal}
           setSearchText={this.setSearchText}
         />
         <FlatList
