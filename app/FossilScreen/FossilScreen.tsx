@@ -15,11 +15,9 @@ import { updateItemDonated, updateFossilCollectionFromStorage } from "../../app/
 
 
 function titleCase(str: string) {
-    console.log('title case');
     let returnStr = str.toLowerCase().split(' ').map(function(word) {
       return word.replace(word[0], word[0].toUpperCase());
     }).join(' ');
-    console.log(returnStr);
     return returnStr;
   }
 

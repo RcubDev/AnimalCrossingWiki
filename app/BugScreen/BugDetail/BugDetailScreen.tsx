@@ -3,53 +3,51 @@ import { Container, Button, Text, Header, Content, Footer, View, H1, CardItem, C
 import { Image } from 'react-native';
 import BugImages from '../../Images/BugImages';
 import { connect } from 'react-redux';
-import { updateBugCaught, updateBugDonated } from '../../Redux/CollectionActions';
 import { NavigationScreenProp } from 'react-navigation';
 import { ScrollView } from 'react-native-gesture-handler';
 import styles from './BugDetailScreenStyles';
-import { ApplicationState } from '../../../models/ApplicationState/ApplicationState';
 import { BugModel } from '../../../models/CollectionModels/BugModel';
+import { ApplicationStateV2 } from '../../../models/ApplicationState/ApplicationStateV2';
+import { CreatureModel } from '../../../models/CollectionModelsV2/creatures';
+import { updateCreatureCaught, updateCreatureDonated } from "../../../app/ReduxV2/CollectionActions";
 
 interface BugDetailsProps {
     navigation: NavigationScreenProp<any>,
-    appState: ApplicationState
-    updateBugCaught: typeof updateBugCaught
-    updateBugDonated: typeof updateBugDonated
+    appState: ApplicationStateV2
+    updateCreatureCaught: typeof updateCreatureCaught,
+    updateCreatureDonated: typeof updateCreatureDonated,
     route: {
         key: string,
         name: string,
         params: {
             index: number,
-            bug: BugModel,
-            model: BugModel,
+            model: CreatureModel
         }
     }
 }
 
 interface BugDetailsState {
-    model: BugModel
+    model: CreatureModel
 }
 
-
-
 class BugDetails extends Component<BugDetailsProps, BugDetailsState> {
-    index = this.props.route.params.index;
-    bug = this.props.appState.bug.bugCollection[this.index];
-    SetItemCaught = (caught: boolean, index: number) => {
-        this.props.updateBugCaught({ caught, index });
-        this.setState({ model: this.props.appState.bug.bugCollection[index] });
+
+    SetItemCaught = (caught: boolean, internalId: number) => {
+        this.props.updateCreatureCaught({caught, type: "Bug", id: internalId});
+        this.setState({model: {...this.state.model, caught: caught}});
     }
 
 
-    SetItemDonated = (donated: boolean, index: number) => {
-        this.props.updateBugDonated({ donated, index });
-        this.setState({ model: this.props.appState.bug.bugCollection[index] });
+    SetItemDonated = (donated: boolean, internalId: number) => {
+        this.props.updateCreatureDonated({ donated, type: "Bug", id: internalId });
+        this.setState({model: {...this.state.model, donated: donated, caught: donated === true ? true : this.state.model.caught}})
     }
 
     constructor(props: BugDetailsProps) {
         super(props);
-        this.index = props.route.params.index;
-        this.bug = props.route.params.model;
+        this.state = {
+            model: this.props.route.params.model
+        }
     }
 
     render() {
@@ -57,67 +55,32 @@ class BugDetails extends Component<BugDetailsProps, BugDetailsState> {
             <ScrollView style={styles.detailViewScrollView} contentContainerStyle={{ justifyContent: 'center' }}>
                 <View style={styles.detailViewContainer}>
                     <View style={styles.imageAndNameContainer}>
-                        <Image source={BugImages[this.bug.name]}></Image>
+                        <Image source={BugImages[this.state.model.name]}></Image>
                         <View style={styles.bugNameViewStyling}>
-                            <Text style={styles.bugNameTextStyling}>{this.bug.name}</Text>
+                            <Text style={styles.bugNameTextStyling}>{this.state.model.name}</Text>
                         </View>
                     </View>
                     <View style={styles.caughtDonatedValueContainer}>
-                        <CheckBox style={styles.checkBoxTemp} checked={this.bug.caught}></CheckBox>
-                        <CheckBox style={styles.checkBoxTemp} checked={this.bug.donated}></CheckBox>
+                        <CheckBox style={styles.checkBoxTemp} checked={this.state.model.caught} onPress={() => {this.SetItemCaught(!this.state.model.caught, this.state.model.internalId)}}></CheckBox>
+                        <CheckBox style={styles.checkBoxTemp} checked={this.state.model.donated} onPress={() => {this.SetItemDonated(!this.state.model.donated, this.state.model.internalId)}}></CheckBox>
                         <View style={styles.valueContainer}>
                             <Image source={require('../../Images/Other/BellBag.png')} style={{ width: 30, height: 30, marginLeft: 5 }}></Image>
-                            <Text style={styles.valueText}>{this.bug.value}</Text>
+                            <Text style={styles.valueText}>{this.state.model.value}</Text>
                         </View>
                     </View>
                     <View style={styles.monthContainer}>
-                        <View style={this.bug.monthsAvailable.jan ? styles.monthItemSelected : styles.monthItem}>
-                            <Text>{"Jan"}</Text>
-                        </View>
-                        <View style={this.bug.monthsAvailable.feb ? styles.monthItemSelected : styles.monthItem}>
-                            <Text>{"Feb"}</Text>
-                        </View>
-                        <View style={this.bug.monthsAvailable.mar ? styles.monthItemSelected : styles.monthItem}>
-                            <Text>{"Mar"}</Text>
-                        </View>
-                        <View style={this.bug.monthsAvailable.apr ? styles.monthItemSelected : styles.monthItem}>
-                            <Text>{"Apr"}</Text>
-                        </View>
-                        <View style={this.bug.monthsAvailable.may ? styles.monthItemSelected : styles.monthItem}>
-                            <Text>{"May"}</Text>
-                        </View>
-                        <View style={this.bug.monthsAvailable.jun ? styles.monthItemSelected : styles.monthItem}>
-                            <Text>{"Jun"}</Text>
-                        </View>
-                        <View style={this.bug.monthsAvailable.jul ? styles.monthItemSelected : styles.monthItem}>
-                            <Text>{"Jul"}</Text>
-                        </View>
-                        <View style={this.bug.monthsAvailable.aug ? styles.monthItemSelected : styles.monthItem}>
-                            <Text>{"Aug"}</Text>
-                        </View>
-                        <View style={this.bug.monthsAvailable.sep ? styles.monthItemSelected : styles.monthItem}>
-                            <Text>{"Sep"}</Text>
-                        </View>
-                        <View style={this.bug.monthsAvailable.oct ? styles.monthItemSelected : styles.monthItem}>
-                            <Text>{"Oct"}</Text>
-                        </View>
-                        <View style={this.bug.monthsAvailable.nov ? styles.monthItemSelected : styles.monthItem}>
-                            <Text>{"Nov"}</Text>
-                        </View>
-                        <View style={this.bug.monthsAvailable.dec ? styles.monthItemSelected : styles.monthItem}>
-                            <Text>{"Dec"}</Text>
-                        </View>
+                        
                     </View>
                     <View style={styles.locationAndTimeContainer}>
                         <View style={styles.imageAndTextContainer}>
                             {/* TODO: Image Here (remove height from container) */}
                             <Text>{"Location Image"}</Text>
-                            <Text style={{ fontFamily: 'Confortaa' }}>{this.bug.locationName}</Text>
+                            <Text style={{ fontFamily: 'Confortaa' }}>{this.state.model.whereHow}</Text>
                         </View>
                         <View style={styles.imageAndTextContainer}>
                             {/* TODO: Image Here (remove height from container) */}
                             <Text>{"Clock Image"}</Text>
-                            <Text style={{ fontFamily: 'Confortaa' }}>{this.bug.time}</Text>
+                            <Text style={{ fontFamily: 'Confortaa' }}>{this.state.model.activeMonths.northern[0].activeHours[0]}</Text>
                         </View>
                     </View>
                     <View style={styles.rarityContainer}>
@@ -144,4 +107,8 @@ const mapStateToProps = (state: any) => {
     const { appState } = state;
     return { appState }
 };
-export default connect(mapStateToProps, { updateBugCaught, updateBugDonated })(BugDetails);
+export default connect(mapStateToProps, {
+    updateCreatureCaught,
+    updateCreatureDonated,
+  })(BugDetails);
+  

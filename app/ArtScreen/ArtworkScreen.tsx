@@ -16,11 +16,9 @@ import { GridItem } from '../Shared/GridItem';
 import { ItemModel, ItemSourceSheet } from '../../models/CollectionModelsV2/items';
 
 function titleCase(str: string) {
-    console.log('title case');
     let returnStr = str.toLowerCase().split(' ').map(function(word) {
       return word.replace(word[0], word[0].toUpperCase());
     }).join(' ');
-    console.log(returnStr);
     return returnStr;
   }
 
@@ -46,7 +44,6 @@ class ArtworkScreen extends Component<ArtworkScreenProps, ArtworkScreenState> {
             this.props.updateArtworkCollectionFromStorage(JSON.parse(storedArtworks));
         }
         else {
-            console.log('artwork default');
             this.props.updateArtworkCollectionFromStorage(defaultArtworkCollection);
             await AsyncStorage.setItem('artworkStore', JSON.stringify(defaultArtworkCollection));
         }

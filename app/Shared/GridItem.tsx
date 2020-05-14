@@ -15,14 +15,12 @@ export class GridItem extends PureComponent<GridItemProps> {
   setItemCaught = () => this.props.updateCaught && this.props.updateCaught({ caught: !(this.props.model as CreatureModel).caught, id: (this.props.model as CreatureModel).internalId, type: this.props.model.sourceSheet === "Fish" ? "Fish" : "Bug" });
 
   setItemDonated = () => {
-    console.log('donated');
     if(this.props.model.sourceSheet !== "Fish" && this.props.model.sourceSheet !== "Bugs"){
       if(this.props.model as ItemModel && this.props.updateItemDonated){
         this.props.updateItemDonated({donated: !this.props.model.donated, name: this.props.model.name, type: this.props.model.sourceSheet === "Fossils" ? "Fossil" : "Artwork"})
       }
     }
     else{
-      console.log('donating');
       if(this.props.model as CreatureModel && this.props.updateDonated){
         this.props.updateDonated({ donated: !this.props.model.donated, id: this.props.model.internalId, type: this.props.model.sourceSheet === "Fish" ? "Fish" : "Bug"})
       }

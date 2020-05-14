@@ -23,11 +23,9 @@ import {updateItemCatalogged, updateCreatureCaught, updateCreatureDonated, updat
 import { CreatureModel, SourceSheet, CreatureSize, CreatureColor, LightingType, Season, ActiveMonths, Thern, CreatureWeather } from '../../models/CollectionModelsV2/creatures';
 
 function titleCase(str: string) {
-  console.log('title case');
   let returnStr = str.toLowerCase().split(' ').map(function(word) {
     return word.replace(word[0], word[0].toUpperCase());
   }).join(' ');
-  console.log(returnStr);
   return returnStr;
 }
 
@@ -118,7 +116,6 @@ class FishScreen extends Component<FishScreenProps, FishScreenState> {
     // fish = FilterFish(this.props.appState.fish.fishAdvancedSortFilter, fish);
     // fish = this.filterFishByText(this.state.filterText, fish);
     // fish = SortFish(fish, this.props.appState.fish.fishAdvancedSort);
-    console.log(fish);
     return (
       <Container>
         <ListHeader

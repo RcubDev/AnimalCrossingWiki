@@ -70,7 +70,6 @@ const INITIAL_STATE2: ApplicationState = {
 const collectionReducer = (state = INITIAL_STATE2, action: ActionTypes): ApplicationState => {
   switch (action.type) {
     case UPDATE_FISH_CAUGHT:
-      console.log('here');
       return updateFishCaughtAction(state, action);
     case UPDATE_FISH_DONATED:
       return updateFishDonatedAction(state, action);
@@ -151,9 +150,7 @@ function updateArtworkCollectionFromStorage(state: ApplicationState, action: Upd
   return { ...state, art: { ...state.art, artworkCollection: action.payload } };
 }
 
-function updateFishCaughtAction(state: ApplicationState, action: UpdateFishCaught): ApplicationState {
-  console.log(`caught: ${action.payload.caught}`);
-  
+function updateFishCaughtAction(state: ApplicationState, action: UpdateFishCaught): ApplicationState {  
   const updatedCollection = state.fish.fishCollection.map(fish => fish.id === action.payload.id ? { ...fish, caught: action.payload.caught } : fish);
   AsyncStorage.setItem('fishStore', JSON.stringify(updatedCollection));
   return {

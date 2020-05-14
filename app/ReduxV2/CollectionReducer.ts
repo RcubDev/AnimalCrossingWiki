@@ -22,9 +22,9 @@ const INITIAL_STATE: ApplicationStateV2 = {
 };
 
 const collectionReducer = (state = INITIAL_STATE, action: ReduxActions): ApplicationStateV2 => {
-    console.log(action.type);
     switch (action.type) {
         case UPDATE_CREATURE_CAUGHT:
+            console.log('here');
             return updateCreatureCaught(state, action);
         case UPDATE_CREATURE_DONATED:
             return updateCreatureDonated(state, action);
@@ -39,7 +39,7 @@ const collectionReducer = (state = INITIAL_STATE, action: ReduxActions): Applica
         case UPDATE_FOSSIL_COLLECTION:
             return updateFossilCollectionFromStorage(state, action);
         case UPDATE_ARTWORK_COLLECTION:
-            return updateArtworkCollectionFromStorage(state, action);
+            return updateArtworkCollectionFromStorage(state, action);        
         default:
             return state;
     }
@@ -86,8 +86,6 @@ function updateCreatureCaught(state: ApplicationStateV2, action: UpdateCreatureC
 function updateCreatureDonated(state: ApplicationStateV2, action: UpdateCreatureDonatedAction): ApplicationStateV2 {
     switch (action.payload.type) {
         case "Fish":
-            console.log('fish2');
-            console.log(action.payload.id);
             const updatedFishCollection = state.fish.fishCollection.map(fish => fish.internalId === action.payload.id ? { ...fish, caught: action.payload.donated ? true : fish.caught, donated: action.payload.donated } : fish);
             AsyncStorage.setItem('fishStore', JSON.stringify(updatedFishCollection));
             return {

@@ -17,12 +17,10 @@ import { GridItem } from '../Shared/GridItem';
 import { CreatureModel, SourceSheet, CreatureSize, CreatureColor, LightingType, Season, Thern, CreatureWeather } from '../../models/CollectionModelsV2/creatures';
 
 function titleCase(str: string) {
-  console.log('title case');
   let returnStr = str.toLowerCase().split(' ').map(function(word) {
     return word.replace(word[0], word[0].toUpperCase());
   }).join(' ');
-  console.log(returnStr);
-  return returnStr;
+    return returnStr;
 }
 
 const defaultBugCollection: Array<CreatureModel> = creatures.filter(x => x.sourceSheet === "Bugs").map(x => {
