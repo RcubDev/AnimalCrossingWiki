@@ -8,22 +8,15 @@ import CaughtFilterSelection from "../../CritterFilterComponents/CaughtFilter";
 import { updateBugFilter } from "../../Redux/CollectionActions";
 import { BugScreenProps } from "../../../models/MainScreenModels/BugScreen/BugScreenProps";
 import { AdvancedFilterBugModel } from "../../../models/Filter/AdvancedFilterBugModel";
+import { FilterProps } from "../../../models/Filter/FilterProps";
 
-class BugFilterOptions extends PureComponent<BugScreenProps> {
-  constructor(props: BugScreenProps) {
+class BugFilterOptions extends PureComponent<FilterProps> {
+  constructor(props: FilterProps) {
     super(props);
   }
 
-  SetBugFilter = (filter: AdvancedFilterBugModel) => {
-    this.props.updateBugFilter(filter);
-  };
-  
   render() {
-    let currentFilterSettings = {
-      currentFilterSettings: this.props.appState.bug.bugAdvancedFilter,
-      updateFunction: this.SetBugFilter,
-    }
-    
+
     return (
       <ScrollView
         style={{
@@ -36,10 +29,10 @@ class BugFilterOptions extends PureComponent<BugScreenProps> {
         }}
         contentContainerStyle={{ justifyContent: "center" }}
       >
-        <MonthFilterSelection {...currentFilterSettings}></MonthFilterSelection>
-        <RarityFilterSelection {...currentFilterSettings}></RarityFilterSelection>
-        <LocationFilterSelection {...currentFilterSettings}></LocationFilterSelection>
-        <CaughtFilterSelection {...currentFilterSettings}></CaughtFilterSelection>
+        <MonthFilterSelection {...this.props}></MonthFilterSelection>
+        <RarityFilterSelection {...this.props}></RarityFilterSelection>
+        <LocationFilterSelection {...this.props}></LocationFilterSelection>
+        <CaughtFilterSelection {...this.props}></CaughtFilterSelection>
       </ScrollView>
     );
   }

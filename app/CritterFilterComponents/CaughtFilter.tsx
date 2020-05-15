@@ -4,7 +4,7 @@ import styles from "../FishScreen/FishFilter/FishFilterOptionsStyles";
 import { FilterProps } from "../../models/Filter/FilterProps";
 
 export default function CaughtFilterSelection(props: FilterProps) {
-  let filterObj = props.currentFilterSettings;
+  let filterObj = props.currentFilter;
   let setFilterObj = (type: string, value: boolean) => {
     switch (type) {
       case "caught":
@@ -38,7 +38,7 @@ export default function CaughtFilterSelection(props: FilterProps) {
         filterObj.notDonated = false;
         break;
     }
-    props.updateFunction(filterObj);
+    props.setFilterModel(filterObj);
   };
 
   return (

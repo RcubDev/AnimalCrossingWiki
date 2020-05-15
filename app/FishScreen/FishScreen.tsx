@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { AsyncStorage } from 'react-native';
+import { AsyncStorage, Modal } from 'react-native';
 import fish from '../../data/fish.json';
 import creatures from '../../dataV2/creatures.json'
 import {
-  Container,
+  Container, View,
 } from 'native-base';
-import { FlatList } from 'react-native-gesture-handler';
+import { FlatList, TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import { AppLoading } from 'expo';
 import styles from '../Shared/Screen.styles';
 import { FishScreenProps } from '../../models/MainScreenModels/FishScreen/FishScreenProps';
@@ -14,13 +14,16 @@ import { connect } from 'react-redux';
 import { NewFishModel } from '../../models/CollectionModels/NewFishModel';
 import { filterCollectionByTextSpecial } from '../Filter/Filter';
 import { isListOfFish } from '../Filter/FilterTypes';
-import { FilterFish } from '../AdvancedFilterLogic/FishFilterAdvanced';
+import { Filter } from '../AdvancedFilterLogic/FishFilterAdvanced';
 import { SortFish } from '../AdvancedSortLogic/FishSortAdvanced';
 import { ListHeader } from '../Shared/ListHeader';
 import { GridItem } from '../Shared/GridItem';
 import FishImages from '../Images/FishImages';
 import {updateItemCatalogged, updateCreatureCaught, updateCreatureDonated, updateItemDonated, updateFishCollectionFromStorage } from '../ReduxV2/CollectionActions'
 import { CreatureModel, SourceSheet, CreatureSize, CreatureColor, LightingType, Season, ActiveMonths, Thern, CreatureWeather } from '../../models/CollectionModelsV2/creatures';
+import FishSortOptions from './FishSort/FishSortOptions';
+import { FilterModel } from '../../models/Filter/FilterModel';
+import FishFilterOptions from './FishFilter/FishFilterOptions';
 
 function titleCase(str: string) {
   let returnStr = str.toLowerCase().split(' ').map(function(word) {
@@ -56,7 +59,34 @@ class FishScreen extends Component<FishScreenProps, FishScreenState> {
       isReady: false,
       filterText: '',
       showFilterModal: false,
-      showSortModal: false
+      showSortModal: false,
+      //TODO Create a default filter function
+      filter: {
+        caught: false,
+        donated: false,
+        notCaught: false,
+        notDonated: false,
+        availableNow: false,
+        location: -1,
+        rarity: -1,
+        value: 0,
+        catchableNow: false,
+        shadowSize: -1,
+        monthsAvailable: {
+          jan: false,
+          feb: false,
+          mar: false,
+          apr: false,
+          may: false,
+          jun: false,
+          jul: false,
+          aug: false,
+          sep: false,
+          oct: false,
+          nov: false,
+          dec: false
+        }
+      }
     };
   }
 
@@ -70,6 +100,10 @@ class FishScreen extends Component<FishScreenProps, FishScreenState> {
       await AsyncStorage.setItem('fishStore', JSON.stringify(defaultFishCollection));
     }
     this.setState({ isReady: true });
+  }
+
+  setFilter = (filter: FilterModel) => {
+    this.setState({filter});
   }
 
   filterFishByText(text: string, fishes: Array<NewFishModel>): Array<NewFishModel> {
@@ -113,7 +147,7 @@ class FishScreen extends Component<FishScreenProps, FishScreenState> {
     const { navigation, updateCreatureCaught, updateCreatureDonated } = this.props;
     
     let fish = this.props.appState.fish.fishCollection;
-    // fish = FilterFish(this.props.appState.fish.fishAdvancedSortFilter, fish);
+    fish = Filter(this.state.filter, fish, 0) as CreatureModel[];
     // fish = this.filterFishByText(this.state.filterText, fish);
     // fish = SortFish(fish, this.props.appState.fish.fishAdvancedSort);
     return (
@@ -143,12 +177,13 @@ class FishScreen extends Component<FishScreenProps, FishScreenState> {
             flexDirection: 'row',
           }}
         ></FlatList>
-        {/* <Modal visible={this.state.showFilterModal} transparent={true} animationType='slide'>
+         <Modal visible={this.state.showFilterModal} transparent={true} animationType='slide'>
           <View style={{ height: '50%' }}>
             <TouchableWithoutFeedback onPress={() => { this.setState({ showFilterModal: false }) }} style={{ width: '100%', height: '100%' }}></TouchableWithoutFeedback>
           </View>
-          <AdvancedFilterSortOptions></AdvancedFilterSortOptions>
+          <FishFilterOptions currentFilter={this.state.filter} setFilterModel={this.setFilter}></FishFilterOptions>
         </Modal>
+        {/* 
         <Modal visible={this.state.showSortModal} transparent={true} animationType='slide'>
           <View style={{ height: '50%' }}>
             <TouchableWithoutFeedback onPress={() => { this.setState({ showSortModal: false }) }} style={{ width: '100%', height: '100%' }}></TouchableWithoutFeedback>

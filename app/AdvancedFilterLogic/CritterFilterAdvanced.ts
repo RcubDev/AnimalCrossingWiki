@@ -4,9 +4,9 @@ import { MonthsAvaliable } from "../../models/CollectionModels/CritterCollection
 import _ from "lodash";
 import { List } from "native-base";
 import moment from "moment";
-import { AdvancedFilterCritterModel } from "../../models/Filter/AdvancedFilterCritterModel";
+import { FilterModel } from "../../models/Filter/FilterModel";
 
-export function FilterCritters(filterOptions: AdvancedFilterCritterModel, allCritters: Array<CritterModel>, timeOffSet: number = 0): Array<CritterModel> {
+export function FilterCritters(filterOptions: FilterModel, allCritters: Array<CritterModel>, timeOffSet: number = 0): Array<CritterModel> {
     allCritters = ApplyMonths(filterOptions, allCritters);
     allCritters = ApplyRarity(filterOptions.rarity, allCritters);
     allCritters = ApplyCaught(filterOptions.caught, allCritters);

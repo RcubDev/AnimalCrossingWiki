@@ -4,8 +4,8 @@ import styles from "../FishScreen/FishFilter/FishFilterOptionsStyles";
 import { FilterProps } from "../../models/Filter/FilterProps";
 
 export default function RarityFilterSelection(props: FilterProps) {
-  let selection = props.currentFilterSettings.rarity;
-  let filterObj = props.currentFilterSettings;
+  let selection = props.currentFilter.rarity;
+  let filterObj = props.currentFilter;
   let setRarity = (rarity: number) => {
     if(filterObj.rarity === rarity){
         filterObj.rarity = -1;
@@ -13,7 +13,7 @@ export default function RarityFilterSelection(props: FilterProps) {
     else {
         filterObj.rarity = rarity;
     }
-    props.updateFunction(filterObj);
+    props.setFilterModel(filterObj);
 };
   
   return (

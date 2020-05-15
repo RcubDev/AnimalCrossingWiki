@@ -4,73 +4,73 @@ import styles from "../FishScreen/FishFilter/FishFilterOptionsStyles";
 import { FilterProps } from "../../models/Filter/FilterProps";
 
 export default function MonthFilterSelection(props: FilterProps) {
-  let filterObj = props.currentFilterSettings;
+  let filterObj = props.currentFilter;
 
   let setCatchableNow = (catchableNow: boolean) => {
     filterObj.catchableNow = catchableNow;
     if (catchableNow) {
       setMonths(0, false);
     }
-    props.updateFunction(filterObj);
+    props.setFilterModel(filterObj);
   }
 
   let setMonths = (month: number, selected: boolean) => {
     if(selected && filterObj.catchableNow){
-      filterObj.catchableNow = false;
+      // filterObj.monthsAvailable = false;
     }
     switch (month) {
       case 0:
-        filterObj.jan = selected;
-        filterObj.feb = selected;
-        filterObj.mar = selected;
-        filterObj.apr = selected;
-        filterObj.may = selected;
-        filterObj.jun = selected;
-        filterObj.jul = selected;
-        filterObj.aug = selected;
-        filterObj.sep = selected;
-        filterObj.oct = selected;
-        filterObj.nov = selected;
-        filterObj.dec = selected;
+        filterObj.monthsAvailable.jan = selected;
+        filterObj.monthsAvailable.feb = selected;
+        filterObj.monthsAvailable.mar = selected;
+        filterObj.monthsAvailable.apr = selected;
+        filterObj.monthsAvailable.may = selected;
+        filterObj.monthsAvailable.jun = selected;
+        filterObj.monthsAvailable.jul = selected;
+        filterObj.monthsAvailable.aug = selected;
+        filterObj.monthsAvailable.sep = selected;
+        filterObj.monthsAvailable.oct = selected;
+        filterObj.monthsAvailable.nov = selected;
+        filterObj.monthsAvailable.dec = selected;
         break;
       case 1:
-        filterObj.jan = selected;
+        filterObj.monthsAvailable.jan = selected;
         break;
       case 2:
-        filterObj.feb = selected;
+        filterObj.monthsAvailable.feb = selected;
         break;
       case 3:
-        filterObj.mar = selected;
+        filterObj.monthsAvailable.mar = selected;
         break;
       case 4:
-        filterObj.apr = selected;
+        filterObj.monthsAvailable.apr = selected;
         break;
       case 5:
-        filterObj.may = selected;
+        filterObj.monthsAvailable.may = selected;
         break;
       case 6:
-        filterObj.jun = selected;
+        filterObj.monthsAvailable.jun = selected;
         break;
       case 7:
-        filterObj.jul = selected;
+        filterObj.monthsAvailable.jul = selected;
         break;
       case 8:
-        filterObj.aug = selected;
+        filterObj.monthsAvailable.aug = selected;
         break;
       case 9:
-        filterObj.sep = selected;
+        filterObj.monthsAvailable.sep = selected;
         break;
       case 10:
-        filterObj.oct = selected;
+        filterObj.monthsAvailable.oct = selected;
         break;
       case 11:
-        filterObj.nov = selected;
+        filterObj.monthsAvailable.nov = selected;
         break;
       case 12:
-        filterObj.dec = selected;
+        filterObj.monthsAvailable.dec = selected;
         break;
     }
-    props.updateFunction(filterObj);
+    props.setFilterModel(filterObj);
   };
 
   return (
@@ -94,144 +94,144 @@ export default function MonthFilterSelection(props: FilterProps) {
       >
         <Button
           style={
-            filterObj.jan
+            filterObj.monthsAvailable.jan
               ? styles.monthButtonSelectedStyle
               : styles.monthButtonUnSelectedStyle
           }
           onPress={() => {
-            setMonths(1, !filterObj.jan);
+            setMonths(1, !filterObj.monthsAvailable.jan);
           }}
         >
           <Text>Jan</Text>
         </Button>
         <Button
           style={
-            filterObj.feb
+            filterObj.monthsAvailable.feb
               ? styles.monthButtonSelectedStyle
               : styles.monthButtonUnSelectedStyle
           }
           onPress={() => {
-            setMonths(2, !filterObj.feb);
+            setMonths(2, !filterObj.monthsAvailable.feb);
           }}
         >
           <Text>Feb</Text>
         </Button>
         <Button
           style={
-            filterObj.mar
+            filterObj.monthsAvailable.mar
               ? styles.monthButtonSelectedStyle
               : styles.monthButtonUnSelectedStyle
           }
           onPress={() => {
-            setMonths(3, !filterObj.mar);
+            setMonths(3, !filterObj.monthsAvailable.mar);
           }}
         >
           <Text>Mar</Text>
         </Button>
         <Button
           style={
-            filterObj.apr
+            filterObj.monthsAvailable.apr
               ? styles.monthButtonSelectedStyle
               : styles.monthButtonUnSelectedStyle
           }
           onPress={() => {
-            setMonths(4, !filterObj.apr);
+            setMonths(4, !filterObj.monthsAvailable.apr);
           }}
         >
           <Text>Apr</Text>
         </Button>
         <Button
           style={
-            filterObj.may
+            filterObj.monthsAvailable.may
               ? styles.monthButtonSelectedStyle
               : styles.monthButtonUnSelectedStyle
           }
           onPress={() => {
-            setMonths(5, !filterObj.may);
+            setMonths(5, !filterObj.monthsAvailable.may);
           }}
         >
           <Text>May</Text>
         </Button>
         <Button
           style={
-            filterObj.jun
+            filterObj.monthsAvailable.jun
               ? styles.monthButtonSelectedStyle
               : styles.monthButtonUnSelectedStyle
           }
           onPress={() => {
-            setMonths(6, !filterObj.jun);
+            setMonths(6, !filterObj.monthsAvailable.jun);
           }}
         >
           <Text>Jun</Text>
         </Button>
         <Button
           style={
-            filterObj.jul
+            filterObj.monthsAvailable.jul
               ? styles.monthButtonSelectedStyle
               : styles.monthButtonUnSelectedStyle
           }
           onPress={() => {
-            setMonths(7, !filterObj.jul);
+            setMonths(7, !filterObj.monthsAvailable.jul);
           }}
         >
           <Text>Jul</Text>
         </Button>
         <Button
           style={
-            filterObj.aug
+            filterObj.monthsAvailable.aug
               ? styles.monthButtonSelectedStyle
               : styles.monthButtonUnSelectedStyle
           }
           onPress={() => {
-            setMonths(8, !filterObj.aug);
+            setMonths(8, !filterObj.monthsAvailable.aug);
           }}
         >
           <Text>Aug</Text>
         </Button>
         <Button
           style={
-            filterObj.sep
+            filterObj.monthsAvailable.sep
               ? styles.monthButtonSelectedStyle
               : styles.monthButtonUnSelectedStyle
           }
           onPress={() => {
-            setMonths(9, !filterObj.sep);
+            setMonths(9, !filterObj.monthsAvailable.sep);
           }}
         >
           <Text>Sep</Text>
         </Button>
         <Button
           style={
-            filterObj.oct
+            filterObj.monthsAvailable.oct
               ? styles.monthButtonSelectedStyle
               : styles.monthButtonUnSelectedStyle
           }
           onPress={() => {
-            setMonths(10, !filterObj.oct);
+            setMonths(10, !filterObj.monthsAvailable.oct);
           }}
         >
           <Text>Oct</Text>
         </Button>
         <Button
           style={
-            filterObj.nov
+            filterObj.monthsAvailable.nov
               ? styles.monthButtonSelectedStyle
               : styles.monthButtonUnSelectedStyle
           }
           onPress={() => {
-            setMonths(11, !filterObj.nov);
+            setMonths(11, !filterObj.monthsAvailable.nov);
           }}
         >
           <Text>Nov</Text>
         </Button>
         <Button
           style={
-            filterObj.dec
+            filterObj.monthsAvailable.dec
               ? styles.monthButtonSelectedStyle
               : styles.monthButtonUnSelectedStyle
           }
           onPress={() => {
-            setMonths(12, !filterObj.dec);
+            setMonths(12, !filterObj.monthsAvailable.dec);
           }}
         >
           <Text>Dec</Text>

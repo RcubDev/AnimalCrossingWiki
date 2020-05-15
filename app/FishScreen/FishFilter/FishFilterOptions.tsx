@@ -1,29 +1,22 @@
 import React, { Component, PureComponent } from "react";
-import { FishScreenProps } from "../../../models/MainScreenModels/FishScreen/FishScreenProps";
-import { connect } from "react-redux";
 import { Text, ScrollView, Modal } from "react-native";
 import MonthFilterSelection from "../../CritterFilterComponents/MonthFilterSelection";
 import ShadowSizeFilterSelection from "./ShadowSizeFilterSelection";
 import RarityFilterSelection from "../../CritterFilterComponents/RarityFilterSelection";
 import LocationFilterSelection from "../../CritterFilterComponents/LocationFilterSelection";
 import CaughtFilterSelection from "../../CritterFilterComponents/CaughtFilter";
-import { updateFishFilter } from "../../Redux/CollectionActions";
-import { AdvancedSortFilterFishModel } from "../../../models/MainScreenModels/FishScreen/AdvancedSortFilterFishModel";
+import { FilterProps } from "../../../models/Filter/FilterProps";
 
-class AdvancedFilterSortOptions extends PureComponent<FishScreenProps> {
-  constructor(props: FishScreenProps) {
+
+
+export default class FishFilterOptions extends Component<FilterProps> {
+  constructor(props: FilterProps) {
     super(props);
   }
 
-  SetFishFilter = (filter: AdvancedSortFilterFishModel) => {
-    this.props.updateFishFilter(filter);
-  };
+
   
   render() {
-    let currentFilterSettings = {
-      currentFilterSettings: this.props.appState.fish.fishAdvancedSortFilter,
-      updateFunction: this.SetFishFilter,
-    }
     return (
       <ScrollView
         style={{
@@ -36,21 +29,13 @@ class AdvancedFilterSortOptions extends PureComponent<FishScreenProps> {
         }}
         contentContainerStyle={{ justifyContent: "center" }}
       >
-        <MonthFilterSelection {...currentFilterSettings}></MonthFilterSelection>
-        <ShadowSizeFilterSelection {...currentFilterSettings}></ShadowSizeFilterSelection>
-        <RarityFilterSelection {...currentFilterSettings}></RarityFilterSelection>
-        <LocationFilterSelection {...currentFilterSettings}></LocationFilterSelection>
-        <CaughtFilterSelection {...currentFilterSettings}></CaughtFilterSelection>
+        <MonthFilterSelection {...this.props}></MonthFilterSelection>
+        <ShadowSizeFilterSelection {...this.props}></ShadowSizeFilterSelection> 
+        <RarityFilterSelection {...this.props}></RarityFilterSelection>
+        <LocationFilterSelection {...this.props}></LocationFilterSelection>
+        <CaughtFilterSelection {...this.props}></CaughtFilterSelection>
       </ScrollView>
     );
   }
 }
 
-const mapStateToProps = (state: any) => {
-  const { appState } = state;
-  return { appState };
-};
-
-export default connect(mapStateToProps, { updateFishFilter })(
-  AdvancedFilterSortOptions
-);

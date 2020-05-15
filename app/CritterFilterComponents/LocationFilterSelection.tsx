@@ -4,8 +4,8 @@ import styles from "../FishScreen/FishFilter/FishFilterOptionsStyles";
 import { FilterProps } from "../../models/Filter/FilterProps";
 
 export default function LocationFilterSelection(props: FilterProps) {
-  let selection = props.currentFilterSettings.location;
-  let filterObj = props.currentFilterSettings;
+  let selection = props.currentFilter.location;
+  let filterObj = props.currentFilter;
   let setLocation = (location: number) => {
     if(filterObj.location === location){
         filterObj.location = -1;
@@ -13,7 +13,7 @@ export default function LocationFilterSelection(props: FilterProps) {
     else {
         filterObj.location = location;
     }
-    props.updateFunction(filterObj);
+    props.setFilterModel(filterObj);
 };
   return (
     <Card>

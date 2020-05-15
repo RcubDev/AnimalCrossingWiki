@@ -14,7 +14,7 @@ import FishDetails from './FishScreen/FishDetailScreen';
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 import collectionReducer from './Redux/CollectionReducer'
-import AdvancedFilterSortOptions from './FishScreen/FishFilter/FishFilterOptions';
+import FishFilterOptions from './FishScreen/FishFilter/FishFilterOptions';
 import BugDetailScreen from './BugScreen/BugDetail/BugDetailScreen';
 import FossilScreen from './FossilScreen/FossilScreen'
 import FossilDetailScreen from './FossilScreen/FossilDetail/FossilDetailScreen';
@@ -65,7 +65,7 @@ export default class App extends Component<any, { isReady: boolean }> {
               <Stack.Screen name="Bugs" component={BugScreen} />
               <Stack.Screen name="BugDetails" component={BugDetailScreen} />
               <Stack.Screen name="FishDetails" component={FishDetails} />
-              <Stack.Screen name="FilterAndSortScreen" component={AdvancedFilterSortOptions} />
+              {/* <Stack.Screen name="FilterAndSortScreen" component={FishFilterOptions} /> */}
               <Stack.Screen name="Settings" component={SettingsScreen} />
               <Stack.Screen name="Fossils" component={FossilScreen} />
               <Stack.Screen name="FossilDetails" component={FossilDetailScreen} />

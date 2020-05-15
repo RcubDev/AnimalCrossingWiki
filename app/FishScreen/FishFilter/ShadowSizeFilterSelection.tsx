@@ -8,9 +8,9 @@ import { ShadowSizeFilterProps } from "../../../models/Filter/ShadowSizeFilterPr
 
 
 
-export default function ShadowSizeFilterSelection(props: ShadowSizeFilterProps) {
-    let selection = props.currentFilterSettings.shadowSize;
-    let filterObj = props.currentFilterSettings;
+export default function ShadowSizeFilterSelection(props: FilterProps) {
+    let selection = props.currentFilter.shadowSize;
+    let filterObj = props.currentFilter;
     let setFilterShadowSize = (shadowSize: number) => {
         if(filterObj.shadowSize === shadowSize){
             filterObj.shadowSize = -1;
@@ -18,7 +18,7 @@ export default function ShadowSizeFilterSelection(props: ShadowSizeFilterProps) 
         else {
             filterObj.shadowSize = shadowSize;
         }
-        props.updateFunction(filterObj);
+        props.setFilterModel(filterObj);
     };
   return (
     <Card>
