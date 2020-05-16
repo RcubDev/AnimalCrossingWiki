@@ -14,7 +14,7 @@ import FishDetails from './FishScreen/FishDetailScreen';
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 import collectionReducer from './Redux/CollectionReducer'
-import FilterOptions from './FishScreen/FishFilter/FilterOptions';
+import FilterOptions from './Shared/FilterOptions';
 import BugDetailScreen from './BugScreen/BugDetail/BugDetailScreen';
 import FossilScreen from './FossilScreen/FossilScreen'
 import FossilDetailScreen from './FossilScreen/FossilDetail/FossilDetailScreen';

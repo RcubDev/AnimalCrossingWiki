@@ -23,7 +23,7 @@ import {updateItemCatalogged, updateCreatureCaught, updateCreatureDonated, updat
 import { CreatureModel, SourceSheet, CreatureSize, CreatureColor, LightingType, Season, ActiveMonths, Thern, CreatureWeather } from '../../models/CollectionModelsV2/creatures';
 import FishSortOptions from './FishSort/FishSortOptions';
 import { FilterModel } from '../../models/Filter/FilterModel';
-import FilterOptions from './FishFilter/FilterOptions';
+import FilterOptions from '../Shared/FilterOptions';
 
 function titleCase(str: string) {
   let returnStr = str.toLowerCase().split(' ').map(function(word) {

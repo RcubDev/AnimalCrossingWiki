@@ -1,11 +1,11 @@
 import { CritterModel } from "../../models/CollectionModels/CritterModel";
-import { AdvancedSortCritterModel } from "../../models/Sort/AdvancedSortCritterModel";
+import { SortModel } from "../../models/Sort/AdvancedSortCritterModel";
 
-export function SortCritters(critterArray: Array<CritterModel>, sort: AdvancedSortCritterModel): Array<CritterModel> {
+export function SortCritters(critterArray: Array<CritterModel>, sort: SortModel): Array<CritterModel> {
     if(sort.name){
         return ApplyNameSort(critterArray, sort.descending);
     }
-    else if(sort.value){
+    else if(sort.sellPrice){
         return ApplyValueSort(critterArray, sort.descending);
     }
     else if(sort.rarity){

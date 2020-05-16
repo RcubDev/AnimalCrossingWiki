@@ -1,6 +1,6 @@
 import React from "react";
 import { Button, View, Text, Card, CardItem } from "native-base";
-import styles from "./FishFilterOptionsStyles";
+import styles from "../../Shared/Styles/FilterOptionsStyles";
 import { FishScreenProps } from "../../../models/MainScreenModels/FishScreen/FishScreenProps";
 import { AdvancedSortFilterFishModel } from "../../../models/MainScreenModels/FishScreen/AdvancedSortFilterFishModel";
 import { FilterProps } from "../../../models/Filter/FilterProps";

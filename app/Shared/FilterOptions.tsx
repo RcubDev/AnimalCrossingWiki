@@ -1,11 +1,11 @@
 import React, { Fragment, Component, PureComponent } from "react";
 import { Text, ScrollView, Modal, View } from "react-native";
-import MonthFilterSelection from "../../CritterFilterComponents/MonthFilterSelection";
-import ShadowSizeFilterSelection from "./ShadowSizeFilterSelection";
-import RarityFilterSelection from "../../CritterFilterComponents/RarityFilterSelection";
-import LocationFilterSelection from "../../CritterFilterComponents/LocationFilterSelection";
-import CaughtFilterSelection from "../../CritterFilterComponents/CaughtFilter";
-import { FilterProps } from "../../../models/Filter/FilterProps";
+import MonthFilterSelection from "../CritterFilterComponents/MonthFilterSelection";
+import ShadowSizeFilterSelection from "../FishScreen/FishFilter/ShadowSizeFilterSelection";
+import RarityFilterSelection from "../CritterFilterComponents/RarityFilterSelection";
+import LocationFilterSelection from "../CritterFilterComponents/LocationFilterSelection";
+import CaughtFilterSelection from "../CritterFilterComponents/CaughtFilter";
+import { FilterProps } from "../../models/Filter/FilterProps";
 
 
 

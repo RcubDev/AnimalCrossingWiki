@@ -10,18 +10,18 @@
  * Do not edit the class manually.
  */
 export interface MonthsAvaliable {
-    jan: boolean;
-    feb: boolean;
-    mar: boolean;
-    apr: boolean;
-    may: boolean;
-    jun: boolean;
-    jul: boolean;
-    aug: boolean;
-    sep: boolean;
-    oct: boolean;
-    nov: boolean;
-    dec: boolean;
+    jan: boolean | undefined;
+    feb: boolean | undefined;
+    mar: boolean | undefined;
+    apr: boolean | undefined;
+    may: boolean | undefined;
+    jun: boolean | undefined;
+    jul: boolean | undefined;
+    aug: boolean | undefined;
+    sep: boolean | undefined;
+    oct: boolean | undefined;
+    nov: boolean | undefined;
+    dec: boolean | undefined;
 }
 
 export interface CritterCollectionModel { 

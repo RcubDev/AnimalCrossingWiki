@@ -13,7 +13,7 @@ import FossilImages from '../Images/FossilImages';
 import { ItemModel, ItemSourceSheet } from '../../models/CollectionModelsV2/items';
 import { updateItemDonated, updateFossilCollectionFromStorage } from "../../app/ReduxV2/CollectionActions";
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
-import FilterOptions from '../FishScreen/FishFilter/FilterOptions';
+import FilterOptions from '../Shared/FilterOptions';
 import { FilterModel } from '../../models/Filter/FilterModel';
 import { Filter } from '../AdvancedFilterLogic/FishFilterAdvanced';
 
@@ -47,7 +47,20 @@ class FossilScreen extends Component<FossilScreenProps, FossilScreenState> {
                 value: undefined,
                 catchableNow: undefined,
                 shadowSize: undefined,
-                monthsAvailable: undefined,
+                monthsAvailable: {
+                    jan: undefined,
+                    feb: undefined,
+                    mar: undefined,
+                    apr: undefined,
+                    may: undefined,
+                    jun: undefined,
+                    jul: undefined,
+                    aug: undefined,
+                    sep: undefined,
+                    oct: undefined,
+                    nov: undefined,
+                    dec: undefined
+                },         
                 caught: undefined,
                 notCaught: undefined,
                 availableNow: undefined

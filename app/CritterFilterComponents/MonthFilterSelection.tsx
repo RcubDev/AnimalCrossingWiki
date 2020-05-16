@@ -1,6 +1,6 @@
 import React from "react";
 import { Button, View, Text, Card, CardItem } from "native-base";
-import styles from "../FishScreen/FishFilter/FishFilterOptionsStyles";
+import styles from "../Shared/Styles/FilterOptionsStyles";
 import { FilterProps } from "../../models/Filter/FilterProps";
 
 export default function MonthFilterSelection(props: FilterProps) {
@@ -12,10 +12,10 @@ export default function MonthFilterSelection(props: FilterProps) {
       setMonths(0, false);
     }
     props.setFilterModel(filterObj);
-  }
+  };
 
   let setMonths = (month: number, selected: boolean) => {
-    if(selected && filterObj.catchableNow){
+    if (selected && filterObj.catchableNow) {
       // filterObj.monthsAvailable = false;
     }
     switch (month) {
@@ -70,6 +70,7 @@ export default function MonthFilterSelection(props: FilterProps) {
         filterObj.monthsAvailable.dec = selected;
         break;
     }
+
     props.setFilterModel(filterObj);
   };
 
@@ -94,6 +95,7 @@ export default function MonthFilterSelection(props: FilterProps) {
       >
         <Button
           style={
+            filterObj.monthsAvailable !== undefined &&
             filterObj.monthsAvailable.jan
               ? styles.monthButtonSelectedStyle
               : styles.monthButtonUnSelectedStyle
@@ -106,6 +108,7 @@ export default function MonthFilterSelection(props: FilterProps) {
         </Button>
         <Button
           style={
+            filterObj.monthsAvailable !== undefined &&
             filterObj.monthsAvailable.feb
               ? styles.monthButtonSelectedStyle
               : styles.monthButtonUnSelectedStyle
@@ -242,7 +245,10 @@ export default function MonthFilterSelection(props: FilterProps) {
               ? styles.catchableNowSelectedStyle
               : styles.catchableNowUnSelectedStyle
           }
-          onPress={() => { setCatchableNow(!filterObj.catchableNow) }}>
+          onPress={() => {
+            setCatchableNow(!filterObj.catchableNow);
+          }}
+        >
           <Text>{"Catchable Now"}</Text>
         </Button>
       </CardItem>

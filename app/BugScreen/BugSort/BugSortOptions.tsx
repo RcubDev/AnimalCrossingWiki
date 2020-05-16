@@ -15,7 +15,7 @@ class BugSortOptions extends PureComponent<BugScreenProps> {
     return {
       ascending: ascending,
       descending: descending,
-      value: false,
+      sellPrice: false,
       name: false,
       rarity: false,
       critterpediaHorizontal: false,

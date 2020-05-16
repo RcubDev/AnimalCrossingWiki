@@ -15,7 +15,7 @@ import { updateCreatureCaught, updateCreatureDonated, updateBugCollectionFromSto
 import { ListHeader } from '../Shared/ListHeader';
 import { GridItem } from '../Shared/GridItem';
 import { CreatureModel, SourceSheet, CreatureSize, CreatureColor, LightingType, Season, Thern, CreatureWeather } from '../../models/CollectionModelsV2/creatures';
-import FilterOptions from '../FishScreen/FishFilter/FilterOptions';
+import FilterOptions from '../Shared/FilterOptions';
 import { FilterModel } from '../../models/Filter/FilterModel';
 import { Filter } from '../AdvancedFilterLogic/FishFilterAdvanced';
 

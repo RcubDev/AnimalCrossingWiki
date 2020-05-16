@@ -16,7 +16,7 @@ import { ListHeader } from '../Shared/ListHeader';
 import ArtworkImages from '../Images/ArtworkImages';
 import { GridItem } from '../Shared/GridItem';
 import { ItemModel, ItemSourceSheet } from '../../models/CollectionModelsV2/items';
-import FilterOptions from '../FishScreen/FishFilter/FilterOptions';
+import FilterOptions from '../Shared/FilterOptions';
 import { FilterModel } from '../../models/Filter/FilterModel';
 import { Filter } from '../AdvancedFilterLogic/FishFilterAdvanced';
 
@@ -50,7 +50,20 @@ class ArtworkScreen extends Component<ArtworkScreenProps, ArtworkScreenState> {
                 value: undefined,
                 catchableNow: undefined,
                 shadowSize: undefined,
-                monthsAvailable: undefined,
+                monthsAvailable: {
+                    jan: undefined,
+                    feb: undefined,
+                    mar: undefined,
+                    apr: undefined,
+                    may: undefined,
+                    jun: undefined,
+                    jul: undefined,
+                    aug: undefined,
+                    sep: undefined,
+                    oct: undefined,
+                    nov: undefined,
+                    dec: undefined
+                },
                 caught: undefined,
                 notCaught: undefined,
                 availableNow: undefined

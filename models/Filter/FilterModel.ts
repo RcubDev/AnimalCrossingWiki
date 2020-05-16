@@ -11,7 +11,7 @@ export interface FilterModel {
     value: number | undefined;
     catchableNow: boolean | undefined;
     shadowSize: number | undefined;
-    monthsAvailable: FilterMonths | undefined;
+    monthsAvailable: FilterMonths;
   }
 
   export interface FilterMonths extends MonthsAvaliable {

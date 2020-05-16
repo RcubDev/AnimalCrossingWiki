@@ -1,6 +1,6 @@
 import React from "react";
 import { Button, View, Text, Card, CardItem } from "native-base";
-import styles from "../FishScreen/FishFilter/FishFilterOptionsStyles";
+import styles from "../Shared/Styles/FilterOptionsStyles";
 import { FilterProps } from "../../models/Filter/FilterProps";
 
 export default function RarityFilterSelection(props: FilterProps) {
