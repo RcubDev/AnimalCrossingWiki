@@ -58,7 +58,6 @@ class ArtworkScreen extends Component<ArtworkScreenProps, ArtworkScreenState> {
         };
     }
 
-
     setFilter = (filter: FilterModel) => {
         this.setState({ filter });
     }

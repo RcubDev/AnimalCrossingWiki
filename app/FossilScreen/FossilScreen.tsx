@@ -2,8 +2,8 @@
 import { FossilScreenProps } from '../../models/MainScreenModels/FossilScreen/FossilScreenProps';
 import React, { Component } from 'react';
 import { FossilScreenState } from '../../models/MainScreenModels/FossilScreen/FossilScreenState';
-import { AsyncStorage, FlatList } from 'react-native';
-import { Container } from 'native-base';
+import { AsyncStorage, FlatList, Modal } from 'react-native';
+import { Container, View } from 'native-base';
 import { AppLoading } from 'expo';
 import styles from './FossilScreen.styles'
 import { connect } from 'react-redux';
@@ -12,6 +12,10 @@ import { GridItem } from '../Shared/GridItem';
 import FossilImages from '../Images/FossilImages';
 import { ItemModel, ItemSourceSheet } from '../../models/CollectionModelsV2/items';
 import { updateItemDonated, updateFossilCollectionFromStorage } from "../../app/ReduxV2/CollectionActions";
+import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
+import FilterOptions from '../FishScreen/FishFilter/FilterOptions';
+import { FilterModel } from '../../models/Filter/FilterModel';
+import { Filter } from '../AdvancedFilterLogic/FishFilterAdvanced';
 
 
 function titleCase(str: string) {
@@ -67,6 +71,11 @@ class FossilScreen extends Component<FossilScreenProps, FossilScreenState> {
         this.props.updateItemDonated({ donated, name, type});
     }
 
+    setFilter = (filter: FilterModel) => {
+        this.setState({ filter });
+    }
+
+
     FilterFossilByText(text: string, fossils: Array<ItemModel>): Array<ItemModel> {
         let allFossils = fossils;
         let fossilArray: Array<ItemModel> = [];
@@ -85,6 +94,7 @@ class FossilScreen extends Component<FossilScreenProps, FossilScreenState> {
         this.setState({ filterText: text.toLowerCase() });
     };
 
+    showFilterModal = () => this.setState({ showFilterModal: !this.state.showFilterModal });
 
     render() {
 
@@ -94,11 +104,13 @@ class FossilScreen extends Component<FossilScreenProps, FossilScreenState> {
             return <AppLoading />;
         }
         let fossils = this.props.appState.fossils.fossilCollection;
+        fossils = Filter(this.state.filter, fossils, 0) as ItemModel[];
         fossils = this.FilterFossilByText(this.state.filterText, fossils);
         return (
             <Container>
                 <ListHeader
                     setSearchText={this.setSearchText}
+                    showFilterModal={this.showFilterModal}
                 />
                 <FlatList
                     data={fossils}
@@ -113,7 +125,13 @@ class FossilScreen extends Component<FossilScreenProps, FossilScreenState> {
                         flexDirection: 'row',
                     }}
                 ></FlatList>
-            </Container >
+                <Modal visible={this.state.showFilterModal} transparent={true} animationType='slide'>
+                    <View style={{ height: '50%' }}>
+                        <TouchableWithoutFeedback onPress={() => { this.setState({ showFilterModal: false }) }} style={{ width: '100%', height: '100%' }}></TouchableWithoutFeedback>
+                    </View>
+                    <FilterOptions currentFilter={this.state.filter} setFilterModel={this.setFilter}></FilterOptions>
+                </Modal>
+            </Container>
         )
     }
 }
