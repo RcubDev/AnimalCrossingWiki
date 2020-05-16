@@ -1,4 +1,4 @@
-import React, { Component, PureComponent } from "react";
+import React, { Fragment Component, PureComponent } from "react";
 import { Text, ScrollView, Modal, View } from "react-native";
 import MonthFilterSelection from "../../CritterFilterComponents/MonthFilterSelection";
 import ShadowSizeFilterSelection from "./ShadowSizeFilterSelection";
@@ -33,13 +33,13 @@ export default class FilterOptions extends Component<FilterProps> {
         contentContainerStyle={{ justifyContent: "center" }}
       >
         {isCritter && (
-          <View>
+          <Fragment>
             <MonthFilterSelection {...this.props}></MonthFilterSelection>
             {isFish && <ShadowSizeFilterSelection {...this.props}></ShadowSizeFilterSelection>}
             <LocationFilterSelection {...this.props}></LocationFilterSelection>
             <RarityFilterSelection {...this.props}></RarityFilterSelection>
             <CaughtFilterSelection {...this.props}></CaughtFilterSelection>
-          </View>
+          </Fragment>
         )}
       </ScrollView>
     );
