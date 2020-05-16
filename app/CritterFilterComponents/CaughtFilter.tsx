@@ -44,7 +44,7 @@ export default function CaughtFilterSelection(props: FilterProps) {
   return (
     <Card>
       <CardItem style={{ flex: 1, justifyContent: "space-between" }}>
-        <Text>{"Filter By Caught/Donated"}</Text>
+        <Text>{`Filter By ${props.currentFilter.caught !== undefined ? "Caught/" : ""}Donated`}</Text>
         <Button style={{ borderRadius: 20 }} onPress={() => {setFilterObj("reset", false)}}>
           <Text>{"Reset"}</Text>
         </Button>
@@ -57,7 +57,7 @@ export default function CaughtFilterSelection(props: FilterProps) {
           justifyContent: "center",
         }}
       >
-        { props.filterType === "Bug" || props.filterType === "Fish" && (<>
+        { props.currentFilter.caught !== undefined && (<>
         <Button style={filterObj.caught ? styles.caughtSelectedStyle : styles.caughtUnSelectedStyle} onPress={() => {setFilterObj("caught", !filterObj.caught)}}>
           <Text>Caught</Text>
         </Button>

@@ -181,7 +181,7 @@ class FishScreen extends Component<FishScreenProps, FishScreenState> {
           <View style={{ height: '50%' }}>
             <TouchableWithoutFeedback onPress={() => { this.setState({ showFilterModal: false }) }} style={{ width: '100%', height: '100%' }}></TouchableWithoutFeedback>
           </View>
-          <FilterOptions filterType="Fish" currentFilter={this.state.filter} setFilterModel={this.setFilter}></FilterOptions>
+          <FilterOptions currentFilter={this.state.filter} setFilterModel={this.setFilter}></FilterOptions>
         </Modal>
         {/* 
         <Modal visible={this.state.showSortModal} transparent={true} animationType='slide'>

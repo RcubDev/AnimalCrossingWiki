@@ -4,8 +4,10 @@ import { ArtworkScreenProps } from '../../models/MainScreenModels/ArtworkScreen/
 import { ArtworkModel } from '../../models/CollectionModels/ArtworkModel';
 import React, { Component } from 'react';
 import { ArtworkScreenState } from '../../models/MainScreenModels/ArtworkScreen/ArtworkScreenState';
-import { AsyncStorage, FlatList } from 'react-native';
-import { Item, Input, Button, Text, Container, Header } from 'native-base';
+import { AsyncStorage, FlatList, Modal } from 'react-native';
+import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
+
+import { Item, Input, Button, Text, Container, Header, View } from 'native-base';
 import { AppLoading } from 'expo';
 import styles from './ArtworkScreenStyles'
 import { connect } from 'react-redux';
@@ -14,17 +16,20 @@ import { ListHeader } from '../Shared/ListHeader';
 import ArtworkImages from '../Images/ArtworkImages';
 import { GridItem } from '../Shared/GridItem';
 import { ItemModel, ItemSourceSheet } from '../../models/CollectionModelsV2/items';
+import FilterOptions from '../FishScreen/FishFilter/FilterOptions';
+import { FilterModel } from '../../models/Filter/FilterModel';
+import { Filter } from '../AdvancedFilterLogic/FishFilterAdvanced';
 
 function titleCase(str: string) {
-    let returnStr = str.toLowerCase().split(' ').map(function(word) {
-      return word.replace(word[0], word[0].toUpperCase());
+    let returnStr = str.toLowerCase().split(' ').map(function (word) {
+        return word.replace(word[0], word[0].toUpperCase());
     }).join(' ');
     return returnStr;
-  }
+}
 
 
 const items = (require('../../dataV2/items.json') as ItemModel[]).filter(x => x.sourceSheet === ItemSourceSheet.Art)
-    .map(x => { return {...x, donated: false, catalogged: false, name: titleCase(x.name)} });
+    .map(x => { return { ...x, donated: false, catalogged: false, name: titleCase(x.name) } });
 
 const defaultArtworkCollection: Array<ItemModel> = items;
 
@@ -34,8 +39,28 @@ class ArtworkScreen extends Component<ArtworkScreenProps, ArtworkScreenState> {
         super(props);
         this.state = {
             isReady: false,
-            filterText: ''
+            filterText: '',
+            showFilterModal: false,
+            showSortModal: false,
+            filter: {
+                donated: false,
+                notDonated: false,
+                location: undefined,
+                rarity: undefined,
+                value: undefined,
+                catchableNow: undefined,
+                shadowSize: undefined,
+                monthsAvailable: undefined,
+                caught: undefined,
+                notCaught: undefined,
+                availableNow: undefined
+            }
         };
+    }
+
+
+    setFilter = (filter: FilterModel) => {
+        this.setState({ filter });
     }
 
     async componentDidMount() {
@@ -72,6 +97,7 @@ class ArtworkScreen extends Component<ArtworkScreenProps, ArtworkScreenState> {
         this.setState({ filterText: text.toLowerCase() });
     };
 
+    showFilterModal = () => this.setState({ showFilterModal: !this.state.showFilterModal });
 
     render() {
         if (!this.state.isReady) {
@@ -80,11 +106,14 @@ class ArtworkScreen extends Component<ArtworkScreenProps, ArtworkScreenState> {
         const { navigation, updateItemDonated } = this.props;
 
         let artworks = this.props.appState.artwork.artworkCollection;
+        artworks = Filter(this.state.filter, artworks, 0) as ItemModel[];
         artworks = this.FilterArtworkByText(this.state.filterText, artworks);
+        
         return (
             <Container>
                 <ListHeader
                     setSearchText={this.setSearchText}
+                    showFilterModal={this.showFilterModal}
                 />
                 <FlatList
                     data={artworks}
@@ -99,6 +128,12 @@ class ArtworkScreen extends Component<ArtworkScreenProps, ArtworkScreenState> {
                         flexDirection: 'row',
                     }}
                 ></FlatList>
+                <Modal visible={this.state.showFilterModal} transparent={true} animationType='slide'>
+                    <View style={{ height: '50%' }}>
+                        <TouchableWithoutFeedback onPress={() => { this.setState({ showFilterModal: false }) }} style={{ width: '100%', height: '100%' }}></TouchableWithoutFeedback>
+                    </View>
+                    <FilterOptions currentFilter={this.state.filter} setFilterModel={this.setFilter}></FilterOptions>
+                </Modal>
             </Container>
         )
     }

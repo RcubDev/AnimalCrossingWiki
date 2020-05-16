@@ -32,7 +32,22 @@ class FossilScreen extends Component<FossilScreenProps, FossilScreenState> {
         super(props);
         this.state = {
             isReady: false,
-            filterText: ''
+            filterText: '',
+            showFilterModal: false,
+            showSortModal: false,
+            filter: {
+                donated: false,
+                notDonated: false,
+                location: undefined,
+                rarity: undefined,
+                value: undefined,
+                catchableNow: undefined,
+                shadowSize: undefined,
+                monthsAvailable: undefined,
+                caught: undefined,
+                notCaught: undefined,
+                availableNow: undefined
+            }
         };
     }
 

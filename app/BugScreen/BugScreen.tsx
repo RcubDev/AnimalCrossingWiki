@@ -64,7 +64,7 @@ class BugScreen extends Component<BugScreenProps, BugScreenState> {
         rarity: -1,
         value: 0,
         catchableNow: false,
-        shadowSize: -1,
+        shadowSize: undefined,
         monthsAvailable: {
           jan: false,
           feb: false,
@@ -169,7 +169,7 @@ class BugScreen extends Component<BugScreenProps, BugScreenState> {
           <View style={{ height: '50%' }}>
             <TouchableWithoutFeedback onPress={() => { this.setState({ showFilterModal: false }) }} style={{ width: '100%', height: '100%' }}></TouchableWithoutFeedback>
           </View>
-          <FilterOptions filterType="Bug" currentFilter={this.state.filter} setFilterModel={this.setFilter}></FilterOptions>
+          <FilterOptions currentFilter={this.state.filter} setFilterModel={this.setFilter}></FilterOptions>
         </Modal>
         {/* <Modal visible={this.state.showSortModal} transparent={true} animationType='slide'>
           <View style={{ height: '50%' }}>

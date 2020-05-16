@@ -1,4 +1,4 @@
-import React, { Fragment Component, PureComponent } from "react";
+import React, { Fragment, Component, PureComponent } from "react";
 import { Text, ScrollView, Modal, View } from "react-native";
 import MonthFilterSelection from "../../CritterFilterComponents/MonthFilterSelection";
 import ShadowSizeFilterSelection from "./ShadowSizeFilterSelection";
@@ -18,8 +18,10 @@ export default class FilterOptions extends Component<FilterProps> {
 
   render() {
 
-    const isCritter = true; // TODO
-    const isFish = true;
+    const isFish = this.props.currentFilter.shadowSize !== undefined;
+    const isCritter = this.props.currentFilter.caught !== undefined;
+    const isMuseumDonatable = this.props.currentFilter.donated !== undefined;
+    
     return (
       <ScrollView
         style={{
@@ -32,15 +34,17 @@ export default class FilterOptions extends Component<FilterProps> {
         }}
         contentContainerStyle={{ justifyContent: "center" }}
       >
+        <>
         {isCritter && (
           <Fragment>
             <MonthFilterSelection {...this.props}></MonthFilterSelection>
             {isFish && <ShadowSizeFilterSelection {...this.props}></ShadowSizeFilterSelection>}
             <LocationFilterSelection {...this.props}></LocationFilterSelection>
             <RarityFilterSelection {...this.props}></RarityFilterSelection>
-            <CaughtFilterSelection {...this.props}></CaughtFilterSelection>
           </Fragment>
         )}
+        {isMuseumDonatable && <CaughtFilterSelection {...this.props}></CaughtFilterSelection>}
+        </>
       </ScrollView>
     );
   }

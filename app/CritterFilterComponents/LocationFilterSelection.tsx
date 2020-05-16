@@ -33,22 +33,22 @@ export default function LocationFilterSelection(props: FilterProps) {
         }}
       >
         <Button style={selection === 1 ? styles.locationButtonSelectedStyle : styles.locationButtonUnSelectedStyle} onPress={() => { setLocation(1) }}>
-          <Text>{props.filterType === "Fish" ? "River" : "Trees"}</Text>
+          <Text>{props.currentFilter.shadowSize !== undefined ? "River" : "Trees"}</Text>
         </Button>
         <Button style={selection === 2 ? styles.locationButtonSelectedStyle : styles.locationButtonUnSelectedStyle} onPress={() => { setLocation(2) }}>
-          <Text>{props.filterType === "Fish" ? "River (Mouth)" : "Rocks"}</Text>
+          <Text>{props.currentFilter.shadowSize !== undefined? "River (Mouth)" : "Rocks"}</Text>
         </Button>
         <Button style={selection === 3 ? styles.locationButtonSelectedStyle : styles.locationButtonUnSelectedStyle} onPress={() => { setLocation(3) }}>
-          <Text>{props.filterType === "Fish" ? "River (Cliff)" : "Flying"}</Text>
+          <Text>{props.currentFilter.shadowSize !== undefined? "River (Cliff)" : "Flying"}</Text>
         </Button>
         <Button style={selection === 4 ? styles.locationButtonSelectedStyle : styles.locationButtonUnSelectedStyle} onPress={() => { setLocation(4) }}>
-          <Text>{props.filterType === "Fish" ? "Pond" : "Ground"}</Text>
+          <Text>{props.currentFilter.shadowSize !== undefined? "Pond" : "Ground"}</Text>
         </Button>
         <Button style={selection === 5 ? styles.locationButtonSelectedStyle : styles.locationButtonUnSelectedStyle} onPress={() => { setLocation(5) }}>
-        <Text>{props.filterType === "Fish" ? "Pier" : "On/Near Water"}</Text>
+        <Text>{props.currentFilter.shadowSize !== undefined? "Pier" : "On/Near Water"}</Text>
         </Button>
         <Button style={selection === 6 ? styles.locationButtonSelectedStyle : styles.locationButtonUnSelectedStyle} onPress={() => { setLocation(6) }}>
-        <Text>{props.filterType === "Fish" ? "Sea" : "Other"}</Text>
+        <Text>{props.currentFilter.shadowSize !== undefined? "Sea" : "Other"}</Text>
         </Button>
       </CardItem>
     </Card>
