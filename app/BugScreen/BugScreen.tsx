@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { AsyncStorage } from 'react-native';
-import { FlatList } from 'react-native-gesture-handler';
+import { AsyncStorage, Modal } from 'react-native';
+import { FlatList, TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import creatures from '../../dataV2/creatures.json'
 import {
-  Container,
+  Container, View,
 } from 'native-base';
 import { AppLoading } from 'expo';
 import styles from '../Shared/Screen.styles';
@@ -15,6 +15,9 @@ import { updateCreatureCaught, updateCreatureDonated, updateBugCollectionFromSto
 import { ListHeader } from '../Shared/ListHeader';
 import { GridItem } from '../Shared/GridItem';
 import { CreatureModel, SourceSheet, CreatureSize, CreatureColor, LightingType, Season, Thern, CreatureWeather } from '../../models/CollectionModelsV2/creatures';
+import FilterOptions from '../FishScreen/FishFilter/FilterOptions';
+import { FilterModel } from '../../models/Filter/FilterModel';
+import { Filter } from '../AdvancedFilterLogic/FishFilterAdvanced';
 
 function titleCase(str: string) {
   let returnStr = str.toLowerCase().split(' ').map(function(word) {
@@ -50,7 +53,33 @@ class BugScreen extends Component<BugScreenProps, BugScreenState> {
       isReady: false,
       filterText: '',
       showFilterModal: false,
-      showSortModal: false
+      showSortModal: false,
+      filter: {
+        caught: false,
+        donated: false,
+        notCaught: false,
+        notDonated: false,
+        availableNow: false,
+        location: -1,
+        rarity: -1,
+        value: 0,
+        catchableNow: false,
+        shadowSize: -1,
+        monthsAvailable: {
+          jan: false,
+          feb: false,
+          mar: false,
+          apr: false,
+          may: false,
+          jun: false,
+          jul: false,
+          aug: false,
+          sep: false,
+          oct: false,
+          nov: false,
+          dec: false
+        }
+      }    
     };
   }
 
@@ -65,6 +94,11 @@ class BugScreen extends Component<BugScreenProps, BugScreenState> {
     }
     this.setState({ isReady: true });
   }
+  setFilter = (filter: FilterModel) => {
+    this.setState({filter});
+  }
+
+
 
   filterBugByText(text: string, bugs: Array<CreatureModel>): Array<CreatureModel> {
     var allBug = bugs;
@@ -108,7 +142,7 @@ class BugScreen extends Component<BugScreenProps, BugScreenState> {
 
     let visibleBugList: Array<CreatureModel> = this.props.appState.bugs.bugCollection;
     //Use common critter filter    
-    //visibleBugList = FilterBugs(this.props.appState.bugs.bugAdvancedFilter, visibleBugList);
+    visibleBugList = Filter(this.state.filter, visibleBugList, 0) as CreatureModel[];
     visibleBugList = this.filterBugByText(this.state.filterText, visibleBugList);
     //visibleBugList = SortBugs(visibleBugList, this.props.appState.bug.bugAdvancedSort);
     return (
@@ -131,13 +165,13 @@ class BugScreen extends Component<BugScreenProps, BugScreenState> {
             flexDirection: 'row',
           }}
         ></FlatList>
-        {/* <Modal visible={this.state.showFilterModal} transparent={true} animationType='slide'>
+        <Modal visible={this.state.showFilterModal} transparent={true} animationType='slide'>
           <View style={{ height: '50%' }}>
             <TouchableWithoutFeedback onPress={() => { this.setState({ showFilterModal: false }) }} style={{ width: '100%', height: '100%' }}></TouchableWithoutFeedback>
           </View>
-          <BugFilterOptions></BugFilterOptions>
+          <FilterOptions filterType="Bug" currentFilter={this.state.filter} setFilterModel={this.setFilter}></FilterOptions>
         </Modal>
-        <Modal visible={this.state.showSortModal} transparent={true} animationType='slide'>
+        {/* <Modal visible={this.state.showSortModal} transparent={true} animationType='slide'>
           <View style={{ height: '50%' }}>
             <TouchableWithoutFeedback onPress={() => { this.setState({ showSortModal: false }) }} style={{ width: '100%', height: '100%' }}></TouchableWithoutFeedback>
           </View>

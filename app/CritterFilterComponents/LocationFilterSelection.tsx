@@ -7,14 +7,14 @@ export default function LocationFilterSelection(props: FilterProps) {
   let selection = props.currentFilter.location;
   let filterObj = props.currentFilter;
   let setLocation = (location: number) => {
-    if(filterObj.location === location){
-        filterObj.location = -1;
+    if (filterObj.location === location) {
+      filterObj.location = -1;
     }
     else {
-        filterObj.location = location;
+      filterObj.location = location;
     }
     props.setFilterModel(filterObj);
-};
+  };
   return (
     <Card>
       <CardItem style={{ flex: 1, justifyContent: "space-between" }}>
@@ -32,23 +32,23 @@ export default function LocationFilterSelection(props: FilterProps) {
           justifyContent: "center",
         }}
       >
-        <Button style={selection === 1 ? styles.locationButtonSelectedStyle : styles.locationButtonUnSelectedStyle} onPress={() => {setLocation(1)}}>
-          <Text>River</Text>
+        <Button style={selection === 1 ? styles.locationButtonSelectedStyle : styles.locationButtonUnSelectedStyle} onPress={() => { setLocation(1) }}>
+          <Text>{props.filterType === "Fish" ? "River" : "Trees"}</Text>
         </Button>
-        <Button style={selection === 2 ? styles.locationButtonSelectedStyle : styles.locationButtonUnSelectedStyle} onPress={() => {setLocation(2)}}>
-          <Text>River (Mouth)</Text>
+        <Button style={selection === 2 ? styles.locationButtonSelectedStyle : styles.locationButtonUnSelectedStyle} onPress={() => { setLocation(2) }}>
+          <Text>{props.filterType === "Fish" ? "River (Mouth)" : "Rocks"}</Text>
         </Button>
-        <Button style={selection === 3 ? styles.locationButtonSelectedStyle : styles.locationButtonUnSelectedStyle} onPress={() => {setLocation(3)}}>
-          <Text>River (Cliff)</Text>
+        <Button style={selection === 3 ? styles.locationButtonSelectedStyle : styles.locationButtonUnSelectedStyle} onPress={() => { setLocation(3) }}>
+          <Text>{props.filterType === "Fish" ? "River (Cliff)" : "Flying"}</Text>
         </Button>
-        <Button style={selection === 4 ? styles.locationButtonSelectedStyle : styles.locationButtonUnSelectedStyle} onPress={() => {setLocation(4)}}>
-          <Text>Pond</Text>
+        <Button style={selection === 4 ? styles.locationButtonSelectedStyle : styles.locationButtonUnSelectedStyle} onPress={() => { setLocation(4) }}>
+          <Text>{props.filterType === "Fish" ? "Pond" : "Ground"}</Text>
         </Button>
-        <Button style={selection === 5 ? styles.locationButtonSelectedStyle : styles.locationButtonUnSelectedStyle} onPress={() => {setLocation(5)}}>
-          <Text>Pier</Text>
+        <Button style={selection === 5 ? styles.locationButtonSelectedStyle : styles.locationButtonUnSelectedStyle} onPress={() => { setLocation(5) }}>
+        <Text>{props.filterType === "Fish" ? "Pier" : "On/Near Water"}</Text>
         </Button>
-        <Button style={selection === 6 ? styles.locationButtonSelectedStyle : styles.locationButtonUnSelectedStyle} onPress={() => {setLocation(6)}}>
-          <Text>Sea</Text>
+        <Button style={selection === 6 ? styles.locationButtonSelectedStyle : styles.locationButtonUnSelectedStyle} onPress={() => { setLocation(6) }}>
+        <Text>{props.filterType === "Fish" ? "Sea" : "Other"}</Text>
         </Button>
       </CardItem>
     </Card>

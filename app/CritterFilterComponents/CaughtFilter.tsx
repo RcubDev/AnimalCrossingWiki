@@ -57,12 +57,13 @@ export default function CaughtFilterSelection(props: FilterProps) {
           justifyContent: "center",
         }}
       >
+        { props.filterType === "Bug" || props.filterType === "Fish" && (<>
         <Button style={filterObj.caught ? styles.caughtSelectedStyle : styles.caughtUnSelectedStyle} onPress={() => {setFilterObj("caught", !filterObj.caught)}}>
           <Text>Caught</Text>
         </Button>
         <Button style={filterObj.notCaught ? styles.caughtSelectedStyle : styles.caughtUnSelectedStyle} onPress={() => {setFilterObj("notcaught", !filterObj.notCaught)}}>
           <Text>Not Caught</Text>
-        </Button>
+        </Button></>)}
         <Button style={filterObj.donated ? styles.caughtSelectedStyle : styles.caughtUnSelectedStyle} onPress={() => {setFilterObj("donated", !filterObj.donated)}}>
           <Text>Donated</Text>
         </Button>

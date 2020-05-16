@@ -5,5 +5,6 @@ import { FilterModel } from "./FilterModel";
 export interface FilterProps {
     //TODO fix this being type any
     setFilterModel: (filterModel: FilterModel) => void,
-    currentFilter: FilterModel
+    currentFilter: FilterModel,
+    filterType: "Fish" | "Bug" | "Fossil" | "Art"
 }

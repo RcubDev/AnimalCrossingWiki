@@ -23,7 +23,7 @@ import {updateItemCatalogged, updateCreatureCaught, updateCreatureDonated, updat
 import { CreatureModel, SourceSheet, CreatureSize, CreatureColor, LightingType, Season, ActiveMonths, Thern, CreatureWeather } from '../../models/CollectionModelsV2/creatures';
 import FishSortOptions from './FishSort/FishSortOptions';
 import { FilterModel } from '../../models/Filter/FilterModel';
-import FishFilterOptions from './FishFilter/FishFilterOptions';
+import FilterOptions from './FishFilter/FilterOptions';
 
 function titleCase(str: string) {
   let returnStr = str.toLowerCase().split(' ').map(function(word) {
@@ -181,7 +181,7 @@ class FishScreen extends Component<FishScreenProps, FishScreenState> {
           <View style={{ height: '50%' }}>
             <TouchableWithoutFeedback onPress={() => { this.setState({ showFilterModal: false }) }} style={{ width: '100%', height: '100%' }}></TouchableWithoutFeedback>
           </View>
-          <FishFilterOptions currentFilter={this.state.filter} setFilterModel={this.setFilter}></FishFilterOptions>
+          <FilterOptions filterType="Fish" currentFilter={this.state.filter} setFilterModel={this.setFilter}></FilterOptions>
         </Modal>
         {/* 
         <Modal visible={this.state.showSortModal} transparent={true} animationType='slide'>

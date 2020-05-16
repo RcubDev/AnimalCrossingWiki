@@ -9,7 +9,7 @@ import { FilterProps } from "../../../models/Filter/FilterProps";
 
 
 
-export default class FishFilterOptions extends Component<FilterProps> {
+export default class FilterOptions extends Component<FilterProps> {
   constructor(props: FilterProps) {
     super(props);
   }
@@ -29,13 +29,15 @@ export default class FishFilterOptions extends Component<FilterProps> {
         }}
         contentContainerStyle={{ justifyContent: "center" }}
       >
-        <MonthFilterSelection {...this.props}></MonthFilterSelection>
-        <ShadowSizeFilterSelection {...this.props}></ShadowSizeFilterSelection> 
-        <RarityFilterSelection {...this.props}></RarityFilterSelection>
-        <LocationFilterSelection {...this.props}></LocationFilterSelection>
+        {(this.props.filterType === "Fish" || this.props.filterType === "Bug") 
+          && (<MonthFilterSelection {...this.props}></MonthFilterSelection>)
+          {this.props.filterType === "Fish" && (<ShadowSizeFilterSelection {...this.props}></ShadowSizeFilterSelection>)} 
+          <LocationFilterSelection {...this.props}></LocationFilterSelection>
+        }
+        {/* Rarity is not really a thing */}
+        {/* <RarityFilterSelection {...this.props}></RarityFilterSelection> */}
         <CaughtFilterSelection {...this.props}></CaughtFilterSelection>
       </ScrollView>
     );
   }
 }
-
