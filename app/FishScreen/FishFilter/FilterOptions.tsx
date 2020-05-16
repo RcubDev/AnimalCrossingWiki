@@ -1,5 +1,5 @@
 import React, { Component, PureComponent } from "react";
-import { Text, ScrollView, Modal } from "react-native";
+import { Text, ScrollView, Modal, View } from "react-native";
 import MonthFilterSelection from "../../CritterFilterComponents/MonthFilterSelection";
 import ShadowSizeFilterSelection from "./ShadowSizeFilterSelection";
 import RarityFilterSelection from "../../CritterFilterComponents/RarityFilterSelection";
@@ -15,8 +15,11 @@ export default class FilterOptions extends Component<FilterProps> {
   }
 
 
-  
+
   render() {
+
+    const isCritter = true; // TODO
+    const isFish = true;
     return (
       <ScrollView
         style={{
@@ -29,14 +32,15 @@ export default class FilterOptions extends Component<FilterProps> {
         }}
         contentContainerStyle={{ justifyContent: "center" }}
       >
-        {(this.props.filterType === "Fish" || this.props.filterType === "Bug") 
-          && (<MonthFilterSelection {...this.props}></MonthFilterSelection>)
-          {this.props.filterType === "Fish" && (<ShadowSizeFilterSelection {...this.props}></ShadowSizeFilterSelection>)} 
-          <LocationFilterSelection {...this.props}></LocationFilterSelection>
-        }
-        {/* Rarity is not really a thing */}
-        {/* <RarityFilterSelection {...this.props}></RarityFilterSelection> */}
-        <CaughtFilterSelection {...this.props}></CaughtFilterSelection>
+        {isCritter && (
+          <View>
+            <MonthFilterSelection {...this.props}></MonthFilterSelection>
+            {isFish && <ShadowSizeFilterSelection {...this.props}></ShadowSizeFilterSelection>}
+            <LocationFilterSelection {...this.props}></LocationFilterSelection>
+            <RarityFilterSelection {...this.props}></RarityFilterSelection>
+            <CaughtFilterSelection {...this.props}></CaughtFilterSelection>
+          </View>
+        )}
       </ScrollView>
     );
   }
