@@ -60,11 +60,14 @@ const styles = StyleSheet.create({
         padding: 20,
         borderRadius: 10,
         borderWidth: 1,
-        borderColor: 'black'
+        borderColor: 'black',
+        flex: 1
     },
     artworkNameTextStyling: {
         fontFamily: fontFamily,
-        fontSize: 26
+        fontSize: 26,
+        textAlign: 'center',
+        flex: 1,
     },
     caughtDonatedValueContainer: {
         flex: 1,

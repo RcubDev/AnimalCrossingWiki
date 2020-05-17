@@ -10,6 +10,7 @@ import { updateCreatureCaught, updateCreatureDonated, updateFishCollectionFromSt
 import { CreatureModel } from '../../../models/CollectionModelsV2/creatures';
 import { ApplicationStateV2 } from '../../../models/ApplicationState/ApplicationStateV2';
 import { MonthsAvailable } from '../../CreatureComponents/MonthsAvailable';
+import { TimesAvailable } from '../../CreatureComponents/TimesAvailable';
 
 
 interface FishDetailsProps {
@@ -67,23 +68,18 @@ class FishDetails extends Component<FishDetailsProps, FishDetailsState> {
                         <CheckBox style={styles.checkBoxTemp} checked={this.state.model.caught} onPress={() => {this.SetItemCaught(!this.state.model.caught, this.state.model.internalId)}}></CheckBox>
                         <CheckBox style={styles.checkBoxTemp} checked={this.state.model.donated} onPress={() => {this.SetItemDonated(!this.state.model.donated, this.state.model.internalId)}}></CheckBox>
                         <View style={styles.valueContainer}>
-                            <Image source={require('../../Images/Other/BellBag.png')} style={{ width: 30, height: 30, marginLeft: 5 }}></Image>
+                            <Image source={require('../../Images/Other/bellcoin.png')} style={{ width: 40, height: 40 }}></Image>
                             <Text style={styles.valueText}>{this.state.model.sell}</Text>
                         </View>
                     </View>
-                    <MonthsAvailable {...this.state.model.activeMonths.northern}></MonthsAvailable>
+                    <MonthsAvailable monthsAvailable={this.props.appState.userSettings.isNorthernHemisphere ? this.state.model.activeMonths.northern : this.state.model.activeMonths.southern}></MonthsAvailable>
                     <View style={styles.locationAndTimeContainer}>
                         <View style={styles.imageAndTextContainer}>
                             {/* TODO: Image Here (remove height from container) */}
                             <Text>{"Location Image"}</Text>
                             <Text style={{ fontFamily: 'Confortaa' }}>{this.state.model.whereHow}</Text>
                         </View>
-                        <View style={styles.imageAndTextContainer}>
-                            {/* TODO: Image Here (remove height from container) */}
-                            <Text>{"Clock Image"}</Text>
-                            {/* Setup Time Parser */}
-                            <Text style={{ fontFamily: 'Confortaa' }}>{`${this.state.model.activeMonths.northern[0].activeHours[0]}` }</Text>
-                        </View>
+                        <TimesAvailable timesAvailable={this.props.appState.userSettings.isNorthernHemisphere ? this.state.model.activeMonths.northern : this.state.model.activeMonths.southern}></TimesAvailable>
                     </View>
                     <View style={styles.shadowSizeContainer}>
                         <View style={styles.imageAndTextContainer}>
@@ -92,19 +88,8 @@ class FishDetails extends Component<FishDetailsProps, FishDetailsState> {
                             <Text style={{ fontFamily: 'Confortaa' }}>{this.state.model.shadow}</Text>
                         </View>
                     </View>
-                    <View style={styles.rarityContainer}>
-                        <View style={styles.stylesRarityTextContainer}>
-                            {/* TODO: Replace * with images of stars. */}
-                            <Text>{"Rarity"}</Text>
-                            <Text>{"*"}</Text>
-                            <Text>{"*"}</Text>
-                            <Text>{"*"}</Text>
-                            <Text>{"*"}</Text>
-                            <Text>{"*"}</Text>
-                        </View>
-                    </View>
                     <View style={styles.blathersSaysContinaer}>
-                        <Text style={styles.blathersSaysText}>{"Not available"}</Text>
+                        <Text style={styles.blathersSaysText}>{"Blathers Says: Not available"}</Text>
                     </View>
                 </View>
             </ScrollView>

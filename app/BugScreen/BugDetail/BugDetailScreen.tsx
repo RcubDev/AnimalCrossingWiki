@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
-import { Container, Button, Text, Header, Content, Footer, View, H1, CardItem, Card, CheckBox } from 'native-base';
+import { Text, View, CheckBox } from 'native-base';
 import { Image } from 'react-native';
 import BugImages from '../../Images/BugImages';
 import { connect } from 'react-redux';
 import { NavigationScreenProp } from 'react-navigation';
 import { ScrollView } from 'react-native-gesture-handler';
 import styles from './BugDetailScreenStyles';
-import { BugModel } from '../../../models/CollectionModels/BugModel';
 import { ApplicationStateV2 } from '../../../models/ApplicationState/ApplicationStateV2';
 import { CreatureModel } from '../../../models/CollectionModelsV2/creatures';
 import { updateCreatureCaught, updateCreatureDonated } from "../../../app/ReduxV2/CollectionActions";
+import { MonthsAvailable } from '../../CreatureComponents/MonthsAvailable';
 
 interface BugDetailsProps {
     navigation: NavigationScreenProp<any>,
@@ -64,13 +64,11 @@ class BugDetails extends Component<BugDetailsProps, BugDetailsState> {
                         <CheckBox style={styles.checkBoxTemp} checked={this.state.model.caught} onPress={() => {this.SetItemCaught(!this.state.model.caught, this.state.model.internalId)}}></CheckBox>
                         <CheckBox style={styles.checkBoxTemp} checked={this.state.model.donated} onPress={() => {this.SetItemDonated(!this.state.model.donated, this.state.model.internalId)}}></CheckBox>
                         <View style={styles.valueContainer}>
-                            <Image source={require('../../Images/Other/BellBag.png')} style={{ width: 30, height: 30, marginLeft: 5 }}></Image>
-                            <Text style={styles.valueText}>{this.state.model.value}</Text>
+                            <Image source={require('../../Images/Other/bellcoin.png')} style={{ width: 30, height: 30, marginLeft: 5 }}></Image>
+                            <Text style={styles.valueText}>{this.state.model.sell}</Text>
                         </View>
                     </View>
-                    <View style={styles.monthContainer}>
-                        
-                    </View>
+                    <MonthsAvailable monthsAvailable={this.props.appState.userSettings.isNorthernHemisphere ? this.state.model.activeMonths.northern : this.state.model.activeMonths.southern}></MonthsAvailable>
                     <View style={styles.locationAndTimeContainer}>
                         <View style={styles.imageAndTextContainer}>
                             {/* TODO: Image Here (remove height from container) */}

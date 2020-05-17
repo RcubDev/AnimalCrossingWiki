@@ -1,5 +1,6 @@
 import { FilterModel } from "../../Filter/FilterModel";
-import { SortModel } from "../../Sort/AdvancedSortCritterModel";
+import { SortModel } from "../../Sort/SortModel";
+
 
 export interface FishScreenState {
     isReady: boolean,

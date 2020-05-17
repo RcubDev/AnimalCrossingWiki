@@ -1,5 +1,5 @@
+import { SortModel } from "../../Sort/SortModel";
 import { FilterModel } from "../../Filter/FilterModel";
-import { SortModel } from "../../Sort/AdvancedSortCritterModel";
 
 export interface BugScreenState {
     isReady: boolean,
