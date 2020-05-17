@@ -1,4 +1,4 @@
-import { MuseumModel } from "../../models/CollectionModels/MuseumModel";
+import { MuseumModel } from "../../models/CollectionModelsV2/MuseumModel";
 import { FilterCollectionCommon } from "./CommonFilters";
 
 export function FilterCollectionMuseum(type: string, value: string, operation: string, list: Array<MuseumModel>): Array<MuseumModel> {

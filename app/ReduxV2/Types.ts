@@ -27,15 +27,23 @@ export interface CataloggedPayload {
     subcategory: ItemSourceSheet
 }
 
+//Tracking
 export const UPDATE_CREATURE_CAUGHT = "UPDATE_CREATURE_CAUGHT"
 export const UPDATE_CREATURE_DONATED = "UPDATE_CREATURE_DONATED"
 export const UPDATE_ITEM_DONATED = "UPDATE_ITEM_DONATED"
 export const UPDATE_ITEM_CATALOGGED = "UPDATE_ITEM_CATALOGGED"
+
+//Stored Collections
 export const UPDATE_FISH_COLLECTION = "UPDATE_FISH_COLLECTION"
 export const UPDATE_BUG_COLLECTION = "UPDATE_BUG_COLLECTION"
 export const UPDATE_FOSSIL_COLLECTION = "UPDATE_FOSSIL_COLLECTION"
 export const UPDATE_ARTWORK_COLLECTION = "UPDATE_ARTWORK_COLLECTION"
 
+//Other
+export const UPDATE_IN_GAME_TIME = "UPDATE_IN_GAME_TIME"
+export const UPDATE_HEMISPHERE = "UPDATE_HEMISPHERE"
+
+//Tracking Actions
 interface UpdateCreatureCaughtAction {
     type: typeof UPDATE_CREATURE_CAUGHT,
     payload: CaughtPayload
@@ -56,6 +64,7 @@ interface UpdateItemCataloggedAction {
     payload: CataloggedPayload
 }
 
+//Collection Actions
 interface UpdateFishCollectionAction {
     type: typeof UPDATE_FISH_COLLECTION,
     payload: Array<CreatureModel>
@@ -76,6 +85,19 @@ interface UpdateArtworkCollectionAction {
     payload: Array<ItemModel>
 }
 
+//Other Actions
+interface UpdateInGameTimeAction {
+    type: typeof UPDATE_IN_GAME_TIME,
+    payload: number
+}
+
+interface UpdateHemisphereAction {
+    type: typeof UPDATE_HEMISPHERE,
+    payload: boolean
+}
+
+
+
 export type {
     UpdateItemDonatedAction,
     UpdateCreatureDonatedAction,
@@ -84,10 +106,12 @@ export type {
     UpdateFishCollectionAction,
     UpdateBugCollectionAction,
     UpdateFossilCollectionAction,
-    UpdateArtworkCollectionAction
+    UpdateArtworkCollectionAction,
+    UpdateInGameTimeAction,
+    UpdateHemisphereAction
 }
 
 export type ReduxActions = 
     UpdateItemDonatedAction | UpdateCreatureCaughtAction | UpdateCreatureDonatedAction |
     UpdateItemCataloggedAction | UpdateFishCollectionAction | UpdateBugCollectionAction |
-    UpdateFossilCollectionAction | UpdateArtworkCollectionAction;
+    UpdateFossilCollectionAction | UpdateArtworkCollectionAction | UpdateInGameTimeAction | UpdateHemisphereAction;

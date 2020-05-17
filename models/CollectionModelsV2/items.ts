@@ -1,5 +1,5 @@
 import { CataloggedItemModel } from "./CataloggedItemModel";
-import { MuseumModel } from "../CollectionModels/MuseumModel";
+import { MuseumModel } from "./MuseumModel";
 
 export interface ItemModel extends CataloggedItemModel, MuseumModel {
   sourceSheet: ItemSourceSheet;

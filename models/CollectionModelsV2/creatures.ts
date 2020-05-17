@@ -1,4 +1,4 @@
-import { MuseumModel } from "../CollectionModels/MuseumModel";
+import { MuseumModel } from "./MuseumModel";
 import { CreatureCaughtModel } from "./CreatureStorageModel";
 
 export interface CreatureModel extends CreatureCaughtModel {

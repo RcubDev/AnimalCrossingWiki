@@ -75,14 +75,8 @@ class FossilScreen extends Component<FossilScreenProps, FossilScreenState> {
     FilterFossilByText(text: string, fossils: Array<ItemModel>): Array<ItemModel> {
         let allFossils = fossils;
         let fossilArray: Array<ItemModel> = [];
-        let filterSpecial = text.includes('filter:');
         text = text.toLowerCase();
-        if (filterSpecial) {
-            console.log('Implement');
-        }
-        else {
-            fossilArray = allFossils.filter(x => x.name.toLowerCase().startsWith(text));
-        }
+        fossilArray = allFossils.filter(x => x.name.toLowerCase().startsWith(text));        
         return fossilArray;
     }
 

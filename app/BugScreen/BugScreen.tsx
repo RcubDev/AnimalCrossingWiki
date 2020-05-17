@@ -108,7 +108,7 @@ class BugScreen extends Component<BugScreenProps, BugScreenState> {
 
     let visibleBugList: Array<CreatureModel> = this.props.appState.bugs.bugCollection;
     //Use common critter filter    
-    visibleBugList = Filter(this.state.filter, visibleBugList, 0) as CreatureModel[];
+    visibleBugList = Filter(this.state.filter, visibleBugList, this.props.appState.userSettings.inGameTimeOffsetInMinutes, this.props.appState.userSettings.isNorthernHemisphere) as CreatureModel[];
     visibleBugList = this.filterBugByText(this.state.filterText, visibleBugList);
     visibleBugList = Sort(this.state.sort, visibleBugList) as CreatureModel[];
     return (

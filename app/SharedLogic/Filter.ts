@@ -1,16 +1,18 @@
 import { FilterModel } from "../../models/Filter/FilterModel";
 import { CreatureModel } from "../../models/CollectionModelsV2/creatures";
 import { ItemModel } from "../../models/CollectionModelsV2/items";
-import { MonthsAvaliable } from "../../models/CollectionModels/CritterCollectionModel";
+import moment from "moment";
+import { MonthsAvaliableModel } from "../../models/CollectionModelsV2/MonthsAvailableModel";
 
-export function Filter(filter: FilterModel, filterCollection: Array<any>, timeOffSet: number = 0): Array<CreatureModel> | Array<ItemModel> {
+export function Filter(filter: FilterModel, filterCollection: Array<any>, timeOffSet: number = 0, isNorthernHemisphere: boolean = true): Array<CreatureModel> | Array<ItemModel> {
     if (filterCollection && filterCollection.length > 0 && filterCollection[0].caught !== undefined) {
         //Creature model only filters
         filterCollection = ApplyShadowSize(filter.shadowSize, filterCollection);
         filterCollection = ApplyCaught(filter.caught, filterCollection);
         filterCollection = ApplyNotCaught(filter.notCaught, filterCollection);
         filterCollection = ApplyMonthFilter(filter.monthsAvailable, filterCollection, true);
-        filterCollection = ApplyLocationFish(filter.location, filterCollection);
+        filterCollection = ApplyLocation(filter.location, filterCollection);
+        filterCollection = ApplyCatchableNow(filter.catchableNow, filterCollection, timeOffSet, isNorthernHemisphere);
     }
     if(filterCollection && filterCollection.length > 0 && filterCollection[0].donated !== undefined) {
         //Can be creature or item
@@ -185,7 +187,7 @@ function ApplyLocationBugs(location: number | undefined, filterCollection: Array
     }
 }
 
-function ApplyMonthFilter(months: MonthsAvaliable, filterCollection: Array<CreatureModel>, hemisphereIsNorthern: boolean): Array<CreatureModel> {
+function ApplyMonthFilter(months: MonthsAvaliableModel, filterCollection: Array<CreatureModel>, hemisphereIsNorthern: boolean): Array<CreatureModel> {
     let monthNumArray: Array<number> = [];
     if(months.jan){
         monthNumArray.push(1);
@@ -235,4 +237,58 @@ function ApplyMonthFilter(months: MonthsAvaliable, filterCollection: Array<Creat
         return filterCollection;
     }
 
+}
+
+function ApplyCatchableNow(catchableNow: boolean | undefined, collection: CreatureModel[], timeOffSet: number, isNorthernHemisphere: boolean): CreatureModel[] {
+    console.log('catchablenow');
+    if(catchableNow){
+        console.log('catchable');
+        let date = moment(new Date()).add(timeOffSet, 'minutes').toDate();
+        let thisMonth = date.getMonth();
+        let currentMonth: MonthsAvaliableModel = {
+            jan: thisMonth === 0 ? true : false,
+            feb: thisMonth === 1 ? true : false,
+            mar: thisMonth === 2 ? true : false,
+            apr: thisMonth === 3 ? true : false,
+            may: thisMonth === 4 ? true : false,
+            jun: thisMonth === 5 ? true : false,
+            jul: thisMonth === 6 ? true : false,
+            aug: thisMonth === 7 ? true : false,
+            sep: thisMonth === 8 ? true : false,
+            oct: thisMonth === 9 ? true : false,
+            nov: thisMonth === 10 ? true : false,
+            dec: thisMonth === 11 ? true : false,
+        }
+        debugger;
+        let filtered = ApplyMonthFilter(currentMonth, collection, isNorthernHemisphere);
+        console.log(filtered.length);
+        return filtered.filter(x => CritterIsAvailableDuringHour(date.getHours(), thisMonth + 1, x, isNorthernHemisphere));
+    }
+
+    return collection;
+}
+function CritterIsAvailableDuringHour(hour: number, month: number, creature: CreatureModel, isNorthernHemisphere: boolean): boolean {
+    let currentMonthCatchTimes = isNorthernHemisphere ? creature.activeMonths.northern.find(x => x.month === month) : creature.activeMonths.southern.find(x => x.month === month);
+    debugger;
+    let creatureAvailable = false;
+    if(currentMonthCatchTimes){
+        currentMonthCatchTimes.activeHours.forEach(element => {
+            let startTime = +element[0];
+            let endTime = +element[1];
+            //0 and 0 = all day
+            if(startTime === 0 && endTime === 0){
+                creatureAvailable = true;
+            }
+            while(startTime !== endTime){
+                if(startTime === 24){
+                    startTime = 0;
+                }
+                if(startTime === hour){
+                    creatureAvailable = true;
+                }
+                startTime++;
+            }                
+        });
+    }
+    return creatureAvailable
 }

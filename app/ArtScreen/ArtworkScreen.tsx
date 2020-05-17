@@ -77,14 +77,8 @@ class ArtworkScreen extends Component<ArtworkScreenProps, ArtworkScreenState> {
     FilterArtworkByText(text: string, artworks: Array<ItemModel>): Array<ItemModel> {
         let allArtworks = artworks;
         let artworkArray: Array<ItemModel> = [];
-        let filterSpecial = text.includes('filter:');
         text = text.toLowerCase();
-        if (filterSpecial) {
-            console.log('Implement');
-        }
-        else {
-            artworkArray = allArtworks.filter(x => x.name.toLowerCase().startsWith(text));
-        }
+        artworkArray = allArtworks.filter(x => x.name.toLowerCase().startsWith(text));
         return artworkArray;
     }
 

@@ -1,4 +1,4 @@
-import { MonthsAvaliable } from "../CollectionModels/CritterCollectionModel";
+import { MonthsAvaliableModel } from "../CollectionModelsV2/MonthsAvailableModel";
 
 export interface FilterModel {
     caught: boolean | undefined;
@@ -14,6 +14,6 @@ export interface FilterModel {
     monthsAvailable: FilterMonths;
   }
 
-  export interface FilterMonths extends MonthsAvaliable {
+  export interface FilterMonths extends MonthsAvaliableModel {
 
   }

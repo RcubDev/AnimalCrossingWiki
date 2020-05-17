@@ -104,7 +104,7 @@ class FishScreen extends Component<FishScreenProps, FishScreenState> {
     const { navigation, updateCreatureCaught, updateCreatureDonated } = this.props;
     
     let fish = this.props.appState.fish.fishCollection;
-    fish = Filter(this.state.filter, fish, 0) as CreatureModel[];
+    fish = Filter(this.state.filter, fish, this.props.appState.userSettings.inGameTimeOffsetInMinutes, this.props.appState.userSettings.isNorthernHemisphere) as CreatureModel[];
     fish = this.filterFishByText(this.state.filterText, fish);
     fish = Sort(this.state.sort, fish) as CreatureModel[];
 

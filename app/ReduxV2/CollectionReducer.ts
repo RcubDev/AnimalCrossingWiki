@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import { ReduxActions, UPDATE_CREATURE_CAUGHT, UPDATE_CREATURE_DONATED, UPDATE_ITEM_DONATED, UpdateCreatureCaughtAction, UpdateCreatureDonatedAction, UpdateItemDonatedAction, UpdateItemCataloggedAction, UPDATE_ITEM_CATALOGGED, UpdateFishCollectionAction, UPDATE_FISH_COLLECTION, UpdateBugCollectionAction, UPDATE_BUG_COLLECTION, UpdateFossilCollectionAction, UPDATE_FOSSIL_COLLECTION, UpdateArtworkCollectionAction, UPDATE_ARTWORK_COLLECTION } from "./Types";
+import { ReduxActions, UPDATE_CREATURE_CAUGHT, UPDATE_CREATURE_DONATED, UPDATE_ITEM_DONATED, UpdateCreatureCaughtAction, UpdateCreatureDonatedAction, UpdateItemDonatedAction, UpdateItemCataloggedAction, UPDATE_ITEM_CATALOGGED, UpdateFishCollectionAction, UPDATE_FISH_COLLECTION, UpdateBugCollectionAction, UPDATE_BUG_COLLECTION, UpdateFossilCollectionAction, UPDATE_FOSSIL_COLLECTION, UpdateArtworkCollectionAction, UPDATE_ARTWORK_COLLECTION, UPDATE_IN_GAME_TIME, UPDATE_HEMISPHERE, UpdateInGameTimeAction, UpdateHemisphereAction } from "./Types";
 import { ApplicationStateV2 } from "../../models/ApplicationState/ApplicationStateV2";
 import { Item } from "native-base";
 import { CataloggedItemModel } from "../../models/CollectionModelsV2/CataloggedItemModel";
@@ -18,7 +18,7 @@ const INITIAL_STATE: ApplicationStateV2 = {
     kkSongs: [],
     recipies: [],
     achievements: [],
-    userSettings: {isNorthernHemisphere: true, inGameTime: {minutes: 0}}
+    userSettings: {isNorthernHemisphere: true, inGameTimeOffsetInMinutes:  0}
 };
 
 const collectionReducer = (state = INITIAL_STATE, action: ReduxActions): ApplicationStateV2 => {
@@ -38,7 +38,11 @@ const collectionReducer = (state = INITIAL_STATE, action: ReduxActions): Applica
         case UPDATE_FOSSIL_COLLECTION:
             return updateFossilCollectionFromStorage(state, action);
         case UPDATE_ARTWORK_COLLECTION:
-            return updateArtworkCollectionFromStorage(state, action);        
+            return updateArtworkCollectionFromStorage(state, action);
+        case UPDATE_IN_GAME_TIME:
+            return updateInGameTime(state, action);
+        case UPDATE_HEMISPHERE:
+            return updateHemisphere(state, action);
         default:
             return state;
     }
@@ -150,6 +154,17 @@ function updateItemCatalogged(state: ApplicationStateV2, action: UpdateItemCatal
     return Object.assign({}, state, existingState);
 }
 
+function updateInGameTime(state: ApplicationStateV2, action: UpdateInGameTimeAction): ApplicationStateV2 {
+    AsyncStorage.setItem('InGameTimeOffSet', JSON.stringify(action.payload));
+    console.log('updating IGN');
+    console.log(action.payload);
+    return {...state, userSettings: { ...state.userSettings, inGameTimeOffsetInMinutes: action.payload}}
+}
+
+function updateHemisphere(state: ApplicationStateV2, action: UpdateHemisphereAction): ApplicationStateV2 {
+    AsyncStorage.setItem('InGameTimeOffSet', JSON.stringify(action.payload));
+    return {...state, userSettings: { ...state.userSettings, isNorthernHemisphere: action.payload}}
+}
 
 export default combineReducers({
     appState: collectionReducer,

@@ -1,4 +1,4 @@
-import { UPDATE_ITEM_DONATED, UPDATE_CREATURE_DONATED, UPDATE_CREATURE_CAUGHT, CaughtPayload, ItemDonatedPayload, ReduxActions, CreatureDonatedPayload, UpdateItemCataloggedAction, CataloggedPayload, UPDATE_ITEM_CATALOGGED, UPDATE_FISH_COLLECTION, UPDATE_BUG_COLLECTION, UPDATE_FOSSIL_COLLECTION, UPDATE_ARTWORK_COLLECTION } from "./Types"
+import { UPDATE_ITEM_DONATED, UPDATE_CREATURE_DONATED, UPDATE_CREATURE_CAUGHT, CaughtPayload, ItemDonatedPayload, ReduxActions, CreatureDonatedPayload, UpdateItemCataloggedAction, CataloggedPayload, UPDATE_ITEM_CATALOGGED, UPDATE_FISH_COLLECTION, UPDATE_BUG_COLLECTION, UPDATE_FOSSIL_COLLECTION, UPDATE_ARTWORK_COLLECTION, UPDATE_IN_GAME_TIME, UPDATE_HEMISPHERE } from "./Types"
 import { CreatureModel } from "../../models/CollectionModelsV2/creatures"
 import { ItemModel } from "../../models/CollectionModelsV2/items"
 
@@ -54,6 +54,20 @@ export function updateFossilCollectionFromStorage(payload: Array<ItemModel>): Re
 export function updateArtworkCollectionFromStorage(payload: Array<ItemModel>): ReduxActions {
     return {
         type: UPDATE_ARTWORK_COLLECTION,
+        payload
+    }
+}
+
+export function updateInGameTime(payload: number): ReduxActions {
+    return {
+        type: UPDATE_IN_GAME_TIME,
+        payload
+    }
+}
+
+export function updateHemisphere(payload: boolean): ReduxActions {
+    return {
+        type: UPDATE_HEMISPHERE,
         payload
     }
 }
