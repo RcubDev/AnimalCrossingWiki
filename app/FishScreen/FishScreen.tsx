@@ -6,7 +6,7 @@ import {
 } from 'native-base';
 import { FlatList } from 'react-native-gesture-handler';
 import { AppLoading } from 'expo';
-import styles from '../Shared/Screen.styles';
+import styles from '../Shared/Styles/Screen.styles';
 import { FishScreenProps } from '../../models/MainScreenModels/FishScreen/FishScreenProps';
 import { FishScreenState } from '../../models/MainScreenModels/FishScreen/FishScreenState';
 import { connect } from 'react-redux';
@@ -109,17 +109,15 @@ class FishScreen extends Component<FishScreenProps, FishScreenState> {
               navigation={navigation}
               updateCaught={updateFishCaught}
               updateDonated={updateFishDonated}
-              navigateTo={'FishDetails'}
-              images={FishImages} 
-              styles = { styles } />
+              navigateTo={'DetailsScreen'}
+              type={'fish'}
+              images={FishImages}
+              styles={styles} />
           )}
           numColumns={3}
           keyExtractor={(item, index) => index.toString()}
           contentContainerStyle={styles.flatListContainerContent}
-          columnWrapperStyle={{
-            justifyContent: 'space-evenly',
-            flexDirection: 'row',
-          }}
+          columnWrapperStyle={styles.flatListColumnWrapper}
         ></FlatList>
         {/* <Modal visible={this.state.showFilterModal} transparent={true} animationType='slide'>
           <View style={{ height: '50%' }}>

@@ -1,8 +1,6 @@
 import { CritterModel } from "./CritterModel";
 
-export interface NewFishModel extends CritterModel {    
-    location: number,
-    locationName: string,
+export interface NewFishModel extends CritterModel {
     shadowSize: number,
     shadowSizeName: string
 }

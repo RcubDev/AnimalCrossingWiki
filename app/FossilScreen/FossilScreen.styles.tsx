@@ -1,7 +1,8 @@
 import { StyleSheet } from 'react-native';
-import { stylesData} from '../Shared/Screen.styles';
+import { screenStylesData } from '../Shared/Styles/Screen.styles';
 
-const styles = StyleSheet.create({ ...stylesData,
+const styles = StyleSheet.create({
+    ...screenStylesData,
     cardCheckBoxContainer: { flexDirection: 'row', width: '100%', alignItems: 'center', justifyContent: 'center' },
     cardDonatedCheckBox: {},
 });

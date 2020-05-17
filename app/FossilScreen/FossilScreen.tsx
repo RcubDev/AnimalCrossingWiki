@@ -80,7 +80,7 @@ class FossilScreen extends Component<FossilScreenProps, FossilScreenState> {
                 <FlatList
                     data={fossils}
                     renderItem={({ item }: { item: FossilModel }) => (
-                        <GridItem model={item} navigation={navigation} updateDonated={updateFossilDonated} navigateTo={'FossilDetails'} images={FossilImages} styles={styles}/>
+                        <GridItem model={item} navigation={navigation} updateDonated={updateFossilDonated} navigateTo={'DetailsScreen'} images={FossilImages} styles={styles} type='fossil' />
                     )}
                     numColumns={3}
                     keyExtractor={(item, index) => index.toString()}

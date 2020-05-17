@@ -9,5 +9,7 @@ export interface CritterModel extends MuseumModel {
     rarity: number,
     rarityName: string,
     weather: string,
-    caught: boolean
+    caught: boolean,
+    location: number,
+    locationName: string,
 }

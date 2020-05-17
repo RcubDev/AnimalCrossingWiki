@@ -6,28 +6,21 @@ import {
   Container,
 } from 'native-base';
 import { AppLoading } from 'expo';
-import styles from '../Shared/Screen.styles';
+import styles from '../Shared/Styles/Screen.styles';
 import { BugScreenProps } from '../../models/MainScreenModels/BugScreen/BugScreenProps';
 import { BugScreenState } from '../../models/MainScreenModels/BugScreen/BugScreenState';
 import { connect } from 'react-redux';
 import {
   updateBugCaught,
   updateBugDonated,
-  updateBugFilter,
   updateBugCollectionFromStorage
 } from '../Redux/CollectionActions';
 import BugImages from '../Images/BugImages';
 import { BugModel } from '../../models/CollectionModels/BugModel';
 import { filterCollectionByTextSpecial } from '../Filter/Filter';
 import { isListOfBug } from '../Filter/FilterTypes';
-import AdvancedFilterSortOptions from '../FishScreen/FishFilter/FishFilterOptions';
-import AdvancedSortOptions from '../FishScreen/FishSort/FishSortOptions';
-import { FilterCritters } from '../AdvancedFilterLogic/CritterFilterAdvanced';
 import { FilterBugs } from '../AdvancedFilterLogic/BugFilterAdvanced';
 import { SortBugs } from '../AdvancedSortLogic/BugSortAdvanced';
-import FishFilterOptions from '../FishScreen/FishFilter/FishFilterOptions';
-import BugFilterOptions from './BugFilter/BugFilterOptions';
-import BugSortOptions from './BugSort/BugSortOptions';
 import { ListHeader } from '../Shared/ListHeader';
 import { GridItem } from '../Shared/GridItem';
 
@@ -112,15 +105,21 @@ class BugScreen extends Component<BugScreenProps, BugScreenState> {
         <FlatList
           data={visibleBugList}
           renderItem={({ item }: { item: BugModel }) => (
-            <GridItem model={item} navigation={navigation} updateCaught={updateBugCaught} updateDonated={updateBugDonated} navigateTo={'BugDetails'} images={BugImages} styles={styles}/>
+            <GridItem
+              model={item}
+              navigation={navigation}
+              updateCaught={updateBugCaught}
+              updateDonated={updateBugDonated}
+              navigateTo={'DetailsScreen'}
+              images={BugImages}
+              styles={styles}
+              type='bug'
+            />
           )}
           numColumns={3}
-          keyExtractor={(item: BugModel, index: number) => index.toString()}
+          keyExtractor={(item, index) => index.toString()}
           contentContainerStyle={styles.flatListContainerContent}
-          columnWrapperStyle={{
-            justifyContent: 'space-evenly',
-            flexDirection: 'row',
-          }}
+          columnWrapperStyle={styles.flatListColumnWrapper}
         ></FlatList>
         {/* <Modal visible={this.state.showFilterModal} transparent={true} animationType='slide'>
           <View style={{ height: '50%' }}>

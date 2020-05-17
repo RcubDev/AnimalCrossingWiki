@@ -11,7 +11,7 @@ import { ArtworkModel } from '../../models/CollectionModels/ArtworkModel';
 
 export class GridItem extends PureComponent<GridItemProps> {
 
-  onPress = () => this.props.navigation.navigate(this.props.navigateTo, { model: this.props.model });
+  onPress = () => this.props.navigation.navigate(this.props.navigateTo, { ...this.props, setItemCaught: this.setItemCaught, setItemDonated: this.setItemDonated });
 
   setItemCaught = () => this.props.updateCaught && this.props.updateCaught({ caught: !(this.props.model as CritterModel).caught, index: this.props.model.id });
 
@@ -22,20 +22,20 @@ export class GridItem extends PureComponent<GridItemProps> {
     const { donated, name, id, caught } = (model as CritterModel);
 
     return (
-      <Card style={styles.card} >
-        <CardItem style={styles.cardItem}>
+      <Card style={styles.gridItemContainer} >
+        <CardItem style={styles.gridItemContainerItem}>
           <View>
-            <TouchableOpacity onPress={this.onPress} style={styles.gridItemCard}>
-              <Text style={{ fontFamily: 'Confortaa' }} key={`${id}Text`} numberOfLines={1}>{name}</Text>
-              <Image source={images[name]} style={styles.gridItem} key={`${id}Image`}></Image>
+            <TouchableOpacity onPress={this.onPress} style={styles.gridItemContent}>
+              <Text style={styles.gridItemText} key={`${id}Text`} numberOfLines={1}>{name}</Text>
+              <Image style={styles.gridItemImage} source={images[name]} key={`${id}Image`}></Image>
             </TouchableOpacity>
           </View>
-          <View style={styles.cardCheckBoxContainer}>
-            {((model as CritterModel).caught !== undefined) && (
-              <View style={styles.cardCaughtCheckBox}>
+          <View style={styles.gridItemCheckBoxContainer}>
+            {('caught' in model) && (
+              <View style={styles.gridItemCaughtCheckBox}>
                 <CheckBox checked={caught} onPress={this.setItemCaught}></CheckBox>
               </View>)}
-            <View style={styles.cardDonatedCheckBox}>
+            <View style={styles.gridItemDonatedCheckBox}>
               <CheckBox checked={donated} onPress={this.setItemDonated}></CheckBox>
             </View>
           </View>
@@ -53,4 +53,5 @@ export interface GridItemProps {
   updateDonated: typeof updateFishDonated,
   images: IDictionary,
   styles: any, // TDO add styles interface
+  type: string,
 }
