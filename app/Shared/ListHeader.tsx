@@ -22,12 +22,12 @@ export const ListHeader = ({ showSortModal, setSearchText, showFilterModal }: an
             onChangeText={(text) => setSearchText(text)}
             returnKeyType={"done"}
         ></Input>
-        {showFilterModal && (<Button
+        <Button
             transparent
             onPress={showFilterModal}
         >
             <Text> Filters </Text>
-        </Button>)}
+        </Button>
     </Item>
 </Header>
 

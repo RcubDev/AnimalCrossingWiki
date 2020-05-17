@@ -4,16 +4,13 @@ import styles from './HomeScreen.styles';
 import { Button, Container } from 'native-base';
 import { NavigationScreenProp } from 'react-navigation';
 import { connect } from 'react-redux';
-import {
-    updateHemisphere,
-    updateInGameTime
-  } from "../Redux/CollectionActions";
 import { AppLoading } from 'expo';
+import { updateInGameTime, updateHemisphere } from '../ReduxV2/CollectionActions';
 
 export interface HomeScreenProps {
-    navigation: NavigationScreenProp<any>,
+    navigation: NavigationScreenProp<any>,   
     updateInGameTime: typeof updateInGameTime,
-    updateHemisphere: typeof updateHemisphere,          
+    updateHemisphere: typeof updateHemisphere
 }
 
 class HomeScreen extends Component<HomeScreenProps, {isReady: boolean}>{
@@ -32,7 +29,7 @@ class HomeScreen extends Component<HomeScreenProps, {isReady: boolean}>{
         }
         else{
             //default
-            this.props.updateInGameTime({minutes: 0});
+            this.props.updateInGameTime(0);
         }
 
         const isNorthernHemisphere = await AsyncStorage.getItem('IsNorthernHemisphere');

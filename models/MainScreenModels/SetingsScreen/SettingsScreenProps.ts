@@ -1,9 +1,8 @@
-import { UserSettingsState } from "../../ApplicationState/UserSettingsState";
-import { updateInGameTime, updateHemisphere, updateFishFilter, updateFishCollectionFromStorage } from "../../../app/Redux/CollectionActions";
-import { ApplicationState } from "../../ApplicationState/ApplicationState";
+import { updateInGameTime, updateHemisphere } from "../../../app/ReduxV2/CollectionActions";
+import { ApplicationStateV2 } from "../../ApplicationState/ApplicationStateV2";
 
 export interface SettingsScreenProps {
-    appState: ApplicationState,
+    appState: ApplicationStateV2,
     updateInGameTime: typeof updateInGameTime,
     updateHemisphere: typeof updateHemisphere,        
 }

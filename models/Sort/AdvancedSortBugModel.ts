@@ -1,5 +1,5 @@
-import { AdvancedSortCritterModel } from "./AdvancedSortCritterModel";
+import { SortModel } from "./AdvancedSortCritterModel";
 
-export interface AdvancedSortBugModel extends AdvancedSortCritterModel{
+export interface AdvancedSortBugModel extends SortModel{
 
 }

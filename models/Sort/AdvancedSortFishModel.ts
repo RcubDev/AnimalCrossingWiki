@@ -1,5 +1,5 @@
-import { AdvancedSortCritterModel } from "./AdvancedSortCritterModel";
+import { SortModel } from "./AdvancedSortCritterModel";
 
-export interface AdvancedSortFishModel extends AdvancedSortCritterModel{
+export interface AdvancedSortFishModel extends SortModel{
     shadowSize: boolean
 }

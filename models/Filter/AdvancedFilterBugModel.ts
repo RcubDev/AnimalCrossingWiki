@@ -1,5 +1,5 @@
-import { AdvancedFilterCritterModel } from "./AdvancedFilterCritterModel";
+import { FilterModel } from "./FilterModel";
 
-export interface AdvancedFilterBugModel extends AdvancedFilterCritterModel{
+export interface AdvancedFilterBugModel extends FilterModel{
 
 }
