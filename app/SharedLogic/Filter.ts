@@ -240,9 +240,7 @@ function ApplyMonthFilter(months: MonthsAvaliableModel, filterCollection: Array<
 }
 
 function ApplyCatchableNow(catchableNow: boolean | undefined, collection: CreatureModel[], timeOffSet: number, isNorthernHemisphere: boolean): CreatureModel[] {
-    console.log('catchablenow');
     if(catchableNow){
-        console.log('catchable');
         let date = moment(new Date()).add(timeOffSet, 'minutes').toDate();
         let thisMonth = date.getMonth();
         let currentMonth: MonthsAvaliableModel = {
@@ -261,7 +259,6 @@ function ApplyCatchableNow(catchableNow: boolean | undefined, collection: Creatu
         }
         debugger;
         let filtered = ApplyMonthFilter(currentMonth, collection, isNorthernHemisphere);
-        console.log(filtered.length);
         return filtered.filter(x => CritterIsAvailableDuringHour(date.getHours(), thisMonth + 1, x, isNorthernHemisphere));
     }
 

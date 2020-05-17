@@ -37,7 +37,6 @@ class SettingsScreen extends Component<SettingsScreenProps, SettingsScreenState>
     constructor(props: any){
         super(props);
         let dateOffSet = this.props.appState.userSettings.inGameTimeOffsetInMinutes;
-        console.log(dateOffSet);
         let currentDate = GetInGameDay(dateOffSet);
         this.state = {
             isShowingDatePicker: false,

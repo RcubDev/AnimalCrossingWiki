@@ -9,6 +9,7 @@ import styles from './FishDetailScreenStyles';
 import { updateCreatureCaught, updateCreatureDonated, updateFishCollectionFromStorage } from "../../ReduxV2/CollectionActions";
 import { CreatureModel } from '../../../models/CollectionModelsV2/creatures';
 import { ApplicationStateV2 } from '../../../models/ApplicationState/ApplicationStateV2';
+import { MonthsAvailable } from '../../CreatureComponents/MonthsAvailable';
 
 
 interface FishDetailsProps {
@@ -70,9 +71,7 @@ class FishDetails extends Component<FishDetailsProps, FishDetailsState> {
                             <Text style={styles.valueText}>{this.state.model.sell}</Text>
                         </View>
                     </View>
-                    <View style={styles.monthContainer}>
-                        {/* TODO: Setup Month View */}
-                    </View>
+                    <MonthsAvailable {...this.state.model.activeMonths.northern}></MonthsAvailable>
                     <View style={styles.locationAndTimeContainer}>
                         <View style={styles.imageAndTextContainer}>
                             {/* TODO: Image Here (remove height from container) */}
