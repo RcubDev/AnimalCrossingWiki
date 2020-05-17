@@ -1,6 +1,5 @@
-import { InGameTimeOffSetPayload } from "../../app/Redux/Types";
 
 export interface UserSettingsState {
-    inGameTime: InGameTimeOffSetPayload,
+    inGameTimeOffsetInMinutes: number,
     isNorthernHemisphere: boolean
 }

@@ -4,35 +4,45 @@ import { Image, Text } from 'react-native';
 import { IDictionary } from '../Images/FishImages';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { NavigationScreenProp } from 'react-navigation';
-import { updateFishCaught, updateFishDonated } from '../Redux/CollectionActions';
-import { CritterModel } from '../../models/CollectionModels/CritterModel';
-import { FossilModel } from '../../models/CollectionModels/FossilModel';
-import { ArtworkModel } from '../../models/CollectionModels/ArtworkModel';
+import { updateItemCatalogged, updateCreatureCaught, updateCreatureDonated, updateItemDonated } from '../ReduxV2/CollectionActions'
+import { CreatureModel } from '../../models/CollectionModelsV2/creatures';
+import { ItemModel } from '../../models/CollectionModelsV2/items';
 
 export class GridItem extends PureComponent<GridItemProps> {
 
   onPress = () => this.props.navigation.navigate(this.props.navigateTo, { ...this.props, setItemCaught: this.setItemCaught, setItemDonated: this.setItemDonated });
 
-  setItemCaught = () => this.props.updateCaught && this.props.updateCaught({ caught: !(this.props.model as CritterModel).caught, index: this.props.model.id });
+  setItemCaught = () => this.props.updateCaught && this.props.updateCaught({ caught: !(this.props.model as CreatureModel).caught, id: (this.props.model as CreatureModel).internalId, type: this.props.model.sourceSheet === "Fish" ? "Fish" : "Bug" });
 
-  setItemDonated = () => this.props.updateDonated({ donated: !this.props.model.donated, index: this.props.model.id });
+  setItemDonated = () => {
+    if (this.props.model.sourceSheet !== "Fish" && this.props.model.sourceSheet !== "Bugs") {
+      if (this.props.model as ItemModel && this.props.updateItemDonated) {
+        this.props.updateItemDonated({ donated: !this.props.model.donated, name: this.props.model.name, type: this.props.model.sourceSheet === "Fossils" ? "Fossil" : "Artwork" })
+      }
+    }
+    else {
+      if (this.props.model as CreatureModel && this.props.updateDonated) {
+        this.props.updateDonated({ donated: !this.props.model.donated, id: this.props.model.internalId, type: this.props.model.sourceSheet === "Fish" ? "Fish" : "Bug" })
+      }
+    }
+  };
 
   render() {
     const { model, images, styles } = this.props;
-    const { donated, name, id, caught } = (model as CritterModel);
+    const { donated, name, caught } = (model as CreatureModel);
 
     return (
       <Card style={styles.gridItemContainer} >
         <CardItem style={styles.gridItemContainerItem}>
           <View>
-            <TouchableOpacity onPress={this.onPress} style={styles.gridItemContent}>
-              <Text style={styles.gridItemText} key={`${id}Text`} numberOfLines={1}>{name}</Text>
-              <Image style={styles.gridItemImage} source={images[name]} key={`${id}Image`}></Image>
+            <TouchableOpacity onPress={this.onPress} style={styles.gridItemCard}>
+              <Text style={{ fontFamily: 'Confortaa' }} key={`${name}Text`} numberOfLines={1}>{name}</Text>
+              <Image source={images[name]} style={styles.gridItem} key={`${name}Image`}></Image>
             </TouchableOpacity>
           </View>
-          <View style={styles.gridItemCheckBoxContainer}>
+          <View style={styles.cardCheckBoxContainer}>
             {('caught' in model) && (
-              <View style={styles.gridItemCaughtCheckBox}>
+              <View style={styles.cardCaughtCheckBox}>
                 <CheckBox checked={caught} onPress={this.setItemCaught}></CheckBox>
               </View>)}
             <View style={styles.gridItemDonatedCheckBox}>
@@ -46,11 +56,13 @@ export class GridItem extends PureComponent<GridItemProps> {
 }
 
 export interface GridItemProps {
-  model: CritterModel | FossilModel | ArtworkModel,
+  model: CreatureModel | ItemModel,
   navigation: NavigationScreenProp<any>,
   navigateTo: string,
-  updateCaught?: typeof updateFishCaught,
-  updateDonated: typeof updateFishDonated,
+  updateCaught?: typeof updateCreatureCaught,
+  updateDonated?: typeof updateCreatureDonated
+  updateItemDonated?: typeof updateItemDonated,
+  updateItemCatalogged?: typeof updateItemCatalogged,
   images: IDictionary,
   styles: any, // TDO add styles interface
   type: string,

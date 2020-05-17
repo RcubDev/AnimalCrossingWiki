@@ -1,7 +1,7 @@
-import { MonthsAvaliable } from "../../CollectionModels/CritterCollectionModel";
-import { AdvancedFilterCritterModel } from "../../Filter/AdvancedFilterCritterModel";
+import { MonthsAvaliableModel } from "../../CollectionModelsV2/MonthsAvailableModel";
+import { FilterModel } from "../../Filter/FilterModel";
 
-export interface AdvancedSortFilterFishModel extends AdvancedFilterCritterModel {
+export interface AdvancedSortFilterFishModel extends FilterModel {
   shadowSize: number;
 }
 

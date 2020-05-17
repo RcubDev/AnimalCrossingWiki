@@ -1,10 +1,10 @@
 import { NavigationScreenProp } from "react-navigation";
-import { ApplicationState } from "../../ApplicationState/ApplicationState";
-import { updateArtworkCollectionFromStorage, updateArtworkDonated } from "../../../app/Redux/CollectionActions";
+import { updateItemDonated, updateArtworkCollectionFromStorage } from "../../../app/ReduxV2/CollectionActions";
+import { ApplicationStateV2 } from "../../ApplicationState/ApplicationStateV2";
 
 export interface ArtworkScreenProps{
     navigation: NavigationScreenProp<any>,
-    appState: ApplicationState,
+    appState: ApplicationStateV2,
     updateArtworkCollectionFromStorage: typeof updateArtworkCollectionFromStorage,
-    updateArtworkDonated: typeof updateArtworkDonated
+    updateItemDonated: typeof updateItemDonated
 }

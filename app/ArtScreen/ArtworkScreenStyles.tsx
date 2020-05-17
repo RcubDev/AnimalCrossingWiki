@@ -1,15 +1,20 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
 import { screenStylesData } from '../Shared/Styles/Screen.styles';
+
+const { height, width } = Dimensions.get('window');
+const itemWidth = (width - 20) / 2;
 
 const styles = StyleSheet.create({
     ...screenStylesData,
     gridItem: {
-        width: 120,
-        height: 120,
+        width: 150,
+        height: 150,
         marginTop: 10
     },
     cardCheckBoxContainer: { flexDirection: 'row', width: '100%', alignItems: 'center', justifyContent: 'center' },
-    cardDonatedCheckBox: {},
+    cardDonatedCheckBox: { marginRight: 20, marginTop: 20 },
+    card: { width: itemWidth },
+
 });
 
 export default styles;

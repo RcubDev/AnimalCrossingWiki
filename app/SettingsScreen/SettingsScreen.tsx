@@ -1,15 +1,12 @@
 import React from 'react';
-import {
-    updateHemisphere,
-    updateInGameTime
-  } from "../Redux/CollectionActions";
 import { Component } from "react";
 import { connect } from "react-redux";
-import {Text, Platform, AsyncStorage } from "react-native";
-import { Container, Switch, Button, Input, View } from 'native-base';
+import { Text, AsyncStorage } from "react-native";
+import { Button, Input, View } from 'native-base';
 import { SettingsScreenProps } from '../../models/MainScreenModels/SetingsScreen/SettingsScreenProps';
 import moment from 'moment';
-import { InGameTimeOffSetPayload } from '../Redux/Types';
+import { updateInGameTime, updateHemisphere } from '../ReduxV2/CollectionActions';
+
 
 export function GetInGameDay(minutesOffset: number){
     let currentMoment = moment(new Date());
@@ -39,7 +36,7 @@ class SettingsScreen extends Component<SettingsScreenProps, SettingsScreenState>
     interval: number = new Date().getSeconds();
     constructor(props: any){
         super(props);
-        let dateOffSet = this.props.appState.userSettings.inGameTime.minutes;
+        let dateOffSet = this.props.appState.userSettings.inGameTimeOffsetInMinutes;
         let currentDate = GetInGameDay(dateOffSet);
         this.state = {
             isShowingDatePicker: false,
@@ -95,9 +92,7 @@ class SettingsScreen extends Component<SettingsScreenProps, SettingsScreenState>
         let todayDate = new Date();
         let todayMoment = moment(todayDate);
         let selectedMoment = moment(selectedDate);
-        let dateOffset: InGameTimeOffSetPayload = {
-            minutes: selectedMoment.diff(todayMoment, 'minutes') 
-        }        
+        let dateOffset = selectedMoment.diff(todayMoment, 'minutes');
         this.props.updateInGameTime(dateOffset);
         //Update Current Time here
         let myObj =  {

@@ -10,17 +10,25 @@ import { AppLoading } from 'expo';
 import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
 import { Container } from 'native-base';
+import FishDetails from './FishScreen/FishDetail/FishDetailScreen';
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
-import collectionReducer from './Redux/CollectionReducer'
-import AdvancedFilterSortOptions from './FishScreen/FishFilter/FishFilterOptions';
 import BugDetailScreen from './BugScreen/BugDetail/BugDetailScreen';
 import FossilScreen from './FossilScreen/FossilScreen'
 import FossilDetailScreen from './FossilScreen/FossilDetail/FossilDetailScreen';
 import ArtworkScreen from './ArtScreen/ArtworkScreen';
 import ArtworkDetailScreen from './ArtScreen/ArtDetails/ArtworkDetailScreen';
-import DetailsScreen from './Shared/DetailsScreen';
-const store2 = createStore(collectionReducer);
+import CollectionReducer from './ReduxV2/CollectionReducer';
+import { DetailsScreen } from './Shared/DetailsScreen';
+
+const storeV2 = createStore(CollectionReducer)
+const fetchFonts = () => {
+  return Font.loadAsync({
+    'comfortaa-regular': require('./assets/fonts/Comfortaa-Regular.ttf'),
+  });
+};
+
+
 
 export default class App extends Component<any, { isReady: boolean }> {
   constructor(props: any) {
@@ -47,7 +55,7 @@ export default class App extends Component<any, { isReady: boolean }> {
     const Stack = createStackNavigator();
 
     return (
-      <Provider store={store2}>
+      <Provider store={storeV2}>
         <Container>
           <NavigationContainer>
             <Stack.Navigator screenOptions={{ headerShown: true }}>
@@ -57,7 +65,10 @@ export default class App extends Component<any, { isReady: boolean }> {
               <Stack.Screen name="Fossils" component={FossilScreen} />
               <Stack.Screen name="Artwork" component={ArtworkScreen} />
               <Stack.Screen name="DetailsScreen" component={DetailsScreen} />
-              <Stack.Screen name="FilterAndSortScreen" component={AdvancedFilterSortOptions} />
+              {/* <Stack.Screen name="FilterAndSortScreen" component={AdvancedFilterSortOptions} /> */}
+              <Stack.Screen name="BugDetails" component={BugDetailScreen} />
+              <Stack.Screen name="FishDetails" component={FishDetails} />
+              {/* <Stack.Screen name="FilterAndSortScreen" component={FishFilterOptions} /> */}
               <Stack.Screen name="Settings" component={SettingsScreen} />
               <Stack.Screen name="FossilDetails" component={FossilDetailScreen} />
               <Stack.Screen name="ArtworkDetails" component={ArtworkDetailScreen} />
