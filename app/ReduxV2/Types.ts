@@ -1,5 +1,6 @@
 import { ItemSourceSheet, ItemModel } from "../../models/CollectionModelsV2/items"
 import { CreatureModel } from "../../models/CollectionModelsV2/creatures"
+import { ReactionModel } from "../../models/CollectionModelsV2/reactions"
 
 export interface CaughtPayload {
     id: number,
@@ -38,6 +39,8 @@ export const UPDATE_FISH_COLLECTION = "UPDATE_FISH_COLLECTION"
 export const UPDATE_BUG_COLLECTION = "UPDATE_BUG_COLLECTION"
 export const UPDATE_FOSSIL_COLLECTION = "UPDATE_FOSSIL_COLLECTION"
 export const UPDATE_ARTWORK_COLLECTION = "UPDATE_ARTWORK_COLLECTION"
+export const UPDATE_KKSONG_COLLECTION = "UPDATE_KKSONG_COLLECTION"
+export const UPDATE_REACTION_COLLECTION = "UPDATE_REACTION_COLLECTION"
 
 //Other
 export const UPDATE_IN_GAME_TIME = "UPDATE_IN_GAME_TIME"
@@ -85,6 +88,16 @@ interface UpdateArtworkCollectionAction {
     payload: Array<ItemModel>
 }
 
+interface UpdateKKSongCollectionAction {
+    type: typeof UPDATE_KKSONG_COLLECTION,
+    payload: Array<ItemModel>
+}
+
+interface UpdateReactionCollectionAction {
+    type: typeof UPDATE_REACTION_COLLECTION,
+    payload: Array<ReactionModel>
+}
+
 //Other Actions
 interface UpdateInGameTimeAction {
     type: typeof UPDATE_IN_GAME_TIME,
@@ -108,10 +121,13 @@ export type {
     UpdateFossilCollectionAction,
     UpdateArtworkCollectionAction,
     UpdateInGameTimeAction,
-    UpdateHemisphereAction
+    UpdateHemisphereAction,
+    UpdateKKSongCollectionAction,
+    UpdateReactionCollectionAction
 }
 
 export type ReduxActions = 
     UpdateItemDonatedAction | UpdateCreatureCaughtAction | UpdateCreatureDonatedAction |
     UpdateItemCataloggedAction | UpdateFishCollectionAction | UpdateBugCollectionAction |
-    UpdateFossilCollectionAction | UpdateArtworkCollectionAction | UpdateInGameTimeAction | UpdateHemisphereAction;
+    UpdateFossilCollectionAction | UpdateArtworkCollectionAction | UpdateInGameTimeAction |
+     UpdateHemisphereAction | UpdateKKSongCollectionAction | UpdateReactionCollectionAction;

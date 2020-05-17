@@ -6,8 +6,8 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         justifyContent: 'center',        
         flexDirection: "row",
-        alignContent: 'space-between',
-        
+        alignContent: 'flex-start',
+        flexWrap: 'wrap'
         
     },
     buttonStyle: {
@@ -38,6 +38,14 @@ const styles = StyleSheet.create({
         width: 50,
         margin: 20,
        backgroundColor: 'grey',
+       justifyContent: "center",
+    },
+
+    songsButtonStyle:{
+        height: 50,
+        width: 50,
+        margin: 20,
+       backgroundColor: 'orange',
        justifyContent: "center",
     },
 

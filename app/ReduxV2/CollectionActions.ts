@@ -1,6 +1,7 @@
-import { UPDATE_ITEM_DONATED, UPDATE_CREATURE_DONATED, UPDATE_CREATURE_CAUGHT, CaughtPayload, ItemDonatedPayload, ReduxActions, CreatureDonatedPayload, UpdateItemCataloggedAction, CataloggedPayload, UPDATE_ITEM_CATALOGGED, UPDATE_FISH_COLLECTION, UPDATE_BUG_COLLECTION, UPDATE_FOSSIL_COLLECTION, UPDATE_ARTWORK_COLLECTION, UPDATE_IN_GAME_TIME, UPDATE_HEMISPHERE } from "./Types"
+import { UPDATE_ITEM_DONATED, UPDATE_CREATURE_DONATED, UPDATE_CREATURE_CAUGHT, CaughtPayload, ItemDonatedPayload, ReduxActions, CreatureDonatedPayload, UpdateItemCataloggedAction, CataloggedPayload, UPDATE_ITEM_CATALOGGED, UPDATE_FISH_COLLECTION, UPDATE_BUG_COLLECTION, UPDATE_FOSSIL_COLLECTION, UPDATE_ARTWORK_COLLECTION, UPDATE_IN_GAME_TIME, UPDATE_HEMISPHERE, UPDATE_KKSONG_COLLECTION, UPDATE_REACTION_COLLECTION } from "./Types"
 import { CreatureModel } from "../../models/CollectionModelsV2/creatures"
 import { ItemModel } from "../../models/CollectionModelsV2/items"
+import { ReactionModel } from "../../models/CollectionModelsV2/reactions"
 
 export function updateFishCollectionFromStorage(payload: Array<CreatureModel>): ReduxActions {
     return {
@@ -54,6 +55,20 @@ export function updateFossilCollectionFromStorage(payload: Array<ItemModel>): Re
 export function updateArtworkCollectionFromStorage(payload: Array<ItemModel>): ReduxActions {
     return {
         type: UPDATE_ARTWORK_COLLECTION,
+        payload
+    }
+}
+
+export function updateKKSongCollectionFromStorage(payload: Array<ItemModel>): ReduxActions {
+    return {
+        type: UPDATE_KKSONG_COLLECTION,
+        payload
+    }
+}
+
+export function updateReactionCollectionFromStorage(payload: Array<ReactionModel>): ReduxActions {
+    return {
+        type: UPDATE_REACTION_COLLECTION,
         payload
     }
 }

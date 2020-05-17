@@ -121,7 +121,7 @@ class BugScreen extends Component<BugScreenProps, BugScreenState> {
         <FlatList
           data={visibleBugList}
           renderItem={({ item }: { item: CreatureModel }) => (
-            <GridItem model={item} navigation={navigation} updateCaught={updateCreatureCaught} updateDonated={updateCreatureDonated} navigateTo={'BugDetails'} images={BugImages} styles={styles}/>
+            <GridItem model={item} navigation={navigation} updateCaught={updateCreatureCaught} updateDonated={updateCreatureDonated} navigateTo={'BugDetails'} images={undefined} styles={styles}/>
           )}
           numColumns={3}
           keyExtractor={(item: CreatureModel, index: number) => index.toString()}

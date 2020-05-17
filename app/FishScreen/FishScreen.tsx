@@ -13,14 +13,13 @@ import { connect } from 'react-redux';
 import { Filter, GetDefaultFilterModelCreature } from '../SharedLogic/Filter';
 import { ListHeader } from '../Shared/ListHeader';
 import { GridItem } from '../Shared/GridItem';
-import FishImages from '../Images/FishImages';
 import { updateCreatureCaught, updateCreatureDonated, updateFishCollectionFromStorage } from '../ReduxV2/CollectionActions'
 import { CreatureModel, SourceSheet, CreatureSize, CreatureColor, LightingType, Season, ActiveMonths, Thern, CreatureWeather } from '../../models/CollectionModelsV2/creatures';
 import { FilterModel } from '../../models/Filter/FilterModel';
 import FilterOptions from '../Shared/FilterOptions';
-import { SortModel } from '../../models/Sort/AdvancedSortCritterModel';
 import { SortOptions } from '../Shared/SortOptions';
 import { GetDefaultSortModelCreature, Sort } from '../SharedLogic/Sort';
+import { SortModel } from '../../models/Sort/SortModel';
 
 function titleCase(str: string) {
   let returnStr = str.toLowerCase().split(' ').map(function(word) {
@@ -124,7 +123,7 @@ class FishScreen extends Component<FishScreenProps, FishScreenState> {
               updateCaught={updateCreatureCaught}
               updateDonated={updateCreatureDonated}
               navigateTo={'FishDetails'}
-              images={FishImages} 
+              images={undefined} 
               styles = { styles } />
           )}
           numColumns={3}
