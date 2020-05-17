@@ -1,4 +1,5 @@
 import { FilterModel } from "../../Filter/FilterModel";
+import { SortModel } from "../../Sort/AdvancedSortCritterModel";
 
 export interface FossilScreenState{
     isReady: boolean,
@@ -6,4 +7,5 @@ export interface FossilScreenState{
     showFilterModal: boolean,
     showSortModal: boolean,
     filter: FilterModel,
+    sort: SortModel
 }

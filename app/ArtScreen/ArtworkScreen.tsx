@@ -18,7 +18,10 @@ import { GridItem } from '../Shared/GridItem';
 import { ItemModel, ItemSourceSheet } from '../../models/CollectionModelsV2/items';
 import FilterOptions from '../Shared/FilterOptions';
 import { FilterModel } from '../../models/Filter/FilterModel';
-import { Filter } from '../AdvancedFilterLogic/FishFilterAdvanced';
+import { Filter, GetDefaultFilterModelItem } from '../SharedLogic/Filter';
+import { GetDefaultSortModelItem, Sort } from '../SharedLogic/Sort';
+import { SortModel } from '../../models/Sort/AdvancedSortCritterModel';
+import { SortOptions } from '../Shared/SortOptions';
 
 function titleCase(str: string) {
     let returnStr = str.toLowerCase().split(' ').map(function (word) {
@@ -42,37 +45,17 @@ class ArtworkScreen extends Component<ArtworkScreenProps, ArtworkScreenState> {
             filterText: '',
             showFilterModal: false,
             showSortModal: false,
-            filter: {
-                donated: false,
-                notDonated: false,
-                location: undefined,
-                rarity: undefined,
-                value: undefined,
-                catchableNow: undefined,
-                shadowSize: undefined,
-                monthsAvailable: {
-                    jan: undefined,
-                    feb: undefined,
-                    mar: undefined,
-                    apr: undefined,
-                    may: undefined,
-                    jun: undefined,
-                    jul: undefined,
-                    aug: undefined,
-                    sep: undefined,
-                    oct: undefined,
-                    nov: undefined,
-                    dec: undefined
-                },
-                caught: undefined,
-                notCaught: undefined,
-                availableNow: undefined
-            }
+            filter: GetDefaultFilterModelItem(),
+            sort: GetDefaultSortModelItem()
         };
     }
 
     setFilter = (filter: FilterModel) => {
         this.setState({ filter });
+    }
+
+    setSort = (sort: SortModel) => {
+        this.setState({sort});
     }
 
     async componentDidMount() {
@@ -120,7 +103,7 @@ class ArtworkScreen extends Component<ArtworkScreenProps, ArtworkScreenState> {
         let artworks = this.props.appState.artwork.artworkCollection;
         artworks = Filter(this.state.filter, artworks, 0) as ItemModel[];
         artworks = this.FilterArtworkByText(this.state.filterText, artworks);
-        
+        artworks = Sort(this.state.sort, artworks) as ItemModel[];
         return (
             <Container>
                 <ListHeader
@@ -145,6 +128,12 @@ class ArtworkScreen extends Component<ArtworkScreenProps, ArtworkScreenState> {
                         <TouchableWithoutFeedback onPress={() => { this.setState({ showFilterModal: false }) }} style={{ width: '100%', height: '100%' }}></TouchableWithoutFeedback>
                     </View>
                     <FilterOptions currentFilter={this.state.filter} setFilterModel={this.setFilter}></FilterOptions>
+                </Modal>
+                <Modal visible={this.state.showSortModal} transparent={true} animationType='slide'>
+                    <View style={{ height: '50%' }}>
+                        <TouchableWithoutFeedback onPress={() => { this.setState({ showSortModal: false }) }} style={{ width: '100%', height: '100%' }}></TouchableWithoutFeedback>
+                    </View>
+                    <SortOptions currentSort={this.state.sort} setSortModel={this.setSort}></SortOptions>
                 </Modal>
             </Container>
         )

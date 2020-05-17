@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, View, Text, Card, CardItem } from "native-base";
+import { Button, Text, Card, CardItem } from "native-base";
 import styles from "../Shared/Styles/FilterOptionsStyles";
 import { FilterProps } from "../../models/Filter/FilterProps";
 

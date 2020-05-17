@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { AsyncStorage, Modal } from 'react-native';
-import fish from '../../data/fish.json';
 import creatures from '../../dataV2/creatures.json'
 import {
   Container, View,
@@ -11,19 +10,17 @@ import styles from '../Shared/Screen.styles';
 import { FishScreenProps } from '../../models/MainScreenModels/FishScreen/FishScreenProps';
 import { FishScreenState } from '../../models/MainScreenModels/FishScreen/FishScreenState';
 import { connect } from 'react-redux';
-import { NewFishModel } from '../../models/CollectionModels/NewFishModel';
-import { filterCollectionByTextSpecial } from '../Filter/Filter';
-import { isListOfFish } from '../Filter/FilterTypes';
-import { Filter } from '../AdvancedFilterLogic/FishFilterAdvanced';
-import { SortFish } from '../AdvancedSortLogic/FishSortAdvanced';
+import { Filter, GetDefaultFilterModelCreature } from '../SharedLogic/Filter';
 import { ListHeader } from '../Shared/ListHeader';
 import { GridItem } from '../Shared/GridItem';
 import FishImages from '../Images/FishImages';
-import {updateItemCatalogged, updateCreatureCaught, updateCreatureDonated, updateItemDonated, updateFishCollectionFromStorage } from '../ReduxV2/CollectionActions'
+import { updateCreatureCaught, updateCreatureDonated, updateFishCollectionFromStorage } from '../ReduxV2/CollectionActions'
 import { CreatureModel, SourceSheet, CreatureSize, CreatureColor, LightingType, Season, ActiveMonths, Thern, CreatureWeather } from '../../models/CollectionModelsV2/creatures';
-import FishSortOptions from './FishSort/FishSortOptions';
 import { FilterModel } from '../../models/Filter/FilterModel';
 import FilterOptions from '../Shared/FilterOptions';
+import { SortModel } from '../../models/Sort/AdvancedSortCritterModel';
+import { SortOptions } from '../Shared/SortOptions';
+import { GetDefaultSortModelCreature, Sort } from '../SharedLogic/Sort';
 
 function titleCase(str: string) {
   let returnStr = str.toLowerCase().split(' ').map(function(word) {
@@ -60,33 +57,8 @@ class FishScreen extends Component<FishScreenProps, FishScreenState> {
       filterText: '',
       showFilterModal: false,
       showSortModal: false,
-      //TODO Create a default filter function
-      filter: {
-        caught: false,
-        donated: false,
-        notCaught: false,
-        notDonated: false,
-        availableNow: false,
-        location: -1,
-        rarity: -1,
-        value: 0,
-        catchableNow: false,
-        shadowSize: -1,
-        monthsAvailable: {
-          jan: false,
-          feb: false,
-          mar: false,
-          apr: false,
-          may: false,
-          jun: false,
-          jul: false,
-          aug: false,
-          sep: false,
-          oct: false,
-          nov: false,
-          dec: false
-        }
-      }
+      filter: GetDefaultFilterModelCreature(),
+      sort: GetDefaultSortModelCreature()
     };
   }
 
@@ -106,29 +78,14 @@ class FishScreen extends Component<FishScreenProps, FishScreenState> {
     this.setState({filter});
   }
 
-  filterFishByText(text: string, fishes: Array<NewFishModel>): Array<NewFishModel> {
+  setSort = (sort: SortModel) => {    
+    this.setState({sort});
+  }
+
+  filterFishByText(text: string, fishes: Array<CreatureModel>): Array<CreatureModel> {
     var allFish = fishes;
-    //read text until key word -- if no key words involved assume name
-    let fishArray: Array<NewFishModel> = [];
-    let filterSpecial = text.includes('filter:');
-    text = text.toLowerCase();
-    if (filterSpecial) {
-      try {
-        //Check matching parens before doing this. If they're not matching return no fish.
-        let value = filterCollectionByTextSpecial(
-          text.substr(7),
-          fishes,
-          this.props.appState.userSettings.inGameTime.minutes
-        );
-        if (isListOfFish(value)) {
-          fishArray = value;
-        }
-      } catch (err) {
-        fishArray = [];
-      }
-    } else {
-      fishArray = allFish.filter((x) => x.name.toLowerCase().startsWith(text));
-    }
+    let fishArray: Array<CreatureModel> = [];    
+    fishArray = allFish.filter((x) => x.name.toLowerCase().startsWith(text));    
     return fishArray;
   }
 
@@ -148,8 +105,9 @@ class FishScreen extends Component<FishScreenProps, FishScreenState> {
     
     let fish = this.props.appState.fish.fishCollection;
     fish = Filter(this.state.filter, fish, 0) as CreatureModel[];
-    // fish = this.filterFishByText(this.state.filterText, fish);
-    // fish = SortFish(fish, this.props.appState.fish.fishAdvancedSort);
+    fish = this.filterFishByText(this.state.filterText, fish);
+    fish = Sort(this.state.sort, fish) as CreatureModel[];
+
     return (
       <Container>
         <ListHeader
@@ -183,13 +141,12 @@ class FishScreen extends Component<FishScreenProps, FishScreenState> {
           </View>
           <FilterOptions currentFilter={this.state.filter} setFilterModel={this.setFilter}></FilterOptions>
         </Modal>
-        {/* 
         <Modal visible={this.state.showSortModal} transparent={true} animationType='slide'>
           <View style={{ height: '50%' }}>
             <TouchableWithoutFeedback onPress={() => { this.setState({ showSortModal: false }) }} style={{ width: '100%', height: '100%' }}></TouchableWithoutFeedback>
           </View>
-          <AdvancedSortOptions></AdvancedSortOptions>
-        </Modal> */}
+          <SortOptions currentSort={this.state.sort} setSortModel={this.setSort}></SortOptions>
+        </Modal>
       </Container>
     );
   }

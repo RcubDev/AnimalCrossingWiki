@@ -1,15 +1,7 @@
-import { FilterCritters } from "./CritterFilterAdvanced";
 import { FilterModel } from "../../models/Filter/FilterModel";
 import { CreatureModel } from "../../models/CollectionModelsV2/creatures";
 import { ItemModel } from "../../models/CollectionModelsV2/items";
 import { MonthsAvaliable } from "../../models/CollectionModels/CritterCollectionModel";
-
-// function ApplyShadowSize(shadowSize: number, allFish: Array<NewFishModel>): Array<NewFishModel> {
-//     if (shadowSize !== -1) {
-//         allFish = allFish.filter(x => x.shadowSize === shadowSize);
-//     }
-//     return allFish;
-// }
 
 export function Filter(filter: FilterModel, filterCollection: Array<any>, timeOffSet: number = 0): Array<CreatureModel> | Array<ItemModel> {
     if (filterCollection && filterCollection.length > 0 && filterCollection[0].caught !== undefined) {
@@ -28,7 +20,65 @@ export function Filter(filter: FilterModel, filterCollection: Array<any>, timeOf
     return filterCollection;
 }
 
-function ApplyDonated(donated: boolean, filterCollection: any): Array<any> {
+export function GetDefaultFilterModelCreature(): FilterModel {
+    return {
+        caught: false,
+        donated: false,
+        notCaught: false,
+        notDonated: false,
+        availableNow: false,
+        location: -1,
+        rarity: -1,
+        value: 0,
+        catchableNow: false,
+        shadowSize: -1,
+        monthsAvailable: {
+          jan: false,
+          feb: false,
+          mar: false,
+          apr: false,
+          may: false,
+          jun: false,
+          jul: false,
+          aug: false,
+          sep: false,
+          oct: false,
+          nov: false,
+          dec: false
+        }
+      }
+}
+
+export function GetDefaultFilterModelItem(): FilterModel {
+    return {
+        donated: false,
+        notDonated: false,
+        location: undefined,
+        rarity: undefined,
+        value: undefined,
+        catchableNow: undefined,
+        shadowSize: undefined,
+        monthsAvailable: {
+            jan: undefined,
+            feb: undefined,
+            mar: undefined,
+            apr: undefined,
+            may: undefined,
+            jun: undefined,
+            jul: undefined,
+            aug: undefined,
+            sep: undefined,
+            oct: undefined,
+            nov: undefined,
+            dec: undefined
+        },         
+        caught: undefined,
+        notCaught: undefined,
+        availableNow: undefined
+    }
+}
+
+function ApplyDonated(donated: boolean | undefined, filterCollection: any): Array<any> {
     if(donated){
         return filterCollection.filter((x: { donated: boolean; }) => x.donated === true);
     }
@@ -37,7 +87,7 @@ function ApplyDonated(donated: boolean, filterCollection: any): Array<any> {
     }
 }
 
-function ApplyNotDonated(notDonated: boolean, filterCollection: any): Array<any> {
+function ApplyNotDonated(notDonated: boolean | undefined, filterCollection: any): Array<any> {
     if(notDonated){
         return filterCollection.filter((x: { donated: boolean; }) => x.donated === false);
     }
@@ -46,9 +96,8 @@ function ApplyNotDonated(notDonated: boolean, filterCollection: any): Array<any>
     }
 }
 
-function ApplyCaught(caught: boolean, filterCollection: Array<CreatureModel>): Array<any> {
+function ApplyCaught(caught: boolean | undefined, filterCollection: Array<CreatureModel>): Array<any> {
     if(caught){
-        console.log('caught going');
         return filterCollection.filter(x => x.caught);
     }
     else{
@@ -56,7 +105,7 @@ function ApplyCaught(caught: boolean, filterCollection: Array<CreatureModel>): A
     }
 }
 
-function ApplyNotCaught(notCaught: boolean, filterCollection: Array<CreatureModel>): Array<any> {
+function ApplyNotCaught(notCaught: boolean | undefined, filterCollection: Array<CreatureModel>): Array<any> {
     if(notCaught){
         return filterCollection.filter(x => !x.caught);
     }
@@ -66,7 +115,7 @@ function ApplyNotCaught(notCaught: boolean, filterCollection: Array<CreatureMode
 }
 
 
-function ApplyShadowSize(shadowSize: number, filterCollection: Array<CreatureModel>): Array<any> {    
+function ApplyShadowSize(shadowSize: number | undefined, filterCollection: Array<CreatureModel>): Array<any> {    
     switch (shadowSize) {
         case 1:
             return filterCollection.filter(x => x.shadow === "X-Small");
@@ -87,7 +136,7 @@ function ApplyShadowSize(shadowSize: number, filterCollection: Array<CreatureMod
     }
 }
 
-function ApplyLocation(location: number, filterCollection: Array<CreatureModel>): Array<any> {
+function ApplyLocation(location: number | undefined, filterCollection: Array<CreatureModel>): Array<any> {
     switch(filterCollection[0].sourceSheet){
         case "Bugs":
             return ApplyLocationBugs(location, filterCollection);
@@ -98,7 +147,7 @@ function ApplyLocation(location: number, filterCollection: Array<CreatureModel>)
     }
 }
 
-function ApplyLocationFish(location: number, filterCollection: Array<CreatureModel>): Array<any>{
+function ApplyLocationFish(location: number | undefined, filterCollection: Array<CreatureModel>): Array<any>{
     switch (location) {
         case 1:
             return filterCollection.filter(x => x.whereHow === "River");
@@ -117,7 +166,7 @@ function ApplyLocationFish(location: number, filterCollection: Array<CreatureMod
     }
 }
 
-function ApplyLocationBugs(location: number, filterCollection: Array<CreatureModel>): Array<any>{
+function ApplyLocationBugs(location: number | undefined, filterCollection: Array<CreatureModel>): Array<any>{
     switch (location) {
         case 1:
             return filterCollection.filter(x => x.whereHow === "");

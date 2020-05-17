@@ -4,16 +4,10 @@ import styles from './HomeScreen.styles';
 import { Button, Container } from 'native-base';
 import { NavigationScreenProp } from 'react-navigation';
 import { connect } from 'react-redux';
-import {
-    updateHemisphere,
-    updateInGameTime
-  } from "../Redux/CollectionActions";
 import { AppLoading } from 'expo';
 
 export interface HomeScreenProps {
-    navigation: NavigationScreenProp<any>,
-    updateInGameTime: typeof updateInGameTime,
-    updateHemisphere: typeof updateHemisphere,          
+    navigation: NavigationScreenProp<any>,   
 }
 
 class HomeScreen extends Component<HomeScreenProps, {isReady: boolean}>{
@@ -28,20 +22,20 @@ class HomeScreen extends Component<HomeScreenProps, {isReady: boolean}>{
         const inGameTime = await AsyncStorage.getItem('InGameTimeOffSet');
         if(inGameTime){
             //Ingame time is an offset...
-            this.props.updateInGameTime(JSON.parse(inGameTime));
+            // this.props.updateInGameTime(JSON.parse(inGameTime));
         }
         else{
             //default
-            this.props.updateInGameTime({minutes: 0});
+            // this.props.updateInGameTime({minutes: 0});
         }
 
         const isNorthernHemisphere = await AsyncStorage.getItem('IsNorthernHemisphere');
         if(isNorthernHemisphere !== null){
-            this.props.updateHemisphere(JSON.parse(isNorthernHemisphere));
+            //this.props.updateHemisphere(JSON.parse(isNorthernHemisphere));
         }
         else{
             //default
-            this.props.updateHemisphere(true);
+            //this.props.updateHemisphere(true);
         }
         this.setState({isReady: true});
     }
@@ -81,6 +75,6 @@ const mapStateToProps = (state: any) => {
   };
 
 export default connect(mapStateToProps, {
-    updateInGameTime,
-    updateHemisphere
+    // updateInGameTime,
+    // updateHemisphere
   })(HomeScreen);

@@ -10,18 +10,16 @@ import { AppLoading } from 'expo';
 import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
 import { Container } from 'native-base';
-import FishDetails from './FishScreen/FishDetailScreen';
+import FishDetails from './FishScreen/FishDetail/FishDetailScreen';
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
-import collectionReducer from './Redux/CollectionReducer'
-import FilterOptions from './Shared/FilterOptions';
 import BugDetailScreen from './BugScreen/BugDetail/BugDetailScreen';
 import FossilScreen from './FossilScreen/FossilScreen'
 import FossilDetailScreen from './FossilScreen/FossilDetail/FossilDetailScreen';
 import ArtworkScreen from './ArtScreen/ArtworkScreen';
 import ArtworkDetailScreen from './ArtScreen/ArtDetails/ArtworkDetailScreen';
 import CollectionReducer from './ReduxV2/CollectionReducer';
-const store2 = createStore(collectionReducer);
+
 const storeV2 = createStore(CollectionReducer)
 const fetchFonts = () => {
   return Font.loadAsync({

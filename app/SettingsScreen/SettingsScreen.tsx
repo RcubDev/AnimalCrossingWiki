@@ -1,15 +1,10 @@
 import React from 'react';
-import {
-    updateHemisphere,
-    updateInGameTime
-  } from "../Redux/CollectionActions";
 import { Component } from "react";
 import { connect } from "react-redux";
-import {Text, Platform, AsyncStorage } from "react-native";
-import { Container, Switch, Button, Input, View } from 'native-base';
+import { Text, AsyncStorage } from "react-native";
+import { Button, Input, View } from 'native-base';
 import { SettingsScreenProps } from '../../models/MainScreenModels/SetingsScreen/SettingsScreenProps';
 import moment from 'moment';
-import { InGameTimeOffSetPayload } from '../Redux/Types';
 
 export function GetInGameDay(minutesOffset: number){
     let currentMoment = moment(new Date());
@@ -95,8 +90,8 @@ class SettingsScreen extends Component<SettingsScreenProps, SettingsScreenState>
         let todayDate = new Date();
         let todayMoment = moment(todayDate);
         let selectedMoment = moment(selectedDate);
-        let dateOffset: InGameTimeOffSetPayload = {
-            minutes: selectedMoment.diff(todayMoment, 'minutes') 
+        let dateOffset = {
+            minutes: 0//selectedMoment.diff(todayMoment, 'minutes') 
         }        
         this.props.updateInGameTime(dateOffset);
         //Update Current Time here
@@ -175,7 +170,7 @@ const mapStateToProps = (state: any) => {
   };
   
 export default connect(mapStateToProps, {
-    updateInGameTime,
-    updateHemisphere
+    // updateInGameTime,
+    // updateHemisphere
   })(SettingsScreen);
   

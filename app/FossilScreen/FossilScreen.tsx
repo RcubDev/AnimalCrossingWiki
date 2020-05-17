@@ -15,7 +15,10 @@ import { updateItemDonated, updateFossilCollectionFromStorage } from "../../app/
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import FilterOptions from '../Shared/FilterOptions';
 import { FilterModel } from '../../models/Filter/FilterModel';
-import { Filter } from '../AdvancedFilterLogic/FishFilterAdvanced';
+import { Filter, GetDefaultFilterModelItem } from '../SharedLogic/Filter';
+import { GetDefaultSortModelItem, Sort } from '../SharedLogic/Sort';
+import { SortModel } from '../../models/Sort/AdvancedSortCritterModel';
+import { SortOptions } from '../Shared/SortOptions';
 
 
 function titleCase(str: string) {
@@ -39,32 +42,8 @@ class FossilScreen extends Component<FossilScreenProps, FossilScreenState> {
             filterText: '',
             showFilterModal: false,
             showSortModal: false,
-            filter: {
-                donated: false,
-                notDonated: false,
-                location: undefined,
-                rarity: undefined,
-                value: undefined,
-                catchableNow: undefined,
-                shadowSize: undefined,
-                monthsAvailable: {
-                    jan: undefined,
-                    feb: undefined,
-                    mar: undefined,
-                    apr: undefined,
-                    may: undefined,
-                    jun: undefined,
-                    jul: undefined,
-                    aug: undefined,
-                    sep: undefined,
-                    oct: undefined,
-                    nov: undefined,
-                    dec: undefined
-                },         
-                caught: undefined,
-                notCaught: undefined,
-                availableNow: undefined
-            }
+            filter: GetDefaultFilterModelItem(),
+            sort: GetDefaultSortModelItem()
         };
     }
 
@@ -88,6 +67,10 @@ class FossilScreen extends Component<FossilScreenProps, FossilScreenState> {
         this.setState({ filter });
     }
 
+    setSort = (sort: SortModel) => {
+        this.setState({sort});
+    }
+
 
     FilterFossilByText(text: string, fossils: Array<ItemModel>): Array<ItemModel> {
         let allFossils = fossils;
@@ -108,6 +91,7 @@ class FossilScreen extends Component<FossilScreenProps, FossilScreenState> {
     };
 
     showFilterModal = () => this.setState({ showFilterModal: !this.state.showFilterModal });
+    showSortModal = () => this.setState({ showSortModal: !this.state.showSortModal });
 
     render() {
 
@@ -119,11 +103,13 @@ class FossilScreen extends Component<FossilScreenProps, FossilScreenState> {
         let fossils = this.props.appState.fossils.fossilCollection;
         fossils = Filter(this.state.filter, fossils, 0) as ItemModel[];
         fossils = this.FilterFossilByText(this.state.filterText, fossils);
+        fossils = Sort(this.state.sort, fossils) as ItemModel[];
         return (
             <Container>
                 <ListHeader
                     setSearchText={this.setSearchText}
                     showFilterModal={this.showFilterModal}
+                    showSortModal={this.showSortModal}
                 />
                 <FlatList
                     data={fossils}
@@ -143,6 +129,12 @@ class FossilScreen extends Component<FossilScreenProps, FossilScreenState> {
                         <TouchableWithoutFeedback onPress={() => { this.setState({ showFilterModal: false }) }} style={{ width: '100%', height: '100%' }}></TouchableWithoutFeedback>
                     </View>
                     <FilterOptions currentFilter={this.state.filter} setFilterModel={this.setFilter}></FilterOptions>
+                </Modal>
+                <Modal visible={this.state.showSortModal} transparent={true} animationType='slide'>
+                    <View style={{ height: '50%' }}>
+                        <TouchableWithoutFeedback onPress={() => { this.setState({ showSortModal: false }) }} style={{ width: '100%', height: '100%' }}></TouchableWithoutFeedback>
+                    </View>
+                    <SortOptions currentSort={this.state.sort} setSortModel={this.setSort}></SortOptions>
                 </Modal>
             </Container>
         )

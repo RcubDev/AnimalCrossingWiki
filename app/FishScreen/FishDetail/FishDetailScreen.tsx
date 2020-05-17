@@ -1,17 +1,14 @@
 import React, { Component } from 'react';
-import { Container, Button, Text, Header, Content, Footer, View, H1, CardItem, Card, CheckBox } from 'native-base';
+import { Text, View, CheckBox } from 'native-base';
 import { Image } from 'react-native';
-import FishImages from '../Images/FishImages';
+import FishImages from '../../Images/FishImages';
 import { connect } from 'react-redux';
-import { updateFishCaught, updateFishDonated } from '../Redux/CollectionActions';
 import { NavigationScreenProp } from 'react-navigation';
-import { NewFishModel } from '../../models/CollectionModels/NewFishModel';
-import { ApplicationState } from '../../models/ApplicationState/ApplicationState';
 import { ScrollView } from 'react-native-gesture-handler';
 import styles from './FishDetailScreenStyles';
-import { updateCreatureCaught, updateCreatureDonated, updateFishCollectionFromStorage } from "../../app/ReduxV2/CollectionActions";
-import { CreatureModel } from '../../models/CollectionModelsV2/creatures';
-import { ApplicationStateV2 } from '../../models/ApplicationState/ApplicationStateV2';
+import { updateCreatureCaught, updateCreatureDonated, updateFishCollectionFromStorage } from "../../ReduxV2/CollectionActions";
+import { CreatureModel } from '../../../models/CollectionModelsV2/creatures';
+import { ApplicationStateV2 } from '../../../models/ApplicationState/ApplicationStateV2';
 
 
 interface FishDetailsProps {
@@ -69,7 +66,7 @@ class FishDetails extends Component<FishDetailsProps, FishDetailsState> {
                         <CheckBox style={styles.checkBoxTemp} checked={this.state.model.caught} onPress={() => {this.SetItemCaught(!this.state.model.caught, this.state.model.internalId)}}></CheckBox>
                         <CheckBox style={styles.checkBoxTemp} checked={this.state.model.donated} onPress={() => {this.SetItemDonated(!this.state.model.donated, this.state.model.internalId)}}></CheckBox>
                         <View style={styles.valueContainer}>
-                            <Image source={require('../Images/Other/BellBag.png')} style={{ width: 30, height: 30, marginLeft: 5 }}></Image>
+                            <Image source={require('../../Images/Other/BellBag.png')} style={{ width: 30, height: 30, marginLeft: 5 }}></Image>
                             <Text style={styles.valueText}>{this.state.model.sell}</Text>
                         </View>
                     </View>

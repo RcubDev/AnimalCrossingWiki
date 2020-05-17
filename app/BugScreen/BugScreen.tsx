@@ -17,7 +17,10 @@ import { GridItem } from '../Shared/GridItem';
 import { CreatureModel, SourceSheet, CreatureSize, CreatureColor, LightingType, Season, Thern, CreatureWeather } from '../../models/CollectionModelsV2/creatures';
 import FilterOptions from '../Shared/FilterOptions';
 import { FilterModel } from '../../models/Filter/FilterModel';
-import { Filter } from '../AdvancedFilterLogic/FishFilterAdvanced';
+import { Filter, GetDefaultFilterModelCreature } from '../SharedLogic/Filter';
+import { GetDefaultSortModelCreature, Sort } from '../SharedLogic/Sort';
+import { SortModel } from '../../models/Sort/AdvancedSortCritterModel';
+import { SortOptions } from '../Shared/SortOptions';
 
 function titleCase(str: string) {
   let returnStr = str.toLowerCase().split(' ').map(function(word) {
@@ -49,37 +52,14 @@ class BugScreen extends Component<BugScreenProps, BugScreenState> {
   focusListener: any;
   constructor(props: BugScreenProps) {
     super(props);
+    let sortModel = GetDefaultSortModelCreature();    
     this.state = {
       isReady: false,
       filterText: '',
       showFilterModal: false,
       showSortModal: false,
-      filter: {
-        caught: false,
-        donated: false,
-        notCaught: false,
-        notDonated: false,
-        availableNow: false,
-        location: -1,
-        rarity: -1,
-        value: 0,
-        catchableNow: false,
-        shadowSize: undefined,
-        monthsAvailable: {
-          jan: false,
-          feb: false,
-          mar: false,
-          apr: false,
-          may: false,
-          jun: false,
-          jul: false,
-          aug: false,
-          sep: false,
-          oct: false,
-          nov: false,
-          dec: false
-        }
-      }    
+      filter: GetDefaultFilterModelCreature(),
+      sort: {...sortModel, shadowSize: undefined}
     };
   }
 
@@ -94,35 +74,21 @@ class BugScreen extends Component<BugScreenProps, BugScreenState> {
     }
     this.setState({ isReady: true });
   }
+
   setFilter = (filter: FilterModel) => {
     this.setState({filter});
   }
 
-
+  setSort = (sort: SortModel) => {    
+    this.setState({sort});
+  }
 
   filterBugByText(text: string, bugs: Array<CreatureModel>): Array<CreatureModel> {
     var allBug = bugs;
-    //read text until key word -- if no key words involved assume name
     let bugArray: Array<CreatureModel> = [];
-    let filterSpecial = text.includes('filter:');
     text = text.toLowerCase();
-    if (filterSpecial) {
-      // try {
-      //   //Check matching parens before doing this. If they're not matching return no bug.
-      //   let value = filterCollectionByTextSpecial(
-      //     text.substr(7),
-      //     bugs,
-      //     this.props.appState.userSettings.inGameTime.minutes
-      //   );
-      //   if (isListOfBug(value)) {
-      //     bugArray = value;
-      //   }
-      // } catch (err) {
-      //   bugArray = [];
-      // }
-    } else {
-      bugArray = allBug.filter((x) => x.name.toLowerCase().startsWith(text));
-    }
+    bugArray = allBug.filter((x) => x.name.toLowerCase().startsWith(text));    
+
     return bugArray;
   }
 
@@ -144,7 +110,7 @@ class BugScreen extends Component<BugScreenProps, BugScreenState> {
     //Use common critter filter    
     visibleBugList = Filter(this.state.filter, visibleBugList, 0) as CreatureModel[];
     visibleBugList = this.filterBugByText(this.state.filterText, visibleBugList);
-    //visibleBugList = SortBugs(visibleBugList, this.props.appState.bug.bugAdvancedSort);
+    visibleBugList = Sort(this.state.sort, visibleBugList) as CreatureModel[];
     return (
       <Container>
         <ListHeader
@@ -171,12 +137,12 @@ class BugScreen extends Component<BugScreenProps, BugScreenState> {
           </View>
           <FilterOptions currentFilter={this.state.filter} setFilterModel={this.setFilter}></FilterOptions>
         </Modal>
-        {/* <Modal visible={this.state.showSortModal} transparent={true} animationType='slide'>
+        <Modal visible={this.state.showSortModal} transparent={true} animationType='slide'>
           <View style={{ height: '50%' }}>
             <TouchableWithoutFeedback onPress={() => { this.setState({ showSortModal: false }) }} style={{ width: '100%', height: '100%' }}></TouchableWithoutFeedback>
           </View>
-          <BugSortOptions></BugSortOptions>
-        </Modal> */}
+          <SortOptions currentSort={this.state.sort} setSortModel={this.setSort}></SortOptions>
+        </Modal>
       </Container>
     );
   }

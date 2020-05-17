@@ -4,6 +4,7 @@ export interface SortModel {
     rarity: boolean | undefined,
     critterpediaHorizontal: boolean | undefined,
     critterpediaVertical: boolean | undefined,
-    ascending: boolean | undefined,
-    descending: boolean | undefined
+    shadowSize: boolean | undefined,
+    ascending: boolean,
+    descending: boolean
 }

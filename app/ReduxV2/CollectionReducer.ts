@@ -24,7 +24,6 @@ const INITIAL_STATE: ApplicationStateV2 = {
 const collectionReducer = (state = INITIAL_STATE, action: ReduxActions): ApplicationStateV2 => {
     switch (action.type) {
         case UPDATE_CREATURE_CAUGHT:
-            console.log('here');
             return updateCreatureCaught(state, action);
         case UPDATE_CREATURE_DONATED:
             return updateCreatureDonated(state, action);
