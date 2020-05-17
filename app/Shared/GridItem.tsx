@@ -29,15 +29,15 @@ export class GridItem extends PureComponent<GridItemProps> {
 
   render() {
     const { model, images, styles } = this.props;
-    const { donated, name, id, caught } = (model as CreatureModel);
+    const { donated, name, caught } = (model as CreatureModel);
 
     return (
       <Card style={styles.card} >
         <CardItem style={styles.cardItem}>
           <View>
             <TouchableOpacity onPress={this.onPress} style={styles.gridItemCard}>
-              <Text style={{ fontFamily: 'Confortaa' }} key={`${id}Text`} numberOfLines={1}>{name}</Text>
-              <Image source={images[name]} style={styles.gridItem} key={`${id}Image`}></Image>
+              <Text style={{ fontFamily: 'Confortaa' }} key={`${name}Text`} numberOfLines={1}>{name}</Text>
+              <Image source={images[name]} style={styles.gridItem} key={`${name}Image`}></Image>
             </TouchableOpacity>
           </View>
           <View style={styles.cardCheckBoxContainer}>

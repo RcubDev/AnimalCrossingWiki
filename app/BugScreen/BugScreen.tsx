@@ -19,8 +19,8 @@ import FilterOptions from '../Shared/FilterOptions';
 import { FilterModel } from '../../models/Filter/FilterModel';
 import { Filter, GetDefaultFilterModelCreature } from '../SharedLogic/Filter';
 import { GetDefaultSortModelCreature, Sort } from '../SharedLogic/Sort';
-import { SortModel } from '../../models/Sort/AdvancedSortCritterModel';
 import { SortOptions } from '../Shared/SortOptions';
+import { SortModel } from '../../models/Sort/SortModel';
 
 function titleCase(str: string) {
   let returnStr = str.toLowerCase().split(' ').map(function(word) {

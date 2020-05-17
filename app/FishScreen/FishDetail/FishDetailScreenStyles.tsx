@@ -80,10 +80,8 @@ const styles = StyleSheet.create({
     },
     valueContainer: {
         flexDirection: 'row',
-        backgroundColor: cardBackgroundColor,
-        alignContent: 'center',
-        justifyContent: 'space-between',
         alignItems: 'center',
+        backgroundColor: cardBackgroundColor,
         width: '40%',
         borderColor: containerBorderColor,
         borderWidth: 5,
@@ -92,8 +90,7 @@ const styles = StyleSheet.create({
     },
     valueText: {
         fontFamily: fontFamily,
-        fontSize: 32,
-        marginTop: 15
+        fontSize: 25,        
     },
     monthContainer: {
         width: '90%',

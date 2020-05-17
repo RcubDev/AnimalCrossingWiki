@@ -6,14 +6,13 @@ import { connect } from 'react-redux';
 import { NavigationScreenProp } from 'react-navigation';
 import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 import styles from './ArtworkDetailScreenStyles';
-import { ApplicationState } from '../../../models/ApplicationState/ApplicationState';
-import { ArtworkModel } from '../../../models/CollectionModels/ArtworkModel';
 import { ItemModel, ItemVariantModel } from '../../../models/CollectionModelsV2/items';
 import { updateItemDonated } from "../../../app/ReduxV2/CollectionActions";
+import { ApplicationStateV2 } from '../../../models/ApplicationState/ApplicationStateV2';
 
 interface ArtworkDetailsProps {
     navigation: NavigationScreenProp<any>,
-    appState: ApplicationState
+    appState: ApplicationStateV2
     updateItemDonated: typeof updateItemDonated
     route: {
         key: string,
@@ -70,12 +69,12 @@ class ArtworkDetailScreen extends Component<ArtworkDetailsProps, ArtworkDetailsS
                     <View style={styles.imageAndNameContainer}>
                         <Image source={this.state.currentImage} style={styles.artImage}></Image>
                         <View style={styles.artworkNameViewStyling}>
-                            <Text style={styles.artworkNameTextStyling}>{this.state.model.name}</Text>
+                            <Text numberOfLines={1} style={styles.artworkNameTextStyling}>{this.state.showingReal ? this.state.model.name : `Fake ${this.state.model.name}`}</Text>
                         </View>
                     </View>
                     <View style={styles.caughtDonatedValueContainer}>
                         <CheckBox onPress={() => { this.SetItemDonated(!this.state.model.donated, this.state.model.name) }} style={styles.checkBoxTemp} checked={this.state.model.donated}></CheckBox>
-                        <TouchableOpacity onPress={() => this.SwapFakeReal()} style={{ borderColor: "black", borderRadius: 20, borderWidth: 5, padding: 30 }}>
+                        <TouchableOpacity onPress={() => this.SwapFakeReal()} style={{ borderColor: "black", borderRadius: 20, borderWidth: 5, padding: 30, minWidth:'75%' }}>
                             <Text style={styles.valueText}>{this.state.fakeModelVariant ? this.state.showingReal ? "Show Fake" : "Show Real" : "Always Real"}</Text>
                         </TouchableOpacity>
                     </View>

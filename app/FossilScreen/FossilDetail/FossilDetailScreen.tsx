@@ -55,7 +55,7 @@ class FossilDetails extends Component<FossilDetailsProps, FossilDetailsState> {
                     <View style={styles.caughtDonatedValueContainer}>
                         <CheckBox onPress={() => { this.SetItemDonated(!this.state.model.donated, this.state.model.name) }} style={styles.checkBoxTemp} checked={this.state.model.donated}></CheckBox>
                         <View style={styles.valueContainer}>
-                            <Image source={require('../../Images/Other/BellBag.png')} style={{ width: 30, height: 30, marginLeft: 5 }}></Image>
+                            <Image source={require('../../Images/Other/bellcoin.png')} style={{ width: 30, height: 30, marginLeft: 5 }}></Image>
                             <Text style={styles.valueText}>{this.state.model.variants[0].sell}</Text>
                         </View>
                     </View>

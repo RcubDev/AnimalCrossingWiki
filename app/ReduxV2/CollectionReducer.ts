@@ -156,8 +156,6 @@ function updateItemCatalogged(state: ApplicationStateV2, action: UpdateItemCatal
 
 function updateInGameTime(state: ApplicationStateV2, action: UpdateInGameTimeAction): ApplicationStateV2 {
     AsyncStorage.setItem('InGameTimeOffSet', JSON.stringify(action.payload));
-    console.log('updating IGN');
-    console.log(action.payload);
     return {...state, userSettings: { ...state.userSettings, inGameTimeOffsetInMinutes: action.payload}}
 }
 

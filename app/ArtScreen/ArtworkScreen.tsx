@@ -1,13 +1,10 @@
 
-import artworks from '../../data/artwork.json';
 import { ArtworkScreenProps } from '../../models/MainScreenModels/ArtworkScreen/ArtworkScreenProps';
-import { ArtworkModel } from '../../models/CollectionModels/ArtworkModel';
 import React, { Component } from 'react';
 import { ArtworkScreenState } from '../../models/MainScreenModels/ArtworkScreen/ArtworkScreenState';
 import { AsyncStorage, FlatList, Modal } from 'react-native';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
-
-import { Item, Input, Button, Text, Container, Header, View } from 'native-base';
+import { Container, View } from 'native-base';
 import { AppLoading } from 'expo';
 import styles from './ArtworkScreenStyles'
 import { connect } from 'react-redux';
@@ -20,8 +17,8 @@ import FilterOptions from '../Shared/FilterOptions';
 import { FilterModel } from '../../models/Filter/FilterModel';
 import { Filter, GetDefaultFilterModelItem } from '../SharedLogic/Filter';
 import { GetDefaultSortModelItem, Sort } from '../SharedLogic/Sort';
-import { SortModel } from '../../models/Sort/AdvancedSortCritterModel';
 import { SortOptions } from '../Shared/SortOptions';
+import { SortModel } from '../../models/Sort/SortModel';
 
 function titleCase(str: string) {
     let returnStr = str.toLowerCase().split(' ').map(function (word) {
@@ -115,6 +112,7 @@ class ArtworkScreen extends Component<ArtworkScreenProps, ArtworkScreenState> {
                     columnWrapperStyle={{
                         justifyContent: 'space-evenly',
                         flexDirection: 'row',
+                        
                     }}
                 ></FlatList>
                 <Modal visible={this.state.showFilterModal} transparent={true} animationType='slide'>
