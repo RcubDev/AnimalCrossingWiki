@@ -24,8 +24,12 @@ export interface ItemDonatedPayload {
 export interface CataloggedPayload {
     name: string,
     catalogged?: boolean,
-    category: "Furniture" | "Clothing" | "KKSongs"
     subcategory: ItemSourceSheet
+}
+
+export interface ObtainedPayload {
+    name: string,
+    obtained: boolean
 }
 
 //Tracking
@@ -33,6 +37,7 @@ export const UPDATE_CREATURE_CAUGHT = "UPDATE_CREATURE_CAUGHT"
 export const UPDATE_CREATURE_DONATED = "UPDATE_CREATURE_DONATED"
 export const UPDATE_ITEM_DONATED = "UPDATE_ITEM_DONATED"
 export const UPDATE_ITEM_CATALOGGED = "UPDATE_ITEM_CATALOGGED"
+export const UPDATE_MODEL_OBTAINED = "UPDATE_MODEL_OBTAINED"
 
 //Stored Collections
 export const UPDATE_FISH_COLLECTION = "UPDATE_FISH_COLLECTION"
@@ -65,6 +70,11 @@ interface UpdateItemDonatedAction {
 interface UpdateItemCataloggedAction {
     type: typeof UPDATE_ITEM_CATALOGGED,
     payload: CataloggedPayload
+}
+
+interface UpdateModelObtainedAction {
+    type: typeof UPDATE_MODEL_OBTAINED,
+    payload: ObtainedPayload
 }
 
 //Collection Actions
@@ -123,11 +133,13 @@ export type {
     UpdateInGameTimeAction,
     UpdateHemisphereAction,
     UpdateKKSongCollectionAction,
-    UpdateReactionCollectionAction
+    UpdateReactionCollectionAction,
+    UpdateModelObtainedAction
 }
 
 export type ReduxActions = 
     UpdateItemDonatedAction | UpdateCreatureCaughtAction | UpdateCreatureDonatedAction |
     UpdateItemCataloggedAction | UpdateFishCollectionAction | UpdateBugCollectionAction |
     UpdateFossilCollectionAction | UpdateArtworkCollectionAction | UpdateInGameTimeAction |
-     UpdateHemisphereAction | UpdateKKSongCollectionAction | UpdateReactionCollectionAction;
+    UpdateHemisphereAction | UpdateKKSongCollectionAction | UpdateReactionCollectionAction |
+    UpdateModelObtainedAction;

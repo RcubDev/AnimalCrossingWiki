@@ -49,6 +49,15 @@ const styles = StyleSheet.create({
        justifyContent: "center",
     },
 
+    reactionsButtonStyle:{
+        height: 50,
+        width: 50,
+        margin: 20,
+       backgroundColor: 'violet',
+       justifyContent: "center",
+    },
+
+
     fossilsButtonStyle:{
         height: 50,
         width: 50,

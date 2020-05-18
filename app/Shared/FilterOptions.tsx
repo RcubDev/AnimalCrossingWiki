@@ -43,7 +43,8 @@ export default class FilterOptions extends Component<FilterProps> {
             <RarityFilterSelection {...this.props}></RarityFilterSelection>
           </Fragment>
         )}
-        {isMuseumDonatable && <CaughtFilterSelection {...this.props}></CaughtFilterSelection>}
+        {(isMuseumDonatable || this.props.currentFilter.obtained !== undefined || this.props.currentFilter.catalogged !== undefined)
+         && <CaughtFilterSelection {...this.props}></CaughtFilterSelection>}
         </>
       </ScrollView>
     );

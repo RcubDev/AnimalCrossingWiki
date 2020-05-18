@@ -4,7 +4,7 @@ import { Image, Text } from 'react-native';
 import { IDictionary } from '../Images/FishImages';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { NavigationScreenProp } from 'react-navigation';
-import { updateItemCatalogged, updateCreatureCaught, updateCreatureDonated, updateItemDonated } from '../ReduxV2/CollectionActions'
+import { updateItemCatalogged, updateCreatureCaught, updateCreatureDonated, updateItemDonated, updateModelObtained } from '../ReduxV2/CollectionActions'
 import { CreatureModel } from '../../models/CollectionModelsV2/creatures';
 import { ItemModel, ItemSourceSheet } from '../../models/CollectionModelsV2/items';
 import { ReactionModel } from '../../models/CollectionModelsV2/reactions';
@@ -18,7 +18,7 @@ export class GridItem extends PureComponent<GridItemProps> {
   setItemDonated = () => {
     if (this.props.model.sourceSheet !== "Fish" && this.props.model.sourceSheet !== "Bugs") {
       if (this.props.model as ItemModel && this.props.updateItemDonated) {
-        this.props.updateItemDonated({ donated: !this.props.model.donated, name: this.props.model.name, type: this.props.model.sourceSheet === "Fossils" ? "Fossil" : "Artwork" })
+        this.props.updateItemDonated({ donated: !(this.props.model as ItemModel).donated, name: this.props.model.name, type: this.props.model.sourceSheet === "Fossils" ? "Fossil" : "Artwork" })
       }
     }
     else {
@@ -27,6 +27,27 @@ export class GridItem extends PureComponent<GridItemProps> {
       }
     }
   };
+
+  setItemCatalogged = () => {
+    if(this.props.model as ItemModel && this.props.updateItemCatalogged) {
+      let item = this.props.model as ItemModel;      
+      this.props.updateItemCatalogged({
+        catalogged: !item.catalogged,
+        name: item.name,
+        subcategory: item.sourceSheet
+      });
+    }
+  }
+
+  setModelObtained = () => {
+    if(this.props.model as ReactionModel && this.props.updateModelObtained) {
+      let item = this.props.model as ReactionModel;
+      this.props.updateModelObtained({
+        obtained: !item.obtained,
+        name: this.props.model.name
+      })
+    }
+  }
 
   getImageSource(): string {
     let uri = "";
@@ -97,6 +118,8 @@ export class GridItem extends PureComponent<GridItemProps> {
   render() {
     const { model, images, styles } = this.props;
     const { donated, name, caught } = (model as CreatureModel);
+    const {catalogged} = (model as ItemModel);
+    const {obtained} = (model as ReactionModel);
 
     return (
       <Card style={styles.card} >
@@ -111,10 +134,22 @@ export class GridItem extends PureComponent<GridItemProps> {
             {((model as CreatureModel).caught !== undefined) && (
               <View style={styles.cardCaughtCheckBox}>
                 <CheckBox checked={caught} onPress={this.setItemCaught}></CheckBox>
-              </View>)}
+              </View>)}            
+            {(model as ItemModel).donated !== undefined &&
             <View style={styles.cardDonatedCheckBox}>
-              <CheckBox checked={donated} onPress={this.setItemDonated}></CheckBox>
+             <CheckBox checked={donated} onPress={this.setItemDonated}></CheckBox>
             </View>
+            }
+            {(model as ItemModel).catalogged !== undefined &&
+            <View style={styles.cardDonatedCheckBox}>
+              <CheckBox checked={catalogged} onPress={this.setItemCatalogged}></CheckBox>
+            </View>
+            }
+              {(model as unknown as ReactionModel).obtained !== undefined &&
+            <View style={styles.cardDonatedCheckBox}>
+              <CheckBox checked={obtained} onPress={this.setModelObtained}></CheckBox>
+            </View>
+            }
           </View>
         </CardItem>
       </Card>
@@ -123,13 +158,14 @@ export class GridItem extends PureComponent<GridItemProps> {
 }
 
 export interface GridItemProps {
-  model: CreatureModel | ItemModel,
+  model: CreatureModel | ItemModel | ReactionModel,
   navigation: NavigationScreenProp<any>,
   navigateTo: string,
   updateCaught?: typeof updateCreatureCaught,
   updateDonated?: typeof updateCreatureDonated
   updateItemDonated?: typeof updateItemDonated,
   updateItemCatalogged?: typeof updateItemCatalogged,
+  updateModelObtained?: typeof updateModelObtained
   images: IDictionary | undefined,
   styles: any, // TDO add styles interface
 }

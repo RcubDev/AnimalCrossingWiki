@@ -28,7 +28,7 @@ function titleCase(str: string) {
 }
 
 const items = (require('../../dataV2/items.json') as ItemModel[]).filter(x => x.sourceSheet === ItemSourceSheet.Music && x.catalog !== "Not in catalog")
-  .map(x => { return { ...x, donated: false, catalogged: false, name: titleCase(x.name) } });
+  .map(x => { return { ...x, donated: undefined, catalogged: false, obtained: undefined, name: titleCase(x.name) } });
 
 const defaultKKSongsCollection: Array<ItemModel> = items;
 
@@ -41,8 +41,8 @@ class KKSongsScreen extends Component<KKSongScreenProps, KKSongScreenState> {
       filterText: '',
       showFilterModal: false,
       showSortModal: false,
-      filter: GetDefaultFilterModelItem(),
-      sort: GetDefaultSortModelItem()
+      filter: {...GetDefaultFilterModelItem(), donated: undefined, catalogged: false, notCatalogged: false},
+      sort: {...GetDefaultSortModelItem(), sellPrice: undefined}
     };
   }
 

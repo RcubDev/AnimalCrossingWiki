@@ -5,6 +5,10 @@ export interface FilterModel {
     donated: boolean | undefined;
     notCaught: boolean | undefined;
     notDonated: boolean | undefined;
+    obtained: boolean | undefined;
+    notObtained: boolean | undefined;
+    catalogged: boolean | undefined;
+    notCatalogged: boolean | undefined;
     availableNow: boolean | undefined;
     location: number | undefined;
     rarity: number | undefined;
