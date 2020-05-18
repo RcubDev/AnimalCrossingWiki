@@ -1,5 +1,6 @@
 import { ItemSourceSheet, ItemModel } from "../../models/CollectionModelsV2/items"
 import { CreatureModel } from "../../models/CollectionModelsV2/creatures"
+import { ReactionModel } from "../../models/CollectionModelsV2/reactions"
 
 export interface CaughtPayload {
     id: number,
@@ -23,8 +24,12 @@ export interface ItemDonatedPayload {
 export interface CataloggedPayload {
     name: string,
     catalogged?: boolean,
-    category: "Furniture" | "Clothing" | "KKSongs"
     subcategory: ItemSourceSheet
+}
+
+export interface ObtainedPayload {
+    name: string,
+    obtained: boolean
 }
 
 //Tracking
@@ -32,12 +37,15 @@ export const UPDATE_CREATURE_CAUGHT = "UPDATE_CREATURE_CAUGHT"
 export const UPDATE_CREATURE_DONATED = "UPDATE_CREATURE_DONATED"
 export const UPDATE_ITEM_DONATED = "UPDATE_ITEM_DONATED"
 export const UPDATE_ITEM_CATALOGGED = "UPDATE_ITEM_CATALOGGED"
+export const UPDATE_MODEL_OBTAINED = "UPDATE_MODEL_OBTAINED"
 
 //Stored Collections
 export const UPDATE_FISH_COLLECTION = "UPDATE_FISH_COLLECTION"
 export const UPDATE_BUG_COLLECTION = "UPDATE_BUG_COLLECTION"
 export const UPDATE_FOSSIL_COLLECTION = "UPDATE_FOSSIL_COLLECTION"
 export const UPDATE_ARTWORK_COLLECTION = "UPDATE_ARTWORK_COLLECTION"
+export const UPDATE_KKSONG_COLLECTION = "UPDATE_KKSONG_COLLECTION"
+export const UPDATE_REACTION_COLLECTION = "UPDATE_REACTION_COLLECTION"
 
 //Other
 export const UPDATE_IN_GAME_TIME = "UPDATE_IN_GAME_TIME"
@@ -64,6 +72,11 @@ interface UpdateItemCataloggedAction {
     payload: CataloggedPayload
 }
 
+interface UpdateModelObtainedAction {
+    type: typeof UPDATE_MODEL_OBTAINED,
+    payload: ObtainedPayload
+}
+
 //Collection Actions
 interface UpdateFishCollectionAction {
     type: typeof UPDATE_FISH_COLLECTION,
@@ -83,6 +96,16 @@ interface UpdateFossilCollectionAction {
 interface UpdateArtworkCollectionAction {
     type: typeof UPDATE_ARTWORK_COLLECTION,
     payload: Array<ItemModel>
+}
+
+interface UpdateKKSongCollectionAction {
+    type: typeof UPDATE_KKSONG_COLLECTION,
+    payload: Array<ItemModel>
+}
+
+interface UpdateReactionCollectionAction {
+    type: typeof UPDATE_REACTION_COLLECTION,
+    payload: Array<ReactionModel>
 }
 
 //Other Actions
@@ -108,10 +131,15 @@ export type {
     UpdateFossilCollectionAction,
     UpdateArtworkCollectionAction,
     UpdateInGameTimeAction,
-    UpdateHemisphereAction
+    UpdateHemisphereAction,
+    UpdateKKSongCollectionAction,
+    UpdateReactionCollectionAction,
+    UpdateModelObtainedAction
 }
 
 export type ReduxActions = 
     UpdateItemDonatedAction | UpdateCreatureCaughtAction | UpdateCreatureDonatedAction |
     UpdateItemCataloggedAction | UpdateFishCollectionAction | UpdateBugCollectionAction |
-    UpdateFossilCollectionAction | UpdateArtworkCollectionAction | UpdateInGameTimeAction | UpdateHemisphereAction;
+    UpdateFossilCollectionAction | UpdateArtworkCollectionAction | UpdateInGameTimeAction |
+    UpdateHemisphereAction | UpdateKKSongCollectionAction | UpdateReactionCollectionAction |
+    UpdateModelObtainedAction;

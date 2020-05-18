@@ -10,16 +10,16 @@ import { ItemModel } from "../CollectionModelsV2/items";
 import { UserSettingsState } from "./UserSettingsState";
 
 export interface ApplicationStateV2 {
-    furnitureItems: Array<ItemModel>,
-    clothingItems: Array<ItemModel>,
+    furnitureItems: {furnitureCollection: Array<ItemModel>},
+    clothingItems: {clothingCollection: Array<ItemModel>},
     fish: {fishCollection: Array<CreatureModel>},
     bugs: {bugCollection: Array<CreatureModel>},
     artwork: {artworkCollection: Array<ItemModel>},
     fossils: {fossilCollection: Array<ItemModel>},
-    reactions: Array<ReactionModel>,
-    villagers: Array<VillagerModel>,
-    kkSongs: Array<ItemModel>,
-    recipies: Array<RecipeModel>,
-    achievements: Array<AchievementModel>,
+    reactions: {reactionCollection: Array<ReactionModel>},
+    villagers: {villagerCollection: Array<VillagerModel>},
+    kkSongs: {kkSongCollection: Array<ItemModel>},
+    recipies: {recipieCollection: Array<RecipeModel>},
+    achievements: {achievementCollection: Array<AchievementModel>},
     userSettings: UserSettingsState
 }

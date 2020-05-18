@@ -19,6 +19,8 @@ import FossilDetailScreen from './FossilScreen/FossilDetail/FossilDetailScreen';
 import ArtworkScreen from './ArtScreen/ArtworkScreen';
 import ArtworkDetailScreen from './ArtScreen/ArtDetails/ArtworkDetailScreen';
 import CollectionReducer from './ReduxV2/CollectionReducer';
+import KKSongsScreen from './KKSongsScreen/KKSongsScreen';
+import ReactionsScreen from './ReactionsScreen/ReactionsScreen';
 
 const storeV2 = createStore(CollectionReducer)
 const fetchFonts = () => {
@@ -63,12 +65,13 @@ export default class App extends Component<any, { isReady: boolean }> {
               <Stack.Screen name="Bugs" component={BugScreen} />
               <Stack.Screen name="BugDetails" component={BugDetailScreen} />
               <Stack.Screen name="FishDetails" component={FishDetails} />
-              {/* <Stack.Screen name="FilterAndSortScreen" component={FishFilterOptions} /> */}
               <Stack.Screen name="Settings" component={SettingsScreen} />
               <Stack.Screen name="Fossils" component={FossilScreen} />
               <Stack.Screen name="FossilDetails" component={FossilDetailScreen} />
               <Stack.Screen name="Artwork" component={ArtworkScreen} />
               <Stack.Screen name="ArtworkDetails" component={ArtworkDetailScreen} />
+              <Stack.Screen name="KKSongs" component={KKSongsScreen}/>
+              <Stack.Screen name="Reactions" component={ReactionsScreen}/>
             </Stack.Navigator>
           </NavigationContainer>
         </Container>

@@ -1,27 +1,29 @@
 import { combineReducers } from "redux";
-import { ReduxActions, UPDATE_CREATURE_CAUGHT, UPDATE_CREATURE_DONATED, UPDATE_ITEM_DONATED, UpdateCreatureCaughtAction, UpdateCreatureDonatedAction, UpdateItemDonatedAction, UpdateItemCataloggedAction, UPDATE_ITEM_CATALOGGED, UpdateFishCollectionAction, UPDATE_FISH_COLLECTION, UpdateBugCollectionAction, UPDATE_BUG_COLLECTION, UpdateFossilCollectionAction, UPDATE_FOSSIL_COLLECTION, UpdateArtworkCollectionAction, UPDATE_ARTWORK_COLLECTION, UPDATE_IN_GAME_TIME, UPDATE_HEMISPHERE, UpdateInGameTimeAction, UpdateHemisphereAction } from "./Types";
+import { ReduxActions, UPDATE_CREATURE_CAUGHT, UPDATE_CREATURE_DONATED, UPDATE_ITEM_DONATED, UpdateCreatureCaughtAction, UpdateCreatureDonatedAction, UpdateItemDonatedAction, UpdateItemCataloggedAction, UPDATE_ITEM_CATALOGGED, UpdateFishCollectionAction, UPDATE_FISH_COLLECTION, UpdateBugCollectionAction, UPDATE_BUG_COLLECTION, UpdateFossilCollectionAction, UPDATE_FOSSIL_COLLECTION, UpdateArtworkCollectionAction, UPDATE_ARTWORK_COLLECTION, UPDATE_IN_GAME_TIME, UPDATE_HEMISPHERE, UpdateInGameTimeAction, UpdateHemisphereAction, UPDATE_KKSONG_COLLECTION, UPDATE_REACTION_COLLECTION, UpdateKKSongCollectionAction, UpdateReactionCollectionAction, UpdateModelObtainedAction, UPDATE_MODEL_OBTAINED } from "./Types";
 import { ApplicationStateV2 } from "../../models/ApplicationState/ApplicationStateV2";
 import { Item } from "native-base";
 import { CataloggedItemModel } from "../../models/CollectionModelsV2/CataloggedItemModel";
 import { CreatureCaughtModel } from "../../models/CollectionModelsV2/CreatureStorageModel";
 import { AsyncStorage } from "react-native";
+import { ItemSourceSheet } from "../../models/CollectionModelsV2/items";
 
 const INITIAL_STATE: ApplicationStateV2 = {
-    furnitureItems: [],
-    clothingItems: [],
+    furnitureItems: {furnitureCollection: []},
+    clothingItems: {clothingCollection: []},
     fish: {fishCollection: []},
     bugs: {bugCollection: []},
     artwork: {artworkCollection: []},
     fossils: {fossilCollection: []},
-    reactions: [],
-    villagers: [],
-    kkSongs: [],
-    recipies: [],
-    achievements: [],
+    reactions: {reactionCollection: []},
+    villagers: {villagerCollection: []},
+    kkSongs: {kkSongCollection: []},
+    recipies: {recipieCollection: []},
+    achievements: {achievementCollection: []},
     userSettings: {isNorthernHemisphere: true, inGameTimeOffsetInMinutes:  0}
 };
 
 const collectionReducer = (state = INITIAL_STATE, action: ReduxActions): ApplicationStateV2 => {
+    console.log('reducer');
     switch (action.type) {
         case UPDATE_CREATURE_CAUGHT:
             return updateCreatureCaught(state, action);
@@ -31,6 +33,8 @@ const collectionReducer = (state = INITIAL_STATE, action: ReduxActions): Applica
             return updateItemDonated(state, action);
         case UPDATE_ITEM_CATALOGGED:
             return updateItemCatalogged(state, action);
+        case UPDATE_MODEL_OBTAINED:
+            return updateModelObtained(state, action);
         case UPDATE_FISH_COLLECTION:
             return updateFishCollectionFromStorage(state, action);
         case UPDATE_BUG_COLLECTION:
@@ -39,6 +43,10 @@ const collectionReducer = (state = INITIAL_STATE, action: ReduxActions): Applica
             return updateFossilCollectionFromStorage(state, action);
         case UPDATE_ARTWORK_COLLECTION:
             return updateArtworkCollectionFromStorage(state, action);
+        case UPDATE_KKSONG_COLLECTION:
+            return updateKKSongCollectionFromStorage(state, action);
+        case UPDATE_REACTION_COLLECTION:
+            return updateReactionCollectionFromStorage(state, action);
         case UPDATE_IN_GAME_TIME:
             return updateInGameTime(state, action);
         case UPDATE_HEMISPHERE:
@@ -62,6 +70,14 @@ function updateFossilCollectionFromStorage(state: ApplicationStateV2, action: Up
 
 function updateArtworkCollectionFromStorage(state: ApplicationStateV2, action: UpdateArtworkCollectionAction): ApplicationStateV2 {
     return { ...state, artwork: { ...state.artwork, artworkCollection: action.payload } };
+}
+
+function updateKKSongCollectionFromStorage(state: ApplicationStateV2, action: UpdateKKSongCollectionAction): ApplicationStateV2 {
+    return { ...state, kkSongs: { ...state.kkSongs, kkSongCollection: action.payload } };
+}
+
+function updateReactionCollectionFromStorage(state: ApplicationStateV2, action: UpdateReactionCollectionAction): ApplicationStateV2 {
+    return { ...state, reactions: { ...state.reactions, reactionCollection: action.payload } };
 }
 
 //Fish and Bugs
@@ -128,30 +144,55 @@ function updateItemDonated(state: ApplicationStateV2, action: UpdateItemDonatedA
 }
 
 function updateItemCatalogged(state: ApplicationStateV2, action: UpdateItemCataloggedAction): ApplicationStateV2 {
-    let existingState = state;
-    switch (action.payload.category) {
-        case "Furniture":
-            let existingFurnitureItem = existingState.furnitureItems.find(x => x.name === action.payload.name);
-            if (existingFurnitureItem) {
-                existingFurnitureItem.catalogged = action.payload.catalogged;
+    switch (action.payload.subcategory) {
+        case ItemSourceSheet.Fencing:
+        case ItemSourceSheet.Floors:
+        case ItemSourceSheet.Housewares:
+        case ItemSourceSheet.Miscellaneous:
+        case ItemSourceSheet.Photos:
+        case ItemSourceSheet.Posters:
+        case ItemSourceSheet.Rugs:
+        case ItemSourceSheet.Tools:
+        case ItemSourceSheet.WallMounted:
+        case ItemSourceSheet.Wallpapers:
+            const updatedFurnitureCollection = state.furnitureItems.furnitureCollection.map(furniture => furniture.name === action.payload.name ? {...furniture, catalogged: action.payload.catalogged} : furniture);
+            AsyncStorage.setItem('furnitureStore', JSON.stringify(updatedFurnitureCollection));
+            return {
+                ...state, furnitureItems: {...state.furnitureItems, furnitureCollection: updatedFurnitureCollection}
             }
-            break;
-        case "Clothing":
-            let existingClothingItem = existingState.clothingItems.find(x => x.name === action.payload.name);
-            if (existingClothingItem) {
-                existingClothingItem.catalogged = action.payload.catalogged;
+        case ItemSourceSheet.Accessories:
+        case ItemSourceSheet.Bags:
+        case ItemSourceSheet.Bottoms:
+        case ItemSourceSheet.DressUp:
+        case ItemSourceSheet.Headwear:
+        case ItemSourceSheet.Shoes:
+        case ItemSourceSheet.Socks:
+        case ItemSourceSheet.Tops:
+        case ItemSourceSheet.Umbrellas: 
+            const updatedClothingCollection = state.clothingItems.clothingCollection.map(clothing => clothing.name === action.payload.name ? {...clothing, catalogged: action.payload.catalogged} : clothing);
+            AsyncStorage.setItem('clothingStore', JSON.stringify(updatedClothingCollection));
+            return {
+                ...state, clothingItems: {...state.clothingItems, clothingCollection: updatedClothingCollection}
             }
-            break;
-        case "KKSongs":
-            let existingKKSong = existingState.kkSongs.find(x => x.name === action.payload.name);
-            if(existingKKSong){
-                existingKKSong.catalogged = action.payload.catalogged;
+        case ItemSourceSheet.Music:                
+            const updatedKKCollection = state.kkSongs.kkSongCollection.map(kkSong => kkSong.name === action.payload.name ? {...kkSong, catalogged: action.payload.catalogged} : kkSong);
+            AsyncStorage.setItem('kkSongStore', JSON.stringify(updatedKKCollection));
+            return {
+                ...state, kkSongs: {...state.kkSongs, kkSongCollection: updatedKKCollection}
             }
         default:
             console.warn('Are you using the wrong redux type?');
             return state;
     }
-    return Object.assign({}, state, existingState);
+}
+
+function updateModelObtained(state: ApplicationStateV2, action: UpdateModelObtainedAction): ApplicationStateV2 {
+    console.log('here');
+    const updatedReactionCollection = state.reactions.reactionCollection.map(reaction => reaction.name === action.payload.name ? {...reaction, obtained: action.payload.obtained} : reaction);
+    AsyncStorage.setItem('reactionStore', JSON.stringify(updatedReactionCollection));
+    return {
+        ...state, reactions: {...state.reactions, reactionCollection: updatedReactionCollection}
+    }
 }
 
 function updateInGameTime(state: ApplicationStateV2, action: UpdateInGameTimeAction): ApplicationStateV2 {

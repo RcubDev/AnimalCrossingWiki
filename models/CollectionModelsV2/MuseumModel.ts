@@ -1,3 +1,3 @@
 export interface MuseumModel {
-    donated: boolean
+    donated: boolean | undefined
 }
