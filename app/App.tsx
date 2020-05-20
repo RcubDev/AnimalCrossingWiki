@@ -23,6 +23,8 @@ import KKSongsScreen from './KKSongsScreen/KKSongsScreen';
 import ReactionsScreen from './ReactionsScreen/ReactionsScreen';
 import VillagersScreen from './VillagersScreen/VillagersScreen';
 import VillagerCategoryScreen from './VillagersScreen/VillagerCategoryScreen';
+import FurnitureScreen from './FurnitureScreen/FurnitureScreen';
+import ClothingScreen from './Clothing/ClothingScreen';
 
 const storeV2 = createStore(CollectionReducer)
 const fetchFonts = () => {
@@ -76,6 +78,8 @@ export default class App extends Component<any, { isReady: boolean }> {
               <Stack.Screen name="Reactions" component={ReactionsScreen}/>
               <Stack.Screen name="Villagers" component={VillagersScreen} />
               <Stack.Screen name="VillagersCategory" component={VillagerCategoryScreen}/>
+              <Stack.Screen name="Furniture" component={FurnitureScreen}/>
+              <Stack.Screen name="Clothing" component={ClothingScreen}/>
             </Stack.Navigator>
           </NavigationContainer>
         </Container>
