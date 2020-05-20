@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
-import { Text, View, AsyncStorage } from 'react-native';
+import { Text, View, AsyncStorage, ImageBackground } from 'react-native';
 import styles from './HomeScreen.styles';
 import { Button, Container, Icon, Thumbnail } from 'native-base';
 import { NavigationScreenProp } from 'react-navigation';
 import { connect } from 'react-redux';
 import { AppLoading } from 'expo';
 import { updateInGameTime, updateHemisphere } from '../ReduxV2/CollectionActions';
+const image = { uri: "https://reactjs.org/logo-og.png" };
+
 
 export interface HomeScreenProps {
     navigation: NavigationScreenProp<any>,   
@@ -50,6 +52,7 @@ class HomeScreen extends Component<HomeScreenProps, {isReady: boolean}>{
         else{
             return (
                 <Container style={styles.container}>
+                    <ImageBackground source={require('../Images/Other/animalcrossingWallpaperFinal.png')}style={styles.container}>
                     <Button onPress={() => this.props.navigation.navigate("Fish")} style={[styles.buttonStyle, {backgroundColor: '#ffadad'}]}>
                     <Text style={styles.textStyle}>{"Fishing"}</Text>
                     <Thumbnail large source={require('../Images/Other/fishingIcon.png')} ></Thumbnail>
@@ -82,6 +85,7 @@ class HomeScreen extends Component<HomeScreenProps, {isReady: boolean}>{
                         <Text style={styles.textStyle}>{"Settings"}</Text>
                         <Icon type="FontAwesome" name="gear" style={{color: 'black'}}/>
                     </Button>
+                    </ImageBackground>
                 </Container>
             );
         }
