@@ -6,8 +6,6 @@ import { NavigationScreenProp } from 'react-navigation';
 import { connect } from 'react-redux';
 import { AppLoading } from 'expo';
 import { updateInGameTime, updateHemisphere } from '../ReduxV2/CollectionActions';
-const image = { uri: "https://reactjs.org/logo-og.png" };
-
 
 export interface HomeScreenProps {
     navigation: NavigationScreenProp<any>,   
@@ -54,8 +52,8 @@ class HomeScreen extends Component<HomeScreenProps, {isReady: boolean}>{
                 <Container style={styles.container}>
                     <ImageBackground source={require('../Images/Other/animalcrossingWallpaperFinal.png')}style={styles.container}>
                     <Button onPress={() => this.props.navigation.navigate("Fish")} style={[styles.buttonStyle, {backgroundColor: '#ffadad'}]}>
-                    <Text style={styles.textStyle}>{"Fishing"}</Text>
-                    <Thumbnail large source={require('../Images/Other/fishingIcon.png')} ></Thumbnail>
+                        <Text style={styles.textStyle}>{"Fishing"}</Text>
+                        <Thumbnail large source={require('../Images/Other/fishingIcon.png')} ></Thumbnail>
                     </Button>
                     <Button onPress={() => this.props.navigation.navigate("Bugs")} style={[styles.buttonStyle, {backgroundColor: '#ffd6a5'}]}>
                         <Text style={styles.textStyle}>{"Bugs"}</Text>
@@ -66,7 +64,7 @@ class HomeScreen extends Component<HomeScreenProps, {isReady: boolean}>{
                         <Icon type="FontAwesome5" name="bone" style={{color: 'black'}}/>
                     </Button>
                     <Button onPress={() => {this.props.navigation.navigate("Artwork")}} style={[styles.buttonStyle, {backgroundColor: '#caffbf'}]}>
-                        <Text  style={styles.textStyle}>{"Artwork"}</Text>
+                        <Text style={styles.textStyle}>{"Artwork"}</Text>
                         <Icon type="FontAwesome5" name="paint-brush" style={{color: 'black'}}/>
                     </Button>
                     <Button onPress={() => {this.props.navigation.navigate("KKSongs")}} style={[styles.buttonStyle, {backgroundColor: '#9bf6ff'}]}>
