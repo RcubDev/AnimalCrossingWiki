@@ -4,8 +4,9 @@ import { ItemModel } from "../../models/CollectionModelsV2/items";
 import moment from "moment";
 import { MonthsAvaliableModel } from "../../models/CollectionModelsV2/MonthsAvailableModel";
 import { ReactionModel } from "../../models/CollectionModelsV2/reactions";
+import { VillagerModel } from "../../models/CollectionModelsV2/villagers";
 
-export function Filter(filter: FilterModel, filterCollection: Array<any>, timeOffSet: number = 0, isNorthernHemisphere: boolean = true): Array<CreatureModel> | Array<ItemModel> | Array<ReactionModel> {
+export function Filter(filter: FilterModel, filterCollection: Array<any>, timeOffSet: number = 0, isNorthernHemisphere: boolean = true): Array<CreatureModel> | Array<ItemModel> | Array<ReactionModel> | VillagerModel[] {
     if (filterCollection && filterCollection.length > 0 && filterCollection[0].caught !== undefined) {
         //Creature model only filters
         filterCollection = ApplyShadowSize(filter.shadowSize, filterCollection);
@@ -313,7 +314,6 @@ function ApplyCatchableNow(catchableNow: boolean | undefined, collection: Creatu
             nov: thisMonth === 10 ? true : false,
             dec: thisMonth === 11 ? true : false,
         }
-        debugger;
         let filtered = ApplyMonthFilter(currentMonth, collection, isNorthernHemisphere);
         return filtered.filter(x => CritterIsAvailableDuringHour(date.getHours(), thisMonth + 1, x, isNorthernHemisphere));
     }
@@ -322,7 +322,6 @@ function ApplyCatchableNow(catchableNow: boolean | undefined, collection: Creatu
 }
 function CritterIsAvailableDuringHour(hour: number, month: number, creature: CreatureModel, isNorthernHemisphere: boolean): boolean {
     let currentMonthCatchTimes = isNorthernHemisphere ? creature.activeMonths.northern.find(x => x.month === month) : creature.activeMonths.southern.find(x => x.month === month);
-    debugger;
     let creatureAvailable = false;
     if(currentMonthCatchTimes){
         currentMonthCatchTimes.activeHours.forEach(element => {
