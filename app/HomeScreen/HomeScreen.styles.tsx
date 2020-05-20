@@ -1,91 +1,37 @@
 import { StyleSheet } from 'react-native';
+import { processFontFamily } from 'expo-font';
+const fontFamily = "AnimalCrossing";
+
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        justifyContent: 'center',        
-        flexDirection: "row",
-        alignContent: 'flex-start',
-        flexWrap: 'wrap'
-        
+        display: 'flex',
+        flexDirection: 'row',
+        backgroundColor: '#fffffc',
+        flexWrap: 'wrap',
+        justifyContent: 'center',
+        alignContent: 'center'
+    },
+    textStyle: {
+        color: 'black',
+        fontSize: 20,
+        alignContent: 'center',
+        flexWrap: 'wrap',
+        margin: 10,
+        fontFamily: 'Confortaa'
     },
     buttonStyle: {
-        height: 50,
-        width: 50,
-        margin: 20
+        height: 140,
+        width: 160,
+        margin: 10,
+        justifyContent: 'center',
+        borderRadius: 20,
+        flexWrap: 'wrap',
+        alignContent: 'center',
+        borderWidth: 1,
+        borderColor: 'black'
+
     },
-
-    fishButtonStyle:{
-        height: 50,
-        width: 50,
-        margin: 20,
-       backgroundColor: '#87CEEB',
-       justifyContent: "center",
-    },
-
-
-    bugButtonStyle:{
-        height: 50,
-        width: 50,
-        margin: 20,
-       backgroundColor: '#56b000',
-       justifyContent: "center",
-    },
-
-    settingsButtonStyle:{
-        height: 50,
-        width: 50,
-        margin: 20,
-       backgroundColor: 'grey',
-       justifyContent: "center",
-    },
-
-    songsButtonStyle:{
-        height: 50,
-        width: 50,
-        margin: 20,
-       backgroundColor: 'orange',
-       justifyContent: "center",
-    },
-
-    reactionsButtonStyle:{
-        height: 50,
-        width: 50,
-        margin: 20,
-       backgroundColor: 'violet',
-       justifyContent: "center",
-    },
-
-    villagersButtonStyle:{
-        height: 50,
-        width: 50,
-        margin: 20,
-       backgroundColor: 'red',
-       justifyContent: "center",
-    },
-
-    fossilsButtonStyle:{
-        height: 50,
-        width: 50,
-        margin: 20,
-       backgroundColor: 'brown',
-       justifyContent: "center",
-    },
-
-    
-    artworkButtonStyle:{
-        height: 50,
-        width: 50,
-        margin: 20,
-       backgroundColor: 'purple',
-       justifyContent: "center",
-    },
-
-
-    fishButtonTextStyle: {
-        color: 'white'
-    }
 });
 
 export default styles;

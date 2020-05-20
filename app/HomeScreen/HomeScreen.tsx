@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Text, View, AsyncStorage } from 'react-native';
 import styles from './HomeScreen.styles';
-import { Button, Container } from 'native-base';
+import { Button, Container, Icon, Thumbnail } from 'native-base';
 import { NavigationScreenProp } from 'react-navigation';
 import { connect } from 'react-redux';
 import { AppLoading } from 'expo';
@@ -50,29 +50,37 @@ class HomeScreen extends Component<HomeScreenProps, {isReady: boolean}>{
         else{
             return (
                 <Container style={styles.container}>
-                    <Button onPress={() => this.props.navigation.navigate("Fish")} style={styles.fishButtonStyle}>
-                        <Text style={styles.fishButtonTextStyle}>{"Fish"}</Text>
+                    <Button onPress={() => this.props.navigation.navigate("Fish")} style={[styles.buttonStyle, {backgroundColor: '#ffadad'}]}>
+                    <Text style={styles.textStyle}>{"Fishing"}</Text>
+                    <Thumbnail large source={require('../Images/Other/fishingIcon.png')} ></Thumbnail>
                     </Button>
-                    <Button onPress={() => this.props.navigation.navigate("Bugs")} style={styles.bugButtonStyle}>
-                        <Text style={styles.fishButtonTextStyle}>{"Bugs"}</Text>
+                    <Button onPress={() => this.props.navigation.navigate("Bugs")} style={[styles.buttonStyle, {backgroundColor: '#ffd6a5'}]}>
+                        <Text style={styles.textStyle}>{"Bugs"}</Text>
+                        <Icon type="FontAwesome5" name="bug" style={{color: 'black'}}/>
                     </Button>
-                    <Button onPress={() => {this.props.navigation.navigate("Fossils")}} style={styles.fossilsButtonStyle}>
-                        <Text  style={styles.fishButtonTextStyle}>{"Fossils"}</Text>
+                    <Button onPress={() => {this.props.navigation.navigate("Fossils")}} style={[styles.buttonStyle, {backgroundColor: '#fdffb6'}]}>
+                        <Text style={styles.textStyle}>{"Fossils"}</Text>
+                        <Icon type="FontAwesome5" name="bone" style={{color: 'black'}}/>
                     </Button>
-                    <Button onPress={() => {this.props.navigation.navigate("Artwork")}} style={styles.artworkButtonStyle}>
-                        <Text  style={styles.fishButtonTextStyle}>{"Artwork"}</Text>
+                    <Button onPress={() => {this.props.navigation.navigate("Artwork")}} style={[styles.buttonStyle, {backgroundColor: '#caffbf'}]}>
+                        <Text  style={styles.textStyle}>{"Artwork"}</Text>
+                        <Icon type="FontAwesome5" name="paint-brush" style={{color: 'black'}}/>
                     </Button>
-                    <Button onPress={() => {this.props.navigation.navigate("KKSongs")}} style={styles.songsButtonStyle}>
-                        <Text style={styles.fishButtonTextStyle}>{"Music"}</Text>
+                    <Button onPress={() => {this.props.navigation.navigate("KKSongs")}} style={[styles.buttonStyle, {backgroundColor: '#9bf6ff'}]}>
+                        <Text style={styles.textStyle}>{"Music"}</Text>
+                        <Icon type="FontAwesome5" name="music" style={{color: 'black'}}/>
                     </Button>
-                    <Button onPress={() => {this.props.navigation.navigate("Reactions")}} style={styles.reactionsButtonStyle}>
-                        <Text style={styles.fishButtonTextStyle}>{"Reactions"}</Text>
+                    <Button onPress={() => {this.props.navigation.navigate("Reactions")}} style={[styles.buttonStyle, {backgroundColor: '#a0c4ff'}]}>
+                        <Text style={styles.textStyle}>{"Reactions"}</Text>
+                        <Icon type="FontAwesome5" name="smile" style={{color: 'black'}}/>
                     </Button>
-                    <Button onPress={() => {this.props.navigation.navigate("VillagersCategory")}} style={styles.villagersButtonStyle}>
-                        <Text style={styles.fishButtonTextStyle}>{"Villagers"}</Text>
+                    <Button onPress={() => {this.props.navigation.navigate("VillagersCategory")}} style={[styles.buttonStyle, {backgroundColor: '#bdb2ff'}]}>
+                        <Text style={styles.textStyle}>{"Villagers"}</Text>
+                        <Icon type="FontAwesome5" name="male" style={{color: 'black'}}/>
                     </Button>
-                    <Button onPress={() => {this.props.navigation.navigate("Settings")}} style={styles.settingsButtonStyle}>
-                        <Text style={styles.fishButtonTextStyle}>{"Settings"}</Text>
+                    <Button onPress={() => {this.props.navigation.navigate("Settings")}} style={[styles.buttonStyle, {backgroundColor: '#8900f2'}]}>
+                        <Text style={styles.textStyle}>{"Settings"}</Text>
+                        <Icon type="FontAwesome" name="gear" style={{color: 'black'}}/>
                     </Button>
                 </Container>
             );
