@@ -4,10 +4,11 @@ import { Image, Text } from 'react-native';
 import { IDictionary } from '../Images/FishImages';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { NavigationScreenProp } from 'react-navigation';
-import { updateItemCatalogged, updateCreatureCaught, updateCreatureDonated, updateItemDonated, updateModelObtained } from '../ReduxV2/CollectionActions'
+import { updateItemCatalogged, updateCreatureCaught, updateCreatureDonated, updateItemDonated, updateModelObtained, updateVillagerFavorited, updateVillagerInVillage } from '../ReduxV2/CollectionActions'
 import { CreatureModel } from '../../models/CollectionModelsV2/creatures';
 import { ItemModel, ItemSourceSheet } from '../../models/CollectionModelsV2/items';
 import { ReactionModel } from '../../models/CollectionModelsV2/reactions';
+import { VillagerModel } from '../../models/CollectionModelsV2/villagers';
 
 export class GridItem extends PureComponent<GridItemProps> {
 
@@ -29,8 +30,8 @@ export class GridItem extends PureComponent<GridItemProps> {
   };
 
   setItemCatalogged = () => {
-    if(this.props.model as ItemModel && this.props.updateItemCatalogged) {
-      let item = this.props.model as ItemModel;      
+    if (this.props.model as ItemModel && this.props.updateItemCatalogged) {
+      let item = this.props.model as ItemModel;
       this.props.updateItemCatalogged({
         catalogged: !item.catalogged,
         name: item.name,
@@ -40,12 +41,32 @@ export class GridItem extends PureComponent<GridItemProps> {
   }
 
   setModelObtained = () => {
-    if(this.props.model as ReactionModel && this.props.updateModelObtained) {
+    if (this.props.model as ReactionModel && this.props.updateModelObtained) {
       let item = this.props.model as ReactionModel;
       this.props.updateModelObtained({
         obtained: !item.obtained,
         name: this.props.model.name
       })
+    }
+  }
+
+  setVillagerFavorited = () => {
+    if (this.props.model as VillagerModel && this.props.updateVillagerFavorited) {      
+      let item = this.props.model as VillagerModel
+      this.props.updateVillagerFavorited({
+        favorite: !item.favorited,
+        name: item.name
+      });
+    }
+  }
+
+  setVillagerInVillage = () => {
+    if (this.props.model as VillagerModel && this.props.updateVillagerInVillage) {
+      let item = this.props.model as VillagerModel;
+      this.props.updateVillagerInVillage({
+        inVillage: !item.inVillage,
+        name: item.name
+      });
     }
   }
 
@@ -83,32 +104,38 @@ export class GridItem extends PureComponent<GridItemProps> {
         case ItemSourceSheet.WallMounted:
         case ItemSourceSheet.Wallpapers:
         case ItemSourceSheet.Fossils:
-          if(item.variants && item.variants.length > 0 && item.variants[0].image){
+          if (item.variants && item.variants.length > 0 && item.variants[0].image) {
             uri = item.variants[0].image;
           }
           break;
         case ItemSourceSheet.Other:
-          if(item.variants && item.variants.length > 0){
-            if(item.variants[0].inventoryImage){
+          if (item.variants && item.variants.length > 0) {
+            if (item.variants[0].inventoryImage) {
               uri = item.variants[0].inventoryImage;
             }
-            if(item.variants[0].storageImage){
+            if (item.variants[0].storageImage) {
               uri = item.variants[0].storageImage;
             }
           }
           break;
       }
     }
-    else if("caught" in this.props.model) {
+    else if ("caught" in this.props.model) {
       let item = this.props.model as CreatureModel
-      if(item.critterpediaImage){
+      if (item.critterpediaImage) {
         uri = item.iconImage;
       }
     }
-    else if("obtained" in this.props.model) {
+    else if ((this.props.model as ReactionModel).obtained !== undefined) {
       let item = this.props.model as ReactionModel
-      if(item.image){
+      if (item.image) {
         uri = item.image;
+      }
+    }
+    else if ("inVillage" in this.props.model) {
+      let item = this.props.model as VillagerModel
+      if (item.iconImage) {
+        uri = item.iconImage;
       }
     }
 
@@ -118,9 +145,9 @@ export class GridItem extends PureComponent<GridItemProps> {
   render() {
     const { model, images, styles } = this.props;
     const { donated, name, caught } = (model as CreatureModel);
-    const {catalogged} = (model as ItemModel);
-    const {obtained} = (model as ReactionModel);
-
+    const { catalogged } = (model as ItemModel);
+    const { obtained } = (model as ReactionModel);
+    const { inVillage, favorited } = (model as VillagerModel);
     return (
       <Card style={styles.card} >
         <CardItem style={styles.cardItem}>
@@ -134,21 +161,31 @@ export class GridItem extends PureComponent<GridItemProps> {
             {((model as CreatureModel).caught !== undefined) && (
               <View style={styles.cardCaughtCheckBox}>
                 <CheckBox checked={caught} onPress={this.setItemCaught}></CheckBox>
-              </View>)}            
+              </View>)}
             {(model as ItemModel).donated !== undefined &&
-            <View style={styles.cardDonatedCheckBox}>
-             <CheckBox checked={donated} onPress={this.setItemDonated}></CheckBox>
-            </View>
+              <View style={styles.cardDonatedCheckBox}>
+                <CheckBox checked={donated} onPress={this.setItemDonated}></CheckBox>
+              </View>
             }
             {(model as ItemModel).catalogged !== undefined &&
-            <View style={styles.cardDonatedCheckBox}>
-              <CheckBox checked={catalogged} onPress={this.setItemCatalogged}></CheckBox>
-            </View>
+              <View style={styles.cardDonatedCheckBox}>
+                <CheckBox checked={catalogged} onPress={this.setItemCatalogged}></CheckBox>
+              </View>
             }
-              {(model as unknown as ReactionModel).obtained !== undefined &&
-            <View style={styles.cardDonatedCheckBox}>
-              <CheckBox checked={obtained} onPress={this.setModelObtained}></CheckBox>
-            </View>
+            {(model as ReactionModel).obtained !== undefined &&
+              <View style={styles.cardDonatedCheckBox}>
+                <CheckBox checked={obtained} onPress={this.setModelObtained}></CheckBox>
+              </View>
+            }
+            {(model as VillagerModel).favorited !== undefined &&
+
+              <><View style={styles.cardDonatedCheckBox}>
+                <CheckBox checked={favorited} onPress={this.setVillagerFavorited}></CheckBox>
+              </View>
+                <View style={styles.cardDonatedCheckBox}>
+                  <CheckBox checked={inVillage} onPress={this.setVillagerInVillage}></CheckBox>
+                </View>
+              </>
             }
           </View>
         </CardItem>
@@ -158,14 +195,16 @@ export class GridItem extends PureComponent<GridItemProps> {
 }
 
 export interface GridItemProps {
-  model: CreatureModel | ItemModel | ReactionModel,
+  model: CreatureModel | ItemModel | ReactionModel | VillagerModel,
   navigation: NavigationScreenProp<any>,
   navigateTo: string,
   updateCaught?: typeof updateCreatureCaught,
   updateDonated?: typeof updateCreatureDonated
   updateItemDonated?: typeof updateItemDonated,
   updateItemCatalogged?: typeof updateItemCatalogged,
-  updateModelObtained?: typeof updateModelObtained
+  updateModelObtained?: typeof updateModelObtained,
+  updateVillagerFavorited?: typeof updateVillagerFavorited,
+  updateVillagerInVillage?: typeof updateVillagerInVillage,
   images: IDictionary | undefined,
   styles: any, // TDO add styles interface
 }

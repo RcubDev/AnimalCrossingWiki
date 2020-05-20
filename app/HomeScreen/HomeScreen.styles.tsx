@@ -57,6 +57,13 @@ const styles = StyleSheet.create({
        justifyContent: "center",
     },
 
+    villagersButtonStyle:{
+        height: 50,
+        width: 50,
+        margin: 20,
+       backgroundColor: 'red',
+       justifyContent: "center",
+    },
 
     fossilsButtonStyle:{
         height: 50,

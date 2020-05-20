@@ -11,12 +11,12 @@ import { GridItem } from "../Shared/GridItem";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 import FilterOptions from "../Shared/FilterOptions";
 import { SortOptions } from "../Shared/SortOptions";
-import styles from "./ReactionsScreenStyles";
+import styles from "./VillagersScreenStyles";
+import { updateVillagerInVillage, updateVillagerCollectionFromStorage, updateVillagerFavorited, updateCreatureCaught } from "../../app/ReduxV2/CollectionActions";
+import { VillagerModel } from "../../models/CollectionModelsV2/villagers";
+import { VillagersScreenProps } from "../../models/MainScreenModels/VillagersScreen/VillagersScreenProps";
+import { VillagersScreenState } from "../../models/MainScreenModels/VillagersScreen/VillagersScreenState";
 import { connect } from "react-redux";
-import { updateItemCatalogged, updateReactionCollectionFromStorage, updateModelObtained } from "../../app/ReduxV2/CollectionActions";
-import { ReactionModel } from "../../models/CollectionModelsV2/reactions";
-import { ReactionsScreenProps } from "../../models/MainScreenModels/ReactionsScreen/ReactionsScreenProps";
-import { ReactionsScreenState } from "../../models/MainScreenModels/ReactionsScreen/ReactionsScreenState";
 
 
 function titleCase(str: string) {
@@ -26,33 +26,33 @@ function titleCase(str: string) {
   return returnStr;
 }
 
-const items = (require('../../dataV2/reactions.json') as ReactionModel[])
-  .map(x => { return { ...x, obtained: false, name: titleCase(x.name) } });
+const items = (require('../../dataV2/villagers.json') as VillagerModel[])
+  .map(x => { return { ...x, inVillage: false, favorited: false, name: titleCase(x.name) } });
 
-const defaultReactionsCollection: Array<ReactionModel> = items;
+const defaultVillagersCollection: Array<VillagerModel> = items;
 
 
-class ReactionsScreen extends Component<ReactionsScreenProps, ReactionsScreenState> {
-  constructor(props: ReactionsScreenProps) {
+class VillagersScreen extends Component<VillagersScreenProps, VillagersScreenState> {
+  constructor(props: VillagersScreenProps) {
     super(props);
     this.state = {
       isReady: false,
       filterText: '',
       showFilterModal: false,
       showSortModal: false,
-      filter: {...GetDefaultFilterModelItem(), donated: undefined, obtained: false, notObtained: false},
+      filter: {...GetDefaultFilterModelItem(), donated: undefined,  },
       sort: {...GetDefaultSortModelItem(), sellPrice: undefined}
     };
   }
 
-  async componentDidMount() {
-    const storedReactions = await AsyncStorage.getItem('reactionsStore');
-    if (storedReactions) {
-      this.props.updateReactionCollectionFromStorage(JSON.parse(storedReactions));
+  async componentDidMount() {            
+    const storedVillagers = await AsyncStorage.getItem('villagerStore');
+    if (storedVillagers) {
+      this.props.updateVillagerCollectionFromStorage(JSON.parse(storedVillagers));
     }
     else {
-      this.props.updateReactionCollectionFromStorage(defaultReactionsCollection);
-      await AsyncStorage.setItem('reactionsStore', JSON.stringify(defaultReactionsCollection));
+      this.props.updateVillagerCollectionFromStorage(defaultVillagersCollection);
+      await AsyncStorage.setItem('villagerStore', JSON.stringify(defaultVillagersCollection));
     }
     this.setState({ isReady: true });
   }
@@ -65,12 +65,12 @@ class ReactionsScreen extends Component<ReactionsScreenProps, ReactionsScreenSta
     this.setState({ sort });
   }
 
-  FilterReactionByText(text: string, reactions: Array<ReactionModel>): Array<ReactionModel> {
-    let allReactions = reactions;
-    let reactionsArray: Array<ReactionModel> = [];
+  FilterVillagersByText(text: string, songs: Array<VillagerModel>): Array<VillagerModel> {
+    let allSongs = songs;
+    let songArray: Array<VillagerModel> = [];
     text = text.toLowerCase();
-    reactionsArray = allReactions.filter(x => x.name.toLowerCase().startsWith(text));
-    return reactionsArray;
+    songArray = allSongs.filter(x => x.name.toLowerCase().startsWith(text));
+    return songArray;
   }
 
   showFilterModal = () => this.setState({ showFilterModal: !this.state.showFilterModal });
@@ -83,15 +83,21 @@ class ReactionsScreen extends Component<ReactionsScreenProps, ReactionsScreenSta
 
   render() {
 
-    const { navigation, updateModelObtained } = this.props;
+    const { navigation, updateVillagerFavorited, updateVillagerInVillage  } = this.props;
 
     if (!this.state.isReady) {
         return <AppLoading />;
     }
-    let reactions = this.props.appState.reactions.reactionCollection;
-    reactions = Filter(this.state.filter, reactions, 0) as ReactionModel[];
-    reactions = this.FilterReactionByText(this.state.filterText, reactions);
-    reactions = Sort(this.state.sort, reactions) as ReactionModel[];
+    let villagers = this.props.appState.villagers.villagerCollection;
+    if(this.props.route && this.props.route.params && this.props.route.params.personality !== undefined) {
+      villagers = villagers.filter(x => x.personality === this.props.route.params.personality);
+    }
+    else if (this.props.route && this.props.route.params && this.props.route.params.species !== undefined) {
+      villagers = villagers.filter(x => x.species === this.props.route.params.species);
+    }
+    villagers = Filter(this.state.filter, villagers, 0) as VillagerModel[];
+    villagers = this.FilterVillagersByText(this.state.filterText, villagers);
+    villagers = Sort(this.state.sort, villagers) as VillagerModel[];
     return (
         <Container>
             <ListHeader
@@ -100,9 +106,9 @@ class ReactionsScreen extends Component<ReactionsScreenProps, ReactionsScreenSta
                 showSortModal={this.showSortModal}
             />
             <FlatList
-                data={reactions}
-                renderItem={({ item }: { item: ReactionModel }) => (
-                    <GridItem model={item} navigation={navigation} updateModelObtained={updateModelObtained} navigateTo={'reactionDetails'} images={undefined} styles={styles}/>
+                data={villagers}
+                renderItem={({ item }: { item: VillagerModel }) => (
+                    <GridItem model={item} navigation={navigation} updateVillagerFavorited={updateVillagerFavorited} updateVillagerInVillage={updateVillagerInVillage} navigateTo={'VillagerDetails'} images={undefined} styles={styles}/>
                 )}
                 numColumns={3}
                 keyExtractor={(item, index) => index.toString()}
@@ -135,6 +141,7 @@ const mapStateToProps = (state: any) => {
 };
 
 export default connect(mapStateToProps, {
-  updateReactionCollectionFromStorage,
-  updateModelObtained
-})(ReactionsScreen);
+  updateVillagerCollectionFromStorage,
+  updateVillagerFavorited,
+  updateVillagerInVillage,
+})(VillagersScreen);

@@ -1,6 +1,7 @@
 import { ItemSourceSheet, ItemModel } from "../../models/CollectionModelsV2/items"
 import { CreatureModel } from "../../models/CollectionModelsV2/creatures"
 import { ReactionModel } from "../../models/CollectionModelsV2/reactions"
+import { VillagerModel } from "../../models/CollectionModelsV2/villagers"
 
 export interface CaughtPayload {
     id: number,
@@ -32,13 +33,24 @@ export interface ObtainedPayload {
     obtained: boolean
 }
 
+export interface VillagerFavoritedPayload {
+    name: string,
+    favorite: boolean
+}
+
+export interface VillagerInVillagePayload {
+    name: string,
+    inVillage: boolean
+}
+
 //Tracking
 export const UPDATE_CREATURE_CAUGHT = "UPDATE_CREATURE_CAUGHT"
 export const UPDATE_CREATURE_DONATED = "UPDATE_CREATURE_DONATED"
 export const UPDATE_ITEM_DONATED = "UPDATE_ITEM_DONATED"
 export const UPDATE_ITEM_CATALOGGED = "UPDATE_ITEM_CATALOGGED"
 export const UPDATE_MODEL_OBTAINED = "UPDATE_MODEL_OBTAINED"
-
+export const UPDATE_VILLAGER_FAVORITED = "UPDATE_VILLAGER_FAVORITED"
+export const UPDATE_VILLAGER_IN_VILLAGE = "UPDATE_VILLAGER_IN_VILLAGE"
 //Stored Collections
 export const UPDATE_FISH_COLLECTION = "UPDATE_FISH_COLLECTION"
 export const UPDATE_BUG_COLLECTION = "UPDATE_BUG_COLLECTION"
@@ -46,6 +58,9 @@ export const UPDATE_FOSSIL_COLLECTION = "UPDATE_FOSSIL_COLLECTION"
 export const UPDATE_ARTWORK_COLLECTION = "UPDATE_ARTWORK_COLLECTION"
 export const UPDATE_KKSONG_COLLECTION = "UPDATE_KKSONG_COLLECTION"
 export const UPDATE_REACTION_COLLECTION = "UPDATE_REACTION_COLLECTION"
+export const UPDATE_VILLAGER_COLLECTION = "UPDATE_VILLAGER_COLLECTION"
+export const UPDATE_FURNITURE_COLLECTION = "UPDATE_FURNITURE_COLLECTION"
+export const UPDATE_CLOTHING_COLLECTION = "UPDATE_CLOTHING_COLELCTION"
 
 //Other
 export const UPDATE_IN_GAME_TIME = "UPDATE_IN_GAME_TIME"
@@ -75,6 +90,16 @@ interface UpdateItemCataloggedAction {
 interface UpdateModelObtainedAction {
     type: typeof UPDATE_MODEL_OBTAINED,
     payload: ObtainedPayload
+}
+
+interface UpdateVillagerFavoritedAction {
+    type: typeof UPDATE_VILLAGER_FAVORITED,
+    payload: VillagerFavoritedPayload
+}
+
+interface UpdateVillagerInVillageAction {
+    type: typeof UPDATE_VILLAGER_IN_VILLAGE,
+    payload: VillagerInVillagePayload
 }
 
 //Collection Actions
@@ -108,6 +133,21 @@ interface UpdateReactionCollectionAction {
     payload: Array<ReactionModel>
 }
 
+interface UpdateVillagerCollectionAction {
+    type: typeof UPDATE_VILLAGER_COLLECTION,
+    payload: Array<VillagerModel>
+}
+
+interface UpdateFurnitureCollectionAction {
+    type: typeof UPDATE_FURNITURE_COLLECTION,
+    payload: Array<ItemModel>
+}
+
+interface UpdateClothingCollectionAction {
+    type: typeof UPDATE_CLOTHING_COLLECTION,
+    payload: Array<ItemModel>
+}
+
 //Other Actions
 interface UpdateInGameTimeAction {
     type: typeof UPDATE_IN_GAME_TIME,
@@ -134,7 +174,12 @@ export type {
     UpdateHemisphereAction,
     UpdateKKSongCollectionAction,
     UpdateReactionCollectionAction,
-    UpdateModelObtainedAction
+    UpdateModelObtainedAction,
+    UpdateVillagerCollectionAction,
+    UpdateFurnitureCollectionAction,
+    UpdateClothingCollectionAction,
+    UpdateVillagerFavoritedAction,
+    UpdateVillagerInVillageAction
 }
 
 export type ReduxActions = 
@@ -142,4 +187,5 @@ export type ReduxActions =
     UpdateItemCataloggedAction | UpdateFishCollectionAction | UpdateBugCollectionAction |
     UpdateFossilCollectionAction | UpdateArtworkCollectionAction | UpdateInGameTimeAction |
     UpdateHemisphereAction | UpdateKKSongCollectionAction | UpdateReactionCollectionAction |
-    UpdateModelObtainedAction;
+    UpdateModelObtainedAction | UpdateVillagerCollectionAction | UpdateFurnitureCollectionAction
+    | UpdateClothingCollectionAction | UpdateVillagerFavoritedAction | UpdateVillagerInVillageAction;

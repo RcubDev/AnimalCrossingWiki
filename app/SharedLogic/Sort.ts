@@ -2,8 +2,9 @@ import { CreatureModel } from "../../models/CollectionModelsV2/creatures";
 import { ItemModel } from "../../models/CollectionModelsV2/items";
 import { ReactionModel } from "../../models/CollectionModelsV2/reactions";
 import { SortModel } from "../../models/Sort/SortModel";
+import { VillagerModel } from "../../models/CollectionModelsV2/villagers";
 
-export function Sort(sort: SortModel, collection: Array<any>): Array<ItemModel> | Array<CreatureModel> | ReactionModel[] {
+export function Sort(sort: SortModel, collection: Array<any>): Array<ItemModel> | Array<CreatureModel> | ReactionModel[] | VillagerModel[] {
     collection = ApplyShadowSizeSort(sort.descending, sort.shadowSize, collection);
     collection = ApplyNameSort(sort.descending, sort.name, collection);
     collection = ApplySellPriceSort(sort.descending, sort.sellPrice, collection);
