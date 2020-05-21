@@ -24,7 +24,7 @@ import ReactionsScreen from './ReactionsScreen/ReactionsScreen';
 import VillagersScreen from './VillagersScreen/VillagersScreen';
 import VillagerCategoryScreen from './VillagersScreen/VillagerCategoryScreen';
 import FurnitureScreen from './FurnitureScreen/FurnitureScreen';
-import ClothingScreen from './Clothing/ClothingScreen';
+import ClothingScreen from './ClothingScreen/ClothingScreen';
 
 const storeV2 = createStore(CollectionReducer)
 const fetchFonts = () => {
