@@ -1,10 +1,10 @@
 export interface SortModel {
-    sellPrice: boolean,
-    name: boolean,
-    rarity: boolean,
-    critterpediaHorizontal: boolean,
-    critterpediaVertical: boolean,
-    shadowSize: boolean,
+    sellPrice: boolean | undefined,
+    name: boolean | undefined,
+    rarity: boolean | undefined,
+    critterpediaHorizontal: boolean | undefined,
+    critterpediaVertical: boolean | undefined,
+    shadowSize: boolean | undefined,
     ascending: boolean,
     descending: boolean
 

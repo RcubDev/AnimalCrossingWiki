@@ -23,7 +23,7 @@ export const DetailsScreen = ({ item, styles, images, setItemCaught, setItemDona
                     {('caught' in item) && (<CheckBox style={styles.detailsCheckBox} checked={caught} onPress={setItemCaught}></CheckBox>)}
                     <CheckBox style={styles.detailsCheckBox} checked={donated} onPress={setItemDonated}></CheckBox>
                     <View style={styles.detailsValueContainer}>
-                        <Image source={require('../Images/Other/BellBag.png')} style={styles.detailsBellImage}></Image>
+                        <Image source={require('../Images/Other/bellcoin.png')} style={styles.detailsBellImage}></Image>
                         <Text style={styles.detailsValueAmount}>{item.value}</Text>
                     </View>
                 </View>
@@ -88,6 +88,7 @@ interface DetailsScreenProps {
 }
 
 const mapStateToProps = (state: any, props: DetailsScreenProps) => {
+    console.log(props);
     const { route: { params } } = props;
     const { type, model, styles, images, setItemCaught, setItemDonated } = params;
     const { appState } = state;

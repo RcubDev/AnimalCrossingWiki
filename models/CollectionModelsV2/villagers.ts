@@ -1,4 +1,8 @@
-export interface VillagerModel {
+export interface VillagerActions {
+  favorited: boolean,
+  inVillage: boolean
+}
+export interface VillagerModel extends VillagerActions {
   sourceSheet: SourceSheet;
   name: string;
   iconImage: string;

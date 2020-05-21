@@ -5,7 +5,7 @@ import BugImages from '../../Images/BugImages';
 import { connect } from 'react-redux';
 import { NavigationScreenProp } from 'react-navigation';
 import { ScrollView } from 'react-native-gesture-handler';
-import styles from './BugDetailScreenStyles';
+import styles from '../../Shared/Styles/Screen.styles';
 import { ApplicationStateV2 } from '../../../models/ApplicationState/ApplicationStateV2';
 import { CreatureModel } from '../../../models/CollectionModelsV2/creatures';
 import { updateCreatureCaught, updateCreatureDonated } from "../../../app/ReduxV2/CollectionActions";

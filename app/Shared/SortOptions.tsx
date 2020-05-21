@@ -3,7 +3,7 @@ import { ScrollView } from "react-native-gesture-handler";
 import { Card, CardItem, Button, Text } from "native-base";
 import styles from './Styles/SortOptionsStyles';
 import { SortProps } from "../../models/Sort/SortProps";
-import { SortModel } from "../../models/Sort/AdvancedSortCritterModel";
+import { SortModel } from "../../models/Sort/SortModel";
 
 export class SortOptions extends PureComponent<SortProps> {
   constructor(props: SortProps) {
@@ -102,7 +102,7 @@ export class SortOptions extends PureComponent<SortProps> {
             justifyContent: "center",
           }}>
             <Button style={this.props.currentSort.name ? styles.sortButtonSelectedStyle : styles.sortButtonUnSelectedStyle} onPress={() => this.updateSort('name', !this.props.currentSort.name)}><Text>{"Name"}</Text></Button>
-            <Button style={this.props.currentSort.sellPrice ? styles.sortButtonSelectedStyle : styles.sortButtonUnSelectedStyle} onPress={() => this.updateSort('sellPrice', !this.props.currentSort.sellPrice)}><Text>{"Sell Price"}</Text></Button>
+            {this.props.currentSort.sellPrice && <Button style={this.props.currentSort.sellPrice ? styles.sortButtonSelectedStyle : styles.sortButtonUnSelectedStyle} onPress={() => this.updateSort('sellPrice', !this.props.currentSort.sellPrice)}><Text>{"Sell Price"}</Text></Button>}
             {this.props.currentSort.shadowSize !== undefined && <Button style={this.props.currentSort.shadowSize ? styles.sortButtonSelectedStyle : styles.sortButtonUnSelectedStyle} onPress={() => this.updateSort('shadowsize', !this.props.currentSort.shadowSize)}><Text>{"Shadow Size"}</Text></Button>}
             {this.props.currentSort.critterpediaHorizontal !== undefined && <Button style={this.props.currentSort.critterpediaHorizontal ? styles.sortButtonBigSelectedStyle : styles.sortButtonBigUnSelectedStyle} onPress={() => this.updateSort('critterpediahorizontal', !this.props.currentSort.critterpediaHorizontal)}><Text>{"Critterpedia Horizontal"}</Text></Button>}
             {this.props.currentSort.critterpediaVertical !== undefined && <Button style={this.props.currentSort.critterpediaVertical ? styles.sortButtonBigSelectedStyle : styles.sortButtonBigUnSelectedStyle} onPress={() => this.updateSort('critterpediavertical', !this.props.currentSort.critterpediaVertical)}><Text>{"Critterpedia Vertical"}</Text></Button>}

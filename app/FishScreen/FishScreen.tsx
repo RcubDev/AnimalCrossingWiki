@@ -11,16 +11,16 @@ import { FishScreenProps } from '../../models/MainScreenModels/FishScreen/FishSc
 import { FishScreenState } from '../../models/MainScreenModels/FishScreen/FishScreenState';
 import { connect } from 'react-redux';
 import { Filter, GetDefaultFilterModelCreature } from '../SharedLogic/Filter';
+import FishImages from '../Images/FishImages';
 import { ListHeader } from '../Shared/ListHeader';
 import { GridItem } from '../Shared/GridItem';
-import FishImages from '../Images/FishImages';
 import { updateCreatureCaught, updateCreatureDonated, updateFishCollectionFromStorage } from '../ReduxV2/CollectionActions'
 import { CreatureModel, SourceSheet, CreatureSize, CreatureColor, LightingType, Season, ActiveMonths, Thern, CreatureWeather } from '../../models/CollectionModelsV2/creatures';
 import { FilterModel } from '../../models/Filter/FilterModel';
 import FilterOptions from '../Shared/FilterOptions';
-import { SortModel } from '../../models/Sort/AdvancedSortCritterModel';
 import { SortOptions } from '../Shared/SortOptions';
 import { GetDefaultSortModelCreature, Sort } from '../SharedLogic/Sort';
+import { SortModel } from '../../models/Sort/SortModel';
 
 function titleCase(str: string) {
   let returnStr = str.toLowerCase().split(' ').map(function (word) {
@@ -133,7 +133,7 @@ class FishScreen extends Component<FishScreenProps, FishScreenState> {
           contentContainerStyle={styles.flatListContainerContent}
           columnWrapperStyle={styles.flatListColumnWrapper}
         ></FlatList>
-        <Modal visible={this.state.showFilterModal} transparent={true} animationType='slide'>
+        {/* <Modal visible={this.state.showFilterModal} transparent={true} animationType='slide'>
           <View style={{ height: '50%' }}>
             <TouchableWithoutFeedback onPress={() => { this.setState({ showFilterModal: false }) }} style={{ width: '100%', height: '100%' }}></TouchableWithoutFeedback>
           </View>
@@ -144,7 +144,7 @@ class FishScreen extends Component<FishScreenProps, FishScreenState> {
             <TouchableWithoutFeedback onPress={() => { this.setState({ showSortModal: false }) }} style={{ width: '100%', height: '100%' }}></TouchableWithoutFeedback>
           </View>
           <SortOptions currentSort={this.state.sort} setSortModel={this.setSort}></SortOptions>
-        </Modal>
+        </Modal> */}
       </Container>
     );
   }

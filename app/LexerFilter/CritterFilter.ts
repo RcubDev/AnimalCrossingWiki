@@ -36,7 +36,6 @@ function FilterCritterByTime(operation: string, value: string, list:Array<Critte
 //Only allows for miltary time
 function FilterCritterByTimeEquals(value: string, list:Array<CritterModel>, timeOffSet: number | null){
     let values: Array<number> = [];
-    debugger;
     if(value.toLowerCase() === "now"){
         if(timeOffSet === null){
             throw "Current hour cannot be null";

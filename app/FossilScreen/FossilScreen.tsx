@@ -11,14 +11,15 @@ import { ListHeader } from '../Shared/ListHeader';
 import { GridItem } from '../Shared/GridItem';
 import FossilImages from '../Images/FossilImages';
 import { ItemModel, ItemSourceSheet } from '../../models/CollectionModelsV2/items';
-import { updateItemDonated, updateFossilCollectionFromStorage } from "../../app/ReduxV2/CollectionActions";
+import { updateFossilCollectionFromStorage } from "../../app/ReduxV2/CollectionActions";
+import { updateItemDonated } from '../../app/ReduxV2/CollectionActions'
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import FilterOptions from '../Shared/FilterOptions';
 import { FilterModel } from '../../models/Filter/FilterModel';
 import { Filter, GetDefaultFilterModelItem } from '../SharedLogic/Filter';
 import { GetDefaultSortModelItem, Sort } from '../SharedLogic/Sort';
-import { SortModel } from '../../models/Sort/AdvancedSortCritterModel';
 import { SortOptions } from '../Shared/SortOptions';
+import { SortModel } from '../../models/Sort/SortModel';
 
 
 function titleCase(str: string) {
@@ -107,13 +108,8 @@ class FossilScreen extends Component<FossilScreenProps, FossilScreenState> {
                 />
                 <FlatList
                     data={fossils}
-<<<<<<< HEAD
-                    renderItem={({ item }: { item: FossilModel }) => (
-                        <GridItem model={item} navigation={navigation} updateDonated={updateFossilDonated} navigateTo={'DetailsScreen'} images={FossilImages} styles={styles} type='fossil' />
-=======
                     renderItem={({ item }: { item: ItemModel }) => (
                         <GridItem model={item} navigation={navigation} updateItemDonated={updateItemDonated} navigateTo='DetailsScreen' type='fossil' images={FossilImages} styles={styles}/>
->>>>>>> master
                     )}
                     numColumns={3}
                     keyExtractor={(item, index) => index.toString()}

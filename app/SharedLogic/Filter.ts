@@ -3,8 +3,10 @@ import { CreatureModel } from "../../models/CollectionModelsV2/creatures";
 import { ItemModel } from "../../models/CollectionModelsV2/items";
 import moment from "moment";
 import { MonthsAvaliableModel } from "../../models/CollectionModelsV2/MonthsAvailableModel";
+import { ReactionModel } from "../../models/CollectionModelsV2/reactions";
+import { VillagerModel } from "../../models/CollectionModelsV2/villagers";
 
-export function Filter(filter: FilterModel, filterCollection: Array<any>, timeOffSet: number = 0, isNorthernHemisphere: boolean = true): Array<CreatureModel> | Array<ItemModel> {
+export function Filter(filter: FilterModel, filterCollection: Array<any>, timeOffSet: number = 0, isNorthernHemisphere: boolean = true): Array<CreatureModel> | Array<ItemModel> | Array<ReactionModel> | VillagerModel[] {
     if (filterCollection && filterCollection.length > 0 && filterCollection[0].caught !== undefined) {
         //Creature model only filters
         filterCollection = ApplyShadowSize(filter.shadowSize, filterCollection);
@@ -19,6 +21,16 @@ export function Filter(filter: FilterModel, filterCollection: Array<any>, timeOf
         filterCollection = ApplyDonated(filter.donated, filterCollection);
         filterCollection = ApplyNotDonated(filter.notDonated, filterCollection);
     }
+    if(filterCollection && filterCollection.length > 0 && (filterCollection[0] as ItemModel).catalogged !== undefined){
+        filterCollection = ApplyCatalogged(filter.catalogged, filterCollection);
+        filterCollection = ApplyNotCatalogged(filter.notCatalogged, filterCollection);
+    }
+
+    if(filterCollection && filterCollection.length > 0 && (filterCollection[0] as ReactionModel).obtained !== undefined){
+        filterCollection = ApplyObtained(filter.obtained, filterCollection);
+        filterCollection = ApplyNotObtained(filter.notObtained, filterCollection);
+    }
+
     return filterCollection;
 }
 
@@ -29,6 +41,10 @@ export function GetDefaultFilterModelCreature(): FilterModel {
         notCaught: false,
         notDonated: false,
         availableNow: false,
+        obtained: undefined,
+        notObtained: undefined,
+        catalogged: undefined,
+        notCatalogged: undefined,
         location: -1,
         rarity: -1,
         value: 0,
@@ -58,6 +74,10 @@ export function GetDefaultFilterModelItem(): FilterModel {
         location: undefined,
         rarity: undefined,
         value: undefined,
+        obtained: undefined,
+        notObtained: undefined,
+        catalogged: undefined,
+        notCatalogged: undefined,
         catchableNow: undefined,
         shadowSize: undefined,
         monthsAvailable: {
@@ -110,6 +130,43 @@ function ApplyCaught(caught: boolean | undefined, filterCollection: Array<Creatu
 function ApplyNotCaught(notCaught: boolean | undefined, filterCollection: Array<CreatureModel>): Array<any> {
     if(notCaught){
         return filterCollection.filter(x => !x.caught);
+    }
+    else{
+        return filterCollection;
+    }
+}
+
+function ApplyCatalogged(catalogged: boolean | undefined, filterCollection: Array<ItemModel>): Array<any> {
+    if(catalogged){
+        return filterCollection.filter(x => x.catalogged);
+    }
+    else{
+        return filterCollection;
+    }
+}
+
+
+function ApplyNotCatalogged(notCatalogged: boolean | undefined, filterCollection: Array<ItemModel>): Array<any> {
+    if(notCatalogged){
+        return filterCollection.filter(x => !x.catalogged);
+    }
+    else{
+        return filterCollection;
+    }
+}
+
+function ApplyObtained(obtained: boolean | undefined, filterCollection: Array<ReactionModel>): Array<ReactionModel> {
+    if(obtained){
+        return filterCollection.filter(x => x.obtained);
+    }
+    else{
+        return filterCollection;
+    }
+}
+
+function ApplyNotObtained(notObtained: boolean | undefined, filterCollection: Array<ReactionModel>): Array<ReactionModel> {
+    if(notObtained){
+        return filterCollection.filter(x => !x.obtained);
     }
     else{
         return filterCollection;
@@ -257,7 +314,6 @@ function ApplyCatchableNow(catchableNow: boolean | undefined, collection: Creatu
             nov: thisMonth === 10 ? true : false,
             dec: thisMonth === 11 ? true : false,
         }
-        debugger;
         let filtered = ApplyMonthFilter(currentMonth, collection, isNorthernHemisphere);
         return filtered.filter(x => CritterIsAvailableDuringHour(date.getHours(), thisMonth + 1, x, isNorthernHemisphere));
     }
@@ -266,7 +322,6 @@ function ApplyCatchableNow(catchableNow: boolean | undefined, collection: Creatu
 }
 function CritterIsAvailableDuringHour(hour: number, month: number, creature: CreatureModel, isNorthernHemisphere: boolean): boolean {
     let currentMonthCatchTimes = isNorthernHemisphere ? creature.activeMonths.northern.find(x => x.month === month) : creature.activeMonths.southern.find(x => x.month === month);
-    debugger;
     let creatureAvailable = false;
     if(currentMonthCatchTimes){
         currentMonthCatchTimes.activeHours.forEach(element => {
