@@ -7,10 +7,11 @@ const styles = StyleSheet.create({
     container: {
         display: 'flex',
         flexDirection: 'row',
-        backgroundColor: '#fffffc',
         flexWrap: 'wrap',
         justifyContent: 'center',
-        alignContent: 'center'
+        flex: 1,
+        resizeMode: 'cover',
+        height: 800
     },
     textStyle: {
         color: 'black',
@@ -23,7 +24,7 @@ const styles = StyleSheet.create({
     buttonStyle: {
         height: 140,
         width: 160,
-        margin: 10,
+        margin: 20,
         justifyContent: 'center',
         borderRadius: 20,
         flexWrap: 'wrap',
