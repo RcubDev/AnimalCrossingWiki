@@ -106,6 +106,9 @@ class FurnituresScreen extends Component<FurnitureScreenProps, FurnitureScreenSt
         return <AppLoading />;
     }
     let furnitures = this.props.appState.furnitureItems.furnitureCollection;
+    if(this.props.route && this.props.route.params && this.props.route.params.category !== undefined) {
+      furnitures = furnitures.filter(x => x.sourceSheet === this.props.route.params.category);
+    }
     furnitures = Filter(this.state.filter, furnitures, 0) as ItemModel[];
     furnitures = this.FilterFurnitureByText(this.state.filterText, furnitures);
     furnitures = Sort(this.state.sort, furnitures) as ItemModel[];

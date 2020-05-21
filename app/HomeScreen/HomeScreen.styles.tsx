@@ -8,10 +8,8 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'wrap',
-        justifyContent: 'center',
         flex: 1,
-        resizeMode: 'cover',
-        height: 800
+        resizeMode: 'cover',        
     },
     textStyle: {
         color: 'black',
