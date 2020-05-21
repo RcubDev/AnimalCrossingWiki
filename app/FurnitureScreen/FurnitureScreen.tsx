@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { KKSongScreenProps } from "../../models/MainScreenModels/KKSongsScreen/KKSongsScreenProps";
-import { KKSongScreenState } from "../../models/MainScreenModels/KKSongsScreen/KKSongScreenState";
+import { FurnitureScreenProps } from "../../models/MainScreenModels/FurnitureScreen/FurnitureScreenProps";
+import { FurnitureScreenState } from "../../models/MainScreenModels/FurnitureScreen/FurnitureScreenState";
 import { ItemSourceSheet, ItemModel } from "../../models/CollectionModelsV2/items";
 import { GetDefaultFilterModelItem, Filter } from "../SharedLogic/Filter";
 import { GetDefaultSortModelItem, Sort } from "../SharedLogic/Sort";
@@ -14,27 +14,47 @@ import { GridItem } from "../Shared/GridItem";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 import FilterOptions from "../Shared/FilterOptions";
 import { SortOptions } from "../Shared/SortOptions";
-import styles from "./KKSongScreenStyles";
+import styles from "./FurnitureScreenStyles";
 import { connect } from "react-redux";
-import { updateItemCatalogged, updateKKSongCollectionFromStorage } from "../../app/ReduxV2/CollectionActions";
+import { updateItemCatalogged, updateFurnitureCollectionFromStorage } from "../../app/ReduxV2/CollectionActions";
 
 
 function titleCase(str: string) {
   let returnStr = str.toLowerCase().split(' ').map(function (word) {
     return word.replace(word[0], word[0].toUpperCase());
   }).join(' ');
-  returnStr = returnStr.replace("k.", "K.");
   return returnStr;
 }
 
-const items = (require('../../dataV2/items.json') as ItemModel[]).filter(x => x.sourceSheet === ItemSourceSheet.Music && x.catalog !== "Not in catalog")
-  .map(x => { return { ...x, donated: undefined, catalogged: false, obtained: undefined, name: titleCase(x.name) } });
+//lmaooooo
+function IsFurnitureItem(sourceSheet: ItemSourceSheet){
+  switch(sourceSheet){
+      case ItemSourceSheet.Fencing:
+      case ItemSourceSheet.Floors:
+      case ItemSourceSheet.Housewares:
+      case ItemSourceSheet.Miscellaneous:
+      case ItemSourceSheet.Photos:
+      case ItemSourceSheet.Posters:
+      case ItemSourceSheet.Rugs:
+      case ItemSourceSheet.WallMounted:
+      case ItemSourceSheet.Wallpapers:
+        return true;
+      default:
+        return false;
+  }  
 
-const defaultKKSongsCollection: Array<ItemModel> = items;
+}
+
+const items = (require('../../dataV2/items.json') as ItemModel[]).filter(x => IsFurnitureItem(x.sourceSheet) && x.catalog !== "Not in catalog")
+  .map(x => { return { ...x, donated: undefined, catalogged: false, obtained: undefined, name: titleCase(x.name) } }).sort((a, b) => {
+    return a.name < b.name ? -1 : a.name > b.name ? 1 : 0;
+  });
+
+const defaultFurnituresCollection: Array<ItemModel> = items;
 
 
-class KKSongsScreen extends Component<KKSongScreenProps, KKSongScreenState> {
-  constructor(props: KKSongScreenProps) {
+class FurnituresScreen extends Component<FurnitureScreenProps, FurnitureScreenState> {
+  constructor(props: FurnitureScreenProps) {
     super(props);
     this.state = {
       isReady: false,
@@ -42,18 +62,18 @@ class KKSongsScreen extends Component<KKSongScreenProps, KKSongScreenState> {
       showFilterModal: false,
       showSortModal: false,
       filter: {...GetDefaultFilterModelItem(), donated: undefined, catalogged: false, notCatalogged: false},
-      sort: {...GetDefaultSortModelItem(), sellPrice: undefined}
+      sort: {...GetDefaultSortModelItem(), sellPrice: undefined }
     };
   }
 
   async componentDidMount() {
-    const storedKKSongs = await AsyncStorage.getItem('kkSongStore');
-    if (storedKKSongs) {
-      this.props.updateKKSongCollectionFromStorage(JSON.parse(storedKKSongs));
+    const storedFurnitures = await AsyncStorage.getItem('furnitureStore');
+    if (storedFurnitures) {
+      this.props.updateFurnitureCollectionFromStorage(JSON.parse(storedFurnitures));
     }
     else {
-      this.props.updateKKSongCollectionFromStorage(defaultKKSongsCollection);
-      await AsyncStorage.setItem('kkSongStore', JSON.stringify(defaultKKSongsCollection));
+      this.props.updateFurnitureCollectionFromStorage(defaultFurnituresCollection);
+      await AsyncStorage.setItem('furnitureStore', JSON.stringify(defaultFurnituresCollection));
     }
     this.setState({ isReady: true });
   }
@@ -66,12 +86,8 @@ class KKSongsScreen extends Component<KKSongScreenProps, KKSongScreenState> {
     this.setState({ sort });
   }
 
-  FilterKKSongByText(text: string, songs: Array<ItemModel>): Array<ItemModel> {
-    let allSongs = songs;
-    let songArray: Array<ItemModel> = [];
-    text = text.toLowerCase();
-    songArray = allSongs.filter(x => x.name.toLowerCase().startsWith(text));
-    return songArray;
+  FilterFurnitureByText(text: string, songs: Array<ItemModel>): Array<ItemModel> {
+    return songs.filter(x => x.name.toLowerCase().startsWith(text));
   }
 
   showFilterModal = () => this.setState({ showFilterModal: !this.state.showFilterModal });
@@ -89,10 +105,13 @@ class KKSongsScreen extends Component<KKSongScreenProps, KKSongScreenState> {
     if (!this.state.isReady) {
         return <AppLoading />;
     }
-    let kkSongs = this.props.appState.kkSongs.kkSongCollection;
-    kkSongs = Filter(this.state.filter, kkSongs, 0) as ItemModel[];
-    kkSongs = this.FilterKKSongByText(this.state.filterText, kkSongs);
-    kkSongs = Sort(this.state.sort, kkSongs) as ItemModel[];
+    let furnitures = this.props.appState.furnitureItems.furnitureCollection;
+    if(this.props.route && this.props.route.params && this.props.route.params.category !== undefined) {
+      furnitures = furnitures.filter(x => x.sourceSheet === this.props.route.params.category);
+    }
+    furnitures = Filter(this.state.filter, furnitures, 0) as ItemModel[];
+    furnitures = this.FilterFurnitureByText(this.state.filterText, furnitures);
+    furnitures = Sort(this.state.sort, furnitures) as ItemModel[];
     return (
         <Container>
             <ListHeader
@@ -101,9 +120,9 @@ class KKSongsScreen extends Component<KKSongScreenProps, KKSongScreenState> {
                 showSortModal={this.showSortModal}
             />
             <FlatList
-                data={kkSongs}
+                data={furnitures}
                 renderItem={({ item }: { item: ItemModel }) => (
-                    <GridItem model={item} navigation={navigation} updateItemCatalogged={updateItemCatalogged} navigateTo={'kkSongDetails'} images={undefined} styles={styles}/>
+                    <GridItem model={item} navigation={navigation} updateItemCatalogged={updateItemCatalogged} navigateTo={'furnitureDetails'} images={undefined} styles={styles}/>
                 )}
                 numColumns={3}
                 keyExtractor={(item, index) => index.toString()}
@@ -127,7 +146,7 @@ class KKSongsScreen extends Component<KKSongScreenProps, KKSongScreenState> {
             </Modal>
         </Container>
     )
-}
+  }
 }
 
 const mapStateToProps = (state: any) => {
@@ -136,6 +155,6 @@ const mapStateToProps = (state: any) => {
 };
 
 export default connect(mapStateToProps, {
-  updateKKSongCollectionFromStorage,
+  updateFurnitureCollectionFromStorage,
   updateItemCatalogged
-})(KKSongsScreen);
+})(FurnituresScreen);

@@ -100,7 +100,6 @@ function updateFurnitureCollectionFromStorage(state: ApplicationStateV2, action:
 
 //Fish and Bugs
 function updateCreatureCaught(state: ApplicationStateV2, action: UpdateCreatureCaughtAction): ApplicationStateV2 {
-    let existingState = state;
     switch (action.payload.type) {
         case "Fish":
             const updatedFishCollection = state.fish.fishCollection.map(fish => fish.internalId === action.payload.id ? { ...fish, caught: action.payload.caught } : fish);

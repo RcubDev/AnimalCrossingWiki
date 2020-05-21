@@ -6,6 +6,7 @@ import { NavigationScreenProp } from 'react-navigation';
 import { connect } from 'react-redux';
 import { AppLoading } from 'expo';
 import { updateInGameTime, updateHemisphere } from '../ReduxV2/CollectionActions';
+import { ScrollView } from 'react-native-gesture-handler';
 
 export interface HomeScreenProps {
     navigation: NavigationScreenProp<any>,   
@@ -49,8 +50,9 @@ class HomeScreen extends Component<HomeScreenProps, {isReady: boolean}>{
         }
         else{
             return (
+                <ScrollView>
                 <Container style={styles.container}>
-                    <ImageBackground source={require('../Images/Other/animalcrossingWallpaperFinal.png')}style={styles.container}>
+                    <ImageBackground source={require('../Images/Other/HomePageBackground.png')}style={styles.container}>
                     <Button onPress={() => this.props.navigation.navigate("Fish")} style={[styles.buttonStyle, {backgroundColor: '#ffadad'}]}>
                         <Text style={styles.textStyle}>{"Fishing"}</Text>
                         <Thumbnail large source={require('../Images/Other/fishingIcon.png')} ></Thumbnail>
@@ -79,12 +81,19 @@ class HomeScreen extends Component<HomeScreenProps, {isReady: boolean}>{
                         <Text style={styles.textStyle}>{"Villagers"}</Text>
                         <Icon type="FontAwesome5" name="male" style={{color: 'black'}}/>
                     </Button>
+                    <Button onPress={() => {this.props.navigation.navigate("FurnitureCategory")}} style={[styles.buttonStyle, {backgroundColor: '#bdb2ff'}]}>
+                        <Text style={styles.textStyle}>{"Furniture"}</Text>
+                    </Button>
+                    <Button onPress={() => {this.props.navigation.navigate("ClothingCategory")}} style={[styles.buttonStyle, {backgroundColor: '#bdb2ff'}]}>
+                        <Text style={styles.textStyle}>{"Clothing"}</Text>
+                    </Button>
                     <Button onPress={() => {this.props.navigation.navigate("Settings")}} style={[styles.buttonStyle, {backgroundColor: '#8900f2'}]}>
                         <Text style={styles.textStyle}>{"Settings"}</Text>
                         <Icon type="FontAwesome" name="gear" style={{color: 'black'}}/>
                     </Button>
                     </ImageBackground>
                 </Container>
+                </ScrollView>
             );
         }
         
