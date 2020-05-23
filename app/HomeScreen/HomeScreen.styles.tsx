@@ -5,11 +5,12 @@ const fontFamily = "AnimalCrossing";
 
 const styles = StyleSheet.create({
     container: {
-        display: 'flex',
-        flexDirection: 'row',
+        justifyContent: 'center',        
+        flexDirection: "row",
+        alignContent: 'center',
         flexWrap: 'wrap',
-        flex: 1,
-        resizeMode: 'cover',        
+        width: 'auto',
+        height: 'auto'
     },
     textStyle: {
         color: 'black',
@@ -20,15 +21,15 @@ const styles = StyleSheet.create({
         fontFamily: 'Confortaa'
     },
     buttonStyle: {
+        flexDirection: 'row',
         height: 140,
-        width: 160,
+        width: 140,
         margin: 20,
         justifyContent: 'center',
         borderRadius: 20,
         flexWrap: 'wrap',
-        alignContent: 'center',
         borderWidth: 1,
-        borderColor: 'black'
+        borderColor: 'black',
 
     },
 });

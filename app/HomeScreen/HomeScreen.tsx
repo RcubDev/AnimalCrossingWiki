@@ -50,49 +50,53 @@ class HomeScreen extends Component<HomeScreenProps, {isReady: boolean}>{
         }
         else{
             return (
-                <ScrollView>
-                <Container style={styles.container}>
-                    <ImageBackground source={require('../Images/Other/HomePageBackground.png')}style={styles.container}>
-                    <Button onPress={() => this.props.navigation.navigate("Fish")} style={[styles.buttonStyle, {backgroundColor: '#ffadad'}]}>
-                        <Text style={styles.textStyle}>{"Fishing"}</Text>
-                        <Thumbnail large source={require('../Images/Other/fishingIcon.png')} ></Thumbnail>
-                    </Button>
-                    <Button onPress={() => this.props.navigation.navigate("Bugs")} style={[styles.buttonStyle, {backgroundColor: '#ffd6a5'}]}>
-                        <Text style={styles.textStyle}>{"Bugs"}</Text>
-                        <Icon type="FontAwesome5" name="bug" style={{color: 'black'}}/>
-                    </Button>
-                    <Button onPress={() => {this.props.navigation.navigate("Fossils")}} style={[styles.buttonStyle, {backgroundColor: '#fdffb6'}]}>
-                        <Text style={styles.textStyle}>{"Fossils"}</Text>
-                        <Icon type="FontAwesome5" name="bone" style={{color: 'black'}}/>
-                    </Button>
-                    <Button onPress={() => {this.props.navigation.navigate("Artwork")}} style={[styles.buttonStyle, {backgroundColor: '#caffbf'}]}>
-                        <Text style={styles.textStyle}>{"Artwork"}</Text>
-                        <Icon type="FontAwesome5" name="paint-brush" style={{color: 'black'}}/>
-                    </Button>
-                    <Button onPress={() => {this.props.navigation.navigate("KKSongs")}} style={[styles.buttonStyle, {backgroundColor: '#9bf6ff'}]}>
-                        <Text style={styles.textStyle}>{"Music"}</Text>
-                        <Icon type="FontAwesome5" name="music" style={{color: 'black'}}/>
-                    </Button>
-                    <Button onPress={() => {this.props.navigation.navigate("Reactions")}} style={[styles.buttonStyle, {backgroundColor: '#a0c4ff'}]}>
-                        <Text style={styles.textStyle}>{"Reactions"}</Text>
-                        <Icon type="FontAwesome5" name="smile" style={{color: 'black'}}/>
-                    </Button>
-                    <Button onPress={() => {this.props.navigation.navigate("VillagersCategory")}} style={[styles.buttonStyle, {backgroundColor: '#bdb2ff'}]}>
-                        <Text style={styles.textStyle}>{"Villagers"}</Text>
-                        <Icon type="FontAwesome5" name="male" style={{color: 'black'}}/>
-                    </Button>
-                    <Button onPress={() => {this.props.navigation.navigate("FurnitureCategory")}} style={[styles.buttonStyle, {backgroundColor: '#bdb2ff'}]}>
-                        <Text style={styles.textStyle}>{"Furniture"}</Text>
-                    </Button>
-                    <Button onPress={() => {this.props.navigation.navigate("ClothingCategory")}} style={[styles.buttonStyle, {backgroundColor: '#bdb2ff'}]}>
-                        <Text style={styles.textStyle}>{"Clothing"}</Text>
-                    </Button>
-                    <Button onPress={() => {this.props.navigation.navigate("Settings")}} style={[styles.buttonStyle, {backgroundColor: '#8900f2'}]}>
-                        <Text style={styles.textStyle}>{"Settings"}</Text>
-                        <Icon type="FontAwesome" name="gear" style={{color: 'black'}}/>
-                    </Button>
-                    </ImageBackground>
-                </Container>
+            <ScrollView>
+                        <Container style={styles.container}>
+                        <ImageBackground source={require('../Images/Other/HomePageBackground.png')}style={styles.container}>
+                        <Button onPress={() => this.props.navigation.navigate("Fish")} style={[styles.buttonStyle, {backgroundColor: '#ffadad'}]}>
+                            <Text style={styles.textStyle}>{"Fishing"}</Text>
+                            <Icon type="FontAwesome5" name="fish" style={styles.textStyle}/>
+                        </Button>
+                        <Button onPress={() => this.props.navigation.navigate("Bugs")} style={[styles.buttonStyle, {backgroundColor: '#ffd6a5'}]}>
+                            <Text style={styles.textStyle}>{"Bugs"}</Text>
+                            <Icon type="FontAwesome5" name="bug" style={{color: 'black'}}/>
+                        </Button>
+                        <Button onPress={() => {this.props.navigation.navigate("Fossils")}} style={[styles.buttonStyle, {backgroundColor: '#fdffb6'}]}>
+                            <Text style={styles.textStyle}>{"Fossils"}</Text>
+                            <Icon type="FontAwesome5" name="bone" style={{color: 'black'}}/>
+                        </Button>
+                        <Button onPress={() => {this.props.navigation.navigate("Artwork")}} style={[styles.buttonStyle, {backgroundColor: '#caffbf'}]}>
+                            <Text style={styles.textStyle}>{"Artwork"}</Text>
+                            <Icon type="FontAwesome5" name="paint-brush" style={{color: 'black'}}/>
+                        </Button>
+                        <Button onPress={() => {this.props.navigation.navigate("KKSongs")}} style={[styles.buttonStyle, {backgroundColor: '#9bf6ff'}]}>
+                            <Text style={styles.textStyle}>{"Music"}</Text>
+                            <Icon type="FontAwesome5" name="music" style={{color: 'black'}}/>
+                        </Button>
+                        <Button onPress={() => {this.props.navigation.navigate("Reactions")}} style={[styles.buttonStyle, {backgroundColor: '#a0c4ff'}]}>
+                            <Text style={styles.textStyle}>{"Reactions"}</Text>
+                            <Icon type="FontAwesome5" name="smile" style={{color: 'black'}}/>
+                        </Button>
+                        <Button onPress={() => {this.props.navigation.navigate("VillagersCategory")}} style={[styles.buttonStyle, {backgroundColor: '#bdb2ff'}]}>
+                            <Text style={styles.textStyle}>{"Villagers"}</Text>
+                            <Icon type="FontAwesome5" name="male" style={{color: 'black'}}/>
+                        </Button>
+                        <Button onPress={() => {this.props.navigation.navigate("FurnitureCategory")}} style={[styles.buttonStyle, {backgroundColor: '#bdb2ff'}]}>
+                            <Text style={styles.textStyle}>{"Furniture"}</Text>
+                        </Button>
+                        <Button onPress={() => {this.props.navigation.navigate("ClothingCategory")}} style={[styles.buttonStyle, {backgroundColor: '#bdb2ff'}]}>
+                            <Text style={styles.textStyle}>{"Clothing"}</Text>
+                        </Button>
+                        <Button onPress={() => {this.props.navigation.navigate("Settings")}} style={[styles.buttonStyle, {backgroundColor: '#8900f2'}]}>
+                            <Text style={styles.textStyle}>{"Settings"}</Text>
+                            <Icon type="FontAwesome" name="gear" style={{color: 'black'}}/>
+                        </Button>
+
+
+
+                        </ImageBackground>
+
+                        </Container>
                 </ScrollView>
             );
         }
