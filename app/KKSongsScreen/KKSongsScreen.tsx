@@ -103,7 +103,7 @@ class KKSongsScreen extends Component<KKSongScreenProps, KKSongScreenState> {
             <FlatList
                 data={kkSongs}
                 renderItem={({ item }: { item: ItemModel }) => (
-                    <GridItem model={item} navigation={navigation} updateItemCatalogged={updateItemCatalogged} navigateTo={'kkSongDetails'} images={undefined} styles={styles}/>
+                    <GridItem model={item} navigation={navigation} updateItemCatalogged={updateItemCatalogged} navigateTo={undefined} images={undefined} styles={styles}/>
                 )}
                 numColumns={3}
                 keyExtractor={(item, index) => index.toString()}

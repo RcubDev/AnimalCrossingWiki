@@ -102,7 +102,7 @@ class ReactionsScreen extends Component<ReactionsScreenProps, ReactionsScreenSta
             <FlatList
                 data={reactions}
                 renderItem={({ item }: { item: ReactionModel }) => (
-                    <GridItem model={item} navigation={navigation} updateModelObtained={updateModelObtained} navigateTo={'reactionDetails'} images={undefined} styles={styles}/>
+                    <GridItem model={item} navigation={navigation} updateModelObtained={updateModelObtained} navigateTo={undefined} images={undefined} styles={styles}/>
                 )}
                 numColumns={3}
                 keyExtractor={(item, index) => index.toString()}

@@ -30,7 +30,7 @@ function titleCase(str: string) {
   }
 
 const items = (require('../../dataV2/items.json') as ItemModel[]).filter(x => x.sourceSheet === ItemSourceSheet.Fossils)
-    .map(x => { return {...x, donated: false, catalogged: false, name: titleCase(x.name)} });
+    .map(x => { return {...x, donated: false, catalogged: undefined, name: titleCase(x.name)} });
 
 const defaultFossilCollection: Array<ItemModel> = items;
 

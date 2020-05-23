@@ -1,18 +1,21 @@
 import { VillagerModel } from "../../../models/CollectionModelsV2/villagers";
 import { ApplicationStateV2 } from "../../../models/ApplicationState/ApplicationStateV2";
 import { NavigationScreenProp } from "react-navigation";
-import { updateVillagerFavorited, updateVillagerCollectionFromStorage, updateVillagerInVillage } from "../../ReduxV2/CollectionActions";
+import { updateVillagerFavorited, updateVillagerCollectionFromStorage, updateVillagerInVillage, updateKKSongCollectionFromStorage } from "../../ReduxV2/CollectionActions";
 import { connect } from "react-redux";
 import React, { Component } from "react";
 import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
 import { View, Icon, CheckBox } from "native-base";
-import { Image, Text } from 'react-native'
+import { Image, Text, AsyncStorage } from 'react-native'
 import styles from './VillagerDetailsScreenStyles'
+import { ItemModel, ItemSourceSheet } from "../../../models/CollectionModelsV2/items";
+import { AppLoading } from "expo";
 interface VillagerDetailsProps {
     navigation: NavigationScreenProp<any>,
     appState: ApplicationStateV2
     updateVillagerFavorited: typeof updateVillagerFavorited,
     updateVillagerInVillage: typeof updateVillagerInVillage,
+    updateKKSongCollectionFromStorage: typeof updateKKSongCollectionFromStorage
 
     route: {
         key: string,
@@ -26,8 +29,23 @@ interface VillagerDetailsProps {
 
 interface VillagerDetailsState {
     villagerInVillage: boolean,
-    villagerFavorited: boolean
+    villagerFavorited: boolean,
+    isReady: boolean
 }
+
+
+const items = (require('../../../dataV2/items.json') as ItemModel[]).filter(x => x.sourceSheet === ItemSourceSheet.Music && x.catalog !== "Not in catalog")
+  .map(x => { return { ...x, donated: undefined, catalogged: false, obtained: undefined, name: titleCase(x.name) } });
+
+const defaultKKSongsCollection: Array<ItemModel> = items;
+
+function titleCase(str: string) {
+    let returnStr = str.toLowerCase().split(' ').map(function (word) {
+      return word.replace(word[0], word[0].toUpperCase());
+    }).join(' ');
+    returnStr = returnStr.replace("k.", "K.");
+    return returnStr;
+  }
 
 class VillagerDetailsScreen extends Component<VillagerDetailsProps, VillagerDetailsState> {
 
@@ -35,29 +53,48 @@ class VillagerDetailsScreen extends Component<VillagerDetailsProps, VillagerDeta
         super(props);
         this.state = {
             villagerInVillage: this.props.route.params.model.inVillage,
-            villagerFavorited: this.props.route.params.model.favorited
+            villagerFavorited: this.props.route.params.model.favorited,
+            isReady: false
         }
     }
 
+    async componentDidMount(){
+        if(this.props.appState.kkSongs.kkSongCollection.length <= 0){
+            const storedKKSongs = await AsyncStorage.getItem('kkSongStore');
+            if (storedKKSongs) {
+              this.props.updateKKSongCollectionFromStorage(JSON.parse(storedKKSongs));
+            }
+            else {
+              this.props.updateKKSongCollectionFromStorage(defaultKKSongsCollection);
+              await AsyncStorage.setItem('kkSongStore', JSON.stringify(defaultKKSongsCollection));
+            }
+        }
+
+        this.setState({ isReady: true });
+    }
+
     setVillagerFavorited = () => {
-        this.setState({ villagerFavorited: !this.props.route.params.model.favorited });
+        this.setState({ villagerFavorited: !this.state.villagerFavorited });
         this.props.updateVillagerFavorited({
             name: this.props.route.params.model.name,
-            favorite: !this.props.route.params.model.favorited
+            favorite: this.state.villagerFavorited
         });
     }
 
     setVillagerInVillage = () => {
-        this.setState({ villagerFavorited: !this.props.route.params.model.inVillage });
+        this.setState({ villagerInVillage: !this.state.villagerInVillage });    
         this.props.updateVillagerInVillage({
             name: this.props.route.params.model.name,
-            inVillage: !this.props.route.params.model.inVillage
+            inVillage: this.state.villagerInVillage
         });
     }
 
     render() {
         let villagerModel = this.props.route.params.model;
         let villagerFavoriteSong = this.props.appState.kkSongs.kkSongCollection.find(x => x.name.toLowerCase() === villagerModel.favoriteSong.toLowerCase());
+        if (!this.state.isReady) {
+            return <AppLoading />;
+        }
         return (
             <ScrollView contentContainerStyle={{ justifyContent: "center", alignItems: 'center' }}>
                 <View style={{ alignItems: 'center' }}>
@@ -106,4 +143,5 @@ const mapStateToProps = (state: any) => {
 export default connect(mapStateToProps, {
     updateVillagerFavorited,
     updateVillagerInVillage,
+    updateKKSongCollectionFromStorage
 })(VillagerDetailsScreen);

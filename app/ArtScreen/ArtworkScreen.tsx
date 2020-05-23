@@ -29,7 +29,7 @@ function titleCase(str: string) {
 
 
 const items = (require('../../dataV2/items.json') as ItemModel[]).filter(x => x.sourceSheet === ItemSourceSheet.Art)
-    .map(x => { return { ...x, donated: false, catalogged: false, name: titleCase(x.name) } });
+    .map(x => { return { ...x, donated: false, catalogged: undefined, name: titleCase(x.name) } });
 
 const defaultArtworkCollection: Array<ItemModel> = items;
 

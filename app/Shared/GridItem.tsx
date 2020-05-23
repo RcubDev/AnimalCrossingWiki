@@ -12,7 +12,11 @@ import { VillagerModel } from '../../models/CollectionModelsV2/villagers';
 
 export class GridItem extends PureComponent<GridItemProps> {
 
-  onPress = () => this.props.navigation.navigate(this.props.navigateTo, { model: this.props.model });
+  onPress = () => {
+    if(this.props.navigateTo !== undefined){
+      this.props.navigation.navigate(this.props.navigateTo, { model: this.props.model })
+    }
+  };
 
   setItemCaught = () => this.props.updateCaught && this.props.updateCaught({ caught: !(this.props.model as CreatureModel).caught, id: (this.props.model as CreatureModel).internalId, type: this.props.model.sourceSheet === "Fish" ? "Fish" : "Bug" });
 
@@ -103,7 +107,6 @@ export class GridItem extends PureComponent<GridItemProps> {
         case ItemSourceSheet.Tools:
         case ItemSourceSheet.WallMounted:
         case ItemSourceSheet.Wallpapers:
-        case ItemSourceSheet.Fossils:
           if (item.variants && item.variants.length > 0 && item.variants[0].image) {
             uri = item.variants[0].image;
           }
@@ -138,6 +141,12 @@ export class GridItem extends PureComponent<GridItemProps> {
         uri = item.iconImage;
       }
     }
+    else if("donated" in this.props.model) {
+      let item = this.props.model as ItemModel
+      if (item.variants && item.variants.length > 0 && item.variants[0].image) {
+        uri = item.variants[0].image;
+      }
+    }
 
     return uri;
   }
@@ -152,10 +161,20 @@ export class GridItem extends PureComponent<GridItemProps> {
       <Card style={styles.card} >
         <CardItem style={styles.cardItem}>
           <View>
-            <TouchableOpacity onPress={this.onPress} style={styles.gridItemCard}>
-              <Text style={{ fontFamily: 'Confortaa' }} key={`${name}Text`} numberOfLines={1}>{name}</Text>
-              <Image source={images !== undefined ? images[name] : { uri: this.getImageSource() }} style={styles.gridItem} key={`${name}Image`}></Image>
-            </TouchableOpacity>
+            {
+              this.props.navigateTo !== undefined ?
+              (<TouchableOpacity onPress={this.onPress} style={styles.gridItemCard}>
+                <Text style={{ fontFamily: 'Confortaa' }} key={`${name}Text`} numberOfLines={1}>{name}</Text>
+                <Image source={images !== undefined ? images[name] : { uri: this.getImageSource() }} style={styles.gridItem} key={`${name}Image`}></Image>
+              </TouchableOpacity>)
+              :
+              (
+                <View style={styles.gridItemCard}>
+                  <Text style={{ fontFamily: 'Confortaa' }} key={`${name}Text`} numberOfLines={1}>{name}</Text>
+                  <Image source={images !== undefined ? images[name] : { uri: this.getImageSource() }} style={styles.gridItem} key={`${name}Image`}></Image>
+                </View>
+              )            
+            }
           </View>
           <View style={styles.cardCheckBoxContainer}>
             {((model as CreatureModel).caught !== undefined) && (
@@ -197,7 +216,7 @@ export class GridItem extends PureComponent<GridItemProps> {
 export interface GridItemProps {
   model: CreatureModel | ItemModel | ReactionModel | VillagerModel,
   navigation: NavigationScreenProp<any>,
-  navigateTo: string,
+  navigateTo: string | undefined,
   updateCaught?: typeof updateCreatureCaught,
   updateDonated?: typeof updateCreatureDonated
   updateItemDonated?: typeof updateItemDonated,
