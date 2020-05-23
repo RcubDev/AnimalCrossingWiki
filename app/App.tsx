@@ -27,6 +27,7 @@ import FurnitureScreen from './FurnitureScreen/FurnitureScreen';
 import ClothingScreen from './ClothingScreen/ClothingScreen';
 import FurnitureCategoryScreen from './FurnitureScreen/FurnitureCategoryScreen';
 import ClothingCategory from './ClothingScreen/ClothingCategory';
+import VillagerDetailsScreen from './VillagersScreen/VillagerDetailsScreen/VillagerDetailsScreen';
 
 const storeV2 = createStore(CollectionReducer)
 const fetchFonts = () => {
@@ -80,6 +81,7 @@ export default class App extends Component<any, { isReady: boolean }> {
               <Stack.Screen name="Reactions" component={ReactionsScreen}/>
               <Stack.Screen name="Villagers" component={VillagersScreen} />
               <Stack.Screen name="VillagersCategory" component={VillagerCategoryScreen}/>
+              <Stack.Screen name="VillagerDetails" component={VillagerDetailsScreen}/>
               <Stack.Screen name="Furniture" component={FurnitureScreen}/>
               <Stack.Screen name="FurnitureCategory" component={FurnitureCategoryScreen}/>
               <Stack.Screen name="Clothing" component={ClothingScreen}/>
