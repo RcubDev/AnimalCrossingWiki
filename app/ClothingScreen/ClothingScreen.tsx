@@ -106,6 +106,12 @@ class ClothingsScreen extends Component<ClothingScreenProps, ClothingScreenState
         return <AppLoading />;
     }
     let clothings = this.props.appState.clothingItems.clothingCollection;
+    if(this.props.route.params && this.props.route.params.category) {
+      clothings = clothings.filter(x => x.sourceSheet === this.props.route.params.category);
+    }
+    if(this.props.route.params && this.props.route.params.labelTheme) {
+      clothings = clothings.filter(x => x.variants[0].labelThemes).filter(x => (x.variants[0].labelThemes as string[]).includes(this.props.route.params.labelTheme));
+    }
     clothings = Filter(this.state.filter, clothings, 0) as ItemModel[];
     clothings = this.FilterClothingByText(this.state.filterText, clothings);
     clothings = Sort(this.state.sort, clothings) as ItemModel[];
@@ -119,7 +125,7 @@ class ClothingsScreen extends Component<ClothingScreenProps, ClothingScreenState
             <FlatList
                 data={clothings}
                 renderItem={({ item }: { item: ItemModel }) => (
-                    <GridItem model={item} navigation={navigation} updateItemCatalogged={updateItemCatalogged} navigateTo={'clothingDetails'} images={undefined} styles={styles}/>
+                    <GridItem model={item} navigation={navigation} updateItemCatalogged={updateItemCatalogged} navigateTo={'ClothingDetails'} images={undefined} styles={styles}/>
                 )}
                 numColumns={3}
                 keyExtractor={(item, index) => index.toString()}

@@ -32,6 +32,9 @@ const allItems = require('../../dataV2/items.json') as ItemModel[];
 const clothingCatagories = (allItems.filter(x => IsClothingItem(x.sourceSheet) && x.catalog !== "Not in catalog" && x.diy === false).map(x => x.sourceSheet).filter((value, index, self) => self.indexOf(value) === index) as string[]).sort((a, b) => {
     return a < b ? -1 : a > b ? 1 : 0;
 });
+const clothingThemes = (allItems.filter(x => IsClothingItem(x.sourceSheet) && x.catalog !== "Not in catalog" && x.diy === false).flatMap(x => x.variants[0]?.labelThemes).filter((value, index, self) => self.indexOf(value) === index) as string[]).sort((a, b) => {
+    return a < b ? -1 : a > b ? 1 : 0;
+}).filter(x => x !== "" && x !== undefined && x !== null);
 
 function createClothingCategories(props: ClothingScreenProps): ReactNode[] {
     let clothingCategoryBoxes = [];
@@ -50,6 +53,23 @@ function createClothingCategories(props: ClothingScreenProps): ReactNode[] {
     return clothingCategoryBoxes;
 }
 
+function createLabelThemes(props: ClothingScreenProps): ReactNode[] {
+    let clothingThemeBoxes = [];
+    for (let i = 0; i < clothingThemes.length; i++) {
+        let currentClothingList = allItems.filter(x => IsClothingItem(x.sourceSheet)).filter(x => ((x.variants[0]?.labelThemes as string[])?.includes(clothingThemes[i])));
+        clothingThemeBoxes.push(
+            <View key={`clothingPersonalityOuterBox${i}`} style={i % 2 === 0 ? styles.clothingOuterBoxEven : styles.clothingOuterBoxOdd}>
+                <TouchableOpacity key={`clothingPersonalityTouchable${i}`} style={styles.clothingTouchable} onPress={() => { props.navigation.navigate("Clothing", { labelTheme: clothingThemes[i] }) }} >
+                <Image style={{ width: 50, height: 50 }} source={{ uri: currentClothingList[Math.floor(Math.random() * currentClothingList.length)].variants[0].closetImage as string }}></Image>
+                    <Text key={`clothingPersonalityText${i}`} style={styles.clothingText}>{clothingThemes[i]}</Text>
+                </TouchableOpacity>
+            </View>
+        );
+    }
+
+    return clothingThemeBoxes;
+}
+
 
 class ClothingCategoryScreen extends PureComponent<ClothingScreenProps> {
     constructor(props: ClothingScreenProps) {
@@ -66,7 +86,12 @@ class ClothingCategoryScreen extends PureComponent<ClothingScreenProps> {
                         </TouchableOpacity>
                     </View>                    
                     <View style={{ width: '90%', flexWrap: 'wrap', flexDirection: 'row', justifyContent: 'space-between', marginTop: 20, padding: 20, borderColor: 'grey', borderWidth: 2, borderRadius: 5 }}>
+                        <Text style={{minWidth: '100%'}}>{`Clothing Types`}</Text>
                         {createClothingCategories(this.props)}
+                    </View>
+                    <View style={{ width: '90%', flexWrap: 'wrap', flexDirection: 'row', justifyContent: 'space-between', marginTop: 20, padding: 20, borderColor: 'grey', borderWidth: 2, borderRadius: 5 }}>
+                        <Text>{`Label Themed Clothing`}</Text>
+                        {createLabelThemes(this.props)}
                     </View>
                 </View>
             </ScrollView>
