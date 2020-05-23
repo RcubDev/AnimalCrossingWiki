@@ -109,6 +109,9 @@ class FurnituresScreen extends Component<FurnitureScreenProps, FurnitureScreenSt
     if(this.props.route && this.props.route.params && this.props.route.params.category !== undefined) {
       furnitures = furnitures.filter(x => x.sourceSheet === this.props.route.params.category);
     }
+    if(this.props.route && this.props.route.params && this.props.route.params.theme !== undefined) {
+      furnitures = furnitures.filter(x => (x.variants[0].themes as string[]).includes(this.props.route.params.theme));
+    }   
     furnitures = Filter(this.state.filter, furnitures, 0) as ItemModel[];
     furnitures = this.FilterFurnitureByText(this.state.filterText, furnitures);
     furnitures = Sort(this.state.sort, furnitures) as ItemModel[];
@@ -122,7 +125,7 @@ class FurnituresScreen extends Component<FurnitureScreenProps, FurnitureScreenSt
             <FlatList
                 data={furnitures}
                 renderItem={({ item }: { item: ItemModel }) => (
-                    <GridItem model={item} navigation={navigation} updateItemCatalogged={updateItemCatalogged} navigateTo={'furnitureDetails'} images={undefined} styles={styles}/>
+                    <GridItem model={item} navigation={navigation} updateItemCatalogged={updateItemCatalogged} navigateTo={'FurnitureDetails'} images={undefined} styles={styles}/>
                 )}
                 numColumns={3}
                 keyExtractor={(item, index) => index.toString()}

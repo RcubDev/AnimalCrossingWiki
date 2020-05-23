@@ -10,6 +10,7 @@ export interface FurnitureScreenProps{
                 name: string,
                 params: {
                         category: string,
+                        theme: string
                 }
         }
         updateFurnitureCollectionFromStorage: typeof updateFurnitureCollectionFromStorage,

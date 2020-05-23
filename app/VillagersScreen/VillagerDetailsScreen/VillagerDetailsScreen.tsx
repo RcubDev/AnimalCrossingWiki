@@ -65,12 +65,12 @@ class VillagerDetailsScreen extends Component<VillagerDetailsProps, VillagerDeta
                         <Text style={styles.textStyleName}>{villagerModel.name}</Text>
                         <Image source={{ uri: villagerModel.iconImage }} style={{ width: 150, height: 150 }}></Image>
                         <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around', width: '100%' }}>
-                            <CheckBox checked={this.state.villagerFavorited}></CheckBox>
+                            <CheckBox checked={this.state.villagerFavorited} onPress={this.setVillagerFavorited}></CheckBox>
                             <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', width: '50%' }}>
                                 <Icon type="FontAwesome5" name="calendar" style={{ color: 'black' }} />
                                 <Text style={styles.calendarText}>{villagerModel.birthday}</Text>
                             </View>
-                            <CheckBox checked={this.state.villagerInVillage}></CheckBox>
+                            <CheckBox checked={this.state.villagerInVillage} onPress={this.setVillagerInVillage}></CheckBox>
                         </View>
                     </View>
                     <View style={{ width: '90%', flexDirection: 'row', alignContent: 'center' }}>

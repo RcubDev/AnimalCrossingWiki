@@ -33,6 +33,10 @@ const furnitureCatagories = (allItems.filter(x => IsFurnitureItem(x.sourceSheet)
     return a < b ? -1 : a > b ? 1 : 0;
 });
 
+const furnitureThemes = (allItems.filter(x => IsFurnitureItem(x.sourceSheet) && x.catalog !== "Not in catalog" && x.diy === false).flatMap(x => x.variants[0]?.themes).filter((value, index, self) => self.indexOf(value) === index) as string[]).sort((a, b) => {
+    return a < b ? -1 : a > b ? 1 : 0;
+});
+
 function createFurnitureCategories(props: FurnitureScreenProps): ReactNode[] {
     let furnitureCategoryBoxes = [];
     for (let i = 0; i < furnitureCatagories.length; i++) {
@@ -48,6 +52,23 @@ function createFurnitureCategories(props: FurnitureScreenProps): ReactNode[] {
     }
 
     return furnitureCategoryBoxes;
+}
+
+function createFurnitureThemes(props: FurnitureScreenProps): ReactNode[] {
+    let furnitureThemeBoxes = [];
+    for (let i = 0; i < furnitureThemes.length; i++) {
+        let currentFurnitureList = allItems.filter(x => (x.variants[0].themes as string[]).includes(furnitureThemes[i])).filter(x => x.sourceSheet !== ItemSourceSheet.Wallpapers && x.sourceSheet !== ItemSourceSheet.Floors && x.sourceSheet !== ItemSourceSheet.Rugs);
+        furnitureThemeBoxes.push(
+            <View key={`furniturePersonalityOuterBox${i}`} style={i % 2 === 0 ? styles.furnitureOuterBoxEven : styles.furnitureOuterBoxOdd}>
+                <TouchableOpacity key={`furniturePersonalityTouchable${i}`} style={styles.furnitureTouchable} onPress={() => { props.navigation.navigate("Furniture", { theme: furnitureThemes[i] }) }} >
+                <Image style={{ width: 50, height: 50 }} source={{ uri: currentFurnitureList[Math.floor(Math.random() * currentFurnitureList.length)].variants[0].image as string }}></Image>
+                    <Text key={`furniturePersonalityText${i}`} style={styles.furnitureText}>{furnitureThemes[i]}</Text>
+                </TouchableOpacity>
+            </View>
+        );
+    }
+
+    return furnitureThemeBoxes;
 }
 
 
@@ -67,6 +88,9 @@ class FurnitureCategoryScreen extends PureComponent<FurnitureScreenProps> {
                     </View>                    
                     <View style={{ width: '90%', flexWrap: 'wrap', flexDirection: 'row', justifyContent: 'space-between', marginTop: 20, padding: 20, borderColor: 'grey', borderWidth: 2, borderRadius: 5 }}>
                         {createFurnitureCategories(this.props)}
+                    </View>
+                    <View style={{ width: '90%', flexWrap: 'wrap', flexDirection: 'row', justifyContent: 'space-between', marginTop: 20, padding: 20, borderColor: 'grey', borderWidth: 2, borderRadius: 5 }}>
+                        {createFurnitureThemes(this.props)}
                     </View>
                 </View>
             </ScrollView>
