@@ -6,7 +6,7 @@ import {
 } from 'native-base';
 import { FlatList, TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import { AppLoading } from 'expo';
-import styles from '../Shared/Screen.styles';
+import styles from '../Shared/Styles/Screen.styles';
 import { FishScreenProps } from '../../models/MainScreenModels/FishScreen/FishScreenProps';
 import { FishScreenState } from '../../models/MainScreenModels/FishScreen/FishScreenState';
 import { connect } from 'react-redux';
@@ -20,25 +20,28 @@ import FilterOptions from '../Shared/FilterOptions';
 import { SortOptions } from '../Shared/SortOptions';
 import { GetDefaultSortModelCreature, Sort } from '../SharedLogic/Sort';
 import { SortModel } from '../../models/Sort/SortModel';
+import FishImages from '../Images/FishImages';
+import { getImageSource } from '../SharedLogic/Helper';
+
 
 function titleCase(str: string) {
-  let returnStr = str.toLowerCase().split(' ').map(function(word) {
+  let returnStr = str.toLowerCase().split(' ').map(function (word) {
     return word.replace(word[0], word[0].toUpperCase());
   }).join(' ');
   return returnStr;
 }
 
-const defaultFishCollection: Array<CreatureModel> = creatures.filter(x => x.sourceSheet === "Fish").map(x => {
-  return {    
+const defaultFishCollection: Array<CreatureModel> = creatures.filter(x => x.sourceSheet === 'Fish').map(x => {
+  return {
     ...x,
-    name: titleCase(x.name), 
+    name: titleCase(x.name),
     sourceSheet: x.sourceSheet as SourceSheet,
     size: x.size as CreatureSize,
     colors: x.colors as CreatureColor[],
     lightingType: x.lightingType as LightingType,
     activeMonths: {
-      northern: x.activeMonths.northern.map(y => {return {...y, season: y.season as Season}}) as Thern[],
-      southern: x.activeMonths.southern.map(y => {return {...y, season: y.season as Season}}) as Thern[]
+      northern: x.activeMonths.northern.map(y => { return { ...y, season: y.season as Season } }) as Thern[],
+      southern: x.activeMonths.southern.map(y => { return { ...y, season: y.season as Season } }) as Thern[]
     },
     weather: x.weather as CreatureWeather,
     caught: false,
@@ -74,17 +77,17 @@ class FishScreen extends Component<FishScreenProps, FishScreenState> {
   }
 
   setFilter = (filter: FilterModel) => {
-    this.setState({filter});
+    this.setState({ filter });
   }
 
-  setSort = (sort: SortModel) => {    
-    this.setState({sort});
+  setSort = (sort: SortModel) => {
+    this.setState({ sort });
   }
 
   filterFishByText(text: string, fishes: Array<CreatureModel>): Array<CreatureModel> {
     var allFish = fishes;
-    let fishArray: Array<CreatureModel> = [];    
-    fishArray = allFish.filter((x) => x.name.toLowerCase().startsWith(text));    
+    let fishArray: Array<CreatureModel> = [];
+    fishArray = allFish.filter((x) => x.name.toLowerCase().startsWith(text));
     return fishArray;
   }
 
@@ -101,7 +104,7 @@ class FishScreen extends Component<FishScreenProps, FishScreenState> {
       return <AppLoading />;
     }
     const { navigation, updateCreatureCaught, updateCreatureDonated } = this.props;
-    
+
     let fish = this.props.appState.fish.fishCollection;
     fish = Filter(this.state.filter, fish, this.props.appState.userSettings.inGameTimeOffsetInMinutes, this.props.appState.userSettings.isNorthernHemisphere) as CreatureModel[];
     fish = this.filterFishByText(this.state.filterText, fish);
@@ -122,9 +125,11 @@ class FishScreen extends Component<FishScreenProps, FishScreenState> {
               navigation={navigation}
               updateCaught={updateCreatureCaught}
               updateDonated={updateCreatureDonated}
-              navigateTo={'FishDetails'}
-              images={undefined} 
-              styles = { styles } />
+              navigateTo={'DetailsScreen'}
+              images={FishImages}
+              imageSrc={getImageSource(item)}
+              styles={styles}
+              type={'Fish'} />
           )}
           numColumns={3}
           keyExtractor={(item, index) => index.toString()}
@@ -134,7 +139,7 @@ class FishScreen extends Component<FishScreenProps, FishScreenState> {
             flexDirection: 'row',
           }}
         ></FlatList>
-         <Modal visible={this.state.showFilterModal} transparent={true} animationType='slide'>
+        <Modal visible={this.state.showFilterModal} transparent={true} animationType='slide'>
           <View style={{ height: '50%' }}>
             <TouchableWithoutFeedback onPress={() => { this.setState({ showFilterModal: false }) }} style={{ width: '100%', height: '100%' }}></TouchableWithoutFeedback>
           </View>

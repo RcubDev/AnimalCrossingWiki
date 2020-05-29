@@ -6,12 +6,12 @@ import {
   Container, View,
 } from 'native-base';
 import { AppLoading } from 'expo';
-import styles from '../Shared/Screen.styles';
+import styles from '../Shared/Styles/Screen.styles';
 import { BugScreenProps } from '../../models/MainScreenModels/BugScreen/BugScreenProps';
 import { BugScreenState } from '../../models/MainScreenModels/BugScreen/BugScreenState';
 import { connect } from 'react-redux';
 import BugImages from '../Images/BugImages';
-import { updateCreatureCaught, updateCreatureDonated, updateBugCollectionFromStorage } from "../../app/ReduxV2/CollectionActions";
+import { updateCreatureCaught, updateCreatureDonated, updateBugCollectionFromStorage } from '../../app/ReduxV2/CollectionActions';
 import { ListHeader } from '../Shared/ListHeader';
 import { GridItem } from '../Shared/GridItem';
 import { CreatureModel, SourceSheet, CreatureSize, CreatureColor, LightingType, Season, Thern, CreatureWeather } from '../../models/CollectionModelsV2/creatures';
@@ -21,25 +21,26 @@ import { Filter, GetDefaultFilterModelCreature } from '../SharedLogic/Filter';
 import { GetDefaultSortModelCreature, Sort } from '../SharedLogic/Sort';
 import { SortOptions } from '../Shared/SortOptions';
 import { SortModel } from '../../models/Sort/SortModel';
+import { getImageSource } from '../SharedLogic/Helper';
 
 function titleCase(str: string) {
-  let returnStr = str.toLowerCase().split(' ').map(function(word) {
+  let returnStr = str.toLowerCase().split(' ').map(function (word) {
     return word.replace(word[0], word[0].toUpperCase());
   }).join(' ');
-    return returnStr;
+  return returnStr;
 }
 
-const defaultBugCollection: Array<CreatureModel> = creatures.filter(x => x.sourceSheet === "Bugs").map(x => {
-  return {    
+const defaultBugCollection: Array<CreatureModel> = creatures.filter(x => x.sourceSheet === 'Bugs').map(x => {
+  return {
     ...x,
-    name: titleCase(x.name), 
+    name: titleCase(x.name),
     sourceSheet: x.sourceSheet as SourceSheet,
     size: x.size as CreatureSize,
     colors: x.colors as CreatureColor[],
     lightingType: x.lightingType as LightingType,
     activeMonths: {
-      northern: x.activeMonths.northern.map(y => {return {...y, season: y.season as Season}}) as Thern[],
-      southern: x.activeMonths.southern.map(y => {return {...y, season: y.season as Season}}) as Thern[]
+      northern: x.activeMonths.northern.map(y => { return { ...y, season: y.season as Season } }) as Thern[],
+      southern: x.activeMonths.southern.map(y => { return { ...y, season: y.season as Season } }) as Thern[]
     },
     weather: x.weather as CreatureWeather,
     caught: false,
@@ -52,14 +53,14 @@ class BugScreen extends Component<BugScreenProps, BugScreenState> {
   focusListener: any;
   constructor(props: BugScreenProps) {
     super(props);
-    let sortModel = GetDefaultSortModelCreature();    
+    let sortModel = GetDefaultSortModelCreature();
     this.state = {
       isReady: false,
       filterText: '',
       showFilterModal: false,
       showSortModal: false,
       filter: GetDefaultFilterModelCreature(),
-      sort: {...sortModel, shadowSize: undefined}
+      sort: { ...sortModel, shadowSize: undefined }
     };
   }
 
@@ -76,18 +77,18 @@ class BugScreen extends Component<BugScreenProps, BugScreenState> {
   }
 
   setFilter = (filter: FilterModel) => {
-    this.setState({filter});
+    this.setState({ filter });
   }
 
-  setSort = (sort: SortModel) => {    
-    this.setState({sort});
+  setSort = (sort: SortModel) => {
+    this.setState({ sort });
   }
 
   filterBugByText(text: string, bugs: Array<CreatureModel>): Array<CreatureModel> {
     var allBug = bugs;
     let bugArray: Array<CreatureModel> = [];
     text = text.toLowerCase();
-    bugArray = allBug.filter((x) => x.name.toLowerCase().startsWith(text));    
+    bugArray = allBug.filter((x) => x.name.toLowerCase().startsWith(text));
 
     return bugArray;
   }
@@ -121,7 +122,16 @@ class BugScreen extends Component<BugScreenProps, BugScreenState> {
         <FlatList
           data={visibleBugList}
           renderItem={({ item }: { item: CreatureModel }) => (
-            <GridItem model={item} navigation={navigation} updateCaught={updateCreatureCaught} updateDonated={updateCreatureDonated} navigateTo={'BugDetails'} images={undefined} styles={styles}/>
+            <GridItem
+              model={item}
+              navigation={navigation}
+              updateCaught={updateCreatureCaught}
+              updateDonated={updateCreatureDonated}
+              navigateTo={'DetailsScreen'}
+              styles={styles}
+              imageSrc={getImageSource(item)}
+              images={BugImages}
+              type={'Bug'} />
           )}
           numColumns={3}
           keyExtractor={(item: CreatureModel, index: number) => index.toString()}
